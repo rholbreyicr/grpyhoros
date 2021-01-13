@@ -1,0 +1,26 @@
+The thrift library is bundled here. Even so, you'd need to install libopenssl:
+
+brew install openssl@1.1
+
+which probably will be included later (?). The python client/server files are here in case you want to try that, as eg:
+
+cd <python/demo/files>
+python3 PythonClient.py
+
+If you run the plugin, you'll notice that the server blocks Horos (spinning ball), which is something we need to fix.... although blocking is maybe not such a bad idea, at least initially. Perhaps we could have a dialog which prints client calls and allows the user to exit when required.
+
+You'll need to run 'killall Horos' or similar at present to get out of the demo...
+
+Some helpers for install name
+=============================
+
+I came across a few helpful links for things about install_name, so I thought I'd pass them on:
+
+
+https://learningswift.brightdigit.com/integrating-c-plus-plus-swift/
+
+
+https://stackoverflow.com/questions/35220111/install-name-tool-difference-between-change-and-id
+
+
+https://github.com/trojanfoe/xcodedevtools

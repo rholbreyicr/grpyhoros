@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF57DDFD259BE67A0072355A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		BF90A3FE25A22DD70069D611 /* OsiriXAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A3FD25A22DD70069D611 /* OsiriXAPI.framework */; };
+		BF90A43125A22E2B0069D611 /* libgrpc_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A3FF25A22E280069D611 /* libgrpc_unsecure.a */; };
+		BF90A43225A22E2B0069D611 /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40025A22E280069D611 /* libabsl_status.a */; };
+		BF90A43325A22E2B0069D611 /* libgrpc++_alts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40125A22E280069D611 /* libgrpc++_alts.a */; };
+		BF90A43425A22E2B0069D611 /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40225A22E280069D611 /* libabsl_debugging_internal.a */; };
+		BF90A43525A22E2B0069D611 /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40325A22E280069D611 /* libabsl_dynamic_annotations.a */; };
+		BF90A43625A22E2B0069D611 /* libgrpc++_reflection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40425A22E280069D611 /* libgrpc++_reflection.a */; };
+		BF90A43725A22E2B0069D611 /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40525A22E280069D611 /* libabsl_time_zone.a */; };
+		BF90A43825A22E2B0069D611 /* libabsl_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40625A22E290069D611 /* libabsl_base.a */; };
+		BF90A43925A22E2B0069D611 /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40725A22E290069D611 /* libabsl_throw_delegate.a */; };
+		BF90A43A25A22E2B0069D611 /* libabsl_raw_hash_set.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40825A22E290069D611 /* libabsl_raw_hash_set.a */; };
+		BF90A43B25A22E2B0069D611 /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40925A22E290069D611 /* libgrpc.a */; };
+		BF90A43C25A22E2B0069D611 /* libabsl_strings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40A25A22E290069D611 /* libabsl_strings.a */; };
+		BF90A43D25A22E2B0069D611 /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40B25A22E290069D611 /* libabsl_symbolize.a */; };
+		BF90A43E25A22E2B0069D611 /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40C25A22E290069D611 /* libabsl_synchronization.a */; };
+		BF90A43F25A22E2B0069D611 /* libupb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40D25A22E290069D611 /* libupb.a */; };
+		BF90A44025A22E2B0069D611 /* libabsl_bad_variant_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40E25A22E290069D611 /* libabsl_bad_variant_access.a */; };
+		BF90A44125A22E2B0069D611 /* libabsl_hashtablez_sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A40F25A22E290069D611 /* libabsl_hashtablez_sampler.a */; };
+		BF90A44225A22E2B0069D611 /* libgrpc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41025A22E290069D611 /* libgrpc++.a */; };
+		BF90A44325A22E2B0069D611 /* libabsl_demangle_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41125A22E290069D611 /* libabsl_demangle_internal.a */; };
+		BF90A44425A22E2B0069D611 /* libabsl_int128.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41225A22E290069D611 /* libabsl_int128.a */; };
+		BF90A44525A22E2B0069D611 /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41325A22E290069D611 /* libcares.a */; };
+		BF90A44625A22E2B0069D611 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41425A22E290069D611 /* libprotobuf.a */; };
+		BF90A44725A22E2B0069D611 /* libabsl_raw_logging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41525A22E290069D611 /* libabsl_raw_logging_internal.a */; };
+		BF90A44825A22E2B0069D611 /* libabsl_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41625A22E290069D611 /* libabsl_time.a */; };
+		BF90A44925A22E2B0069D611 /* libabsl_stacktrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41725A22E290069D611 /* libabsl_stacktrace.a */; };
+		BF90A44A25A22E2B0069D611 /* libabsl_civil_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41825A22E290069D611 /* libabsl_civil_time.a */; };
+		BF90A44B25A22E2B0069D611 /* libabsl_cord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41925A22E2A0069D611 /* libabsl_cord.a */; };
+		BF90A44C25A22E2B0069D611 /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41A25A22E2A0069D611 /* libprotoc.a */; };
+		BF90A44D25A22E2B0069D611 /* libgrpcpp_channelz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41B25A22E2A0069D611 /* libgrpcpp_channelz.a */; };
+		BF90A44E25A22E2B0069D611 /* libabsl_str_format_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41C25A22E2A0069D611 /* libabsl_str_format_internal.a */; };
+		BF90A44F25A22E2B0069D611 /* libaddress_sorting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41D25A22E2A0069D611 /* libaddress_sorting.a */; };
+		BF90A45025A22E2B0069D611 /* libabsl_malloc_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41E25A22E2A0069D611 /* libabsl_malloc_internal.a */; };
+		BF90A45125A22E2B0069D611 /* libre2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A41F25A22E2A0069D611 /* libre2.a */; };
+		BF90A45225A22E2B0069D611 /* libabsl_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42025A22E2A0069D611 /* libabsl_hash.a */; };
+		BF90A45425A22E2B0069D611 /* libabsl_city.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42225A22E2A0069D611 /* libabsl_city.a */; };
+		BF90A45525A22E2B0069D611 /* libabsl_log_severity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42325A22E2A0069D611 /* libabsl_log_severity.a */; };
+		BF90A45625A22E2B0069D611 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42425A22E2A0069D611 /* libssl.a */; };
+		BF90A45725A22E2B0069D611 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42525A22E2A0069D611 /* libz.a */; };
+		BF90A45825A22E2B0069D611 /* libabsl_exponential_biased.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42625A22E2A0069D611 /* libabsl_exponential_biased.a */; };
+		BF90A45925A22E2B0069D611 /* libgrpc_plugin_support.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42725A22E2A0069D611 /* libgrpc_plugin_support.a */; };
+		BF90A45A25A22E2B0069D611 /* libgpr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42825A22E2A0069D611 /* libgpr.a */; };
+		BF90A45B25A22E2B0069D611 /* libabsl_graphcycles_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42925A22E2B0069D611 /* libabsl_graphcycles_internal.a */; };
+		BF90A45C25A22E2B0069D611 /* libgrpc++_error_details.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42A25A22E2B0069D611 /* libgrpc++_error_details.a */; };
+		BF90A45D25A22E2B0069D611 /* libgrpc++_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42B25A22E2B0069D611 /* libgrpc++_unsecure.a */; };
+		BF90A45E25A22E2B0069D611 /* libabsl_strings_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42C25A22E2B0069D611 /* libabsl_strings_internal.a */; };
+		BF90A46025A22E2B0069D611 /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A42E25A22E2B0069D611 /* libabsl_bad_optional_access.a */; };
+		BF90A46225A22E2B0069D611 /* libabsl_spinlock_wait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90A43025A22E2B0069D611 /* libabsl_spinlock_wait.a */; };
+		BF90A46825A22EC30069D611 /* HorosServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF90A46325A22EC30069D611 /* HorosServer.mm */; };
+		BF90A46925A22EC30069D611 /* HorosServer.h in Headers */ = {isa = PBXBuildFile; fileRef = BF90A46425A22EC30069D611 /* HorosServer.h */; };
+		BF90A46A25A22EC30069D611 /* ServerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF90A46525A22EC30069D611 /* ServerManager.mm */; };
+		BF90A46B25A22EC30069D611 /* ServerAdaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BF90A46625A22EC30069D611 /* ServerAdaptor.h */; };
+		BF90A46C25A22EC30069D611 /* ServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BF90A46725A22EC30069D611 /* ServerManager.h */; };
+		BF90A47025A22F420069D611 /* ConsoleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF90A46D25A22F420069D611 /* ConsoleController.mm */; };
+		BF90A47125A22F420069D611 /* ConsoleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF90A46E25A22F420069D611 /* ConsoleController.xib */; };
+		BF90A47225A22F420069D611 /* ConsoleController.h in Headers */ = {isa = PBXBuildFile; fileRef = BF90A46F25A22F420069D611 /* ConsoleController.h */; };
+		BF90A47825A22F820069D611 /* horos_server.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF90A47325A22F820069D611 /* horos_server.cc */; };
+		BF90A47925A22F820069D611 /* horos.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = BF90A47425A22F820069D611 /* horos.pb.h */; };
+		BF90A47A25A22F820069D611 /* horos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF90A47525A22F820069D611 /* horos.pb.cc */; };
+		BF90A47B25A22F820069D611 /* horos.grpc.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = BF90A47625A22F820069D611 /* horos.grpc.pb.h */; };
+		BF90A47C25A22F820069D611 /* horos.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF90A47725A22F820069D611 /* horos.grpc.pb.cc */; };
+		BFF84EF625AF696100726A17 /* grpyOsiriX_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = BFF84EF525AF696100726A17 /* grpyOsiriX_Prefix.pch */; };
+		BFF84EF925AF697400726A17 /* grpyOsiriXFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFF84EF725AF697400726A17 /* grpyOsiriXFilter.mm */; };
+		BFF84EFC25AF6DDE00726A17 /* grpyOsiriXFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BFF84EFB25AF6DDE00726A17 /* grpyOsiriXFilter.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BF57DE05259BE67A0072355A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF57DE09259BE67A0072355A /* grpyOsiriX.osirixplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grpyOsiriX.osirixplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF90A3FD25A22DD70069D611 /* OsiriXAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OsiriXAPI.framework; path = ../OsiriXAPI.framework; sourceTree = "<group>"; };
+		BF90A3FF25A22E280069D611 /* libgrpc_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc_unsecure.a; path = ../libgrpc_unsecure.a; sourceTree = "<group>"; };
+		BF90A40025A22E280069D611 /* libabsl_status.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_status.a; path = ../libabsl_status.a; sourceTree = "<group>"; };
+		BF90A40125A22E280069D611 /* libgrpc++_alts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_alts.a"; path = "../libgrpc++_alts.a"; sourceTree = "<group>"; };
+		BF90A40225A22E280069D611 /* libabsl_debugging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_debugging_internal.a; path = ../libabsl_debugging_internal.a; sourceTree = "<group>"; };
+		BF90A40325A22E280069D611 /* libabsl_dynamic_annotations.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_dynamic_annotations.a; path = ../libabsl_dynamic_annotations.a; sourceTree = "<group>"; };
+		BF90A40425A22E280069D611 /* libgrpc++_reflection.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_reflection.a"; path = "../libgrpc++_reflection.a"; sourceTree = "<group>"; };
+		BF90A40525A22E280069D611 /* libabsl_time_zone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time_zone.a; path = ../libabsl_time_zone.a; sourceTree = "<group>"; };
+		BF90A40625A22E290069D611 /* libabsl_base.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_base.a; path = ../libabsl_base.a; sourceTree = "<group>"; };
+		BF90A40725A22E290069D611 /* libabsl_throw_delegate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_throw_delegate.a; path = ../libabsl_throw_delegate.a; sourceTree = "<group>"; };
+		BF90A40825A22E290069D611 /* libabsl_raw_hash_set.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_raw_hash_set.a; path = ../libabsl_raw_hash_set.a; sourceTree = "<group>"; };
+		BF90A40925A22E290069D611 /* libgrpc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc.a; path = ../libgrpc.a; sourceTree = "<group>"; };
+		BF90A40A25A22E290069D611 /* libabsl_strings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_strings.a; path = ../libabsl_strings.a; sourceTree = "<group>"; };
+		BF90A40B25A22E290069D611 /* libabsl_symbolize.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_symbolize.a; path = ../libabsl_symbolize.a; sourceTree = "<group>"; };
+		BF90A40C25A22E290069D611 /* libabsl_synchronization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_synchronization.a; path = ../libabsl_synchronization.a; sourceTree = "<group>"; };
+		BF90A40D25A22E290069D611 /* libupb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libupb.a; path = ../libupb.a; sourceTree = "<group>"; };
+		BF90A40E25A22E290069D611 /* libabsl_bad_variant_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_variant_access.a; path = ../libabsl_bad_variant_access.a; sourceTree = "<group>"; };
+		BF90A40F25A22E290069D611 /* libabsl_hashtablez_sampler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_hashtablez_sampler.a; path = ../libabsl_hashtablez_sampler.a; sourceTree = "<group>"; };
+		BF90A41025A22E290069D611 /* libgrpc++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++.a"; path = "../libgrpc++.a"; sourceTree = "<group>"; };
+		BF90A41125A22E290069D611 /* libabsl_demangle_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_demangle_internal.a; path = ../libabsl_demangle_internal.a; sourceTree = "<group>"; };
+		BF90A41225A22E290069D611 /* libabsl_int128.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_int128.a; path = ../libabsl_int128.a; sourceTree = "<group>"; };
+		BF90A41325A22E290069D611 /* libcares.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcares.a; path = ../libcares.a; sourceTree = "<group>"; };
+		BF90A41425A22E290069D611 /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = ../libprotobuf.a; sourceTree = "<group>"; };
+		BF90A41525A22E290069D611 /* libabsl_raw_logging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_raw_logging_internal.a; path = ../libabsl_raw_logging_internal.a; sourceTree = "<group>"; };
+		BF90A41625A22E290069D611 /* libabsl_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time.a; path = ../libabsl_time.a; sourceTree = "<group>"; };
+		BF90A41725A22E290069D611 /* libabsl_stacktrace.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_stacktrace.a; path = ../libabsl_stacktrace.a; sourceTree = "<group>"; };
+		BF90A41825A22E290069D611 /* libabsl_civil_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_civil_time.a; path = ../libabsl_civil_time.a; sourceTree = "<group>"; };
+		BF90A41925A22E2A0069D611 /* libabsl_cord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_cord.a; path = ../libabsl_cord.a; sourceTree = "<group>"; };
+		BF90A41A25A22E2A0069D611 /* libprotoc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotoc.a; path = ../libprotoc.a; sourceTree = "<group>"; };
+		BF90A41B25A22E2A0069D611 /* libgrpcpp_channelz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpcpp_channelz.a; path = ../libgrpcpp_channelz.a; sourceTree = "<group>"; };
+		BF90A41C25A22E2A0069D611 /* libabsl_str_format_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_str_format_internal.a; path = ../libabsl_str_format_internal.a; sourceTree = "<group>"; };
+		BF90A41D25A22E2A0069D611 /* libaddress_sorting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaddress_sorting.a; path = ../libaddress_sorting.a; sourceTree = "<group>"; };
+		BF90A41E25A22E2A0069D611 /* libabsl_malloc_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_malloc_internal.a; path = ../libabsl_malloc_internal.a; sourceTree = "<group>"; };
+		BF90A41F25A22E2A0069D611 /* libre2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libre2.a; path = ../libre2.a; sourceTree = "<group>"; };
+		BF90A42025A22E2A0069D611 /* libabsl_hash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_hash.a; path = ../libabsl_hash.a; sourceTree = "<group>"; };
+		BF90A42225A22E2A0069D611 /* libabsl_city.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_city.a; path = ../libabsl_city.a; sourceTree = "<group>"; };
+		BF90A42325A22E2A0069D611 /* libabsl_log_severity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_log_severity.a; path = ../libabsl_log_severity.a; sourceTree = "<group>"; };
+		BF90A42425A22E2A0069D611 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../libssl.a; sourceTree = "<group>"; };
+		BF90A42525A22E2A0069D611 /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = ../libz.a; sourceTree = "<group>"; };
+		BF90A42625A22E2A0069D611 /* libabsl_exponential_biased.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_exponential_biased.a; path = ../libabsl_exponential_biased.a; sourceTree = "<group>"; };
+		BF90A42725A22E2A0069D611 /* libgrpc_plugin_support.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc_plugin_support.a; path = ../libgrpc_plugin_support.a; sourceTree = "<group>"; };
+		BF90A42825A22E2A0069D611 /* libgpr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgpr.a; path = ../libgpr.a; sourceTree = "<group>"; };
+		BF90A42925A22E2B0069D611 /* libabsl_graphcycles_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_graphcycles_internal.a; path = ../libabsl_graphcycles_internal.a; sourceTree = "<group>"; };
+		BF90A42A25A22E2B0069D611 /* libgrpc++_error_details.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_error_details.a"; path = "../libgrpc++_error_details.a"; sourceTree = "<group>"; };
+		BF90A42B25A22E2B0069D611 /* libgrpc++_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_unsecure.a"; path = "../libgrpc++_unsecure.a"; sourceTree = "<group>"; };
+		BF90A42C25A22E2B0069D611 /* libabsl_strings_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_strings_internal.a; path = ../libabsl_strings_internal.a; sourceTree = "<group>"; };
+		BF90A42E25A22E2B0069D611 /* libabsl_bad_optional_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_optional_access.a; path = ../libabsl_bad_optional_access.a; sourceTree = "<group>"; };
+		BF90A43025A22E2B0069D611 /* libabsl_spinlock_wait.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_spinlock_wait.a; path = ../libabsl_spinlock_wait.a; sourceTree = "<group>"; };
+		BF90A46325A22EC30069D611 /* HorosServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = HorosServer.mm; path = ../HorosServer.mm; sourceTree = "<group>"; };
+		BF90A46425A22EC30069D611 /* HorosServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HorosServer.h; path = ../HorosServer.h; sourceTree = "<group>"; };
+		BF90A46525A22EC30069D611 /* ServerManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ServerManager.mm; path = ../ServerManager.mm; sourceTree = "<group>"; };
+		BF90A46625A22EC30069D611 /* ServerAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerAdaptor.h; path = ../ServerAdaptor.h; sourceTree = "<group>"; };
+		BF90A46725A22EC30069D611 /* ServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ServerManager.h; path = ../ServerManager.h; sourceTree = "<group>"; };
+		BF90A46D25A22F420069D611 /* ConsoleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConsoleController.mm; path = ../../Console/ConsoleController.mm; sourceTree = "<group>"; };
+		BF90A46E25A22F420069D611 /* ConsoleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConsoleController.xib; path = ../../Console/ConsoleController.xib; sourceTree = "<group>"; };
+		BF90A46F25A22F420069D611 /* ConsoleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsoleController.h; path = ../../Console/ConsoleController.h; sourceTree = "<group>"; };
+		BF90A47325A22F820069D611 /* horos_server.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos_server.cc; path = ../../rpc/cpp/horos_server.cc; sourceTree = "<group>"; };
+		BF90A47425A22F820069D611 /* horos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = horos.pb.h; path = ../../rpc/cpp/horos.pb.h; sourceTree = "<group>"; };
+		BF90A47525A22F820069D611 /* horos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos.pb.cc; path = ../../rpc/cpp/horos.pb.cc; sourceTree = "<group>"; };
+		BF90A47625A22F820069D611 /* horos.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = horos.grpc.pb.h; path = ../../rpc/cpp/horos.grpc.pb.h; sourceTree = "<group>"; };
+		BF90A47725A22F820069D611 /* horos.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos.grpc.pb.cc; path = ../../rpc/cpp/horos.grpc.pb.cc; sourceTree = "<group>"; };
+		BFF84EF525AF696100726A17 /* grpyOsiriX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = grpyOsiriX_Prefix.pch; path = ../grpyOsiriX_Prefix.pch; sourceTree = "<group>"; };
+		BFF84EF725AF697400726A17 /* grpyOsiriXFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = grpyOsiriXFilter.mm; path = ../grpyOsiriXFilter.mm; sourceTree = "<group>"; };
+		BFF84EFB25AF6DDE00726A17 /* grpyOsiriXFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = grpyOsiriXFilter.h; path = ../grpyOsiriXFilter.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF57DDF4259BE67A0072355A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A45625A22E2B0069D611 /* libssl.a in Frameworks */,
+				BF90A45525A22E2B0069D611 /* libabsl_log_severity.a in Frameworks */,
+				BF90A43625A22E2B0069D611 /* libgrpc++_reflection.a in Frameworks */,
+				BF90A44E25A22E2B0069D611 /* libabsl_str_format_internal.a in Frameworks */,
+				BF90A44925A22E2B0069D611 /* libabsl_stacktrace.a in Frameworks */,
+				BF90A44025A22E2B0069D611 /* libabsl_bad_variant_access.a in Frameworks */,
+				BF90A43A25A22E2B0069D611 /* libabsl_raw_hash_set.a in Frameworks */,
+				BF90A45A25A22E2B0069D611 /* libgpr.a in Frameworks */,
+				BF90A44C25A22E2B0069D611 /* libprotoc.a in Frameworks */,
+				BF90A46225A22E2B0069D611 /* libabsl_spinlock_wait.a in Frameworks */,
+				BF90A44A25A22E2B0069D611 /* libabsl_civil_time.a in Frameworks */,
+				BF90A45125A22E2B0069D611 /* libre2.a in Frameworks */,
+				BF90A44225A22E2B0069D611 /* libgrpc++.a in Frameworks */,
+				BF90A44625A22E2B0069D611 /* libprotobuf.a in Frameworks */,
+				BF90A45C25A22E2B0069D611 /* libgrpc++_error_details.a in Frameworks */,
+				BF90A43E25A22E2B0069D611 /* libabsl_synchronization.a in Frameworks */,
+				BF90A43C25A22E2B0069D611 /* libabsl_strings.a in Frameworks */,
+				BF90A43925A22E2B0069D611 /* libabsl_throw_delegate.a in Frameworks */,
+				BF90A46025A22E2B0069D611 /* libabsl_bad_optional_access.a in Frameworks */,
+				BF57DDFD259BE67A0072355A /* Cocoa.framework in Frameworks */,
+				BF90A44F25A22E2B0069D611 /* libaddress_sorting.a in Frameworks */,
+				BF90A45725A22E2B0069D611 /* libz.a in Frameworks */,
+				BF90A43B25A22E2B0069D611 /* libgrpc.a in Frameworks */,
+				BF90A43825A22E2B0069D611 /* libabsl_base.a in Frameworks */,
+				BF90A44325A22E2B0069D611 /* libabsl_demangle_internal.a in Frameworks */,
+				BF90A45E25A22E2B0069D611 /* libabsl_strings_internal.a in Frameworks */,
+				BF90A3FE25A22DD70069D611 /* OsiriXAPI.framework in Frameworks */,
+				BF90A44B25A22E2B0069D611 /* libabsl_cord.a in Frameworks */,
+				BF90A45825A22E2B0069D611 /* libabsl_exponential_biased.a in Frameworks */,
+				BF90A44D25A22E2B0069D611 /* libgrpcpp_channelz.a in Frameworks */,
+				BF90A45225A22E2B0069D611 /* libabsl_hash.a in Frameworks */,
+				BF90A44725A22E2B0069D611 /* libabsl_raw_logging_internal.a in Frameworks */,
+				BF90A44525A22E2B0069D611 /* libcares.a in Frameworks */,
+				BF90A45B25A22E2B0069D611 /* libabsl_graphcycles_internal.a in Frameworks */,
+				BF90A43725A22E2B0069D611 /* libabsl_time_zone.a in Frameworks */,
+				BF90A44425A22E2B0069D611 /* libabsl_int128.a in Frameworks */,
+				BF90A43125A22E2B0069D611 /* libgrpc_unsecure.a in Frameworks */,
+				BF90A45D25A22E2B0069D611 /* libgrpc++_unsecure.a in Frameworks */,
+				BF90A43F25A22E2B0069D611 /* libupb.a in Frameworks */,
+				BF90A45025A22E2B0069D611 /* libabsl_malloc_internal.a in Frameworks */,
+				BF90A45425A22E2B0069D611 /* libabsl_city.a in Frameworks */,
+				BF90A45925A22E2B0069D611 /* libgrpc_plugin_support.a in Frameworks */,
+				BF90A43325A22E2B0069D611 /* libgrpc++_alts.a in Frameworks */,
+				BF90A44825A22E2B0069D611 /* libabsl_time.a in Frameworks */,
+				BF90A43225A22E2B0069D611 /* libabsl_status.a in Frameworks */,
+				BF90A43D25A22E2B0069D611 /* libabsl_symbolize.a in Frameworks */,
+				BF90A44125A22E2B0069D611 /* libabsl_hashtablez_sampler.a in Frameworks */,
+				BF90A43525A22E2B0069D611 /* libabsl_dynamic_annotations.a in Frameworks */,
+				BF90A43425A22E2B0069D611 /* libabsl_debugging_internal.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* Zombies */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+			);
+			name = Zombies;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BF90A42E25A22E2B0069D611 /* libabsl_bad_optional_access.a */,
+				BF90A40E25A22E290069D611 /* libabsl_bad_variant_access.a */,
+				BF90A40625A22E290069D611 /* libabsl_base.a */,
+				BF90A42225A22E2A0069D611 /* libabsl_city.a */,
+				BF90A41825A22E290069D611 /* libabsl_civil_time.a */,
+				BF90A41925A22E2A0069D611 /* libabsl_cord.a */,
+				BF90A40225A22E280069D611 /* libabsl_debugging_internal.a */,
+				BF90A41125A22E290069D611 /* libabsl_demangle_internal.a */,
+				BF90A40325A22E280069D611 /* libabsl_dynamic_annotations.a */,
+				BF90A42625A22E2A0069D611 /* libabsl_exponential_biased.a */,
+				BF90A42925A22E2B0069D611 /* libabsl_graphcycles_internal.a */,
+				BF90A42025A22E2A0069D611 /* libabsl_hash.a */,
+				BF90A40F25A22E290069D611 /* libabsl_hashtablez_sampler.a */,
+				BF90A41225A22E290069D611 /* libabsl_int128.a */,
+				BF90A42325A22E2A0069D611 /* libabsl_log_severity.a */,
+				BF90A41E25A22E2A0069D611 /* libabsl_malloc_internal.a */,
+				BF90A40825A22E290069D611 /* libabsl_raw_hash_set.a */,
+				BF90A41525A22E290069D611 /* libabsl_raw_logging_internal.a */,
+				BF90A43025A22E2B0069D611 /* libabsl_spinlock_wait.a */,
+				BF90A41725A22E290069D611 /* libabsl_stacktrace.a */,
+				BF90A40025A22E280069D611 /* libabsl_status.a */,
+				BF90A41C25A22E2A0069D611 /* libabsl_str_format_internal.a */,
+				BF90A42C25A22E2B0069D611 /* libabsl_strings_internal.a */,
+				BF90A40A25A22E290069D611 /* libabsl_strings.a */,
+				BF90A40B25A22E290069D611 /* libabsl_symbolize.a */,
+				BF90A40C25A22E290069D611 /* libabsl_synchronization.a */,
+				BF90A40725A22E290069D611 /* libabsl_throw_delegate.a */,
+				BF90A40525A22E280069D611 /* libabsl_time_zone.a */,
+				BF90A41625A22E290069D611 /* libabsl_time.a */,
+				BF90A41D25A22E2A0069D611 /* libaddress_sorting.a */,
+				BF90A41325A22E290069D611 /* libcares.a */,
+				BF90A42825A22E2A0069D611 /* libgpr.a */,
+				BF90A42725A22E2A0069D611 /* libgrpc_plugin_support.a */,
+				BF90A3FF25A22E280069D611 /* libgrpc_unsecure.a */,
+				BF90A40925A22E290069D611 /* libgrpc.a */,
+				BF90A40125A22E280069D611 /* libgrpc++_alts.a */,
+				BF90A42A25A22E2B0069D611 /* libgrpc++_error_details.a */,
+				BF90A40425A22E280069D611 /* libgrpc++_reflection.a */,
+				BF90A42B25A22E2B0069D611 /* libgrpc++_unsecure.a */,
+				BF90A41025A22E290069D611 /* libgrpc++.a */,
+				BF90A41B25A22E2A0069D611 /* libgrpcpp_channelz.a */,
+				BF90A41425A22E290069D611 /* libprotobuf.a */,
+				BF90A41A25A22E2A0069D611 /* libprotoc.a */,
+				BF90A41F25A22E2A0069D611 /* libre2.a */,
+				BF90A42425A22E2A0069D611 /* libssl.a */,
+				BF90A40D25A22E290069D611 /* libupb.a */,
+				BF90A42525A22E2A0069D611 /* libz.a */,
+				BF90A3FD25A22DD70069D611 /* OsiriXAPI.framework */,
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BF90A46425A22EC30069D611 /* HorosServer.h */,
+				BF90A46325A22EC30069D611 /* HorosServer.mm */,
+				BF90A46625A22EC30069D611 /* ServerAdaptor.h */,
+				BF90A46725A22EC30069D611 /* ServerManager.h */,
+				BF90A46525A22EC30069D611 /* ServerManager.mm */,
+				BF57DDB5259ABE4C0072355A /* console */,
+				BF57DDB1259ABDE10072355A /* grpc */,
+				BFF84EFB25AF6DDE00726A17 /* grpyOsiriXFilter.h */,
+				BFF84EF725AF697400726A17 /* grpyOsiriXFilter.mm */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF57DE09259BE67A0072355A /* grpyOsiriX.osirixplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BFF84EF525AF696100726A17 /* grpyOsiriX_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		BF57DDB1259ABDE10072355A /* grpc */ = {
+			isa = PBXGroup;
+			children = (
+				BF90A47325A22F820069D611 /* horos_server.cc */,
+				BF90A47725A22F820069D611 /* horos.grpc.pb.cc */,
+				BF90A47625A22F820069D611 /* horos.grpc.pb.h */,
+				BF90A47525A22F820069D611 /* horos.pb.cc */,
+				BF90A47425A22F820069D611 /* horos.pb.h */,
+			);
+			path = grpc;
+			sourceTree = "<group>";
+		};
+		BF57DDB5259ABE4C0072355A /* console */ = {
+			isa = PBXGroup;
+			children = (
+				BF90A46F25A22F420069D611 /* ConsoleController.h */,
+				BF90A46D25A22F420069D611 /* ConsoleController.mm */,
+				BF90A46E25A22F420069D611 /* ConsoleController.xib */,
+			);
+			path = console;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BF57DDE1259BE67A0072355A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A47225A22F420069D611 /* ConsoleController.h in Headers */,
+				BF90A46925A22EC30069D611 /* HorosServer.h in Headers */,
+				BF90A47B25A22F820069D611 /* horos.grpc.pb.h in Headers */,
+				BF90A46B25A22EC30069D611 /* ServerAdaptor.h in Headers */,
+				BFF84EF625AF696100726A17 /* grpyOsiriX_Prefix.pch in Headers */,
+				BF90A47925A22F820069D611 /* horos.pb.h in Headers */,
+				BFF84EFC25AF6DDE00726A17 /* grpyOsiriXFilter.h in Headers */,
+				BF90A46C25A22EC30069D611 /* ServerManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BF57DDE0259BE67A0072355A /* grpyOsiriX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF57DE06259BE67A0072355A /* Build configuration list for PBXNativeTarget "grpyOsiriX" */;
+			buildPhases = (
+				BF57DDE1259BE67A0072355A /* Headers */,
+				BF57DDEA259BE67A0072355A /* Resources */,
+				BF57DDEC259BE67A0072355A /* Sources */,
+				BF57DDF4259BE67A0072355A /* Frameworks */,
+				BF57DE04259BE67A0072355A /* Rez */,
+				BF57DE05259BE67A0072355A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = grpyOsiriX;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = Invert;
+			productReference = BF57DE09259BE67A0072355A /* grpyOsiriX.osirixplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = CE6A9A9408AC841300D0C1EE /* Build configuration list for PBXProject "grpyOsiriX" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* Zombies */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF57DDE0259BE67A0072355A /* grpyOsiriX */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF57DDEA259BE67A0072355A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A47125A22F420069D611 /* ConsoleController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		BF57DE04259BE67A0072355A /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF57DDEC259BE67A0072355A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A47C25A22F820069D611 /* horos.grpc.pb.cc in Sources */,
+				BF90A46825A22EC30069D611 /* HorosServer.mm in Sources */,
+				BF90A47025A22F420069D611 /* ConsoleController.mm in Sources */,
+				BF90A47825A22F820069D611 /* horos_server.cc in Sources */,
+				BF90A46A25A22EC30069D611 /* ServerManager.mm in Sources */,
+				BFF84EF925AF697400726A17 /* grpyOsiriXFilter.mm in Sources */,
+				BF90A47A25A22F820069D611 /* horos.pb.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BF57DE07259BE67A0072355A /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/..",
+					"$(PROJECT_DIR)",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ../grpyOsiriX_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/..",
+					"$(PROJECT_DIR)/../OsiriXAPI.framework/**",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@executable_path/../Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/grpc",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/..",
+				);
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 0.2;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = grpyOsiriX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = osirixplugin;
+				ZERO_LINK = NO;
+			};
+			name = Development;
+		};
+		BF57DE08259BE67A0072355A /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+					"$(PROJECT_DIR)/..",
+					"$(PROJECT_DIR)",
+				);
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ../grpyOsiriX_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/..",
+					"$(PROJECT_DIR)/../OsiriXAPI.framework/**",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@executable_path/../Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/grpc",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/..",
+				);
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MARKETING_VERSION = 0.2;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = grpyOsiriX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = osirixplugin;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		CE6A9A9508AC841300D0C1EE /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+			};
+			name = Development;
+		};
+		CE6A9A9608AC841300D0C1EE /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+			};
+			name = Deployment;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF57DE06259BE67A0072355A /* Build configuration list for PBXNativeTarget "grpyOsiriX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF57DE07259BE67A0072355A /* Development */,
+				BF57DE08259BE67A0072355A /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		CE6A9A9408AC841300D0C1EE /* Build configuration list for PBXProject "grpyOsiriX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE6A9A9508AC841300D0C1EE /* Development */,
+				CE6A9A9608AC841300D0C1EE /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

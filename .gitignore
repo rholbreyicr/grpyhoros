@@ -1,0 +1,6 @@
+.DS_Store
+*.pyc
+**/Python.framework/**
+pyOsiriXII.xcodeproj/project.xcworkspace/xcuserdata/
+pyOsiriXII.xcodeproj/xcuserdata/rholbrey.xcuserdatad/xcdebugger/
+

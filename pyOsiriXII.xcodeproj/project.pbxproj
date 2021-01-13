@@ -1,0 +1,1485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF2BF05A258447E5008EA8FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF059258447E5008EA8FE /* AppDelegate.m */; };
+		BF2BF05C258447E8008EA8FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF2BF05B258447E8008EA8FE /* Assets.xcassets */; };
+		BF2BF05F258447E8008EA8FE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF2BF05D258447E8008EA8FE /* MainMenu.xib */; };
+		BF2BF062258447E8008EA8FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF061258447E8008EA8FE /* main.m */; };
+		BF2BF06D258447E8008EA8FE /* ConsoleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF06C258447E8008EA8FE /* ConsoleAppTests.m */; };
+		BF2BF078258447E9008EA8FE /* ConsoleAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF077258447E9008EA8FE /* ConsoleAppUITests.m */; };
+		BF2BF0B525846192008EA8FE /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF0B325846192008EA8FE /* AppController.mm */; };
+		BF6EFCB725846B160068543D /* HorosServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD54D25768EC500246D66 /* HorosServer.mm */; };
+		BF6EFCBC25846B1D0068543D /* horos.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */; };
+		BF6EFCC125846B210068543D /* horos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52E25751EA700246D66 /* horos.pb.cc */; };
+		BF6EFCC625846B340068543D /* ConsoleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD54025759DF100246D66 /* ConsoleController.mm */; };
+		BF6EFCCB25846B390068543D /* ConsoleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4FD4DC2574432B00246D66 /* ConsoleController.xib */; };
+		BF6EFCD025846B960068543D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		BF6EFD09258470700068543D /* Cocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BF6EFD1C25847ED00068543D /* MockPyOsiriXIIFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF6EFD1A25847ED00068543D /* MockPyOsiriXIIFilter.mm */; };
+		BF6EFD252584F4210068543D /* ServerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF092258451B1008EA8FE /* ServerManager.mm */; };
+		BF6EFDA22586BF5E0068543D /* pyosirix.png in Resources */ = {isa = PBXBuildFile; fileRef = BF6EFDA12586BF5E0068543D /* pyosirix.png */; };
+		BF90A48825A270A80069D611 /* grpyOsiriX_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF630370AF2F00C91783 /* grpyOsiriX_Prefix.pch */; };
+		BF90A48925A270A80069D611 /* horos.grpc.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4FD52F25751EA700246D66 /* horos.grpc.pb.h */; };
+		BF90A48A25A270A80069D611 /* HorosServer.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4FD54C25768EC500246D66 /* HorosServer.h */; };
+		BF90A48B25A270A80069D611 /* ServerAdaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4FD571257868DC00246D66 /* ServerAdaptor.h */; };
+		BF90A48C25A270A80069D611 /* horos.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4FD53025751EA700246D66 /* horos.pb.h */; };
+		BF90A48D25A270A80069D611 /* ConsoleController.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4FD4DA2574432B00246D66 /* ConsoleController.h */; };
+		BF90A48E25A270A80069D611 /* grpyOsiriXFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = ABA48A640680BB600089EB4F /* grpyOsiriXFilter.h */; };
+		BF90A48F25A270A80069D611 /* ServerManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BF2BF09C258451E2008EA8FE /* ServerManager.h */; };
+		BF90A49125A270A80069D611 /* ConsoleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4FD4DC2574432B00246D66 /* ConsoleController.xib */; };
+		BF90A49225A270A80069D611 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		BF90A49425A270A80069D611 /* grpyOsiriXFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF1975432562E0F6006C25B2 /* grpyOsiriXFilter.mm */; };
+		BF90A49525A270A80069D611 /* HorosServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD54D25768EC500246D66 /* HorosServer.mm */; };
+		BF90A49625A270A80069D611 /* ConsoleController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD54025759DF100246D66 /* ConsoleController.mm */; };
+		BF90A49725A270A80069D611 /* horos.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */; };
+		BF90A49825A270A80069D611 /* ServerManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF092258451B1008EA8FE /* ServerManager.mm */; };
+		BF90A49925A270A80069D611 /* horos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52E25751EA700246D66 /* horos.pb.cc */; };
+		BF90A49B25A270A80069D611 /* libabsl_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89A25A164A9002C338D /* libabsl_base.a */; };
+		BF90A49C25A270A80069D611 /* libabsl_civil_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89225A164A8002C338D /* libabsl_civil_time.a */; };
+		BF90A49D25A270A80069D611 /* libgrpc++_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88F25A164A7002C338D /* libgrpc++_unsecure.a */; };
+		BF90A49E25A270A80069D611 /* libgrpc++_reflection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88525A164A6002C338D /* libgrpc++_reflection.a */; };
+		BF90A49F25A270A80069D611 /* libabsl_log_severity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D86D25A164A2002C338D /* libabsl_log_severity.a */; };
+		BF90A4A025A270A80069D611 /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88725A164A6002C338D /* libcares.a */; };
+		BF90A4A125A270A80069D611 /* libabsl_bad_variant_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87025A164A3002C338D /* libabsl_bad_variant_access.a */; };
+		BF90A4A225A270A80069D611 /* libgrpc++_error_details.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89B25A164A9002C338D /* libgrpc++_error_details.a */; };
+		BF90A4A325A270A80069D611 /* libabsl_exponential_biased.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87F25A164A5002C338D /* libabsl_exponential_biased.a */; };
+		BF90A4A525A270A80069D611 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D93725A16B8F002C338D /* libcrypto.a */; };
+		BF90A4A625A270A80069D611 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89625A164A8002C338D /* libprotobuf.a */; };
+		BF90A4A725A270A80069D611 /* libaddress_sorting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87525A164A3002C338D /* libaddress_sorting.a */; };
+		BF90A4A825A270A80069D611 /* libgrpc++_alts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89925A164A9002C338D /* libgrpc++_alts.a */; };
+		BF90A4A925A270A80069D611 /* libabsl_int128.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D86F25A164A2002C338D /* libabsl_int128.a */; };
+		BF90A4AA25A270A80069D611 /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87925A164A4002C338D /* libabsl_dynamic_annotations.a */; };
+		BF90A4AB25A270A80069D611 /* libgrpcpp_channelz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89025A164A8002C338D /* libgrpcpp_channelz.a */; };
+		BF90A4AD25A270A80069D611 /* libupb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88E25A164A7002C338D /* libupb.a */; };
+		BF90A4AE25A270A80069D611 /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88B25A164A7002C338D /* libabsl_time_zone.a */; };
+		BF90A4AF25A270A80069D611 /* libabsl_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88325A164A5002C338D /* libabsl_time.a */; };
+		BF90A4B025A270A80069D611 /* libabsl_strings_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89C25A164A9002C338D /* libabsl_strings_internal.a */; };
+		BF90A4B125A270A80069D611 /* libabsl_cord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87D25A164A5002C338D /* libabsl_cord.a */; };
+		BF90A4B225A270A80069D611 /* libabsl_strings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89125A164A8002C338D /* libabsl_strings.a */; };
+		BF90A4B325A270A80069D611 /* libre2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87E25A164A5002C338D /* libre2.a */; };
+		BF90A4B425A270A80069D611 /* libabsl_malloc_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88425A164A6002C338D /* libabsl_malloc_internal.a */; };
+		BF90A4B525A270A80069D611 /* libgrpc_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88A25A164A7002C338D /* libgrpc_unsecure.a */; };
+		BF90A4B625A270A80069D611 /* libgpr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87825A164A4002C338D /* libgpr.a */; };
+		BF90A4B725A270A80069D611 /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89725A164A9002C338D /* libabsl_bad_optional_access.a */; };
+		BF90A4B825A270A80069D611 /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89825A164A9002C338D /* libgrpc.a */; };
+		BF90A4B925A270A80069D611 /* libabsl_raw_logging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88625A164A6002C338D /* libabsl_raw_logging_internal.a */; };
+		BF90A4BA25A270A80069D611 /* libabsl_demangle_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88D25A164A7002C338D /* libabsl_demangle_internal.a */; };
+		BF90A4BB25A270A80069D611 /* libabsl_raw_hash_set.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87725A164A4002C338D /* libabsl_raw_hash_set.a */; };
+		BF90A4BC25A270A80069D611 /* libgrpc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88225A164A5002C338D /* libgrpc++.a */; };
+		BF90A4BD25A270A80069D611 /* libabsl_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D86E25A164A2002C338D /* libabsl_hash.a */; };
+		BF90A4BE25A270A80069D611 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D93825A16B8F002C338D /* libssl.a */; };
+		BF90A4BF25A270A80069D611 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		BF90A4C025A270A80069D611 /* libabsl_str_format_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89425A164A8002C338D /* libabsl_str_format_internal.a */; };
+		BF90A4C125A270A80069D611 /* OsiriXAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8420023112E829A200E1E9CE /* OsiriXAPI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BF90A4C225A270A80069D611 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88C25A164A7002C338D /* libz.a */; };
+		BF90A4C325A270A80069D611 /* libabsl_stacktrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88025A164A5002C338D /* libabsl_stacktrace.a */; };
+		BF90A4C425A270A80069D611 /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87A25A164A4002C338D /* libabsl_status.a */; };
+		BF90A4C625A270A80069D611 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89325A164A8002C338D /* libssl.a */; };
+		BF90A4C725A270A80069D611 /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87B25A164A4002C338D /* libabsl_synchronization.a */; };
+		BF90A4C825A270A80069D611 /* libgrpc_plugin_support.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89525A164A8002C338D /* libgrpc_plugin_support.a */; };
+		BF90A4C925A270A80069D611 /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87325A164A3002C338D /* libabsl_throw_delegate.a */; };
+		BF90A4CA25A270A80069D611 /* libabsl_city.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87225A164A3002C338D /* libabsl_city.a */; };
+		BF90A4CB25A270A80069D611 /* libabsl_spinlock_wait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87C25A164A4002C338D /* libabsl_spinlock_wait.a */; };
+		BF90A4CC25A270A80069D611 /* libabsl_hashtablez_sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87425A164A3002C338D /* libabsl_hashtablez_sampler.a */; };
+		BF90A4CD25A270A80069D611 /* libabsl_graphcycles_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87125A164A3002C338D /* libabsl_graphcycles_internal.a */; };
+		BF90A4CE25A270A80069D611 /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88125A164A5002C338D /* libabsl_symbolize.a */; };
+		BF90A4CF25A270A80069D611 /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88825A164A6002C338D /* libabsl_debugging_internal.a */; };
+		BFF84EB525AF5C7400726A17 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D93725A16B8F002C338D /* libcrypto.a */; };
+		BFF84EB925AF5C7800726A17 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D93825A16B8F002C338D /* libssl.a */; };
+		BFF84EBA25AF5C7E00726A17 /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89725A164A9002C338D /* libabsl_bad_optional_access.a */; };
+		BFF84EBB25AF5C8200726A17 /* libabsl_bad_variant_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87025A164A3002C338D /* libabsl_bad_variant_access.a */; };
+		BFF84EBC25AF5C8400726A17 /* libabsl_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89A25A164A9002C338D /* libabsl_base.a */; };
+		BFF84EBD25AF5C8700726A17 /* libabsl_city.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87225A164A3002C338D /* libabsl_city.a */; };
+		BFF84EBE25AF5C8A00726A17 /* libabsl_civil_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89225A164A8002C338D /* libabsl_civil_time.a */; };
+		BFF84EBF25AF5C8D00726A17 /* libabsl_cord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87D25A164A5002C338D /* libabsl_cord.a */; };
+		BFF84EC025AF5C9000726A17 /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88825A164A6002C338D /* libabsl_debugging_internal.a */; };
+		BFF84EC125AF5C9300726A17 /* libabsl_demangle_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88D25A164A7002C338D /* libabsl_demangle_internal.a */; };
+		BFF84EC225AF5C9600726A17 /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87925A164A4002C338D /* libabsl_dynamic_annotations.a */; };
+		BFF84EC325AF5C9800726A17 /* libabsl_exponential_biased.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87F25A164A5002C338D /* libabsl_exponential_biased.a */; };
+		BFF84EC425AF5C9B00726A17 /* libabsl_graphcycles_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87125A164A3002C338D /* libabsl_graphcycles_internal.a */; };
+		BFF84EC525AF5C9D00726A17 /* libabsl_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D86E25A164A2002C338D /* libabsl_hash.a */; };
+		BFF84EC625AF5CA000726A17 /* libabsl_hashtablez_sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87425A164A3002C338D /* libabsl_hashtablez_sampler.a */; };
+		BFF84EC725AF5CA300726A17 /* libabsl_int128.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D86F25A164A2002C338D /* libabsl_int128.a */; };
+		BFF84EC825AF5CA500726A17 /* libabsl_log_severity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D86D25A164A2002C338D /* libabsl_log_severity.a */; };
+		BFF84EC925AF5CA800726A17 /* libabsl_malloc_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88425A164A6002C338D /* libabsl_malloc_internal.a */; };
+		BFF84ECA25AF5CAB00726A17 /* libabsl_raw_hash_set.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87725A164A4002C338D /* libabsl_raw_hash_set.a */; };
+		BFF84ECB25AF5CAD00726A17 /* libabsl_raw_logging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88625A164A6002C338D /* libabsl_raw_logging_internal.a */; };
+		BFF84ECC25AF5CB000726A17 /* libabsl_spinlock_wait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87C25A164A4002C338D /* libabsl_spinlock_wait.a */; };
+		BFF84ECD25AF5CB300726A17 /* libabsl_stacktrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88025A164A5002C338D /* libabsl_stacktrace.a */; };
+		BFF84ECE25AF5CB500726A17 /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87A25A164A4002C338D /* libabsl_status.a */; };
+		BFF84ECF25AF5CB800726A17 /* libabsl_str_format_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89425A164A8002C338D /* libabsl_str_format_internal.a */; };
+		BFF84ED025AF5CBB00726A17 /* libabsl_strings_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89C25A164A9002C338D /* libabsl_strings_internal.a */; };
+		BFF84ED125AF5CBE00726A17 /* libabsl_strings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89125A164A8002C338D /* libabsl_strings.a */; };
+		BFF84ED225AF5CC000726A17 /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88125A164A5002C338D /* libabsl_symbolize.a */; };
+		BFF84ED325AF5CC200726A17 /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87B25A164A4002C338D /* libabsl_synchronization.a */; };
+		BFF84ED425AF5CC500726A17 /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87325A164A3002C338D /* libabsl_throw_delegate.a */; };
+		BFF84ED525AF5CC700726A17 /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88B25A164A7002C338D /* libabsl_time_zone.a */; };
+		BFF84ED625AF5CCA00726A17 /* libabsl_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88325A164A5002C338D /* libabsl_time.a */; };
+		BFF84ED725AF5CCD00726A17 /* libaddress_sorting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87525A164A3002C338D /* libaddress_sorting.a */; };
+		BFF84ED825AF5CCF00726A17 /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88725A164A6002C338D /* libcares.a */; };
+		BFF84EDA25AF5CD500726A17 /* libgpr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87825A164A4002C338D /* libgpr.a */; };
+		BFF84EDB25AF5CD700726A17 /* libgrpc_plugin_support.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89525A164A8002C338D /* libgrpc_plugin_support.a */; };
+		BFF84EDC25AF5CDA00726A17 /* libgrpc_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88A25A164A7002C338D /* libgrpc_unsecure.a */; };
+		BFF84EDD25AF5CDE00726A17 /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89825A164A9002C338D /* libgrpc.a */; };
+		BFF84EDE25AF5CE000726A17 /* libgrpc++_alts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89925A164A9002C338D /* libgrpc++_alts.a */; };
+		BFF84EDF25AF5CE200726A17 /* libgrpc++_error_details.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89B25A164A9002C338D /* libgrpc++_error_details.a */; };
+		BFF84EE025AF5CE500726A17 /* libgrpc++_reflection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88525A164A6002C338D /* libgrpc++_reflection.a */; };
+		BFF84EE125AF5CE800726A17 /* libgrpc++_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88F25A164A7002C338D /* libgrpc++_unsecure.a */; };
+		BFF84EE225AF5CEB00726A17 /* libgrpc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88225A164A5002C338D /* libgrpc++.a */; };
+		BFF84EE325AF5CEE00726A17 /* libgrpcpp_channelz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89025A164A8002C338D /* libgrpcpp_channelz.a */; };
+		BFF84EE425AF5CF600726A17 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89625A164A8002C338D /* libprotobuf.a */; };
+		BFF84EE625AF5CFD00726A17 /* libre2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D87E25A164A5002C338D /* libre2.a */; };
+		BFF84EE725AF5D0900726A17 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D89325A164A8002C338D /* libssl.a */; };
+		BFF84EE825AF5D0C00726A17 /* libupb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88E25A164A7002C338D /* libupb.a */; };
+		BFF84EE925AF5D0F00726A17 /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF97D88C25A164A7002C338D /* libz.a */; };
+		BFF84EEE25AF5E1700726A17 /* libpng16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF84EED25AF5E1700726A17 /* libpng16.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF2BF069258447E8008EA8FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF2BF055258447E5008EA8FE;
+			remoteInfo = ConsoleApp;
+		};
+		BF2BF074258447E9008EA8FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF2BF055258447E5008EA8FE;
+			remoteInfo = ConsoleApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BF6EFD01258470590068543D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				BF6EFD09258470700068543D /* Cocoa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF90A4D125A270A80069D611 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1672FE841209C02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 10; lineEnding = 0; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		32DBCF630370AF2F00C91783 /* grpyOsiriX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grpyOsiriX_Prefix.pch; sourceTree = "<group>"; };
+		8420023112E829A200E1E9CE /* OsiriXAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OsiriXAPI.framework; sourceTree = "<group>"; };
+		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABA48A640680BB600089EB4F /* grpyOsiriXFilter.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = grpyOsiriXFilter.h; sourceTree = "<group>"; };
+		BF1975432562E0F6006C25B2 /* grpyOsiriXFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = grpyOsiriXFilter.mm; sourceTree = "<group>"; };
+		BF2BF056258447E5008EA8FE /* ConsoleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConsoleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2BF058258447E5008EA8FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BF2BF059258447E5008EA8FE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BF2BF05B258447E8008EA8FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF2BF05E258447E8008EA8FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF2BF060258447E8008EA8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF2BF061258447E8008EA8FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF2BF068258447E8008EA8FE /* ConsoleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConsoleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2BF06C258447E8008EA8FE /* ConsoleAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleAppTests.m; sourceTree = "<group>"; };
+		BF2BF06E258447E8008EA8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF2BF073258447E8008EA8FE /* ConsoleAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConsoleAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2BF077258447E9008EA8FE /* ConsoleAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConsoleAppUITests.m; sourceTree = "<group>"; };
+		BF2BF079258447E9008EA8FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF2BF092258451B1008EA8FE /* ServerManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ServerManager.mm; sourceTree = "<group>"; };
+		BF2BF09C258451E2008EA8FE /* ServerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerManager.h; sourceTree = "<group>"; };
+		BF2BF0B325846192008EA8FE /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
+		BF2BF0B425846192008EA8FE /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		BF4FD4DA2574432B00246D66 /* ConsoleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleController.h; sourceTree = "<group>"; };
+		BF4FD4DC2574432B00246D66 /* ConsoleController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsoleController.xib; sourceTree = "<group>"; };
+		BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos.grpc.pb.cc; path = rpc/cpp/horos.grpc.pb.cc; sourceTree = "<group>"; };
+		BF4FD52E25751EA700246D66 /* horos.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos.pb.cc; path = rpc/cpp/horos.pb.cc; sourceTree = "<group>"; };
+		BF4FD52F25751EA700246D66 /* horos.grpc.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = horos.grpc.pb.h; path = rpc/cpp/horos.grpc.pb.h; sourceTree = "<group>"; };
+		BF4FD53025751EA700246D66 /* horos.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = horos.pb.h; path = rpc/cpp/horos.pb.h; sourceTree = "<group>"; };
+		BF4FD54025759DF100246D66 /* ConsoleController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConsoleController.mm; sourceTree = "<group>"; };
+		BF4FD54C25768EC500246D66 /* HorosServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorosServer.h; sourceTree = "<group>"; };
+		BF4FD54D25768EC500246D66 /* HorosServer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HorosServer.mm; sourceTree = "<group>"; };
+		BF4FD571257868DC00246D66 /* ServerAdaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerAdaptor.h; sourceTree = "<group>"; };
+		BF6EFD1A25847ED00068543D /* MockPyOsiriXIIFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MockPyOsiriXIIFilter.mm; sourceTree = "<group>"; };
+		BF6EFD1B25847ED00068543D /* MockPyOsiriXIIFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockPyOsiriXIIFilter.h; sourceTree = "<group>"; };
+		BF6EFDA12586BF5E0068543D /* pyosirix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pyosirix.png; sourceTree = "<group>"; };
+		BF90A4D525A270A80069D611 /* grpyHoros.osirixplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grpyHoros.osirixplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF97D86D25A164A2002C338D /* libabsl_log_severity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_log_severity.a; sourceTree = "<group>"; };
+		BF97D86E25A164A2002C338D /* libabsl_hash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_hash.a; sourceTree = "<group>"; };
+		BF97D86F25A164A2002C338D /* libabsl_int128.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_int128.a; sourceTree = "<group>"; };
+		BF97D87025A164A3002C338D /* libabsl_bad_variant_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_bad_variant_access.a; sourceTree = "<group>"; };
+		BF97D87125A164A3002C338D /* libabsl_graphcycles_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_graphcycles_internal.a; sourceTree = "<group>"; };
+		BF97D87225A164A3002C338D /* libabsl_city.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_city.a; sourceTree = "<group>"; };
+		BF97D87325A164A3002C338D /* libabsl_throw_delegate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_throw_delegate.a; sourceTree = "<group>"; };
+		BF97D87425A164A3002C338D /* libabsl_hashtablez_sampler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_hashtablez_sampler.a; sourceTree = "<group>"; };
+		BF97D87525A164A3002C338D /* libaddress_sorting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaddress_sorting.a; sourceTree = "<group>"; };
+		BF97D87725A164A4002C338D /* libabsl_raw_hash_set.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_raw_hash_set.a; sourceTree = "<group>"; };
+		BF97D87825A164A4002C338D /* libgpr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgpr.a; sourceTree = "<group>"; };
+		BF97D87925A164A4002C338D /* libabsl_dynamic_annotations.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_dynamic_annotations.a; sourceTree = "<group>"; };
+		BF97D87A25A164A4002C338D /* libabsl_status.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_status.a; sourceTree = "<group>"; };
+		BF97D87B25A164A4002C338D /* libabsl_synchronization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_synchronization.a; sourceTree = "<group>"; };
+		BF97D87C25A164A4002C338D /* libabsl_spinlock_wait.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_spinlock_wait.a; sourceTree = "<group>"; };
+		BF97D87D25A164A5002C338D /* libabsl_cord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_cord.a; sourceTree = "<group>"; };
+		BF97D87E25A164A5002C338D /* libre2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libre2.a; sourceTree = "<group>"; };
+		BF97D87F25A164A5002C338D /* libabsl_exponential_biased.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_exponential_biased.a; sourceTree = "<group>"; };
+		BF97D88025A164A5002C338D /* libabsl_stacktrace.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_stacktrace.a; sourceTree = "<group>"; };
+		BF97D88125A164A5002C338D /* libabsl_symbolize.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_symbolize.a; sourceTree = "<group>"; };
+		BF97D88225A164A5002C338D /* libgrpc++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgrpc++.a"; sourceTree = "<group>"; };
+		BF97D88325A164A5002C338D /* libabsl_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_time.a; sourceTree = "<group>"; };
+		BF97D88425A164A6002C338D /* libabsl_malloc_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_malloc_internal.a; sourceTree = "<group>"; };
+		BF97D88525A164A6002C338D /* libgrpc++_reflection.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgrpc++_reflection.a"; sourceTree = "<group>"; };
+		BF97D88625A164A6002C338D /* libabsl_raw_logging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_raw_logging_internal.a; sourceTree = "<group>"; };
+		BF97D88725A164A6002C338D /* libcares.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcares.a; sourceTree = "<group>"; };
+		BF97D88825A164A6002C338D /* libabsl_debugging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_debugging_internal.a; sourceTree = "<group>"; };
+		BF97D88A25A164A7002C338D /* libgrpc_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrpc_unsecure.a; sourceTree = "<group>"; };
+		BF97D88B25A164A7002C338D /* libabsl_time_zone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_time_zone.a; sourceTree = "<group>"; };
+		BF97D88C25A164A7002C338D /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libz.a; sourceTree = "<group>"; };
+		BF97D88D25A164A7002C338D /* libabsl_demangle_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_demangle_internal.a; sourceTree = "<group>"; };
+		BF97D88E25A164A7002C338D /* libupb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libupb.a; sourceTree = "<group>"; };
+		BF97D88F25A164A7002C338D /* libgrpc++_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgrpc++_unsecure.a"; sourceTree = "<group>"; };
+		BF97D89025A164A8002C338D /* libgrpcpp_channelz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrpcpp_channelz.a; sourceTree = "<group>"; };
+		BF97D89125A164A8002C338D /* libabsl_strings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_strings.a; sourceTree = "<group>"; };
+		BF97D89225A164A8002C338D /* libabsl_civil_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_civil_time.a; sourceTree = "<group>"; };
+		BF97D89325A164A8002C338D /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		BF97D89425A164A8002C338D /* libabsl_str_format_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_str_format_internal.a; sourceTree = "<group>"; };
+		BF97D89525A164A8002C338D /* libgrpc_plugin_support.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrpc_plugin_support.a; sourceTree = "<group>"; };
+		BF97D89625A164A8002C338D /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libprotobuf.a; sourceTree = "<group>"; };
+		BF97D89725A164A9002C338D /* libabsl_bad_optional_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_bad_optional_access.a; sourceTree = "<group>"; };
+		BF97D89825A164A9002C338D /* libgrpc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrpc.a; sourceTree = "<group>"; };
+		BF97D89925A164A9002C338D /* libgrpc++_alts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgrpc++_alts.a"; sourceTree = "<group>"; };
+		BF97D89A25A164A9002C338D /* libabsl_base.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_base.a; sourceTree = "<group>"; };
+		BF97D89B25A164A9002C338D /* libgrpc++_error_details.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libgrpc++_error_details.a"; sourceTree = "<group>"; };
+		BF97D89C25A164A9002C338D /* libabsl_strings_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libabsl_strings_internal.a; sourceTree = "<group>"; };
+		BF97D93725A16B8F002C338D /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../../usr/local/Cellar/openssl@1.1/1.1.1h/lib/libcrypto.a"; sourceTree = "<group>"; };
+		BF97D93825A16B8F002C338D /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../../usr/local/Cellar/openssl@1.1/1.1.1h/lib/libssl.a"; sourceTree = "<group>"; };
+		BFF84EED25AF5E1700726A17 /* libpng16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libpng16.dylib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF2BF053258447E5008EA8FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFF84EBE25AF5C8A00726A17 /* libabsl_civil_time.a in Frameworks */,
+				BFF84ECC25AF5CB000726A17 /* libabsl_spinlock_wait.a in Frameworks */,
+				BFF84EBD25AF5C8700726A17 /* libabsl_city.a in Frameworks */,
+				BFF84EEE25AF5E1700726A17 /* libpng16.dylib in Frameworks */,
+				BFF84EDE25AF5CE000726A17 /* libgrpc++_alts.a in Frameworks */,
+				BFF84EDC25AF5CDA00726A17 /* libgrpc_unsecure.a in Frameworks */,
+				BFF84ED425AF5CC500726A17 /* libabsl_throw_delegate.a in Frameworks */,
+				BFF84EE025AF5CE500726A17 /* libgrpc++_reflection.a in Frameworks */,
+				BFF84EE625AF5CFD00726A17 /* libre2.a in Frameworks */,
+				BFF84ED625AF5CCA00726A17 /* libabsl_time.a in Frameworks */,
+				BFF84EE725AF5D0900726A17 /* libssl.a in Frameworks */,
+				BFF84ED025AF5CBB00726A17 /* libabsl_strings_internal.a in Frameworks */,
+				BFF84ED825AF5CCF00726A17 /* libcares.a in Frameworks */,
+				BFF84EC725AF5CA300726A17 /* libabsl_int128.a in Frameworks */,
+				BFF84EC825AF5CA500726A17 /* libabsl_log_severity.a in Frameworks */,
+				BFF84EC225AF5C9600726A17 /* libabsl_dynamic_annotations.a in Frameworks */,
+				BFF84EDA25AF5CD500726A17 /* libgpr.a in Frameworks */,
+				BFF84EBC25AF5C8400726A17 /* libabsl_base.a in Frameworks */,
+				BFF84ECB25AF5CAD00726A17 /* libabsl_raw_logging_internal.a in Frameworks */,
+				BFF84EB525AF5C7400726A17 /* libcrypto.a in Frameworks */,
+				BFF84EBA25AF5C7E00726A17 /* libabsl_bad_optional_access.a in Frameworks */,
+				BFF84EE225AF5CEB00726A17 /* libgrpc++.a in Frameworks */,
+				BFF84EDD25AF5CDE00726A17 /* libgrpc.a in Frameworks */,
+				BFF84ED725AF5CCD00726A17 /* libaddress_sorting.a in Frameworks */,
+				BFF84EC425AF5C9B00726A17 /* libabsl_graphcycles_internal.a in Frameworks */,
+				BFF84ED125AF5CBE00726A17 /* libabsl_strings.a in Frameworks */,
+				BFF84EE425AF5CF600726A17 /* libprotobuf.a in Frameworks */,
+				BFF84ED525AF5CC700726A17 /* libabsl_time_zone.a in Frameworks */,
+				BFF84ED325AF5CC200726A17 /* libabsl_synchronization.a in Frameworks */,
+				BFF84EE125AF5CE800726A17 /* libgrpc++_unsecure.a in Frameworks */,
+				BFF84ECD25AF5CB300726A17 /* libabsl_stacktrace.a in Frameworks */,
+				BFF84EC125AF5C9300726A17 /* libabsl_demangle_internal.a in Frameworks */,
+				BFF84EBB25AF5C8200726A17 /* libabsl_bad_variant_access.a in Frameworks */,
+				BF6EFCD025846B960068543D /* Cocoa.framework in Frameworks */,
+				BFF84EB925AF5C7800726A17 /* libssl.a in Frameworks */,
+				BFF84EC325AF5C9800726A17 /* libabsl_exponential_biased.a in Frameworks */,
+				BFF84EDB25AF5CD700726A17 /* libgrpc_plugin_support.a in Frameworks */,
+				BFF84EE325AF5CEE00726A17 /* libgrpcpp_channelz.a in Frameworks */,
+				BFF84ECF25AF5CB800726A17 /* libabsl_str_format_internal.a in Frameworks */,
+				BFF84EE925AF5D0F00726A17 /* libz.a in Frameworks */,
+				BFF84ED225AF5CC000726A17 /* libabsl_symbolize.a in Frameworks */,
+				BFF84EC625AF5CA000726A17 /* libabsl_hashtablez_sampler.a in Frameworks */,
+				BFF84EC925AF5CA800726A17 /* libabsl_malloc_internal.a in Frameworks */,
+				BFF84ECE25AF5CB500726A17 /* libabsl_status.a in Frameworks */,
+				BFF84EDF25AF5CE200726A17 /* libgrpc++_error_details.a in Frameworks */,
+				BFF84EC525AF5C9D00726A17 /* libabsl_hash.a in Frameworks */,
+				BFF84ECA25AF5CAB00726A17 /* libabsl_raw_hash_set.a in Frameworks */,
+				BFF84EE825AF5D0C00726A17 /* libupb.a in Frameworks */,
+				BFF84EBF25AF5C8D00726A17 /* libabsl_cord.a in Frameworks */,
+				BFF84EC025AF5C9000726A17 /* libabsl_debugging_internal.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2BF065258447E8008EA8FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2BF070258447E8008EA8FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF90A49A25A270A80069D611 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A49B25A270A80069D611 /* libabsl_base.a in Frameworks */,
+				BF90A49C25A270A80069D611 /* libabsl_civil_time.a in Frameworks */,
+				BF90A49D25A270A80069D611 /* libgrpc++_unsecure.a in Frameworks */,
+				BF90A49E25A270A80069D611 /* libgrpc++_reflection.a in Frameworks */,
+				BF90A49F25A270A80069D611 /* libabsl_log_severity.a in Frameworks */,
+				BF90A4A025A270A80069D611 /* libcares.a in Frameworks */,
+				BF90A4A125A270A80069D611 /* libabsl_bad_variant_access.a in Frameworks */,
+				BF90A4A225A270A80069D611 /* libgrpc++_error_details.a in Frameworks */,
+				BF90A4A325A270A80069D611 /* libabsl_exponential_biased.a in Frameworks */,
+				BF90A4A525A270A80069D611 /* libcrypto.a in Frameworks */,
+				BF90A4A625A270A80069D611 /* libprotobuf.a in Frameworks */,
+				BF90A4A725A270A80069D611 /* libaddress_sorting.a in Frameworks */,
+				BF90A4A825A270A80069D611 /* libgrpc++_alts.a in Frameworks */,
+				BF90A4A925A270A80069D611 /* libabsl_int128.a in Frameworks */,
+				BF90A4AA25A270A80069D611 /* libabsl_dynamic_annotations.a in Frameworks */,
+				BF90A4AB25A270A80069D611 /* libgrpcpp_channelz.a in Frameworks */,
+				BF90A4AD25A270A80069D611 /* libupb.a in Frameworks */,
+				BF90A4AE25A270A80069D611 /* libabsl_time_zone.a in Frameworks */,
+				BF90A4AF25A270A80069D611 /* libabsl_time.a in Frameworks */,
+				BF90A4B025A270A80069D611 /* libabsl_strings_internal.a in Frameworks */,
+				BF90A4B125A270A80069D611 /* libabsl_cord.a in Frameworks */,
+				BF90A4B225A270A80069D611 /* libabsl_strings.a in Frameworks */,
+				BF90A4B325A270A80069D611 /* libre2.a in Frameworks */,
+				BF90A4B425A270A80069D611 /* libabsl_malloc_internal.a in Frameworks */,
+				BF90A4B525A270A80069D611 /* libgrpc_unsecure.a in Frameworks */,
+				BF90A4B625A270A80069D611 /* libgpr.a in Frameworks */,
+				BF90A4B725A270A80069D611 /* libabsl_bad_optional_access.a in Frameworks */,
+				BF90A4B825A270A80069D611 /* libgrpc.a in Frameworks */,
+				BF90A4B925A270A80069D611 /* libabsl_raw_logging_internal.a in Frameworks */,
+				BF90A4BA25A270A80069D611 /* libabsl_demangle_internal.a in Frameworks */,
+				BF90A4BB25A270A80069D611 /* libabsl_raw_hash_set.a in Frameworks */,
+				BF90A4BC25A270A80069D611 /* libgrpc++.a in Frameworks */,
+				BF90A4BD25A270A80069D611 /* libabsl_hash.a in Frameworks */,
+				BF90A4BE25A270A80069D611 /* libssl.a in Frameworks */,
+				BF90A4BF25A270A80069D611 /* Cocoa.framework in Frameworks */,
+				BF90A4C025A270A80069D611 /* libabsl_str_format_internal.a in Frameworks */,
+				BF90A4C125A270A80069D611 /* OsiriXAPI.framework in Frameworks */,
+				BF90A4C225A270A80069D611 /* libz.a in Frameworks */,
+				BF90A4C325A270A80069D611 /* libabsl_stacktrace.a in Frameworks */,
+				BF90A4C425A270A80069D611 /* libabsl_status.a in Frameworks */,
+				BF90A4C625A270A80069D611 /* libssl.a in Frameworks */,
+				BF90A4C725A270A80069D611 /* libabsl_synchronization.a in Frameworks */,
+				BF90A4C825A270A80069D611 /* libgrpc_plugin_support.a in Frameworks */,
+				BF90A4C925A270A80069D611 /* libabsl_throw_delegate.a in Frameworks */,
+				BF90A4CA25A270A80069D611 /* libabsl_city.a in Frameworks */,
+				BF90A4CB25A270A80069D611 /* libabsl_spinlock_wait.a in Frameworks */,
+				BF90A4CC25A270A80069D611 /* libabsl_hashtablez_sampler.a in Frameworks */,
+				BF90A4CD25A270A80069D611 /* libabsl_graphcycles_internal.a in Frameworks */,
+				BF90A4CE25A270A80069D611 /* libabsl_symbolize.a in Frameworks */,
+				BF90A4CF25A270A80069D611 /* libabsl_debugging_internal.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* MyNewPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AFFE84173DC02AAC07 /* Classes */,
+				32C88E010371C26100C91783 /* Other Sources */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
+				BF6EFDA7258717FC0068543D /* Testing */,
+				19C28FB8FE9D52D311CA2CBB /* Products */,
+				BF1975C925698E20006C25B2 /* Frameworks */,
+			);
+			name = MyNewPlugin;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BFF84EED25AF5E1700726A17 /* libpng16.dylib */,
+				BF97D93725A16B8F002C338D /* libcrypto.a */,
+				BF97D93825A16B8F002C338D /* libssl.a */,
+				BF97D89725A164A9002C338D /* libabsl_bad_optional_access.a */,
+				BF97D87025A164A3002C338D /* libabsl_bad_variant_access.a */,
+				BF97D89A25A164A9002C338D /* libabsl_base.a */,
+				BF97D87225A164A3002C338D /* libabsl_city.a */,
+				BF97D89225A164A8002C338D /* libabsl_civil_time.a */,
+				BF97D87D25A164A5002C338D /* libabsl_cord.a */,
+				BF97D88825A164A6002C338D /* libabsl_debugging_internal.a */,
+				BF97D88D25A164A7002C338D /* libabsl_demangle_internal.a */,
+				BF97D87925A164A4002C338D /* libabsl_dynamic_annotations.a */,
+				BF97D87F25A164A5002C338D /* libabsl_exponential_biased.a */,
+				BF97D87125A164A3002C338D /* libabsl_graphcycles_internal.a */,
+				BF97D86E25A164A2002C338D /* libabsl_hash.a */,
+				BF97D87425A164A3002C338D /* libabsl_hashtablez_sampler.a */,
+				BF97D86F25A164A2002C338D /* libabsl_int128.a */,
+				BF97D86D25A164A2002C338D /* libabsl_log_severity.a */,
+				BF97D88425A164A6002C338D /* libabsl_malloc_internal.a */,
+				BF97D87725A164A4002C338D /* libabsl_raw_hash_set.a */,
+				BF97D88625A164A6002C338D /* libabsl_raw_logging_internal.a */,
+				BF97D87C25A164A4002C338D /* libabsl_spinlock_wait.a */,
+				BF97D88025A164A5002C338D /* libabsl_stacktrace.a */,
+				BF97D87A25A164A4002C338D /* libabsl_status.a */,
+				BF97D89425A164A8002C338D /* libabsl_str_format_internal.a */,
+				BF97D89C25A164A9002C338D /* libabsl_strings_internal.a */,
+				BF97D89125A164A8002C338D /* libabsl_strings.a */,
+				BF97D88125A164A5002C338D /* libabsl_symbolize.a */,
+				BF97D87B25A164A4002C338D /* libabsl_synchronization.a */,
+				BF97D87325A164A3002C338D /* libabsl_throw_delegate.a */,
+				BF97D88B25A164A7002C338D /* libabsl_time_zone.a */,
+				BF97D88325A164A5002C338D /* libabsl_time.a */,
+				BF97D87525A164A3002C338D /* libaddress_sorting.a */,
+				BF97D88725A164A6002C338D /* libcares.a */,
+				BF97D87825A164A4002C338D /* libgpr.a */,
+				BF97D89525A164A8002C338D /* libgrpc_plugin_support.a */,
+				BF97D88A25A164A7002C338D /* libgrpc_unsecure.a */,
+				BF97D89825A164A9002C338D /* libgrpc.a */,
+				BF97D89925A164A9002C338D /* libgrpc++_alts.a */,
+				BF97D89B25A164A9002C338D /* libgrpc++_error_details.a */,
+				BF97D88525A164A6002C338D /* libgrpc++_reflection.a */,
+				BF97D88F25A164A7002C338D /* libgrpc++_unsecure.a */,
+				BF97D88225A164A5002C338D /* libgrpc++.a */,
+				BF97D89025A164A8002C338D /* libgrpcpp_channelz.a */,
+				BF97D89625A164A8002C338D /* libprotobuf.a */,
+				BF97D87E25A164A5002C338D /* libre2.a */,
+				BF97D89325A164A8002C338D /* libssl.a */,
+				BF97D88E25A164A7002C338D /* libupb.a */,
+				BF97D88C25A164A7002C338D /* libz.a */,
+				8420023112E829A200E1E9CE /* OsiriXAPI.framework */,
+				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
+				1058C7AEFEA557BF11CA2CBB /* Other Frameworks */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF6EFDA12586BF5E0068543D /* pyosirix.png */,
+				8D5B49B7048680CD000E48DA /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FD4D125742DCA00246D66 /* Console */,
+				AB2C26750677B0C400A08910 /* pyOsiriXIIFilter */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7AEFEA557BF11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				089C1672FE841209C02AAC07 /* Foundation.framework */,
+				089C167FFE841241C02AAC07 /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB8FE9D52D311CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF2BF056258447E5008EA8FE /* ConsoleApp.app */,
+				BF2BF068258447E8008EA8FE /* ConsoleAppTests.xctest */,
+				BF2BF073258447E8008EA8FE /* ConsoleAppUITests.xctest */,
+				BF90A4D525A270A80069D611 /* grpyHoros.osirixplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32C88E010371C26100C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF630370AF2F00C91783 /* grpyOsiriX_Prefix.pch */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		AB2C26750677B0C400A08910 /* pyOsiriXIIFilter */ = {
+			isa = PBXGroup;
+			children = (
+				BF19754B2562F340006C25B2 /* rpc */,
+				ABA48A640680BB600089EB4F /* grpyOsiriXFilter.h */,
+				BF1975432562E0F6006C25B2 /* grpyOsiriXFilter.mm */,
+				BF2BF09C258451E2008EA8FE /* ServerManager.h */,
+				BF2BF092258451B1008EA8FE /* ServerManager.mm */,
+			);
+			name = pyOsiriXIIFilter;
+			sourceTree = "<group>";
+		};
+		BF19754B2562F340006C25B2 /* rpc */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FD571257868DC00246D66 /* ServerAdaptor.h */,
+				BF4FD53025751EA700246D66 /* horos.pb.h */,
+				BF4FD52E25751EA700246D66 /* horos.pb.cc */,
+				BF4FD52F25751EA700246D66 /* horos.grpc.pb.h */,
+				BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */,
+				BF4FD54C25768EC500246D66 /* HorosServer.h */,
+				BF4FD54D25768EC500246D66 /* HorosServer.mm */,
+			);
+			name = rpc;
+			sourceTree = "<group>";
+		};
+		BF1975C925698E20006C25B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF2BF057258447E5008EA8FE /* ConsoleApp */ = {
+			isa = PBXGroup;
+			children = (
+				BF6EFD1B25847ED00068543D /* MockPyOsiriXIIFilter.h */,
+				BF6EFD1A25847ED00068543D /* MockPyOsiriXIIFilter.mm */,
+				BF2BF0B425846192008EA8FE /* AppController.h */,
+				BF2BF0B325846192008EA8FE /* AppController.mm */,
+				BF2BF058258447E5008EA8FE /* AppDelegate.h */,
+				BF2BF059258447E5008EA8FE /* AppDelegate.m */,
+				BF2BF05B258447E8008EA8FE /* Assets.xcassets */,
+				BF2BF05D258447E8008EA8FE /* MainMenu.xib */,
+				BF2BF060258447E8008EA8FE /* Info.plist */,
+				BF2BF061258447E8008EA8FE /* main.m */,
+			);
+			path = ConsoleApp;
+			sourceTree = "<group>";
+		};
+		BF2BF06B258447E8008EA8FE /* ConsoleAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF2BF06C258447E8008EA8FE /* ConsoleAppTests.m */,
+				BF2BF06E258447E8008EA8FE /* Info.plist */,
+			);
+			path = ConsoleAppTests;
+			sourceTree = "<group>";
+		};
+		BF2BF076258447E9008EA8FE /* ConsoleAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF2BF077258447E9008EA8FE /* ConsoleAppUITests.m */,
+				BF2BF079258447E9008EA8FE /* Info.plist */,
+			);
+			path = ConsoleAppUITests;
+			sourceTree = "<group>";
+		};
+		BF4FD4D125742DCA00246D66 /* Console */ = {
+			isa = PBXGroup;
+			children = (
+				BF4FD4DA2574432B00246D66 /* ConsoleController.h */,
+				BF4FD54025759DF100246D66 /* ConsoleController.mm */,
+				BF4FD4DC2574432B00246D66 /* ConsoleController.xib */,
+			);
+			path = Console;
+			sourceTree = "<group>";
+		};
+		BF6EFDA7258717FC0068543D /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				BF2BF057258447E5008EA8FE /* ConsoleApp */,
+				BF2BF06B258447E8008EA8FE /* ConsoleAppTests */,
+				BF2BF076258447E9008EA8FE /* ConsoleAppUITests */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BF90A48725A270A80069D611 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A48825A270A80069D611 /* grpyOsiriX_Prefix.pch in Headers */,
+				BF90A48925A270A80069D611 /* horos.grpc.pb.h in Headers */,
+				BF90A48A25A270A80069D611 /* HorosServer.h in Headers */,
+				BF90A48B25A270A80069D611 /* ServerAdaptor.h in Headers */,
+				BF90A48C25A270A80069D611 /* horos.pb.h in Headers */,
+				BF90A48D25A270A80069D611 /* ConsoleController.h in Headers */,
+				BF90A48E25A270A80069D611 /* grpyOsiriXFilter.h in Headers */,
+				BF90A48F25A270A80069D611 /* ServerManager.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BF2BF055258447E5008EA8FE /* ConsoleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF2BF07A258447E9008EA8FE /* Build configuration list for PBXNativeTarget "ConsoleApp" */;
+			buildPhases = (
+				BF2BF052258447E5008EA8FE /* Sources */,
+				BF2BF053258447E5008EA8FE /* Frameworks */,
+				BF2BF054258447E5008EA8FE /* Resources */,
+				BF6EFD01258470590068543D /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ConsoleApp;
+			productName = ConsoleApp;
+			productReference = BF2BF056258447E5008EA8FE /* ConsoleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF2BF067258447E8008EA8FE /* ConsoleAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF2BF07D258447E9008EA8FE /* Build configuration list for PBXNativeTarget "ConsoleAppTests" */;
+			buildPhases = (
+				BF2BF064258447E8008EA8FE /* Sources */,
+				BF2BF065258447E8008EA8FE /* Frameworks */,
+				BF2BF066258447E8008EA8FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF2BF06A258447E8008EA8FE /* PBXTargetDependency */,
+			);
+			name = ConsoleAppTests;
+			productName = ConsoleAppTests;
+			productReference = BF2BF068258447E8008EA8FE /* ConsoleAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF2BF072258447E8008EA8FE /* ConsoleAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF2BF080258447E9008EA8FE /* Build configuration list for PBXNativeTarget "ConsoleAppUITests" */;
+			buildPhases = (
+				BF2BF06F258447E8008EA8FE /* Sources */,
+				BF2BF070258447E8008EA8FE /* Frameworks */,
+				BF2BF071258447E8008EA8FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF2BF075258447E9008EA8FE /* PBXTargetDependency */,
+			);
+			name = ConsoleAppUITests;
+			productName = ConsoleAppUITests;
+			productReference = BF2BF073258447E8008EA8FE /* ConsoleAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		BF90A48625A270A80069D611 /* grpyHoros */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF90A4D225A270A80069D611 /* Build configuration list for PBXNativeTarget "grpyHoros" */;
+			buildPhases = (
+				BF90A48725A270A80069D611 /* Headers */,
+				BF90A49025A270A80069D611 /* Resources */,
+				BF90A49325A270A80069D611 /* Sources */,
+				BF90A49A25A270A80069D611 /* Frameworks */,
+				BF90A4D025A270A80069D611 /* Rez */,
+				BF90A4D125A270A80069D611 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = grpyHoros;
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = Invert;
+			productReference = BF90A4D525A270A80069D611 /* grpyHoros.osirixplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				TargetAttributes = {
+					BF2BF055258447E5008EA8FE = {
+						CreatedOnToolsVersion = 12.1;
+						ProvisioningStyle = Automatic;
+					};
+					BF2BF067258447E8008EA8FE = {
+						CreatedOnToolsVersion = 12.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF2BF055258447E5008EA8FE;
+					};
+					BF2BF072258447E8008EA8FE = {
+						CreatedOnToolsVersion = 12.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BF2BF055258447E5008EA8FE;
+					};
+				};
+			};
+			buildConfigurationList = CE6A9A9408AC841300D0C1EE /* Build configuration list for PBXProject "pyOsiriXII" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				Base,
+			);
+			mainGroup = 089C166AFE841209C02AAC07 /* MyNewPlugin */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF90A48625A270A80069D611 /* grpyHoros */,
+				BF2BF055258447E5008EA8FE /* ConsoleApp */,
+				BF2BF067258447E8008EA8FE /* ConsoleAppTests */,
+				BF2BF072258447E8008EA8FE /* ConsoleAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF2BF054258447E5008EA8FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6EFCCB25846B390068543D /* ConsoleController.xib in Resources */,
+				BF2BF05C258447E8008EA8FE /* Assets.xcassets in Resources */,
+				BF6EFDA22586BF5E0068543D /* pyosirix.png in Resources */,
+				BF2BF05F258447E8008EA8FE /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2BF066258447E8008EA8FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2BF071258447E8008EA8FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF90A49025A270A80069D611 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A49125A270A80069D611 /* ConsoleController.xib in Resources */,
+				BF90A49225A270A80069D611 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		BF90A4D025A270A80069D611 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF2BF052258447E5008EA8FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF6EFD1C25847ED00068543D /* MockPyOsiriXIIFilter.mm in Sources */,
+				BF2BF062258447E8008EA8FE /* main.m in Sources */,
+				BF6EFCB725846B160068543D /* HorosServer.mm in Sources */,
+				BF2BF0B525846192008EA8FE /* AppController.mm in Sources */,
+				BF6EFD252584F4210068543D /* ServerManager.mm in Sources */,
+				BF6EFCC625846B340068543D /* ConsoleController.mm in Sources */,
+				BF6EFCBC25846B1D0068543D /* horos.grpc.pb.cc in Sources */,
+				BF2BF05A258447E5008EA8FE /* AppDelegate.m in Sources */,
+				BF6EFCC125846B210068543D /* horos.pb.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2BF064258447E8008EA8FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF2BF06D258447E8008EA8FE /* ConsoleAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF2BF06F258447E8008EA8FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF2BF078258447E9008EA8FE /* ConsoleAppUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF90A49325A270A80069D611 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90A49425A270A80069D611 /* grpyOsiriXFilter.mm in Sources */,
+				BF90A49525A270A80069D611 /* HorosServer.mm in Sources */,
+				BF90A49625A270A80069D611 /* ConsoleController.mm in Sources */,
+				BF90A49725A270A80069D611 /* horos.grpc.pb.cc in Sources */,
+				BF90A49825A270A80069D611 /* ServerManager.mm in Sources */,
+				BF90A49925A270A80069D611 /* horos.pb.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF2BF06A258447E8008EA8FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF2BF055258447E5008EA8FE /* ConsoleApp */;
+			targetProxy = BF2BF069258447E8008EA8FE /* PBXContainerItemProxy */;
+		};
+		BF2BF075258447E9008EA8FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF2BF055258447E5008EA8FE /* ConsoleApp */;
+			targetProxy = BF2BF074258447E9008EA8FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BF2BF05D258447E8008EA8FE /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF2BF05E258447E8008EA8FE /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF2BF07B258447E9008EA8FE /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = ConsoleApp/ConsoleApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+					"\"$(SRCROOT)\"/**",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"/usr/local/Cellar/png++/0.2.10/include",
+					/usr/local/Cellar/libpng/1.6.37/include,
+				);
+				INFOPLIST_FILE = Testing/ConsoleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.icr.ConsoleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Development;
+		};
+		BF2BF07C258447E9008EA8FE /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = ConsoleApp/ConsoleApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/**",
+					"\"$(SRCROOT)\"/**",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"/usr/local/Cellar/png++/0.2.10/include",
+					/usr/local/Cellar/libpng/1.6.37/include,
+				);
+				INFOPLIST_FILE = Testing/ConsoleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/lib",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.icr.ConsoleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Deployment;
+		};
+		BF2BF07E258447E9008EA8FE /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ConsoleAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.icr.ConsoleAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConsoleApp.app/Contents/MacOS/ConsoleApp";
+			};
+			name = Development;
+		};
+		BF2BF07F258447E9008EA8FE /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ConsoleAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.icr.ConsoleAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConsoleApp.app/Contents/MacOS/ConsoleApp";
+			};
+			name = Deployment;
+		};
+		BF2BF081258447E9008EA8FE /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ConsoleAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.icr.ConsoleAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = ConsoleApp;
+			};
+			name = Development;
+		};
+		BF2BF082258447E9008EA8FE /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ConsoleAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.ac.icr.ConsoleAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = ConsoleApp;
+			};
+			name = Deployment;
+		};
+		BF90A4D325A270A80069D611 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = grpyOsiriX_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@executable_path/../Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"/usr/local/grpc-1.33.1/gnu-release/lib",
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/lib",
+				);
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.2.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = grpyHoros;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = osirixplugin;
+				ZERO_LINK = NO;
+			};
+			name = Development;
+		};
+		BF90A4D425A270A80069D611 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_TRIGRAPHS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = grpyOsiriX_Prefix.pch;
+				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
+				GCC_WARN_UNKNOWN_PRAGMAS = NO;
+				HEADER_SEARCH_PATHS = (
+					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
+				);
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "@executable_path/../Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"/usr/local/grpc-1.33.1/gnu-release/lib",
+					"/usr/local/Cellar/openssl@1.1/1.1.1h/lib",
+				);
+				LIBRARY_STYLE = Bundle;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.2.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = grpyHoros;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = osirixplugin;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		CE6A9A9508AC841300D0C1EE /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Development;
+		};
+		CE6A9A9608AC841300D0C1EE /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Deployment;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF2BF07A258447E9008EA8FE /* Build configuration list for PBXNativeTarget "ConsoleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF2BF07B258447E9008EA8FE /* Development */,
+				BF2BF07C258447E9008EA8FE /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		BF2BF07D258447E9008EA8FE /* Build configuration list for PBXNativeTarget "ConsoleAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF2BF07E258447E9008EA8FE /* Development */,
+				BF2BF07F258447E9008EA8FE /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		BF2BF080258447E9008EA8FE /* Build configuration list for PBXNativeTarget "ConsoleAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF2BF081258447E9008EA8FE /* Development */,
+				BF2BF082258447E9008EA8FE /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		BF90A4D225A270A80069D611 /* Build configuration list for PBXNativeTarget "grpyHoros" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF90A4D325A270A80069D611 /* Development */,
+				BF90A4D425A270A80069D611 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		CE6A9A9408AC841300D0C1EE /* Build configuration list for PBXProject "pyOsiriXII" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE6A9A9508AC841300D0C1EE /* Development */,
+				CE6A9A9608AC841300D0C1EE /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
