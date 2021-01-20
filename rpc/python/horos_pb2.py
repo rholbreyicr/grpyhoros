@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bhoros.proto\x12\x03icr\"\x1e\n\x10\x44icomNameRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\'\n\x11\x44icomNameResponse\x12\x12\n\ndicom_name\x18\x01 \x01(\t\"\x1d\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\"l\n\x10ImageGetResponse\x12\x12\n\ndicom_name\x18\x01 \x01(\t\x12\x12\n\nimage_size\x18\x02 \x03(\x05\x12\x12\n\nvoxel_size\x18\x03 \x03(\x02\x12\x0e\n\x06origin\x18\x04 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x05 \x03(\x02\"k\n\x0fImageSetRequest\x12\x12\n\ndicom_name\x18\x01 \x01(\t\x12\x12\n\nimage_size\x18\x02 \x03(\x05\x12\x12\n\nvoxel_size\x18\x03 \x03(\x02\x12\x0e\n\x06origin\x18\x04 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x05 \x03(\x02\"\x1e\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t2\xd3\x01\n\x05Horos\x12\x46\n\x13GetCurrentImageFile\x12\x15.icr.DicomNameRequest\x1a\x16.icr.DicomNameResponse\"\x00\x12@\n\x0fGetCurrentImage\x12\x14.icr.ImageGetRequest\x1a\x15.icr.ImageGetResponse\"\x00\x12@\n\x0fSetCurrentImage\x12\x14.icr.ImageSetRequest\x1a\x15.icr.ImageGetResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bhoros.proto\x12\x03icr\"\x1e\n\x10\x44icomNameRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1f\n\x11\x44icomNameResponse\x12\n\n\x02id\x18\x01 \x01(\t\"\x1d\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\"d\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nimage_size\x18\x02 \x03(\x05\x12\x12\n\nvoxel_size\x18\x03 \x03(\x02\x12\x0e\n\x06origin\x18\x04 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x05 \x03(\x02\"c\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\nimage_size\x18\x02 \x03(\x05\x12\x12\n\nvoxel_size\x18\x03 \x03(\x02\x12\x0e\n\x06origin\x18\x04 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x05 \x03(\x02\"\x1e\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t2\xd3\x01\n\x05Horos\x12\x46\n\x13GetCurrentImageFile\x12\x15.icr.DicomNameRequest\x1a\x16.icr.DicomNameResponse\"\x00\x12@\n\x0fGetCurrentImage\x12\x14.icr.ImageGetRequest\x1a\x15.icr.ImageGetResponse\"\x00\x12@\n\x0fSetCurrentImage\x12\x14.icr.ImageSetRequest\x1a\x15.icr.ImageSetResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -66,7 +66,7 @@ _DICOMNAMERESPONSE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dicom_name', full_name='icr.DicomNameResponse.dicom_name', index=0,
+      name='id', full_name='icr.DicomNameResponse.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -85,7 +85,7 @@ _DICOMNAMERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=52,
-  serialized_end=91,
+  serialized_end=83,
 )
 
 
@@ -116,8 +116,8 @@ _IMAGEGETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=122,
+  serialized_start=85,
+  serialized_end=114,
 )
 
 
@@ -130,7 +130,7 @@ _IMAGEGETRESPONSE = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dicom_name', full_name='icr.ImageGetResponse.dicom_name', index=0,
+      name='id', full_name='icr.ImageGetResponse.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -176,8 +176,8 @@ _IMAGEGETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=124,
-  serialized_end=232,
+  serialized_start=116,
+  serialized_end=216,
 )
 
 
@@ -190,7 +190,7 @@ _IMAGESETREQUEST = _descriptor.Descriptor(
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='dicom_name', full_name='icr.ImageSetRequest.dicom_name', index=0,
+      name='id', full_name='icr.ImageSetRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -236,8 +236,8 @@ _IMAGESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=234,
-  serialized_end=341,
+  serialized_start=218,
+  serialized_end=317,
 )
 
 
@@ -268,8 +268,8 @@ _IMAGESETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=343,
-  serialized_end=373,
+  serialized_start=319,
+  serialized_end=349,
 )
 
 DESCRIPTOR.message_types_by_name['DicomNameRequest'] = _DICOMNAMEREQUEST
@@ -331,8 +331,8 @@ _HOROS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=376,
-  serialized_end=587,
+  serialized_start=352,
+  serialized_end=563,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCurrentImageFile',
@@ -360,7 +360,7 @@ _HOROS = _descriptor.ServiceDescriptor(
     index=2,
     containing_service=None,
     input_type=_IMAGESETREQUEST,
-    output_type=_IMAGEGETRESPONSE,
+    output_type=_IMAGESETRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

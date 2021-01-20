@@ -28,6 +28,7 @@
 
 -(void)GetCurrentImageFile:(NSString*) log_string;
 -(void)GetCurrentImage:(NSString*) log_string;
+-(void)SetCurrentImage:(NSString*) log_string;
 -(void)LogConnection:(NSString*) connec;
 
 @end

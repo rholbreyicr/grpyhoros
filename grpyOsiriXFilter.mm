@@ -17,6 +17,8 @@ using icr::DicomNameRequest;
 using icr::DicomNameResponse;
 using icr::ImageGetRequest;
 using icr::ImageGetResponse;
+using icr::ImageSetRequest;
+using icr::ImageSetResponse;
 
 //-----------------------------------------------------------------------------------
 
@@ -72,7 +74,7 @@ using icr::ImageGetResponse;
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     if( !currV )
     {
-        log_string = @"Error: <No 2D viewer available>";
+        log_string = @"<Error> No 2D viewer available";
     }
     else
     {
@@ -85,7 +87,7 @@ using icr::ImageGetResponse;
     {
         [Adaptor->Lock lock];
         DicomNameResponse* reply = (DicomNameResponse*)Adaptor->Response;
-        reply->set_dicom_name( reply_str );
+        reply->set_id( reply_str );
         [Adaptor->Lock unlock];
     }
 
@@ -114,48 +116,33 @@ using icr::ImageGetResponse;
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     if( !currV )
     {
-        log_string = @"Error: <No 2D viewer available>";
+        log_string = @"<Error> No 2D viewer available";
     }
     else
     {
-        DCMPix* curPix = [[currV pixList] objectAtIndex: [[currV imageView] curImage]];
-        log_string = [curPix sourceFile];
+        /* cf pyOsirix/pyDCMPix.m : pyDCMPix_getImage */
         
-        [curPix origin:forigin];
-        fvox_size[0] = [curPix pixelSpacingX];
-        fvox_size[1] = [curPix pixelSpacingY];
-        fvox_size[2] = [curPix spacingBetweenSlices];
+        DCMPix* pix = [[currV pixList] objectAtIndex: [[currV imageView] curImage]];
+        log_string = [pix sourceFile];
+        
+        [pix origin:forigin];
+        fvox_size[0] = [pix pixelSpacingX];
+        fvox_size[1] = [pix pixelSpacingY];
+        fvox_size[2] = [pix spacingBetweenSlices];
         
         //@todo ... maybe these would be better for python the other way around?
-        idim[0] = [curPix pwidth];
-        idim[1] = [curPix pheight];
+        idim[0] = [pix pwidth];
+        idim[1] = [pix pheight];
         
-        fraw_data = [curPix fImage];
+        fraw_data = [pix fImage];
     }
     std::string reply_str( [log_string UTF8String] );
-
-    /* from pyOsirix/pyDCMPix.m
-    
-     DCMPix *pix = self->obj;
-     long w = [pix pwidth];
-     long h = [pix pheight];
-     
-     init_numpy_DCMPix();
-     PyArrayObject *image = NULL;
-     npy_intp dims[2] = {w,h};
-     npy_intp strides[2] = {sizeof(float), w*sizeof(float)};
-     image = (PyArrayObject *)PyArray_New(&PyArray_Type, 2, dims, NPY_FLOAT, strides, NULL, sizeof(float), NPY_ARRAY_CARRAY, NULL);
-     float * data = (float *)PyArray_DATA(image);
-     float *osirixData = [pix fImage];
-     memcpy(data, osirixData, w*h*sizeof(float));
-     
-    */
 
     //mutex!
     {
         [Adaptor->Lock lock];
         ImageGetResponse* reply = (ImageGetResponse*)Adaptor->Response;
-        reply->set_dicom_name( reply_str );
+        reply->set_id( reply_str );
 
         if( currV )
         {
@@ -177,6 +164,73 @@ using icr::ImageGetResponse;
         [Adaptor->Lock unlock];
     }
     
+    [Console AddText:[NSString stringWithFormat:@"GetCurrentImage request was: %@", log_string]];
+}
+
+
+-(void)SetCurrentImage:(NSString*) log_string
+{
+    float forigin[3], fvox_size[3], *fraw_data;
+    int idim[2];
+    
+    ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
+    if( !currV )
+    {
+        log_string = @"<Error>: No 2D viewer available>";
+    }
+    else
+    {
+        DCMPix* pix = [[currV pixList] objectAtIndex: [[currV imageView] curImage]];
+        log_string = [pix sourceFile];
+        
+        [pix origin:forigin];
+        fvox_size[0] = [pix pixelSpacingX];
+        fvox_size[1] = [pix pixelSpacingY];
+        fvox_size[2] = [pix spacingBetweenSlices];
+        
+        //@todo ... maybe these would be better for python the other way around?
+        idim[0] = [pix pwidth];
+        idim[1] = [pix pheight];
+        
+        fraw_data = [pix fImage];
+    }
+    std::string reply_str( [log_string UTF8String] );
+
+    //mutex!
+    {
+        [Adaptor->Lock lock];
+        ImageSetRequest* request = (ImageSetRequest*)Adaptor->Request;
+        ImageSetResponse* reply = (ImageSetResponse*)Adaptor->Response;
+        reply->set_id( reply_str );
+
+        if( currV )
+        {
+            //if any image params have changed, reject the request
+            bool fail = false;
+            if( request->image_size(0) != idim[0] ) fail = true;
+            if( request->image_size(1) != idim[1] ) fail = true;
+            for( int k=0; k<3; k++ )
+            {
+                if( request->voxel_size(k) != fvox_size[k] ) fail = true;
+                if( request->origin(k) != forigin[k] ) fail = true;
+            }
+            const int n_pixels = idim[0] * idim[1];
+            if( !fraw_data || (request->data_size() != n_pixels) ) fail = true;
+            if( fail )
+            {
+                reply->set_id( "<Error> Image parameter mismatch" );
+            }
+            else
+            {
+                const auto pdata = request->data();
+                for( int k=0; k<n_pixels; k++ )
+                    fraw_data[k] = pdata[k];
+            }
+        }
+        [Adaptor->Lock unlock];
+    }
+    
+    [currV updateImage:nil];
     [Console AddText:[NSString stringWithFormat:@"GetCurrentImage request was: %@", log_string]];
 }
 

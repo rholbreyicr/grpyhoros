@@ -28,7 +28,7 @@ class HorosStub(object):
         self.SetCurrentImage = channel.unary_unary(
                 '/icr.Horos/SetCurrentImage',
                 request_serializer=horos__pb2.ImageSetRequest.SerializeToString,
-                response_deserializer=horos__pb2.ImageGetResponse.FromString,
+                response_deserializer=horos__pb2.ImageSetResponse.FromString,
                 )
 
 
@@ -71,7 +71,7 @@ def add_HorosServicer_to_server(servicer, server):
             'SetCurrentImage': grpc.unary_unary_rpc_method_handler(
                     servicer.SetCurrentImage,
                     request_deserializer=horos__pb2.ImageSetRequest.FromString,
-                    response_serializer=horos__pb2.ImageGetResponse.SerializeToString,
+                    response_serializer=horos__pb2.ImageSetResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -131,6 +131,6 @@ class Horos(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/icr.Horos/SetCurrentImage',
             horos__pb2.ImageSetRequest.SerializeToString,
-            horos__pb2.ImageGetResponse.FromString,
+            horos__pb2.ImageSetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

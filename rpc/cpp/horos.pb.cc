@@ -140,7 +140,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_horos_2eproto::offsets[] PROTO
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomNameResponse, dicom_name_),
+  PROTOBUF_FIELD_OFFSET(::icr::DicomNameResponse, id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::icr::ImageGetRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -152,7 +152,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_horos_2eproto::offsets[] PROTO
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, dicom_name_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, id_),
   PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, image_size_),
   PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, voxel_size_),
   PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, origin_),
@@ -162,7 +162,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_horos_2eproto::offsets[] PROTO
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, dicom_name_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, id_),
   PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, image_size_),
   PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, voxel_size_),
   PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, origin_),
@@ -194,20 +194,20 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013horos.proto\022\003icr\"\036\n\020DicomNameRequest\022\n"
-  "\n\002id\030\001 \001(\t\"\'\n\021DicomNameResponse\022\022\n\ndicom"
-  "_name\030\001 \001(\t\"\035\n\017ImageGetRequest\022\n\n\002id\030\001 \001"
-  "(\t\"l\n\020ImageGetResponse\022\022\n\ndicom_name\030\001 \001"
-  "(\t\022\022\n\nimage_size\030\002 \003(\005\022\022\n\nvoxel_size\030\003 \003"
-  "(\002\022\016\n\006origin\030\004 \003(\002\022\014\n\004data\030\005 \003(\002\"k\n\017Imag"
-  "eSetRequest\022\022\n\ndicom_name\030\001 \001(\t\022\022\n\nimage"
-  "_size\030\002 \003(\005\022\022\n\nvoxel_size\030\003 \003(\002\022\016\n\006origi"
-  "n\030\004 \003(\002\022\014\n\004data\030\005 \003(\002\"\036\n\020ImageSetRespons"
-  "e\022\n\n\002id\030\001 \001(\t2\323\001\n\005Horos\022F\n\023GetCurrentIma"
-  "geFile\022\025.icr.DicomNameRequest\032\026.icr.Dico"
-  "mNameResponse\"\000\022@\n\017GetCurrentImage\022\024.icr"
-  ".ImageGetRequest\032\025.icr.ImageGetResponse\""
-  "\000\022@\n\017SetCurrentImage\022\024.icr.ImageSetReque"
-  "st\032\025.icr.ImageGetResponse\"\000b\006proto3"
+  "\n\002id\030\001 \001(\t\"\037\n\021DicomNameResponse\022\n\n\002id\030\001 "
+  "\001(\t\"\035\n\017ImageGetRequest\022\n\n\002id\030\001 \001(\t\"d\n\020Im"
+  "ageGetResponse\022\n\n\002id\030\001 \001(\t\022\022\n\nimage_size"
+  "\030\002 \003(\005\022\022\n\nvoxel_size\030\003 \003(\002\022\016\n\006origin\030\004 \003"
+  "(\002\022\014\n\004data\030\005 \003(\002\"c\n\017ImageSetRequest\022\n\n\002i"
+  "d\030\001 \001(\t\022\022\n\nimage_size\030\002 \003(\005\022\022\n\nvoxel_siz"
+  "e\030\003 \003(\002\022\016\n\006origin\030\004 \003(\002\022\014\n\004data\030\005 \003(\002\"\036\n"
+  "\020ImageSetResponse\022\n\n\002id\030\001 \001(\t2\323\001\n\005Horos\022"
+  "F\n\023GetCurrentImageFile\022\025.icr.DicomNameRe"
+  "quest\032\026.icr.DicomNameResponse\"\000\022@\n\017GetCu"
+  "rrentImage\022\024.icr.ImageGetRequest\032\025.icr.I"
+  "mageGetResponse\"\000\022@\n\017SetCurrentImage\022\024.i"
+  "cr.ImageSetRequest\032\025.icr.ImageSetRespons"
+  "e\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_horos_2eproto_deps[1] = {
 };
@@ -221,7 +221,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_horos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto = {
-  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 595,
+  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 571,
   &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_sccs, descriptor_table_horos_2eproto_deps, 6, 0,
   schemas, file_default_instances, TableStruct_horos_2eproto::offsets,
   file_level_metadata_horos_2eproto, 6, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,
@@ -457,9 +457,9 @@ DicomNameResponse::DicomNameResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 DicomNameResponse::DicomNameResponse(const DicomNameResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_dicom_name().empty()) {
-    dicom_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dicom_name(),
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_id().empty()) {
+    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:icr.DicomNameResponse)
@@ -467,7 +467,7 @@ DicomNameResponse::DicomNameResponse(const DicomNameResponse& from)
 
 void DicomNameResponse::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DicomNameResponse_horos_2eproto.base);
-  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 DicomNameResponse::~DicomNameResponse() {
@@ -478,7 +478,7 @@ DicomNameResponse::~DicomNameResponse() {
 
 void DicomNameResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  dicom_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void DicomNameResponse::ArenaDtor(void* object) {
@@ -502,7 +502,7 @@ void DicomNameResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  dicom_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -514,12 +514,12 @@ const char* DicomNameResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string dicom_name = 1;
+      // string id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_dicom_name();
+          auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomNameResponse.dicom_name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomNameResponse.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -551,14 +551,14 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string dicom_name = 1;
-  if (this->dicom_name().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_dicom_name().data(), static_cast<int>(this->_internal_dicom_name().length()),
+      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomNameResponse.dicom_name");
+      "icr.DicomNameResponse.id");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_dicom_name(), target);
+        1, this->_internal_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -577,11 +577,11 @@ size_t DicomNameResponse::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string dicom_name = 1;
-  if (this->dicom_name().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_dicom_name());
+        this->_internal_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -615,8 +615,8 @@ void DicomNameResponse::MergeFrom(const DicomNameResponse& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.dicom_name().size() > 0) {
-    _internal_set_dicom_name(from._internal_dicom_name());
+  if (from.id().size() > 0) {
+    _internal_set_id(from._internal_id());
   }
 }
 
@@ -641,7 +641,7 @@ bool DicomNameResponse::IsInitialized() const {
 void DicomNameResponse::InternalSwap(DicomNameResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  dicom_name_.Swap(&other->dicom_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DicomNameResponse::GetMetadata() const {
@@ -883,9 +883,9 @@ ImageGetResponse::ImageGetResponse(const ImageGetResponse& from)
       origin_(from.origin_),
       data_(from.data_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_dicom_name().empty()) {
-    dicom_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dicom_name(),
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_id().empty()) {
+    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:icr.ImageGetResponse)
@@ -893,7 +893,7 @@ ImageGetResponse::ImageGetResponse(const ImageGetResponse& from)
 
 void ImageGetResponse::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageGetResponse_horos_2eproto.base);
-  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 ImageGetResponse::~ImageGetResponse() {
@@ -904,7 +904,7 @@ ImageGetResponse::~ImageGetResponse() {
 
 void ImageGetResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  dicom_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ImageGetResponse::ArenaDtor(void* object) {
@@ -932,7 +932,7 @@ void ImageGetResponse::Clear() {
   voxel_size_.Clear();
   origin_.Clear();
   data_.Clear();
-  dicom_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -944,12 +944,12 @@ const char* ImageGetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string dicom_name = 1;
+      // string id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_dicom_name();
+          auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetResponse.dicom_name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetResponse.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1021,14 +1021,14 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string dicom_name = 1;
-  if (this->dicom_name().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_dicom_name().data(), static_cast<int>(this->_internal_dicom_name().length()),
+      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageGetResponse.dicom_name");
+      "icr.ImageGetResponse.id");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_dicom_name(), target);
+        1, this->_internal_id(), target);
   }
 
   // repeated int32 image_size = 2;
@@ -1131,11 +1131,11 @@ size_t ImageGetResponse::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // string dicom_name = 1;
-  if (this->dicom_name().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_dicom_name());
+        this->_internal_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1173,8 +1173,8 @@ void ImageGetResponse::MergeFrom(const ImageGetResponse& from) {
   voxel_size_.MergeFrom(from.voxel_size_);
   origin_.MergeFrom(from.origin_);
   data_.MergeFrom(from.data_);
-  if (from.dicom_name().size() > 0) {
-    _internal_set_dicom_name(from._internal_dicom_name());
+  if (from.id().size() > 0) {
+    _internal_set_id(from._internal_id());
   }
 }
 
@@ -1203,7 +1203,7 @@ void ImageGetResponse::InternalSwap(ImageGetResponse* other) {
   voxel_size_.InternalSwap(&other->voxel_size_);
   origin_.InternalSwap(&other->origin_);
   data_.InternalSwap(&other->data_);
-  dicom_name_.Swap(&other->dicom_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageGetResponse::GetMetadata() const {
@@ -1236,9 +1236,9 @@ ImageSetRequest::ImageSetRequest(const ImageSetRequest& from)
       origin_(from.origin_),
       data_(from.data_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_dicom_name().empty()) {
-    dicom_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dicom_name(),
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_id().empty()) {
+    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
   // @@protoc_insertion_point(copy_constructor:icr.ImageSetRequest)
@@ -1246,7 +1246,7 @@ ImageSetRequest::ImageSetRequest(const ImageSetRequest& from)
 
 void ImageSetRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageSetRequest_horos_2eproto.base);
-  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 ImageSetRequest::~ImageSetRequest() {
@@ -1257,7 +1257,7 @@ ImageSetRequest::~ImageSetRequest() {
 
 void ImageSetRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  dicom_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ImageSetRequest::ArenaDtor(void* object) {
@@ -1285,7 +1285,7 @@ void ImageSetRequest::Clear() {
   voxel_size_.Clear();
   origin_.Clear();
   data_.Clear();
-  dicom_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1297,12 +1297,12 @@ const char* ImageSetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string dicom_name = 1;
+      // string id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_dicom_name();
+          auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetRequest.dicom_name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetRequest.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1374,14 +1374,14 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string dicom_name = 1;
-  if (this->dicom_name().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_dicom_name().data(), static_cast<int>(this->_internal_dicom_name().length()),
+      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageSetRequest.dicom_name");
+      "icr.ImageSetRequest.id");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_dicom_name(), target);
+        1, this->_internal_id(), target);
   }
 
   // repeated int32 image_size = 2;
@@ -1484,11 +1484,11 @@ size_t ImageSetRequest::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // string dicom_name = 1;
-  if (this->dicom_name().size() > 0) {
+  // string id = 1;
+  if (this->id().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_dicom_name());
+        this->_internal_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1526,8 +1526,8 @@ void ImageSetRequest::MergeFrom(const ImageSetRequest& from) {
   voxel_size_.MergeFrom(from.voxel_size_);
   origin_.MergeFrom(from.origin_);
   data_.MergeFrom(from.data_);
-  if (from.dicom_name().size() > 0) {
-    _internal_set_dicom_name(from._internal_dicom_name());
+  if (from.id().size() > 0) {
+    _internal_set_id(from._internal_id());
   }
 }
 
@@ -1556,7 +1556,7 @@ void ImageSetRequest::InternalSwap(ImageSetRequest* other) {
   voxel_size_.InternalSwap(&other->voxel_size_);
   origin_.InternalSwap(&other->origin_);
   data_.InternalSwap(&other->data_);
-  dicom_name_.Swap(&other->dicom_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageSetRequest::GetMetadata() const {

@@ -60,6 +60,10 @@ class HorosServer final : public Horos::Service {
     Status GetCurrentImage(ServerContext* context,
                            const ImageGetRequest* request,
                            ImageGetResponse* reply ) override;
+    
+    Status SetCurrentImage(ServerContext* context,
+                           const ImageSetRequest* request,
+                           ImageSetResponse* reply ) override;
 
     static ServerAdaptor* p_Adaptor;  ///< Pointer to adaptor, not owned by this class
 

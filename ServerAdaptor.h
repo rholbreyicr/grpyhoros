@@ -19,7 +19,7 @@ namespace icr {
 struct ServerAdaptor {
 
     void* Osirix;    ///< Initialized and owned by plugin represented by this member, which, in use,
-                     ///< will be PyOsiriXIIFilter* ..... void* here for 2 reasons:
+                     ///< will be grpyOsiriXFilter* ..... void* here for 2 reasons:
                      ///< 1. testing with a dummy replacement
                      ///< 2. The server code makes use of 'callOnMainThread' functions which only need an (id) type
     

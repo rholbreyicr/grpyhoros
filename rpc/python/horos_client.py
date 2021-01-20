@@ -34,7 +34,7 @@ def run_get_filename(port):
     with grpc.insecure_channel('localhost:' + str(port)) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
         response = stub.GetCurrentImageFile(horos_pb2.DicomNameRequest(id='hurray for horos'))
-    print("{run_get_filename}Client received (file): " + response.dicom_name)
+    print("{run_get_filename}Client received (file): " + response.id)
 
 
 def run_get_image(port):
@@ -45,9 +45,9 @@ def run_get_image(port):
     stub = horos_pb2_grpc.HorosStub(channel)
 
     img_response = stub.GetCurrentImage(horos_pb2.ImageGetRequest(id='hurray for horos'))
-    print("{run_get_image}Client received (file): " + img_response.dicom_name)
+    print("{run_get_image}Client received (file): " + img_response.id)
 
-    if not img_response.dicom_name.startswith( "Error: "):
+    if not img_response.id.startswith( "<Error>"):
         print("{run_get_image}Client received (img size X): " + str(img_response.image_size[0]))
         print("{run_get_image}Client received (img size Y): " + str(img_response.image_size[1]))
 
@@ -59,6 +59,26 @@ def run_get_image(port):
         plt.axis('off')
         plt.show()
 
+def run_set_image(port):
+    server_url = 'localhost:' + str(port)
+    channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
+    channel = grpc.insecure_channel(server_url, options=channel_opt)
+    stub = horos_pb2_grpc.HorosStub(channel)
+
+    img_response = stub.GetCurrentImage(horos_pb2.ImageGetRequest(id='hurray for horos'))
+    print("{run_set_image}Client received (file): " + img_response.id)
+
+    if not img_response.id.startswith( "<Error>"):
+        img_data = img_response.data
+        img_array = np.array( img_data )
+        print( "{run_set_image} multiplying by 2.... " )
+        img_array = img_array * 2
+        img_response.data[:] = img_array.tolist() # reassign the whole thing
+        set_response = stub.SetCurrentImage( img_response )
+        print("{run_set_image}Client received set response): " + set_response.id)
+
+
 
 if __name__ == '__main__':
 
@@ -69,5 +89,6 @@ if __name__ == '__main__':
     logging.basicConfig()
     run_get_filename(Port)
     #for i in range(1):
-    run_get_image(Port)
+    #run_get_image(Port)
+    run_set_image(Port)
     #    time.sleep(1)

@@ -15,7 +15,7 @@ service Horos {
   // Request current dicom image
   rpc GetCurrentImageFile (DicomNameRequest) returns (DicomNameResponse) {}
   rpc GetCurrentImage (ImageGetRequest) returns (ImageGetResponse) {}
-  rpc SetCurrentImage (ImageSetRequest) returns (ImageGetResponse) {}
+  rpc SetCurrentImage (ImageSetRequest) returns (ImageSetResponse) {}
 }
 
 // The request message containing the key
@@ -25,7 +25,7 @@ message DicomNameRequest {
 
 // The response message containing the value associated with the key
 message DicomNameResponse {
-  string dicom_name = 1;
+  string id = 1;
 }
 
 message ImageGetRequest {
@@ -33,7 +33,7 @@ message ImageGetRequest {
 }
 
 message ImageGetResponse {
-  string dicom_name = 1;
+  string id = 1;
   repeated int32 image_size = 2;
   repeated float voxel_size = 3;
   repeated float origin = 4;
@@ -41,7 +41,7 @@ message ImageGetResponse {
 }
 
 message ImageSetRequest {
-  string dicom_name = 1;
+  string id = 1;
   repeated int32 image_size = 2;
   repeated float voxel_size = 3;
   repeated float origin = 4;

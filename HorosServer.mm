@@ -50,9 +50,6 @@ void* HorosServer::RunServer( void* input ) {
 }
 
 
-//@todo need to elaborate and protect with mutex
-//std::string HorosServer::CurrentDicomImage;
-    
 Status HorosServer::GetCurrentImageFile(ServerContext* context,
                                         const DicomNameRequest* request,
                                         DicomNameResponse* reply ) {
@@ -86,6 +83,24 @@ Status HorosServer::GetCurrentImage(ServerContext* context,
      withObject:dummy_str waitUntilDone:YES];
     
     [dummy_str release];    
+    return Status::OK;
+}
+
+Status HorosServer::SetCurrentImage(ServerContext* context,
+                                    const ImageSetRequest* request,
+                                    ImageSetResponse* reply ) {
+    
+    [p_Adaptor->Lock lock];
+    p_Adaptor->Request = (const void*)request;
+    p_Adaptor->Response = (void*)reply;
+    [p_Adaptor->Lock unlock];
+        
+    NSString* dummy_str = [[NSString stringWithFormat: @"log_string" ] retain];  // only needed for selector call... used id?
+    [(__bridge id)(p_Adaptor->Osirix)
+     performSelectorOnMainThread:@selector(SetCurrentImage:)
+     withObject:dummy_str waitUntilDone:YES];
+    
+    [dummy_str release];
     return Status::OK;
 }
 
