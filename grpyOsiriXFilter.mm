@@ -15,8 +15,8 @@
 
 using icr::DicomNameRequest;
 using icr::DicomNameResponse;
-using icr::DicomImageRequest;
-using icr::DicomImageResponse;
+using icr::ImageGetRequest;
+using icr::ImageGetResponse;
 
 //-----------------------------------------------------------------------------------
 
@@ -154,7 +154,7 @@ using icr::DicomImageResponse;
     //mutex!
     {
         [Adaptor->Lock lock];
-        DicomImageResponse* reply = (DicomImageResponse*)Adaptor->Response;
+        ImageGetResponse* reply = (ImageGetResponse*)Adaptor->Response;
         reply->set_dicom_name( reply_str );
 
         if( currV )

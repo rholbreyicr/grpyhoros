@@ -22,8 +22,13 @@ class HorosStub(object):
                 )
         self.GetCurrentImage = channel.unary_unary(
                 '/icr.Horos/GetCurrentImage',
-                request_serializer=horos__pb2.DicomImageRequest.SerializeToString,
-                response_deserializer=horos__pb2.DicomImageResponse.FromString,
+                request_serializer=horos__pb2.ImageGetRequest.SerializeToString,
+                response_deserializer=horos__pb2.ImageGetResponse.FromString,
+                )
+        self.SetCurrentImage = channel.unary_unary(
+                '/icr.Horos/SetCurrentImage',
+                request_serializer=horos__pb2.ImageSetRequest.SerializeToString,
+                response_deserializer=horos__pb2.ImageGetResponse.FromString,
                 )
 
 
@@ -44,6 +49,12 @@ class HorosServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetCurrentImage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_HorosServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -54,8 +65,13 @@ def add_HorosServicer_to_server(servicer, server):
             ),
             'GetCurrentImage': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCurrentImage,
-                    request_deserializer=horos__pb2.DicomImageRequest.FromString,
-                    response_serializer=horos__pb2.DicomImageResponse.SerializeToString,
+                    request_deserializer=horos__pb2.ImageGetRequest.FromString,
+                    response_serializer=horos__pb2.ImageGetResponse.SerializeToString,
+            ),
+            'SetCurrentImage': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetCurrentImage,
+                    request_deserializer=horos__pb2.ImageSetRequest.FromString,
+                    response_serializer=horos__pb2.ImageGetResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -97,7 +113,24 @@ class Horos(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/icr.Horos/GetCurrentImage',
-            horos__pb2.DicomImageRequest.SerializeToString,
-            horos__pb2.DicomImageResponse.FromString,
+            horos__pb2.ImageGetRequest.SerializeToString,
+            horos__pb2.ImageGetResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetCurrentImage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/icr.Horos/SetCurrentImage',
+            horos__pb2.ImageSetRequest.SerializeToString,
+            horos__pb2.ImageGetResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

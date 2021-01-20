@@ -72,8 +72,8 @@ Status HorosServer::GetCurrentImageFile(ServerContext* context,
 }
     
 Status HorosServer::GetCurrentImage(ServerContext* context,
-                                    const DicomImageRequest* request,
-                                    DicomImageResponse* reply ) {
+                                    const ImageGetRequest* request,
+                                    ImageGetResponse* reply ) {
     
     [p_Adaptor->Lock lock];
     p_Adaptor->Request = (const void*)request;

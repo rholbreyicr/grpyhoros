@@ -44,19 +44,20 @@ def run_get_image(port):
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
-    img_response = stub.GetCurrentImage(horos_pb2.DicomImageRequest(id='hurray for horos'))
-
+    img_response = stub.GetCurrentImage(horos_pb2.ImageGetRequest(id='hurray for horos'))
     print("{run_get_image}Client received (file): " + img_response.dicom_name)
-    print("{run_get_image}Client received (img size X): " + str(img_response.image_size[0]))
-    print("{run_get_image}Client received (img size Y): " + str(img_response.image_size[1]))
 
-    img_data = img_response.data
-    img_array = np.array( img_data )
-    print( "{run_get_image}Image array shape: ",  img_array.shape )
-    img = np.reshape(img_array,  (img_response.image_size[1], img_response.image_size[0]) )
-    plt.imshow( img, cmap='binary' )
-    plt.axis('off')
-    plt.show()
+    if not img_response.dicom_name.startswith( "Error: "):
+        print("{run_get_image}Client received (img size X): " + str(img_response.image_size[0]))
+        print("{run_get_image}Client received (img size Y): " + str(img_response.image_size[1]))
+
+        img_data = img_response.data
+        img_array = np.array( img_data )
+        print( "{run_get_image}Image array shape: ",  img_array.shape )
+        img = np.reshape(img_array,  (img_response.image_size[1], img_response.image_size[0]) )
+        plt.imshow( img, cmap='binary' )
+        plt.axis('off')
+        plt.show()
 
 
 if __name__ == '__main__':

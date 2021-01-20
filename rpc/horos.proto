@@ -1,6 +1,6 @@
 // Copyright ICR
-// 
-// note: 
+//
+// note:
 // cd <path>/rpc/cpp
 // ../script/protoc.sh `pwd`/.. cpp `pwd`/../horos.proto `pwd`
 // cd ../python
@@ -14,7 +14,8 @@ package icr;
 service Horos {
   // Request current dicom image
   rpc GetCurrentImageFile (DicomNameRequest) returns (DicomNameResponse) {}
-  rpc GetCurrentImage (DicomImageRequest) returns (DicomImageResponse) {}
+  rpc GetCurrentImage (ImageGetRequest) returns (ImageGetResponse) {}
+  rpc SetCurrentImage (ImageSetRequest) returns (ImageGetResponse) {}
 }
 
 // The request message containing the key
@@ -27,14 +28,26 @@ message DicomNameResponse {
   string dicom_name = 1;
 }
 
-message DicomImageRequest {
+message ImageGetRequest {
   string id = 1;
 }
 
-message DicomImageResponse {
+message ImageGetResponse {
   string dicom_name = 1;
   repeated int32 image_size = 2;
   repeated float voxel_size = 3;
   repeated float origin = 4;
   repeated float data = 5;
+}
+
+message ImageSetRequest {
+  string dicom_name = 1;
+  repeated int32 image_size = 2;
+  repeated float voxel_size = 3;
+  repeated float origin = 4;
+  repeated float data = 5;
+}
+
+message ImageSetResponse {
+  string id = 1;
 }

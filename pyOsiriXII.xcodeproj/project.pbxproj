@@ -14,102 +14,102 @@
 		BF2BF06D258447E8008EA8FE /* ConsoleAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF06C258447E8008EA8FE /* ConsoleAppTests.m */; };
 		BF2BF078258447E9008EA8FE /* ConsoleAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF077258447E9008EA8FE /* ConsoleAppUITests.m */; };
 		BF2BF0B525846192008EA8FE /* AppController.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF2BF0B325846192008EA8FE /* AppController.mm */; };
-		BF435F0C25B07DBC00EC384D /* libabsl_demangle_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDC25B07DB900EC384D /* libabsl_demangle_internal.a */; };
-		BF435F0D25B07DBC00EC384D /* libabsl_demangle_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDC25B07DB900EC384D /* libabsl_demangle_internal.a */; };
-		BF435F0E25B07DBC00EC384D /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDD25B07DBA00EC384D /* libabsl_symbolize.a */; };
-		BF435F0F25B07DBC00EC384D /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDD25B07DBA00EC384D /* libabsl_symbolize.a */; };
-		BF435F1025B07DBC00EC384D /* libgrpc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDE25B07DBA00EC384D /* libgrpc++.a */; };
-		BF435F1125B07DBC00EC384D /* libgrpc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDE25B07DBA00EC384D /* libgrpc++.a */; };
-		BF435F1225B07DBC00EC384D /* libgrpc++_reflection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDF25B07DBA00EC384D /* libgrpc++_reflection.a */; };
-		BF435F1325B07DBC00EC384D /* libgrpc++_reflection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EDF25B07DBA00EC384D /* libgrpc++_reflection.a */; };
-		BF435F1425B07DBC00EC384D /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE025B07DBA00EC384D /* libabsl_bad_optional_access.a */; };
-		BF435F1525B07DBC00EC384D /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE025B07DBA00EC384D /* libabsl_bad_optional_access.a */; };
-		BF435F1625B07DBC00EC384D /* libabsl_raw_hash_set.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE125B07DBA00EC384D /* libabsl_raw_hash_set.a */; };
-		BF435F1725B07DBC00EC384D /* libabsl_raw_hash_set.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE125B07DBA00EC384D /* libabsl_raw_hash_set.a */; };
-		BF435F1825B07DBC00EC384D /* libabsl_graphcycles_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE225B07DBA00EC384D /* libabsl_graphcycles_internal.a */; };
-		BF435F1925B07DBC00EC384D /* libabsl_graphcycles_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE225B07DBA00EC384D /* libabsl_graphcycles_internal.a */; };
-		BF435F1A25B07DBC00EC384D /* libabsl_city.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE325B07DBA00EC384D /* libabsl_city.a */; };
-		BF435F1B25B07DBC00EC384D /* libabsl_city.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE325B07DBA00EC384D /* libabsl_city.a */; };
-		BF435F1C25B07DBC00EC384D /* libgrpc++_alts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE425B07DBA00EC384D /* libgrpc++_alts.a */; };
-		BF435F1D25B07DBC00EC384D /* libgrpc++_alts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE425B07DBA00EC384D /* libgrpc++_alts.a */; };
-		BF435F1E25B07DBC00EC384D /* libgrpc++_error_details.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE525B07DBA00EC384D /* libgrpc++_error_details.a */; };
-		BF435F1F25B07DBC00EC384D /* libgrpc++_error_details.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE525B07DBA00EC384D /* libgrpc++_error_details.a */; };
-		BF435F2025B07DBC00EC384D /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE625B07DBA00EC384D /* libabsl_throw_delegate.a */; };
-		BF435F2125B07DBC00EC384D /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE625B07DBA00EC384D /* libabsl_throw_delegate.a */; };
-		BF435F2225B07DBC00EC384D /* libabsl_str_format_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE725B07DBA00EC384D /* libabsl_str_format_internal.a */; };
-		BF435F2325B07DBC00EC384D /* libabsl_str_format_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE725B07DBA00EC384D /* libabsl_str_format_internal.a */; };
-		BF435F2425B07DBC00EC384D /* libabsl_bad_variant_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE825B07DBA00EC384D /* libabsl_bad_variant_access.a */; };
-		BF435F2525B07DBC00EC384D /* libabsl_bad_variant_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE825B07DBA00EC384D /* libabsl_bad_variant_access.a */; };
-		BF435F2625B07DBC00EC384D /* libabsl_int128.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE925B07DBA00EC384D /* libabsl_int128.a */; };
-		BF435F2725B07DBC00EC384D /* libabsl_int128.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EE925B07DBA00EC384D /* libabsl_int128.a */; };
-		BF435F2825B07DBC00EC384D /* libabsl_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEA25B07DBA00EC384D /* libabsl_time.a */; };
-		BF435F2925B07DBC00EC384D /* libabsl_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEA25B07DBA00EC384D /* libabsl_time.a */; };
-		BF435F2A25B07DBC00EC384D /* libaddress_sorting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEB25B07DBA00EC384D /* libaddress_sorting.a */; };
-		BF435F2B25B07DBC00EC384D /* libaddress_sorting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEB25B07DBA00EC384D /* libaddress_sorting.a */; };
-		BF435F2C25B07DBC00EC384D /* libabsl_raw_logging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEC25B07DBA00EC384D /* libabsl_raw_logging_internal.a */; };
-		BF435F2D25B07DBC00EC384D /* libabsl_raw_logging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEC25B07DBA00EC384D /* libabsl_raw_logging_internal.a */; };
-		BF435F2E25B07DBC00EC384D /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EED25B07DBA00EC384D /* libabsl_dynamic_annotations.a */; };
-		BF435F2F25B07DBC00EC384D /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EED25B07DBA00EC384D /* libabsl_dynamic_annotations.a */; };
-		BF435F3025B07DBC00EC384D /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEE25B07DBA00EC384D /* libabsl_debugging_internal.a */; };
-		BF435F3125B07DBC00EC384D /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEE25B07DBA00EC384D /* libabsl_debugging_internal.a */; };
-		BF435F3225B07DBC00EC384D /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEF25B07DBA00EC384D /* libcares.a */; };
-		BF435F3325B07DBC00EC384D /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EEF25B07DBA00EC384D /* libcares.a */; };
-		BF435F3425B07DBC00EC384D /* libabsl_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF025B07DBA00EC384D /* libabsl_hash.a */; };
-		BF435F3525B07DBC00EC384D /* libabsl_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF025B07DBA00EC384D /* libabsl_hash.a */; };
-		BF435F3625B07DBC00EC384D /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF125B07DBA00EC384D /* libabsl_status.a */; };
-		BF435F3725B07DBC00EC384D /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF125B07DBA00EC384D /* libabsl_status.a */; };
-		BF435F3825B07DBC00EC384D /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF225B07DBB00EC384D /* libabsl_synchronization.a */; };
-		BF435F3925B07DBC00EC384D /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF225B07DBB00EC384D /* libabsl_synchronization.a */; };
-		BF435F3A25B07DBC00EC384D /* libgpr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF325B07DBB00EC384D /* libgpr.a */; };
-		BF435F3B25B07DBC00EC384D /* libgpr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF325B07DBB00EC384D /* libgpr.a */; };
-		BF435F3C25B07DBC00EC384D /* libgrpc_plugin_support.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF425B07DBB00EC384D /* libgrpc_plugin_support.a */; };
-		BF435F3D25B07DBC00EC384D /* libgrpc_plugin_support.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF425B07DBB00EC384D /* libgrpc_plugin_support.a */; };
-		BF435F3E25B07DBC00EC384D /* libgrpc_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF525B07DBB00EC384D /* libgrpc_unsecure.a */; };
-		BF435F3F25B07DBC00EC384D /* libgrpc_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF525B07DBB00EC384D /* libgrpc_unsecure.a */; };
-		BF435F4025B07DBC00EC384D /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF625B07DBB00EC384D /* libgrpc.a */; };
-		BF435F4125B07DBC00EC384D /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF625B07DBB00EC384D /* libgrpc.a */; };
-		BF435F4225B07DBC00EC384D /* libgrpcpp_channelz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF725B07DBB00EC384D /* libgrpcpp_channelz.a */; };
-		BF435F4325B07DBC00EC384D /* libgrpcpp_channelz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF725B07DBB00EC384D /* libgrpcpp_channelz.a */; };
-		BF435F4425B07DBC00EC384D /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF825B07DBB00EC384D /* libprotobuf.a */; };
-		BF435F4525B07DBC00EC384D /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF825B07DBB00EC384D /* libprotobuf.a */; };
-		BF435F4625B07DBC00EC384D /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF925B07DBB00EC384D /* libprotoc.a */; };
-		BF435F4725B07DBC00EC384D /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EF925B07DBB00EC384D /* libprotoc.a */; };
-		BF435F4825B07DBC00EC384D /* libabsl_log_severity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFA25B07DBB00EC384D /* libabsl_log_severity.a */; };
-		BF435F4925B07DBC00EC384D /* libabsl_log_severity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFA25B07DBB00EC384D /* libabsl_log_severity.a */; };
-		BF435F4A25B07DBC00EC384D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFB25B07DBB00EC384D /* libcrypto.a */; };
-		BF435F4B25B07DBC00EC384D /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFB25B07DBB00EC384D /* libcrypto.a */; };
-		BF435F4C25B07DBC00EC384D /* libgrpc++_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFC25B07DBB00EC384D /* libgrpc++_unsecure.a */; };
-		BF435F4D25B07DBC00EC384D /* libgrpc++_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFC25B07DBB00EC384D /* libgrpc++_unsecure.a */; };
-		BF435F4E25B07DBC00EC384D /* libre2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFD25B07DBB00EC384D /* libre2.a */; };
-		BF435F4F25B07DBC00EC384D /* libre2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFD25B07DBB00EC384D /* libre2.a */; };
-		BF435F5025B07DBC00EC384D /* libupb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFE25B07DBB00EC384D /* libupb.a */; };
-		BF435F5125B07DBC00EC384D /* libupb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFE25B07DBB00EC384D /* libupb.a */; };
-		BF435F5225B07DBC00EC384D /* libabsl_exponential_biased.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFF25B07DBB00EC384D /* libabsl_exponential_biased.a */; };
-		BF435F5325B07DBC00EC384D /* libabsl_exponential_biased.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435EFF25B07DBB00EC384D /* libabsl_exponential_biased.a */; };
-		BF435F5425B07DBC00EC384D /* libabsl_malloc_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0025B07DBB00EC384D /* libabsl_malloc_internal.a */; };
-		BF435F5525B07DBC00EC384D /* libabsl_malloc_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0025B07DBB00EC384D /* libabsl_malloc_internal.a */; };
-		BF435F5625B07DBC00EC384D /* libabsl_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0125B07DBB00EC384D /* libabsl_base.a */; };
-		BF435F5725B07DBC00EC384D /* libabsl_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0125B07DBB00EC384D /* libabsl_base.a */; };
-		BF435F5825B07DBC00EC384D /* libabsl_strings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0225B07DBB00EC384D /* libabsl_strings.a */; };
-		BF435F5925B07DBC00EC384D /* libabsl_strings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0225B07DBB00EC384D /* libabsl_strings.a */; };
-		BF435F5A25B07DBC00EC384D /* libabsl_cord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0325B07DBB00EC384D /* libabsl_cord.a */; };
-		BF435F5B25B07DBC00EC384D /* libabsl_cord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0325B07DBB00EC384D /* libabsl_cord.a */; };
-		BF435F5C25B07DBC00EC384D /* libabsl_spinlock_wait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0425B07DBB00EC384D /* libabsl_spinlock_wait.a */; };
-		BF435F5D25B07DBC00EC384D /* libabsl_spinlock_wait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0425B07DBB00EC384D /* libabsl_spinlock_wait.a */; };
-		BF435F5E25B07DBC00EC384D /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0525B07DBB00EC384D /* libabsl_time_zone.a */; };
-		BF435F5F25B07DBC00EC384D /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0525B07DBB00EC384D /* libabsl_time_zone.a */; };
-		BF435F6025B07DBC00EC384D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0625B07DBC00EC384D /* libssl.a */; };
-		BF435F6125B07DBC00EC384D /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0625B07DBC00EC384D /* libssl.a */; };
-		BF435F6225B07DBC00EC384D /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0725B07DBC00EC384D /* libz.a */; };
-		BF435F6325B07DBC00EC384D /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0725B07DBC00EC384D /* libz.a */; };
-		BF435F6425B07DBC00EC384D /* libabsl_hashtablez_sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0825B07DBC00EC384D /* libabsl_hashtablez_sampler.a */; };
-		BF435F6525B07DBC00EC384D /* libabsl_hashtablez_sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0825B07DBC00EC384D /* libabsl_hashtablez_sampler.a */; };
-		BF435F6625B07DBC00EC384D /* libabsl_stacktrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0925B07DBC00EC384D /* libabsl_stacktrace.a */; };
-		BF435F6725B07DBC00EC384D /* libabsl_stacktrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0925B07DBC00EC384D /* libabsl_stacktrace.a */; };
-		BF435F6825B07DBC00EC384D /* libabsl_strings_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0A25B07DBC00EC384D /* libabsl_strings_internal.a */; };
-		BF435F6925B07DBC00EC384D /* libabsl_strings_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0A25B07DBC00EC384D /* libabsl_strings_internal.a */; };
-		BF435F6A25B07DBC00EC384D /* libabsl_civil_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0B25B07DBC00EC384D /* libabsl_civil_time.a */; };
-		BF435F6B25B07DBC00EC384D /* libabsl_civil_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF435F0B25B07DBC00EC384D /* libabsl_civil_time.a */; };
+		BF3766C825B86DF10034C20A /* libabsl_strings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669825B86DEF0034C20A /* libabsl_strings.a */; };
+		BF3766C925B86DF10034C20A /* libabsl_strings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669825B86DEF0034C20A /* libabsl_strings.a */; };
+		BF3766CA25B86DF10034C20A /* libre2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669925B86DEF0034C20A /* libre2.a */; };
+		BF3766CB25B86DF10034C20A /* libre2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669925B86DEF0034C20A /* libre2.a */; };
+		BF3766CC25B86DF10034C20A /* libabsl_malloc_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669A25B86DEF0034C20A /* libabsl_malloc_internal.a */; };
+		BF3766CD25B86DF10034C20A /* libabsl_malloc_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669A25B86DEF0034C20A /* libabsl_malloc_internal.a */; };
+		BF3766CE25B86DF10034C20A /* libabsl_stacktrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669B25B86DEF0034C20A /* libabsl_stacktrace.a */; };
+		BF3766CF25B86DF10034C20A /* libabsl_stacktrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669B25B86DEF0034C20A /* libabsl_stacktrace.a */; };
+		BF3766D025B86DF10034C20A /* libabsl_raw_logging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669C25B86DEF0034C20A /* libabsl_raw_logging_internal.a */; };
+		BF3766D125B86DF10034C20A /* libabsl_raw_logging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669C25B86DEF0034C20A /* libabsl_raw_logging_internal.a */; };
+		BF3766D225B86DF10034C20A /* libabsl_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669D25B86DEF0034C20A /* libabsl_base.a */; };
+		BF3766D325B86DF10034C20A /* libabsl_base.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669D25B86DEF0034C20A /* libabsl_base.a */; };
+		BF3766D425B86DF10034C20A /* libabsl_graphcycles_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669E25B86DEF0034C20A /* libabsl_graphcycles_internal.a */; };
+		BF3766D525B86DF10034C20A /* libabsl_graphcycles_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669E25B86DEF0034C20A /* libabsl_graphcycles_internal.a */; };
+		BF3766D625B86DF10034C20A /* libabsl_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669F25B86DEF0034C20A /* libabsl_hash.a */; };
+		BF3766D725B86DF10034C20A /* libabsl_hash.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37669F25B86DEF0034C20A /* libabsl_hash.a */; };
+		BF3766D825B86DF10034C20A /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A025B86DEF0034C20A /* libcares.a */; };
+		BF3766D925B86DF10034C20A /* libcares.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A025B86DEF0034C20A /* libcares.a */; };
+		BF3766DA25B86DF10034C20A /* libabsl_cord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A125B86DEF0034C20A /* libabsl_cord.a */; };
+		BF3766DB25B86DF10034C20A /* libabsl_cord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A125B86DEF0034C20A /* libabsl_cord.a */; };
+		BF3766DC25B86DF10034C20A /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A225B86DEF0034C20A /* libgrpc.a */; };
+		BF3766DD25B86DF10034C20A /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A225B86DEF0034C20A /* libgrpc.a */; };
+		BF3766DE25B86DF10034C20A /* libgrpc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A325B86DEF0034C20A /* libgrpc++.a */; };
+		BF3766DF25B86DF10034C20A /* libgrpc++.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A325B86DEF0034C20A /* libgrpc++.a */; };
+		BF3766E025B86DF10034C20A /* libabsl_demangle_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A425B86DEF0034C20A /* libabsl_demangle_internal.a */; };
+		BF3766E125B86DF10034C20A /* libabsl_demangle_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A425B86DEF0034C20A /* libabsl_demangle_internal.a */; };
+		BF3766E225B86DF10034C20A /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A525B86DEF0034C20A /* libabsl_symbolize.a */; };
+		BF3766E325B86DF10034C20A /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A525B86DEF0034C20A /* libabsl_symbolize.a */; };
+		BF3766E425B86DF10034C20A /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A625B86DEF0034C20A /* libabsl_status.a */; };
+		BF3766E525B86DF10034C20A /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A625B86DEF0034C20A /* libabsl_status.a */; };
+		BF3766E625B86DF10034C20A /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A725B86DEF0034C20A /* libabsl_throw_delegate.a */; };
+		BF3766E725B86DF10034C20A /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A725B86DEF0034C20A /* libabsl_throw_delegate.a */; };
+		BF3766E825B86DF10034C20A /* libaddress_sorting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A825B86DF00034C20A /* libaddress_sorting.a */; };
+		BF3766E925B86DF10034C20A /* libaddress_sorting.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A825B86DF00034C20A /* libaddress_sorting.a */; };
+		BF3766EA25B86DF10034C20A /* libabsl_bad_variant_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A925B86DF00034C20A /* libabsl_bad_variant_access.a */; };
+		BF3766EB25B86DF10034C20A /* libabsl_bad_variant_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766A925B86DF00034C20A /* libabsl_bad_variant_access.a */; };
+		BF3766EC25B86DF10034C20A /* libgrpc_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AA25B86DF00034C20A /* libgrpc_unsecure.a */; };
+		BF3766ED25B86DF10034C20A /* libgrpc_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AA25B86DF00034C20A /* libgrpc_unsecure.a */; };
+		BF3766EE25B86DF10034C20A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AB25B86DF00034C20A /* libcrypto.a */; };
+		BF3766EF25B86DF10034C20A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AB25B86DF00034C20A /* libcrypto.a */; };
+		BF3766F025B86DF10034C20A /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AC25B86DF00034C20A /* libprotobuf.a */; };
+		BF3766F125B86DF10034C20A /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AC25B86DF00034C20A /* libprotobuf.a */; };
+		BF3766F225B86DF10034C20A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AD25B86DF00034C20A /* libssl.a */; };
+		BF3766F325B86DF10034C20A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AD25B86DF00034C20A /* libssl.a */; };
+		BF3766F425B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */; };
+		BF3766F525B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */; };
+		BF3766F625B86DF10034C20A /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */; };
+		BF3766F725B86DF10034C20A /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */; };
+		BF3766F825B86DF10034C20A /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B025B86DF00034C20A /* libabsl_synchronization.a */; };
+		BF3766F925B86DF10034C20A /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B025B86DF00034C20A /* libabsl_synchronization.a */; };
+		BF3766FA25B86DF10034C20A /* libgrpcpp_channelz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B125B86DF00034C20A /* libgrpcpp_channelz.a */; };
+		BF3766FB25B86DF10034C20A /* libgrpcpp_channelz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B125B86DF00034C20A /* libgrpcpp_channelz.a */; };
+		BF3766FC25B86DF10034C20A /* libabsl_str_format_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B225B86DF00034C20A /* libabsl_str_format_internal.a */; };
+		BF3766FD25B86DF10034C20A /* libabsl_str_format_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B225B86DF00034C20A /* libabsl_str_format_internal.a */; };
+		BF3766FE25B86DF10034C20A /* libabsl_civil_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B325B86DF00034C20A /* libabsl_civil_time.a */; };
+		BF3766FF25B86DF10034C20A /* libabsl_civil_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B325B86DF00034C20A /* libabsl_civil_time.a */; };
+		BF37670025B86DF10034C20A /* libabsl_exponential_biased.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B425B86DF00034C20A /* libabsl_exponential_biased.a */; };
+		BF37670125B86DF10034C20A /* libabsl_exponential_biased.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B425B86DF00034C20A /* libabsl_exponential_biased.a */; };
+		BF37670225B86DF10034C20A /* libabsl_city.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B525B86DF00034C20A /* libabsl_city.a */; };
+		BF37670325B86DF10034C20A /* libabsl_city.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B525B86DF00034C20A /* libabsl_city.a */; };
+		BF37670425B86DF10034C20A /* libabsl_raw_hash_set.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B625B86DF00034C20A /* libabsl_raw_hash_set.a */; };
+		BF37670525B86DF10034C20A /* libabsl_raw_hash_set.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B625B86DF00034C20A /* libabsl_raw_hash_set.a */; };
+		BF37670625B86DF10034C20A /* libabsl_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B725B86DF00034C20A /* libabsl_time.a */; };
+		BF37670725B86DF10034C20A /* libabsl_time.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B725B86DF00034C20A /* libabsl_time.a */; };
+		BF37670825B86DF10034C20A /* libgrpc_plugin_support.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B825B86DF00034C20A /* libgrpc_plugin_support.a */; };
+		BF37670925B86DF10034C20A /* libgrpc_plugin_support.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B825B86DF00034C20A /* libgrpc_plugin_support.a */; };
+		BF37670A25B86DF10034C20A /* libgrpc++_alts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B925B86DF00034C20A /* libgrpc++_alts.a */; };
+		BF37670B25B86DF10034C20A /* libgrpc++_alts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B925B86DF00034C20A /* libgrpc++_alts.a */; };
+		BF37670C25B86DF10034C20A /* libabsl_spinlock_wait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BA25B86DF10034C20A /* libabsl_spinlock_wait.a */; };
+		BF37670D25B86DF10034C20A /* libabsl_spinlock_wait.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BA25B86DF10034C20A /* libabsl_spinlock_wait.a */; };
+		BF37670E25B86DF10034C20A /* libgrpc++_error_details.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BB25B86DF10034C20A /* libgrpc++_error_details.a */; };
+		BF37670F25B86DF10034C20A /* libgrpc++_error_details.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BB25B86DF10034C20A /* libgrpc++_error_details.a */; };
+		BF37671025B86DF10034C20A /* libgrpc++_reflection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BC25B86DF10034C20A /* libgrpc++_reflection.a */; };
+		BF37671125B86DF10034C20A /* libgrpc++_reflection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BC25B86DF10034C20A /* libgrpc++_reflection.a */; };
+		BF37671225B86DF10034C20A /* libgrpc++_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BD25B86DF10034C20A /* libgrpc++_unsecure.a */; };
+		BF37671325B86DF10034C20A /* libgrpc++_unsecure.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BD25B86DF10034C20A /* libgrpc++_unsecure.a */; };
+		BF37671425B86DF10034C20A /* libabsl_int128.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BE25B86DF10034C20A /* libabsl_int128.a */; };
+		BF37671525B86DF10034C20A /* libabsl_int128.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BE25B86DF10034C20A /* libabsl_int128.a */; };
+		BF37671625B86DF10034C20A /* libabsl_strings_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BF25B86DF10034C20A /* libabsl_strings_internal.a */; };
+		BF37671725B86DF10034C20A /* libabsl_strings_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766BF25B86DF10034C20A /* libabsl_strings_internal.a */; };
+		BF37671825B86DF10034C20A /* libgpr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C025B86DF10034C20A /* libgpr.a */; };
+		BF37671925B86DF10034C20A /* libgpr.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C025B86DF10034C20A /* libgpr.a */; };
+		BF37671A25B86DF10034C20A /* libupb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C125B86DF10034C20A /* libupb.a */; };
+		BF37671B25B86DF10034C20A /* libupb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C125B86DF10034C20A /* libupb.a */; };
+		BF37671C25B86DF10034C20A /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C225B86DF10034C20A /* libz.a */; };
+		BF37671D25B86DF10034C20A /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C225B86DF10034C20A /* libz.a */; };
+		BF37671E25B86DF10034C20A /* libabsl_log_severity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C325B86DF10034C20A /* libabsl_log_severity.a */; };
+		BF37671F25B86DF10034C20A /* libabsl_log_severity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C325B86DF10034C20A /* libabsl_log_severity.a */; };
+		BF37672025B86DF10034C20A /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C425B86DF10034C20A /* libprotoc.a */; };
+		BF37672125B86DF10034C20A /* libprotoc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C425B86DF10034C20A /* libprotoc.a */; };
+		BF37672225B86DF10034C20A /* libabsl_hashtablez_sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C525B86DF10034C20A /* libabsl_hashtablez_sampler.a */; };
+		BF37672325B86DF10034C20A /* libabsl_hashtablez_sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C525B86DF10034C20A /* libabsl_hashtablez_sampler.a */; };
+		BF37672425B86DF10034C20A /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */; };
+		BF37672525B86DF10034C20A /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */; };
+		BF37672625B86DF10034C20A /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C725B86DF10034C20A /* libabsl_time_zone.a */; };
+		BF37672725B86DF10034C20A /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C725B86DF10034C20A /* libabsl_time_zone.a */; };
 		BF6EFCB725846B160068543D /* HorosServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD54D25768EC500246D66 /* HorosServer.mm */; };
 		BF6EFCBC25846B1D0068543D /* horos.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */; };
 		BF6EFCC125846B210068543D /* horos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52E25751EA700246D66 /* horos.pb.cc */; };
@@ -207,54 +207,54 @@
 		BF2BF09C258451E2008EA8FE /* ServerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerManager.h; sourceTree = "<group>"; };
 		BF2BF0B325846192008EA8FE /* AppController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppController.mm; sourceTree = "<group>"; };
 		BF2BF0B425846192008EA8FE /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
-		BF435EDC25B07DB900EC384D /* libabsl_demangle_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_demangle_internal.a; path = grpc_libs/libabsl_demangle_internal.a; sourceTree = "<group>"; };
-		BF435EDD25B07DBA00EC384D /* libabsl_symbolize.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_symbolize.a; path = grpc_libs/libabsl_symbolize.a; sourceTree = "<group>"; };
-		BF435EDE25B07DBA00EC384D /* libgrpc++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++.a"; path = "grpc_libs/libgrpc++.a"; sourceTree = "<group>"; };
-		BF435EDF25B07DBA00EC384D /* libgrpc++_reflection.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_reflection.a"; path = "grpc_libs/libgrpc++_reflection.a"; sourceTree = "<group>"; };
-		BF435EE025B07DBA00EC384D /* libabsl_bad_optional_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_optional_access.a; path = grpc_libs/libabsl_bad_optional_access.a; sourceTree = "<group>"; };
-		BF435EE125B07DBA00EC384D /* libabsl_raw_hash_set.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_raw_hash_set.a; path = grpc_libs/libabsl_raw_hash_set.a; sourceTree = "<group>"; };
-		BF435EE225B07DBA00EC384D /* libabsl_graphcycles_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_graphcycles_internal.a; path = grpc_libs/libabsl_graphcycles_internal.a; sourceTree = "<group>"; };
-		BF435EE325B07DBA00EC384D /* libabsl_city.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_city.a; path = grpc_libs/libabsl_city.a; sourceTree = "<group>"; };
-		BF435EE425B07DBA00EC384D /* libgrpc++_alts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_alts.a"; path = "grpc_libs/libgrpc++_alts.a"; sourceTree = "<group>"; };
-		BF435EE525B07DBA00EC384D /* libgrpc++_error_details.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_error_details.a"; path = "grpc_libs/libgrpc++_error_details.a"; sourceTree = "<group>"; };
-		BF435EE625B07DBA00EC384D /* libabsl_throw_delegate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_throw_delegate.a; path = grpc_libs/libabsl_throw_delegate.a; sourceTree = "<group>"; };
-		BF435EE725B07DBA00EC384D /* libabsl_str_format_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_str_format_internal.a; path = grpc_libs/libabsl_str_format_internal.a; sourceTree = "<group>"; };
-		BF435EE825B07DBA00EC384D /* libabsl_bad_variant_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_variant_access.a; path = grpc_libs/libabsl_bad_variant_access.a; sourceTree = "<group>"; };
-		BF435EE925B07DBA00EC384D /* libabsl_int128.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_int128.a; path = grpc_libs/libabsl_int128.a; sourceTree = "<group>"; };
-		BF435EEA25B07DBA00EC384D /* libabsl_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time.a; path = grpc_libs/libabsl_time.a; sourceTree = "<group>"; };
-		BF435EEB25B07DBA00EC384D /* libaddress_sorting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaddress_sorting.a; path = grpc_libs/libaddress_sorting.a; sourceTree = "<group>"; };
-		BF435EEC25B07DBA00EC384D /* libabsl_raw_logging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_raw_logging_internal.a; path = grpc_libs/libabsl_raw_logging_internal.a; sourceTree = "<group>"; };
-		BF435EED25B07DBA00EC384D /* libabsl_dynamic_annotations.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_dynamic_annotations.a; path = grpc_libs/libabsl_dynamic_annotations.a; sourceTree = "<group>"; };
-		BF435EEE25B07DBA00EC384D /* libabsl_debugging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_debugging_internal.a; path = grpc_libs/libabsl_debugging_internal.a; sourceTree = "<group>"; };
-		BF435EEF25B07DBA00EC384D /* libcares.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcares.a; path = grpc_libs/libcares.a; sourceTree = "<group>"; };
-		BF435EF025B07DBA00EC384D /* libabsl_hash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_hash.a; path = grpc_libs/libabsl_hash.a; sourceTree = "<group>"; };
-		BF435EF125B07DBA00EC384D /* libabsl_status.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_status.a; path = grpc_libs/libabsl_status.a; sourceTree = "<group>"; };
-		BF435EF225B07DBB00EC384D /* libabsl_synchronization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_synchronization.a; path = grpc_libs/libabsl_synchronization.a; sourceTree = "<group>"; };
-		BF435EF325B07DBB00EC384D /* libgpr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgpr.a; path = grpc_libs/libgpr.a; sourceTree = "<group>"; };
-		BF435EF425B07DBB00EC384D /* libgrpc_plugin_support.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc_plugin_support.a; path = grpc_libs/libgrpc_plugin_support.a; sourceTree = "<group>"; };
-		BF435EF525B07DBB00EC384D /* libgrpc_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc_unsecure.a; path = grpc_libs/libgrpc_unsecure.a; sourceTree = "<group>"; };
-		BF435EF625B07DBB00EC384D /* libgrpc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc.a; path = grpc_libs/libgrpc.a; sourceTree = "<group>"; };
-		BF435EF725B07DBB00EC384D /* libgrpcpp_channelz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpcpp_channelz.a; path = grpc_libs/libgrpcpp_channelz.a; sourceTree = "<group>"; };
-		BF435EF825B07DBB00EC384D /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = grpc_libs/libprotobuf.a; sourceTree = "<group>"; };
-		BF435EF925B07DBB00EC384D /* libprotoc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotoc.a; path = grpc_libs/libprotoc.a; sourceTree = "<group>"; };
-		BF435EFA25B07DBB00EC384D /* libabsl_log_severity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_log_severity.a; path = grpc_libs/libabsl_log_severity.a; sourceTree = "<group>"; };
-		BF435EFB25B07DBB00EC384D /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = grpc_libs/libcrypto.a; sourceTree = "<group>"; };
-		BF435EFC25B07DBB00EC384D /* libgrpc++_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_unsecure.a"; path = "grpc_libs/libgrpc++_unsecure.a"; sourceTree = "<group>"; };
-		BF435EFD25B07DBB00EC384D /* libre2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libre2.a; path = grpc_libs/libre2.a; sourceTree = "<group>"; };
-		BF435EFE25B07DBB00EC384D /* libupb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libupb.a; path = grpc_libs/libupb.a; sourceTree = "<group>"; };
-		BF435EFF25B07DBB00EC384D /* libabsl_exponential_biased.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_exponential_biased.a; path = grpc_libs/libabsl_exponential_biased.a; sourceTree = "<group>"; };
-		BF435F0025B07DBB00EC384D /* libabsl_malloc_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_malloc_internal.a; path = grpc_libs/libabsl_malloc_internal.a; sourceTree = "<group>"; };
-		BF435F0125B07DBB00EC384D /* libabsl_base.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_base.a; path = grpc_libs/libabsl_base.a; sourceTree = "<group>"; };
-		BF435F0225B07DBB00EC384D /* libabsl_strings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_strings.a; path = grpc_libs/libabsl_strings.a; sourceTree = "<group>"; };
-		BF435F0325B07DBB00EC384D /* libabsl_cord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_cord.a; path = grpc_libs/libabsl_cord.a; sourceTree = "<group>"; };
-		BF435F0425B07DBB00EC384D /* libabsl_spinlock_wait.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_spinlock_wait.a; path = grpc_libs/libabsl_spinlock_wait.a; sourceTree = "<group>"; };
-		BF435F0525B07DBB00EC384D /* libabsl_time_zone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time_zone.a; path = grpc_libs/libabsl_time_zone.a; sourceTree = "<group>"; };
-		BF435F0625B07DBC00EC384D /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = grpc_libs/libssl.a; sourceTree = "<group>"; };
-		BF435F0725B07DBC00EC384D /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = grpc_libs/libz.a; sourceTree = "<group>"; };
-		BF435F0825B07DBC00EC384D /* libabsl_hashtablez_sampler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_hashtablez_sampler.a; path = grpc_libs/libabsl_hashtablez_sampler.a; sourceTree = "<group>"; };
-		BF435F0925B07DBC00EC384D /* libabsl_stacktrace.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_stacktrace.a; path = grpc_libs/libabsl_stacktrace.a; sourceTree = "<group>"; };
-		BF435F0A25B07DBC00EC384D /* libabsl_strings_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_strings_internal.a; path = grpc_libs/libabsl_strings_internal.a; sourceTree = "<group>"; };
-		BF435F0B25B07DBC00EC384D /* libabsl_civil_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_civil_time.a; path = grpc_libs/libabsl_civil_time.a; sourceTree = "<group>"; };
+		BF37669825B86DEF0034C20A /* libabsl_strings.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_strings.a; path = "grpc-1.34/grpc_libs/libabsl_strings.a"; sourceTree = "<group>"; };
+		BF37669925B86DEF0034C20A /* libre2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libre2.a; path = "grpc-1.34/grpc_libs/libre2.a"; sourceTree = "<group>"; };
+		BF37669A25B86DEF0034C20A /* libabsl_malloc_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_malloc_internal.a; path = "grpc-1.34/grpc_libs/libabsl_malloc_internal.a"; sourceTree = "<group>"; };
+		BF37669B25B86DEF0034C20A /* libabsl_stacktrace.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_stacktrace.a; path = "grpc-1.34/grpc_libs/libabsl_stacktrace.a"; sourceTree = "<group>"; };
+		BF37669C25B86DEF0034C20A /* libabsl_raw_logging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_raw_logging_internal.a; path = "grpc-1.34/grpc_libs/libabsl_raw_logging_internal.a"; sourceTree = "<group>"; };
+		BF37669D25B86DEF0034C20A /* libabsl_base.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_base.a; path = "grpc-1.34/grpc_libs/libabsl_base.a"; sourceTree = "<group>"; };
+		BF37669E25B86DEF0034C20A /* libabsl_graphcycles_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_graphcycles_internal.a; path = "grpc-1.34/grpc_libs/libabsl_graphcycles_internal.a"; sourceTree = "<group>"; };
+		BF37669F25B86DEF0034C20A /* libabsl_hash.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_hash.a; path = "grpc-1.34/grpc_libs/libabsl_hash.a"; sourceTree = "<group>"; };
+		BF3766A025B86DEF0034C20A /* libcares.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcares.a; path = "grpc-1.34/grpc_libs/libcares.a"; sourceTree = "<group>"; };
+		BF3766A125B86DEF0034C20A /* libabsl_cord.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_cord.a; path = "grpc-1.34/grpc_libs/libabsl_cord.a"; sourceTree = "<group>"; };
+		BF3766A225B86DEF0034C20A /* libgrpc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc.a; path = "grpc-1.34/grpc_libs/libgrpc.a"; sourceTree = "<group>"; };
+		BF3766A325B86DEF0034C20A /* libgrpc++.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++.a"; path = "grpc-1.34/grpc_libs/libgrpc++.a"; sourceTree = "<group>"; };
+		BF3766A425B86DEF0034C20A /* libabsl_demangle_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_demangle_internal.a; path = "grpc-1.34/grpc_libs/libabsl_demangle_internal.a"; sourceTree = "<group>"; };
+		BF3766A525B86DEF0034C20A /* libabsl_symbolize.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_symbolize.a; path = "grpc-1.34/grpc_libs/libabsl_symbolize.a"; sourceTree = "<group>"; };
+		BF3766A625B86DEF0034C20A /* libabsl_status.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_status.a; path = "grpc-1.34/grpc_libs/libabsl_status.a"; sourceTree = "<group>"; };
+		BF3766A725B86DEF0034C20A /* libabsl_throw_delegate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_throw_delegate.a; path = "grpc-1.34/grpc_libs/libabsl_throw_delegate.a"; sourceTree = "<group>"; };
+		BF3766A825B86DF00034C20A /* libaddress_sorting.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaddress_sorting.a; path = "grpc-1.34/grpc_libs/libaddress_sorting.a"; sourceTree = "<group>"; };
+		BF3766A925B86DF00034C20A /* libabsl_bad_variant_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_variant_access.a; path = "grpc-1.34/grpc_libs/libabsl_bad_variant_access.a"; sourceTree = "<group>"; };
+		BF3766AA25B86DF00034C20A /* libgrpc_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc_unsecure.a; path = "grpc-1.34/grpc_libs/libgrpc_unsecure.a"; sourceTree = "<group>"; };
+		BF3766AB25B86DF00034C20A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "grpc-1.34/grpc_libs/libcrypto.a"; sourceTree = "<group>"; };
+		BF3766AC25B86DF00034C20A /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = "grpc-1.34/grpc_libs/libprotobuf.a"; sourceTree = "<group>"; };
+		BF3766AD25B86DF00034C20A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "grpc-1.34/grpc_libs/libssl.a"; sourceTree = "<group>"; };
+		BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_dynamic_annotations.a; path = "grpc-1.34/grpc_libs/libabsl_dynamic_annotations.a"; sourceTree = "<group>"; };
+		BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_debugging_internal.a; path = "grpc-1.34/grpc_libs/libabsl_debugging_internal.a"; sourceTree = "<group>"; };
+		BF3766B025B86DF00034C20A /* libabsl_synchronization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_synchronization.a; path = "grpc-1.34/grpc_libs/libabsl_synchronization.a"; sourceTree = "<group>"; };
+		BF3766B125B86DF00034C20A /* libgrpcpp_channelz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpcpp_channelz.a; path = "grpc-1.34/grpc_libs/libgrpcpp_channelz.a"; sourceTree = "<group>"; };
+		BF3766B225B86DF00034C20A /* libabsl_str_format_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_str_format_internal.a; path = "grpc-1.34/grpc_libs/libabsl_str_format_internal.a"; sourceTree = "<group>"; };
+		BF3766B325B86DF00034C20A /* libabsl_civil_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_civil_time.a; path = "grpc-1.34/grpc_libs/libabsl_civil_time.a"; sourceTree = "<group>"; };
+		BF3766B425B86DF00034C20A /* libabsl_exponential_biased.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_exponential_biased.a; path = "grpc-1.34/grpc_libs/libabsl_exponential_biased.a"; sourceTree = "<group>"; };
+		BF3766B525B86DF00034C20A /* libabsl_city.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_city.a; path = "grpc-1.34/grpc_libs/libabsl_city.a"; sourceTree = "<group>"; };
+		BF3766B625B86DF00034C20A /* libabsl_raw_hash_set.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_raw_hash_set.a; path = "grpc-1.34/grpc_libs/libabsl_raw_hash_set.a"; sourceTree = "<group>"; };
+		BF3766B725B86DF00034C20A /* libabsl_time.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time.a; path = "grpc-1.34/grpc_libs/libabsl_time.a"; sourceTree = "<group>"; };
+		BF3766B825B86DF00034C20A /* libgrpc_plugin_support.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc_plugin_support.a; path = "grpc-1.34/grpc_libs/libgrpc_plugin_support.a"; sourceTree = "<group>"; };
+		BF3766B925B86DF00034C20A /* libgrpc++_alts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_alts.a"; path = "grpc-1.34/grpc_libs/libgrpc++_alts.a"; sourceTree = "<group>"; };
+		BF3766BA25B86DF10034C20A /* libabsl_spinlock_wait.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_spinlock_wait.a; path = "grpc-1.34/grpc_libs/libabsl_spinlock_wait.a"; sourceTree = "<group>"; };
+		BF3766BB25B86DF10034C20A /* libgrpc++_error_details.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_error_details.a"; path = "grpc-1.34/grpc_libs/libgrpc++_error_details.a"; sourceTree = "<group>"; };
+		BF3766BC25B86DF10034C20A /* libgrpc++_reflection.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_reflection.a"; path = "grpc-1.34/grpc_libs/libgrpc++_reflection.a"; sourceTree = "<group>"; };
+		BF3766BD25B86DF10034C20A /* libgrpc++_unsecure.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libgrpc++_unsecure.a"; path = "grpc-1.34/grpc_libs/libgrpc++_unsecure.a"; sourceTree = "<group>"; };
+		BF3766BE25B86DF10034C20A /* libabsl_int128.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_int128.a; path = "grpc-1.34/grpc_libs/libabsl_int128.a"; sourceTree = "<group>"; };
+		BF3766BF25B86DF10034C20A /* libabsl_strings_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_strings_internal.a; path = "grpc-1.34/grpc_libs/libabsl_strings_internal.a"; sourceTree = "<group>"; };
+		BF3766C025B86DF10034C20A /* libgpr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgpr.a; path = "grpc-1.34/grpc_libs/libgpr.a"; sourceTree = "<group>"; };
+		BF3766C125B86DF10034C20A /* libupb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libupb.a; path = "grpc-1.34/grpc_libs/libupb.a"; sourceTree = "<group>"; };
+		BF3766C225B86DF10034C20A /* libz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libz.a; path = "grpc-1.34/grpc_libs/libz.a"; sourceTree = "<group>"; };
+		BF3766C325B86DF10034C20A /* libabsl_log_severity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_log_severity.a; path = "grpc-1.34/grpc_libs/libabsl_log_severity.a"; sourceTree = "<group>"; };
+		BF3766C425B86DF10034C20A /* libprotoc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotoc.a; path = "grpc-1.34/grpc_libs/libprotoc.a"; sourceTree = "<group>"; };
+		BF3766C525B86DF10034C20A /* libabsl_hashtablez_sampler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_hashtablez_sampler.a; path = "grpc-1.34/grpc_libs/libabsl_hashtablez_sampler.a"; sourceTree = "<group>"; };
+		BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_optional_access.a; path = "grpc-1.34/grpc_libs/libabsl_bad_optional_access.a"; sourceTree = "<group>"; };
+		BF3766C725B86DF10034C20A /* libabsl_time_zone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time_zone.a; path = "grpc-1.34/grpc_libs/libabsl_time_zone.a"; sourceTree = "<group>"; };
 		BF4FD4DA2574432B00246D66 /* ConsoleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleController.h; sourceTree = "<group>"; };
 		BF4FD4DC2574432B00246D66 /* ConsoleController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsoleController.xib; sourceTree = "<group>"; };
 		BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos.grpc.pb.cc; path = rpc/cpp/horos.grpc.pb.cc; sourceTree = "<group>"; };
@@ -277,56 +277,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF435F1325B07DBC00EC384D /* libgrpc++_reflection.a in Frameworks */,
-				BF435F3B25B07DBC00EC384D /* libgpr.a in Frameworks */,
-				BF435F5925B07DBC00EC384D /* libabsl_strings.a in Frameworks */,
-				BF435F1525B07DBC00EC384D /* libabsl_bad_optional_access.a in Frameworks */,
-				BF435F4525B07DBC00EC384D /* libprotobuf.a in Frameworks */,
-				BF435F4B25B07DBC00EC384D /* libcrypto.a in Frameworks */,
-				BF435F4125B07DBC00EC384D /* libgrpc.a in Frameworks */,
-				BF435F4325B07DBC00EC384D /* libgrpcpp_channelz.a in Frameworks */,
-				BF435F4925B07DBC00EC384D /* libabsl_log_severity.a in Frameworks */,
-				BF435F1B25B07DBC00EC384D /* libabsl_city.a in Frameworks */,
-				BF435F1925B07DBC00EC384D /* libabsl_graphcycles_internal.a in Frameworks */,
-				BF435F5525B07DBC00EC384D /* libabsl_malloc_internal.a in Frameworks */,
-				BF435F4725B07DBC00EC384D /* libprotoc.a in Frameworks */,
-				BF435F3325B07DBC00EC384D /* libcares.a in Frameworks */,
-				BF435F0F25B07DBC00EC384D /* libabsl_symbolize.a in Frameworks */,
-				BF435F3D25B07DBC00EC384D /* libgrpc_plugin_support.a in Frameworks */,
-				BF435F6725B07DBC00EC384D /* libabsl_stacktrace.a in Frameworks */,
-				BF435F2D25B07DBC00EC384D /* libabsl_raw_logging_internal.a in Frameworks */,
+				BF37671D25B86DF10034C20A /* libz.a in Frameworks */,
+				BF3766FF25B86DF10034C20A /* libabsl_civil_time.a in Frameworks */,
+				BF3766D325B86DF10034C20A /* libabsl_base.a in Frameworks */,
+				BF3766F925B86DF10034C20A /* libabsl_synchronization.a in Frameworks */,
+				BF3766F125B86DF10034C20A /* libprotobuf.a in Frameworks */,
+				BF3766C925B86DF10034C20A /* libabsl_strings.a in Frameworks */,
+				BF37671B25B86DF10034C20A /* libupb.a in Frameworks */,
+				BF3766D525B86DF10034C20A /* libabsl_graphcycles_internal.a in Frameworks */,
 				BFF84EEE25AF5E1700726A17 /* libpng16.dylib in Frameworks */,
-				BF435F4D25B07DBC00EC384D /* libgrpc++_unsecure.a in Frameworks */,
-				BF435F6B25B07DBC00EC384D /* libabsl_civil_time.a in Frameworks */,
-				BF435F5325B07DBC00EC384D /* libabsl_exponential_biased.a in Frameworks */,
-				BF435F6125B07DBC00EC384D /* libssl.a in Frameworks */,
-				BF435F5F25B07DBC00EC384D /* libabsl_time_zone.a in Frameworks */,
-				BF435F6325B07DBC00EC384D /* libz.a in Frameworks */,
-				BF435F0D25B07DBC00EC384D /* libabsl_demangle_internal.a in Frameworks */,
-				BF435F6925B07DBC00EC384D /* libabsl_strings_internal.a in Frameworks */,
-				BF435F2B25B07DBC00EC384D /* libaddress_sorting.a in Frameworks */,
-				BF435F2525B07DBC00EC384D /* libabsl_bad_variant_access.a in Frameworks */,
-				BF435F6525B07DBC00EC384D /* libabsl_hashtablez_sampler.a in Frameworks */,
-				BF435F2F25B07DBC00EC384D /* libabsl_dynamic_annotations.a in Frameworks */,
-				BF435F1725B07DBC00EC384D /* libabsl_raw_hash_set.a in Frameworks */,
-				BF435F1125B07DBC00EC384D /* libgrpc++.a in Frameworks */,
-				BF435F2125B07DBC00EC384D /* libabsl_throw_delegate.a in Frameworks */,
-				BF435F3F25B07DBC00EC384D /* libgrpc_unsecure.a in Frameworks */,
-				BF435F1D25B07DBC00EC384D /* libgrpc++_alts.a in Frameworks */,
-				BF435F3525B07DBC00EC384D /* libabsl_hash.a in Frameworks */,
-				BF435F5125B07DBC00EC384D /* libupb.a in Frameworks */,
+				BF3766E525B86DF10034C20A /* libabsl_status.a in Frameworks */,
+				BF37672725B86DF10034C20A /* libabsl_time_zone.a in Frameworks */,
+				BF3766DD25B86DF10034C20A /* libgrpc.a in Frameworks */,
+				BF37671125B86DF10034C20A /* libgrpc++_reflection.a in Frameworks */,
+				BF3766EF25B86DF10034C20A /* libcrypto.a in Frameworks */,
+				BF37671725B86DF10034C20A /* libabsl_strings_internal.a in Frameworks */,
+				BF3766F325B86DF10034C20A /* libssl.a in Frameworks */,
+				BF3766FD25B86DF10034C20A /* libabsl_str_format_internal.a in Frameworks */,
+				BF3766F725B86DF10034C20A /* libabsl_debugging_internal.a in Frameworks */,
+				BF3766D925B86DF10034C20A /* libcares.a in Frameworks */,
+				BF37670725B86DF10034C20A /* libabsl_time.a in Frameworks */,
+				BF37670F25B86DF10034C20A /* libgrpc++_error_details.a in Frameworks */,
+				BF37670325B86DF10034C20A /* libabsl_city.a in Frameworks */,
+				BF3766EB25B86DF10034C20A /* libabsl_bad_variant_access.a in Frameworks */,
+				BF3766DB25B86DF10034C20A /* libabsl_cord.a in Frameworks */,
+				BF37671F25B86DF10034C20A /* libabsl_log_severity.a in Frameworks */,
+				BF3766E125B86DF10034C20A /* libabsl_demangle_internal.a in Frameworks */,
+				BF37671325B86DF10034C20A /* libgrpc++_unsecure.a in Frameworks */,
+				BF3766E325B86DF10034C20A /* libabsl_symbolize.a in Frameworks */,
+				BF3766FB25B86DF10034C20A /* libgrpcpp_channelz.a in Frameworks */,
+				BF37672325B86DF10034C20A /* libabsl_hashtablez_sampler.a in Frameworks */,
+				BF37670D25B86DF10034C20A /* libabsl_spinlock_wait.a in Frameworks */,
 				BF6EFCD025846B960068543D /* Cocoa.framework in Frameworks */,
-				BF435F3925B07DBC00EC384D /* libabsl_synchronization.a in Frameworks */,
-				BF435F5725B07DBC00EC384D /* libabsl_base.a in Frameworks */,
-				BF435F5D25B07DBC00EC384D /* libabsl_spinlock_wait.a in Frameworks */,
-				BF435F2725B07DBC00EC384D /* libabsl_int128.a in Frameworks */,
-				BF435F5B25B07DBC00EC384D /* libabsl_cord.a in Frameworks */,
-				BF435F3725B07DBC00EC384D /* libabsl_status.a in Frameworks */,
-				BF435F4F25B07DBC00EC384D /* libre2.a in Frameworks */,
-				BF435F2925B07DBC00EC384D /* libabsl_time.a in Frameworks */,
-				BF435F1F25B07DBC00EC384D /* libgrpc++_error_details.a in Frameworks */,
-				BF435F2325B07DBC00EC384D /* libabsl_str_format_internal.a in Frameworks */,
-				BF435F3125B07DBC00EC384D /* libabsl_debugging_internal.a in Frameworks */,
+				BF3766CD25B86DF10034C20A /* libabsl_malloc_internal.a in Frameworks */,
+				BF3766CF25B86DF10034C20A /* libabsl_stacktrace.a in Frameworks */,
+				BF37670125B86DF10034C20A /* libabsl_exponential_biased.a in Frameworks */,
+				BF37671925B86DF10034C20A /* libgpr.a in Frameworks */,
+				BF3766E925B86DF10034C20A /* libaddress_sorting.a in Frameworks */,
+				BF37672525B86DF10034C20A /* libabsl_bad_optional_access.a in Frameworks */,
+				BF3766D725B86DF10034C20A /* libabsl_hash.a in Frameworks */,
+				BF37670B25B86DF10034C20A /* libgrpc++_alts.a in Frameworks */,
+				BF37672125B86DF10034C20A /* libprotoc.a in Frameworks */,
+				BF37670925B86DF10034C20A /* libgrpc_plugin_support.a in Frameworks */,
+				BF3766DF25B86DF10034C20A /* libgrpc++.a in Frameworks */,
+				BF3766F525B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */,
+				BF37671525B86DF10034C20A /* libabsl_int128.a in Frameworks */,
+				BF37670525B86DF10034C20A /* libabsl_raw_hash_set.a in Frameworks */,
+				BF3766ED25B86DF10034C20A /* libgrpc_unsecure.a in Frameworks */,
+				BF3766E725B86DF10034C20A /* libabsl_throw_delegate.a in Frameworks */,
+				BF3766CB25B86DF10034C20A /* libre2.a in Frameworks */,
+				BF3766D125B86DF10034C20A /* libabsl_raw_logging_internal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,56 +348,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF435F1225B07DBC00EC384D /* libgrpc++_reflection.a in Frameworks */,
-				BF435F3A25B07DBC00EC384D /* libgpr.a in Frameworks */,
-				BF435F5825B07DBC00EC384D /* libabsl_strings.a in Frameworks */,
-				BF435F1425B07DBC00EC384D /* libabsl_bad_optional_access.a in Frameworks */,
-				BF435F4425B07DBC00EC384D /* libprotobuf.a in Frameworks */,
-				BF435F4A25B07DBC00EC384D /* libcrypto.a in Frameworks */,
-				BF435F4025B07DBC00EC384D /* libgrpc.a in Frameworks */,
-				BF435F4225B07DBC00EC384D /* libgrpcpp_channelz.a in Frameworks */,
-				BF435F4825B07DBC00EC384D /* libabsl_log_severity.a in Frameworks */,
-				BF435F1A25B07DBC00EC384D /* libabsl_city.a in Frameworks */,
-				BF435F1825B07DBC00EC384D /* libabsl_graphcycles_internal.a in Frameworks */,
-				BF435F5425B07DBC00EC384D /* libabsl_malloc_internal.a in Frameworks */,
-				BF435F4625B07DBC00EC384D /* libprotoc.a in Frameworks */,
-				BF435F3225B07DBC00EC384D /* libcares.a in Frameworks */,
-				BF435F0E25B07DBC00EC384D /* libabsl_symbolize.a in Frameworks */,
-				BF435F3C25B07DBC00EC384D /* libgrpc_plugin_support.a in Frameworks */,
-				BF435F6625B07DBC00EC384D /* libabsl_stacktrace.a in Frameworks */,
-				BF435F2C25B07DBC00EC384D /* libabsl_raw_logging_internal.a in Frameworks */,
+				BF37671C25B86DF10034C20A /* libz.a in Frameworks */,
+				BF3766FE25B86DF10034C20A /* libabsl_civil_time.a in Frameworks */,
+				BF3766D225B86DF10034C20A /* libabsl_base.a in Frameworks */,
+				BF3766F825B86DF10034C20A /* libabsl_synchronization.a in Frameworks */,
+				BF3766F025B86DF10034C20A /* libprotobuf.a in Frameworks */,
+				BF3766C825B86DF10034C20A /* libabsl_strings.a in Frameworks */,
+				BF37671A25B86DF10034C20A /* libupb.a in Frameworks */,
+				BF3766D425B86DF10034C20A /* libabsl_graphcycles_internal.a in Frameworks */,
 				BF90A4BF25A270A80069D611 /* Cocoa.framework in Frameworks */,
-				BF435F4C25B07DBC00EC384D /* libgrpc++_unsecure.a in Frameworks */,
-				BF435F6A25B07DBC00EC384D /* libabsl_civil_time.a in Frameworks */,
-				BF435F5225B07DBC00EC384D /* libabsl_exponential_biased.a in Frameworks */,
-				BF435F6025B07DBC00EC384D /* libssl.a in Frameworks */,
-				BF435F5E25B07DBC00EC384D /* libabsl_time_zone.a in Frameworks */,
-				BF435F6225B07DBC00EC384D /* libz.a in Frameworks */,
-				BF435F0C25B07DBC00EC384D /* libabsl_demangle_internal.a in Frameworks */,
-				BF435F6825B07DBC00EC384D /* libabsl_strings_internal.a in Frameworks */,
-				BF435F2A25B07DBC00EC384D /* libaddress_sorting.a in Frameworks */,
-				BF435F2425B07DBC00EC384D /* libabsl_bad_variant_access.a in Frameworks */,
-				BF435F6425B07DBC00EC384D /* libabsl_hashtablez_sampler.a in Frameworks */,
-				BF435F2E25B07DBC00EC384D /* libabsl_dynamic_annotations.a in Frameworks */,
-				BF435F1625B07DBC00EC384D /* libabsl_raw_hash_set.a in Frameworks */,
-				BF435F1025B07DBC00EC384D /* libgrpc++.a in Frameworks */,
-				BF435F2025B07DBC00EC384D /* libabsl_throw_delegate.a in Frameworks */,
-				BF435F3E25B07DBC00EC384D /* libgrpc_unsecure.a in Frameworks */,
-				BF435F1C25B07DBC00EC384D /* libgrpc++_alts.a in Frameworks */,
-				BF435F3425B07DBC00EC384D /* libabsl_hash.a in Frameworks */,
-				BF435F5025B07DBC00EC384D /* libupb.a in Frameworks */,
+				BF3766E425B86DF10034C20A /* libabsl_status.a in Frameworks */,
+				BF37672625B86DF10034C20A /* libabsl_time_zone.a in Frameworks */,
+				BF3766DC25B86DF10034C20A /* libgrpc.a in Frameworks */,
+				BF37671025B86DF10034C20A /* libgrpc++_reflection.a in Frameworks */,
+				BF3766EE25B86DF10034C20A /* libcrypto.a in Frameworks */,
+				BF37671625B86DF10034C20A /* libabsl_strings_internal.a in Frameworks */,
+				BF3766F225B86DF10034C20A /* libssl.a in Frameworks */,
+				BF3766FC25B86DF10034C20A /* libabsl_str_format_internal.a in Frameworks */,
+				BF3766F625B86DF10034C20A /* libabsl_debugging_internal.a in Frameworks */,
+				BF3766D825B86DF10034C20A /* libcares.a in Frameworks */,
+				BF37670625B86DF10034C20A /* libabsl_time.a in Frameworks */,
+				BF37670E25B86DF10034C20A /* libgrpc++_error_details.a in Frameworks */,
+				BF37670225B86DF10034C20A /* libabsl_city.a in Frameworks */,
+				BF3766EA25B86DF10034C20A /* libabsl_bad_variant_access.a in Frameworks */,
+				BF3766DA25B86DF10034C20A /* libabsl_cord.a in Frameworks */,
+				BF37671E25B86DF10034C20A /* libabsl_log_severity.a in Frameworks */,
+				BF3766E025B86DF10034C20A /* libabsl_demangle_internal.a in Frameworks */,
+				BF37671225B86DF10034C20A /* libgrpc++_unsecure.a in Frameworks */,
+				BF3766E225B86DF10034C20A /* libabsl_symbolize.a in Frameworks */,
+				BF3766FA25B86DF10034C20A /* libgrpcpp_channelz.a in Frameworks */,
+				BF37672225B86DF10034C20A /* libabsl_hashtablez_sampler.a in Frameworks */,
+				BF37670C25B86DF10034C20A /* libabsl_spinlock_wait.a in Frameworks */,
 				BF90A4C125A270A80069D611 /* OsiriXAPI.framework in Frameworks */,
-				BF435F3825B07DBC00EC384D /* libabsl_synchronization.a in Frameworks */,
-				BF435F5625B07DBC00EC384D /* libabsl_base.a in Frameworks */,
-				BF435F5C25B07DBC00EC384D /* libabsl_spinlock_wait.a in Frameworks */,
-				BF435F2625B07DBC00EC384D /* libabsl_int128.a in Frameworks */,
-				BF435F5A25B07DBC00EC384D /* libabsl_cord.a in Frameworks */,
-				BF435F3625B07DBC00EC384D /* libabsl_status.a in Frameworks */,
-				BF435F4E25B07DBC00EC384D /* libre2.a in Frameworks */,
-				BF435F2825B07DBC00EC384D /* libabsl_time.a in Frameworks */,
-				BF435F1E25B07DBC00EC384D /* libgrpc++_error_details.a in Frameworks */,
-				BF435F2225B07DBC00EC384D /* libabsl_str_format_internal.a in Frameworks */,
-				BF435F3025B07DBC00EC384D /* libabsl_debugging_internal.a in Frameworks */,
+				BF3766CC25B86DF10034C20A /* libabsl_malloc_internal.a in Frameworks */,
+				BF3766CE25B86DF10034C20A /* libabsl_stacktrace.a in Frameworks */,
+				BF37670025B86DF10034C20A /* libabsl_exponential_biased.a in Frameworks */,
+				BF37671825B86DF10034C20A /* libgpr.a in Frameworks */,
+				BF3766E825B86DF10034C20A /* libaddress_sorting.a in Frameworks */,
+				BF37672425B86DF10034C20A /* libabsl_bad_optional_access.a in Frameworks */,
+				BF3766D625B86DF10034C20A /* libabsl_hash.a in Frameworks */,
+				BF37670A25B86DF10034C20A /* libgrpc++_alts.a in Frameworks */,
+				BF37672025B86DF10034C20A /* libprotoc.a in Frameworks */,
+				BF37670825B86DF10034C20A /* libgrpc_plugin_support.a in Frameworks */,
+				BF3766DE25B86DF10034C20A /* libgrpc++.a in Frameworks */,
+				BF3766F425B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */,
+				BF37671425B86DF10034C20A /* libabsl_int128.a in Frameworks */,
+				BF37670425B86DF10034C20A /* libabsl_raw_hash_set.a in Frameworks */,
+				BF3766EC25B86DF10034C20A /* libgrpc_unsecure.a in Frameworks */,
+				BF3766E625B86DF10034C20A /* libabsl_throw_delegate.a in Frameworks */,
+				BF3766CA25B86DF10034C20A /* libre2.a in Frameworks */,
+				BF3766D025B86DF10034C20A /* libabsl_raw_logging_internal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,54 +421,54 @@
 		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				BF435EE025B07DBA00EC384D /* libabsl_bad_optional_access.a */,
-				BF435EE825B07DBA00EC384D /* libabsl_bad_variant_access.a */,
-				BF435F0125B07DBB00EC384D /* libabsl_base.a */,
-				BF435EE325B07DBA00EC384D /* libabsl_city.a */,
-				BF435F0B25B07DBC00EC384D /* libabsl_civil_time.a */,
-				BF435F0325B07DBB00EC384D /* libabsl_cord.a */,
-				BF435EEE25B07DBA00EC384D /* libabsl_debugging_internal.a */,
-				BF435EDC25B07DB900EC384D /* libabsl_demangle_internal.a */,
-				BF435EED25B07DBA00EC384D /* libabsl_dynamic_annotations.a */,
-				BF435EFF25B07DBB00EC384D /* libabsl_exponential_biased.a */,
-				BF435EE225B07DBA00EC384D /* libabsl_graphcycles_internal.a */,
-				BF435EF025B07DBA00EC384D /* libabsl_hash.a */,
-				BF435F0825B07DBC00EC384D /* libabsl_hashtablez_sampler.a */,
-				BF435EE925B07DBA00EC384D /* libabsl_int128.a */,
-				BF435EFA25B07DBB00EC384D /* libabsl_log_severity.a */,
-				BF435F0025B07DBB00EC384D /* libabsl_malloc_internal.a */,
-				BF435EE125B07DBA00EC384D /* libabsl_raw_hash_set.a */,
-				BF435EEC25B07DBA00EC384D /* libabsl_raw_logging_internal.a */,
-				BF435F0425B07DBB00EC384D /* libabsl_spinlock_wait.a */,
-				BF435F0925B07DBC00EC384D /* libabsl_stacktrace.a */,
-				BF435EF125B07DBA00EC384D /* libabsl_status.a */,
-				BF435EE725B07DBA00EC384D /* libabsl_str_format_internal.a */,
-				BF435F0A25B07DBC00EC384D /* libabsl_strings_internal.a */,
-				BF435F0225B07DBB00EC384D /* libabsl_strings.a */,
-				BF435EDD25B07DBA00EC384D /* libabsl_symbolize.a */,
-				BF435EF225B07DBB00EC384D /* libabsl_synchronization.a */,
-				BF435EE625B07DBA00EC384D /* libabsl_throw_delegate.a */,
-				BF435F0525B07DBB00EC384D /* libabsl_time_zone.a */,
-				BF435EEA25B07DBA00EC384D /* libabsl_time.a */,
-				BF435EEB25B07DBA00EC384D /* libaddress_sorting.a */,
-				BF435EEF25B07DBA00EC384D /* libcares.a */,
-				BF435EFB25B07DBB00EC384D /* libcrypto.a */,
-				BF435EF325B07DBB00EC384D /* libgpr.a */,
-				BF435EF425B07DBB00EC384D /* libgrpc_plugin_support.a */,
-				BF435EF525B07DBB00EC384D /* libgrpc_unsecure.a */,
-				BF435EF625B07DBB00EC384D /* libgrpc.a */,
-				BF435EE425B07DBA00EC384D /* libgrpc++_alts.a */,
-				BF435EE525B07DBA00EC384D /* libgrpc++_error_details.a */,
-				BF435EDF25B07DBA00EC384D /* libgrpc++_reflection.a */,
-				BF435EFC25B07DBB00EC384D /* libgrpc++_unsecure.a */,
-				BF435EDE25B07DBA00EC384D /* libgrpc++.a */,
-				BF435EF725B07DBB00EC384D /* libgrpcpp_channelz.a */,
-				BF435EF825B07DBB00EC384D /* libprotobuf.a */,
-				BF435EF925B07DBB00EC384D /* libprotoc.a */,
-				BF435EFD25B07DBB00EC384D /* libre2.a */,
-				BF435F0625B07DBC00EC384D /* libssl.a */,
-				BF435EFE25B07DBB00EC384D /* libupb.a */,
-				BF435F0725B07DBC00EC384D /* libz.a */,
+				BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */,
+				BF3766A925B86DF00034C20A /* libabsl_bad_variant_access.a */,
+				BF37669D25B86DEF0034C20A /* libabsl_base.a */,
+				BF3766B525B86DF00034C20A /* libabsl_city.a */,
+				BF3766B325B86DF00034C20A /* libabsl_civil_time.a */,
+				BF3766A125B86DEF0034C20A /* libabsl_cord.a */,
+				BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */,
+				BF3766A425B86DEF0034C20A /* libabsl_demangle_internal.a */,
+				BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */,
+				BF3766B425B86DF00034C20A /* libabsl_exponential_biased.a */,
+				BF37669E25B86DEF0034C20A /* libabsl_graphcycles_internal.a */,
+				BF37669F25B86DEF0034C20A /* libabsl_hash.a */,
+				BF3766C525B86DF10034C20A /* libabsl_hashtablez_sampler.a */,
+				BF3766BE25B86DF10034C20A /* libabsl_int128.a */,
+				BF3766C325B86DF10034C20A /* libabsl_log_severity.a */,
+				BF37669A25B86DEF0034C20A /* libabsl_malloc_internal.a */,
+				BF3766B625B86DF00034C20A /* libabsl_raw_hash_set.a */,
+				BF37669C25B86DEF0034C20A /* libabsl_raw_logging_internal.a */,
+				BF3766BA25B86DF10034C20A /* libabsl_spinlock_wait.a */,
+				BF37669B25B86DEF0034C20A /* libabsl_stacktrace.a */,
+				BF3766A625B86DEF0034C20A /* libabsl_status.a */,
+				BF3766B225B86DF00034C20A /* libabsl_str_format_internal.a */,
+				BF3766BF25B86DF10034C20A /* libabsl_strings_internal.a */,
+				BF37669825B86DEF0034C20A /* libabsl_strings.a */,
+				BF3766A525B86DEF0034C20A /* libabsl_symbolize.a */,
+				BF3766B025B86DF00034C20A /* libabsl_synchronization.a */,
+				BF3766A725B86DEF0034C20A /* libabsl_throw_delegate.a */,
+				BF3766C725B86DF10034C20A /* libabsl_time_zone.a */,
+				BF3766B725B86DF00034C20A /* libabsl_time.a */,
+				BF3766A825B86DF00034C20A /* libaddress_sorting.a */,
+				BF3766A025B86DEF0034C20A /* libcares.a */,
+				BF3766AB25B86DF00034C20A /* libcrypto.a */,
+				BF3766C025B86DF10034C20A /* libgpr.a */,
+				BF3766B825B86DF00034C20A /* libgrpc_plugin_support.a */,
+				BF3766AA25B86DF00034C20A /* libgrpc_unsecure.a */,
+				BF3766A225B86DEF0034C20A /* libgrpc.a */,
+				BF3766B925B86DF00034C20A /* libgrpc++_alts.a */,
+				BF3766BB25B86DF10034C20A /* libgrpc++_error_details.a */,
+				BF3766BC25B86DF10034C20A /* libgrpc++_reflection.a */,
+				BF3766BD25B86DF10034C20A /* libgrpc++_unsecure.a */,
+				BF3766A325B86DEF0034C20A /* libgrpc++.a */,
+				BF3766B125B86DF00034C20A /* libgrpcpp_channelz.a */,
+				BF3766AC25B86DF00034C20A /* libprotobuf.a */,
+				BF3766C425B86DF10034C20A /* libprotoc.a */,
+				BF37669925B86DEF0034C20A /* libre2.a */,
+				BF3766AD25B86DF00034C20A /* libssl.a */,
+				BF3766C125B86DF10034C20A /* libupb.a */,
+				BF3766C225B86DF10034C20A /* libz.a */,
 				BFF84EED25AF5E1700726A17 /* libpng16.dylib */,
 				8420023112E829A200E1E9CE /* OsiriXAPI.framework */,
 				1058C7ACFEA557BF11CA2CBB /* Linked Frameworks */,
@@ -962,6 +962,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/grpc_libs",
+					"$(PROJECT_DIR)/grpc-1.34/grpc_libs",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1039,6 +1040,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/grpc_libs",
+					"$(PROJECT_DIR)/grpc-1.34/grpc_libs",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -1330,7 +1332,7 @@
 				INSTALL_PATH = "@executable_path/../Plug-ins";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/grpc_libs",
+					"$(PROJECT_DIR)/grpc-1.34/grpc_libs",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
@@ -1380,7 +1382,7 @@
 				INSTALL_PATH = "@executable_path/../Plug-ins";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/grpc_libs",
+					"$(PROJECT_DIR)/grpc-1.34/grpc_libs",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;

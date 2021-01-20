@@ -24,6 +24,7 @@ namespace icr {
 static const char* Horos_method_names[] = {
   "/icr.Horos/GetCurrentImageFile",
   "/icr.Horos/GetCurrentImage",
+  "/icr.Horos/SetCurrentImage",
 };
 
 std::unique_ptr< Horos::Stub> Horos::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,22 +36,23 @@ std::unique_ptr< Horos::Stub> Horos::NewStub(const std::shared_ptr< ::grpc::Chan
 Horos::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_GetCurrentImageFile_(Horos_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetCurrentImage_(Horos_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetCurrentImage_(Horos_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Horos::Stub::GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::icr::DicomNameResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetCurrentImageFile_, context, request, response);
+  return ::grpc::internal::BlockingUnaryCall< ::icr::DicomNameRequest, ::icr::DicomNameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCurrentImageFile_, context, request, response);
 }
 
 void Horos::Stub::experimental_async::GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImageFile_, context, request, response, std::move(f));
+  ::grpc::internal::CallbackUnaryCall< ::icr::DicomNameRequest, ::icr::DicomNameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImageFile_, context, request, response, std::move(f));
 }
 
 void Horos::Stub::experimental_async::GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImageFile_, context, request, response, reactor);
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImageFile_, context, request, response, reactor);
 }
 
 ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>* Horos::Stub::PrepareAsyncGetCurrentImageFileRaw(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::icr::DicomNameResponse>::Create(channel_.get(), cq, rpcmethod_GetCurrentImageFile_, context, request, false);
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::icr::DicomNameResponse, ::icr::DicomNameRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCurrentImageFile_, context, request);
 }
 
 ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>* Horos::Stub::AsyncGetCurrentImageFileRaw(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) {
@@ -60,25 +62,48 @@ void Horos::Stub::experimental_async::GetCurrentImageFile(::grpc::ClientContext*
   return result;
 }
 
-::grpc::Status Horos::Stub::GetCurrentImage(::grpc::ClientContext* context, const ::icr::DicomImageRequest& request, ::icr::DicomImageResponse* response) {
-  return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_GetCurrentImage_, context, request, response);
+::grpc::Status Horos::Stub::GetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::icr::ImageGetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::icr::ImageGetRequest, ::icr::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCurrentImage_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::GetCurrentImage(::grpc::ClientContext* context, const ::icr::DicomImageRequest* request, ::icr::DicomImageResponse* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImage_, context, request, response, std::move(f));
+void Horos::Stub::experimental_async::GetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest* request, ::icr::ImageGetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::icr::ImageGetRequest, ::icr::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImage_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::GetCurrentImage(::grpc::ClientContext* context, const ::icr::DicomImageRequest* request, ::icr::DicomImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImage_, context, request, response, reactor);
+void Horos::Stub::experimental_async::GetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest* request, ::icr::ImageGetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImage_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::icr::DicomImageResponse>* Horos::Stub::PrepareAsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::DicomImageRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderFactory< ::icr::DicomImageResponse>::Create(channel_.get(), cq, rpcmethod_GetCurrentImage_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::icr::ImageGetResponse>* Horos::Stub::PrepareAsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::icr::ImageGetResponse, ::icr::ImageGetRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCurrentImage_, context, request);
 }
 
-::grpc::ClientAsyncResponseReader< ::icr::DicomImageResponse>* Horos::Stub::AsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::DicomImageRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::icr::ImageGetResponse>* Horos::Stub::AsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetCurrentImageRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Horos::Stub::SetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::icr::ImageGetResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::icr::ImageSetRequest, ::icr::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetCurrentImage_, context, request, response);
+}
+
+void Horos::Stub::experimental_async::SetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageSetRequest* request, ::icr::ImageGetResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::icr::ImageSetRequest, ::icr::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetCurrentImage_, context, request, response, std::move(f));
+}
+
+void Horos::Stub::experimental_async::SetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageSetRequest* request, ::icr::ImageGetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetCurrentImage_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::icr::ImageGetResponse>* Horos::Stub::PrepareAsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::icr::ImageGetResponse, ::icr::ImageSetRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetCurrentImage_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::icr::ImageGetResponse>* Horos::Stub::AsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSetCurrentImageRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -87,7 +112,7 @@ Horos::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Horos_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::icr::DicomNameRequest, ::icr::DicomNameResponse>(
+      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::icr::DicomNameRequest, ::icr::DicomNameResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
              ::grpc::ServerContext* ctx,
              const ::icr::DicomNameRequest* req,
@@ -97,12 +122,22 @@ Horos::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Horos_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::icr::DicomImageRequest, ::icr::DicomImageResponse>(
+      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::icr::ImageGetRequest, ::icr::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::icr::DicomImageRequest* req,
-             ::icr::DicomImageResponse* resp) {
+             const ::icr::ImageGetRequest* req,
+             ::icr::ImageGetResponse* resp) {
                return service->GetCurrentImage(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Horos_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::icr::ImageSetRequest, ::icr::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Horos::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::icr::ImageSetRequest* req,
+             ::icr::ImageGetResponse* resp) {
+               return service->SetCurrentImage(ctx, req, resp);
              }, this)));
 }
 
@@ -116,7 +151,14 @@ Horos::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Horos::Service::GetCurrentImage(::grpc::ServerContext* context, const ::icr::DicomImageRequest* request, ::icr::DicomImageResponse* response) {
+::grpc::Status Horos::Service::GetCurrentImage(::grpc::ServerContext* context, const ::icr::ImageGetRequest* request, ::icr::ImageGetResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Horos::Service::SetCurrentImage(::grpc::ServerContext* context, const ::icr::ImageSetRequest* request, ::icr::ImageGetResponse* response) {
   (void) context;
   (void) request;
   (void) response;

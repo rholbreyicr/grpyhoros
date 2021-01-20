@@ -58,8 +58,8 @@ class HorosServer final : public Horos::Service {
                                DicomNameResponse* reply ) override;
 
     Status GetCurrentImage(ServerContext* context,
-                           const DicomImageRequest* request,
-                           DicomImageResponse* reply ) override;
+                           const ImageGetRequest* request,
+                           ImageGetResponse* reply ) override;
 
     static ServerAdaptor* p_Adaptor;  ///< Pointer to adaptor, not owned by this class
 

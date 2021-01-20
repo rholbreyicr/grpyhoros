@@ -23,43 +23,23 @@ class DicomNameResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DicomNameResponse> _instance;
 } _DicomNameResponse_default_instance_;
-class DicomImageRequestDefaultTypeInternal {
+class ImageGetRequestDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DicomImageRequest> _instance;
-} _DicomImageRequest_default_instance_;
-class DicomImageResponseDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImageGetRequest> _instance;
+} _ImageGetRequest_default_instance_;
+class ImageGetResponseDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DicomImageResponse> _instance;
-} _DicomImageResponse_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImageGetResponse> _instance;
+} _ImageGetResponse_default_instance_;
+class ImageSetRequestDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImageSetRequest> _instance;
+} _ImageSetRequest_default_instance_;
+class ImageSetResponseDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImageSetResponse> _instance;
+} _ImageSetResponse_default_instance_;
 }  // namespace icr
-static void InitDefaultsscc_info_DicomImageRequest_horos_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::icr::_DicomImageRequest_default_instance_;
-    new (ptr) ::icr::DicomImageRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::icr::DicomImageRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DicomImageRequest_horos_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DicomImageRequest_horos_2eproto}, {}};
-
-static void InitDefaultsscc_info_DicomImageResponse_horos_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::icr::_DicomImageResponse_default_instance_;
-    new (ptr) ::icr::DicomImageResponse();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::icr::DicomImageResponse::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DicomImageResponse_horos_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DicomImageResponse_horos_2eproto}, {}};
-
 static void InitDefaultsscc_info_DicomNameRequest_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -88,7 +68,63 @@ static void InitDefaultsscc_info_DicomNameResponse_horos_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DicomNameResponse_horos_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DicomNameResponse_horos_2eproto}, {}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_horos_2eproto[4];
+static void InitDefaultsscc_info_ImageGetRequest_horos_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::icr::_ImageGetRequest_default_instance_;
+    new (ptr) ::icr::ImageGetRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::icr::ImageGetRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageGetRequest_horos_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ImageGetRequest_horos_2eproto}, {}};
+
+static void InitDefaultsscc_info_ImageGetResponse_horos_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::icr::_ImageGetResponse_default_instance_;
+    new (ptr) ::icr::ImageGetResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::icr::ImageGetResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageGetResponse_horos_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ImageGetResponse_horos_2eproto}, {}};
+
+static void InitDefaultsscc_info_ImageSetRequest_horos_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::icr::_ImageSetRequest_default_instance_;
+    new (ptr) ::icr::ImageSetRequest();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::icr::ImageSetRequest::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageSetRequest_horos_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ImageSetRequest_horos_2eproto}, {}};
+
+static void InitDefaultsscc_info_ImageSetResponse_horos_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::icr::_ImageSetResponse_default_instance_;
+    new (ptr) ::icr::ImageSetResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::icr::ImageSetResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageSetResponse_horos_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ImageSetResponse_horos_2eproto}, {}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_horos_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_horos_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_horos_2eproto = nullptr;
 
@@ -106,62 +142,89 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_horos_2eproto::offsets[] PROTO
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::icr::DicomNameResponse, dicom_name_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetRequest, id_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageResponse, dicom_name_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageResponse, image_size_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageResponse, voxel_size_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageResponse, origin_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomImageResponse, data_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, dicom_name_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, image_size_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, voxel_size_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, origin_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, dicom_name_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, image_size_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, voxel_size_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, origin_),
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, data_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::icr::ImageSetResponse, id_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::icr::DicomNameRequest)},
   { 6, -1, sizeof(::icr::DicomNameResponse)},
-  { 12, -1, sizeof(::icr::DicomImageRequest)},
-  { 18, -1, sizeof(::icr::DicomImageResponse)},
+  { 12, -1, sizeof(::icr::ImageGetRequest)},
+  { 18, -1, sizeof(::icr::ImageGetResponse)},
+  { 28, -1, sizeof(::icr::ImageSetRequest)},
+  { 38, -1, sizeof(::icr::ImageSetResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_DicomNameRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_DicomNameResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_DicomImageRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_DicomImageResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageGetRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageGetResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageSetRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageSetResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013horos.proto\022\003icr\"\036\n\020DicomNameRequest\022\n"
   "\n\002id\030\001 \001(\t\"\'\n\021DicomNameResponse\022\022\n\ndicom"
-  "_name\030\001 \001(\t\"\037\n\021DicomImageRequest\022\n\n\002id\030\001"
-  " \001(\t\"n\n\022DicomImageResponse\022\022\n\ndicom_name"
-  "\030\001 \001(\t\022\022\n\nimage_size\030\002 \003(\005\022\022\n\nvoxel_size"
-  "\030\003 \003(\002\022\016\n\006origin\030\004 \003(\002\022\014\n\004data\030\005 \003(\0022\225\001\n"
-  "\005Horos\022F\n\023GetCurrentImageFile\022\025.icr.Dico"
-  "mNameRequest\032\026.icr.DicomNameResponse\"\000\022D"
-  "\n\017GetCurrentImage\022\026.icr.DicomImageReques"
-  "t\032\027.icr.DicomImageResponse\"\000b\006proto3"
+  "_name\030\001 \001(\t\"\035\n\017ImageGetRequest\022\n\n\002id\030\001 \001"
+  "(\t\"l\n\020ImageGetResponse\022\022\n\ndicom_name\030\001 \001"
+  "(\t\022\022\n\nimage_size\030\002 \003(\005\022\022\n\nvoxel_size\030\003 \003"
+  "(\002\022\016\n\006origin\030\004 \003(\002\022\014\n\004data\030\005 \003(\002\"k\n\017Imag"
+  "eSetRequest\022\022\n\ndicom_name\030\001 \001(\t\022\022\n\nimage"
+  "_size\030\002 \003(\005\022\022\n\nvoxel_size\030\003 \003(\002\022\016\n\006origi"
+  "n\030\004 \003(\002\022\014\n\004data\030\005 \003(\002\"\036\n\020ImageSetRespons"
+  "e\022\n\n\002id\030\001 \001(\t2\323\001\n\005Horos\022F\n\023GetCurrentIma"
+  "geFile\022\025.icr.DicomNameRequest\032\026.icr.Dico"
+  "mNameResponse\"\000\022@\n\017GetCurrentImage\022\024.icr"
+  ".ImageGetRequest\032\025.icr.ImageGetResponse\""
+  "\000\022@\n\017SetCurrentImage\022\024.icr.ImageSetReque"
+  "st\032\025.icr.ImageGetResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_horos_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_horos_2eproto_sccs[4] = {
-  &scc_info_DicomImageRequest_horos_2eproto.base,
-  &scc_info_DicomImageResponse_horos_2eproto.base,
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_horos_2eproto_sccs[6] = {
   &scc_info_DicomNameRequest_horos_2eproto.base,
   &scc_info_DicomNameResponse_horos_2eproto.base,
+  &scc_info_ImageGetRequest_horos_2eproto.base,
+  &scc_info_ImageGetResponse_horos_2eproto.base,
+  &scc_info_ImageSetRequest_horos_2eproto.base,
+  &scc_info_ImageSetResponse_horos_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_horos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto = {
-  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 396,
-  &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_sccs, descriptor_table_horos_2eproto_deps, 4, 0,
+  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 595,
+  &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_sccs, descriptor_table_horos_2eproto_deps, 6, 0,
   schemas, file_default_instances, TableStruct_horos_2eproto::offsets,
-  file_level_metadata_horos_2eproto, 4, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,
+  file_level_metadata_horos_2eproto, 6, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -588,19 +651,19 @@ void DicomNameResponse::InternalSwap(DicomNameResponse* other) {
 
 // ===================================================================
 
-void DicomImageRequest::InitAsDefaultInstance() {
+void ImageGetRequest::InitAsDefaultInstance() {
 }
-class DicomImageRequest::_Internal {
+class ImageGetRequest::_Internal {
  public:
 };
 
-DicomImageRequest::DicomImageRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+ImageGetRequest::ImageGetRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.DicomImageRequest)
+  // @@protoc_insertion_point(arena_constructor:icr.ImageGetRequest)
 }
-DicomImageRequest::DicomImageRequest(const DicomImageRequest& from)
+ImageGetRequest::ImageGetRequest(const ImageGetRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -608,42 +671,42 @@ DicomImageRequest::DicomImageRequest(const DicomImageRequest& from)
     id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
-  // @@protoc_insertion_point(copy_constructor:icr.DicomImageRequest)
+  // @@protoc_insertion_point(copy_constructor:icr.ImageGetRequest)
 }
 
-void DicomImageRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DicomImageRequest_horos_2eproto.base);
+void ImageGetRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageGetRequest_horos_2eproto.base);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-DicomImageRequest::~DicomImageRequest() {
-  // @@protoc_insertion_point(destructor:icr.DicomImageRequest)
+ImageGetRequest::~ImageGetRequest() {
+  // @@protoc_insertion_point(destructor:icr.ImageGetRequest)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void DicomImageRequest::SharedDtor() {
+void ImageGetRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void DicomImageRequest::ArenaDtor(void* object) {
-  DicomImageRequest* _this = reinterpret_cast< DicomImageRequest* >(object);
+void ImageGetRequest::ArenaDtor(void* object) {
+  ImageGetRequest* _this = reinterpret_cast< ImageGetRequest* >(object);
   (void)_this;
 }
-void DicomImageRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void ImageGetRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void DicomImageRequest::SetCachedSize(int size) const {
+void ImageGetRequest::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const DicomImageRequest& DicomImageRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DicomImageRequest_horos_2eproto.base);
+const ImageGetRequest& ImageGetRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ImageGetRequest_horos_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void DicomImageRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.DicomImageRequest)
+void ImageGetRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:icr.ImageGetRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -652,7 +715,7 @@ void DicomImageRequest::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* DicomImageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImageGetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
@@ -665,7 +728,7 @@ const char* DicomImageRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomImageRequest.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetRequest.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -691,9 +754,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DicomImageRequest::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* ImageGetRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.DicomImageRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageGetRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -702,7 +765,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomImageRequest.id");
+      "icr.ImageGetRequest.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -711,12 +774,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.DicomImageRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageGetRequest)
   return target;
 }
 
-size_t DicomImageRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.DicomImageRequest)
+size_t ImageGetRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:icr.ImageGetRequest)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -739,23 +802,23 @@ size_t DicomImageRequest::ByteSizeLong() const {
   return total_size;
 }
 
-void DicomImageRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.DicomImageRequest)
+void ImageGetRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageGetRequest)
   GOOGLE_DCHECK_NE(&from, this);
-  const DicomImageRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DicomImageRequest>(
+  const ImageGetRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageGetRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.DicomImageRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageGetRequest)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.DicomImageRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageGetRequest)
     MergeFrom(*source);
   }
 }
 
-void DicomImageRequest::MergeFrom(const DicomImageRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.DicomImageRequest)
+void ImageGetRequest::MergeFrom(const ImageGetRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageGetRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -766,44 +829,44 @@ void DicomImageRequest::MergeFrom(const DicomImageRequest& from) {
   }
 }
 
-void DicomImageRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.DicomImageRequest)
+void ImageGetRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageGetRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DicomImageRequest::CopyFrom(const DicomImageRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.DicomImageRequest)
+void ImageGetRequest::CopyFrom(const ImageGetRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageGetRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DicomImageRequest::IsInitialized() const {
+bool ImageGetRequest::IsInitialized() const {
   return true;
 }
 
-void DicomImageRequest::InternalSwap(DicomImageRequest* other) {
+void ImageGetRequest::InternalSwap(ImageGetRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata DicomImageRequest::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata ImageGetRequest::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void DicomImageResponse::InitAsDefaultInstance() {
+void ImageGetResponse::InitAsDefaultInstance() {
 }
-class DicomImageResponse::_Internal {
+class ImageGetResponse::_Internal {
  public:
 };
 
-DicomImageResponse::DicomImageResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+ImageGetResponse::ImageGetResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   image_size_(arena),
   voxel_size_(arena),
@@ -811,9 +874,9 @@ DicomImageResponse::DicomImageResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   data_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.DicomImageResponse)
+  // @@protoc_insertion_point(arena_constructor:icr.ImageGetResponse)
 }
-DicomImageResponse::DicomImageResponse(const DicomImageResponse& from)
+ImageGetResponse::ImageGetResponse(const ImageGetResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       image_size_(from.image_size_),
       voxel_size_(from.voxel_size_),
@@ -825,42 +888,42 @@ DicomImageResponse::DicomImageResponse(const DicomImageResponse& from)
     dicom_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dicom_name(),
       GetArena());
   }
-  // @@protoc_insertion_point(copy_constructor:icr.DicomImageResponse)
+  // @@protoc_insertion_point(copy_constructor:icr.ImageGetResponse)
 }
 
-void DicomImageResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DicomImageResponse_horos_2eproto.base);
+void ImageGetResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageGetResponse_horos_2eproto.base);
   dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-DicomImageResponse::~DicomImageResponse() {
-  // @@protoc_insertion_point(destructor:icr.DicomImageResponse)
+ImageGetResponse::~ImageGetResponse() {
+  // @@protoc_insertion_point(destructor:icr.ImageGetResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void DicomImageResponse::SharedDtor() {
+void ImageGetResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   dicom_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void DicomImageResponse::ArenaDtor(void* object) {
-  DicomImageResponse* _this = reinterpret_cast< DicomImageResponse* >(object);
+void ImageGetResponse::ArenaDtor(void* object) {
+  ImageGetResponse* _this = reinterpret_cast< ImageGetResponse* >(object);
   (void)_this;
 }
-void DicomImageResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void ImageGetResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void DicomImageResponse::SetCachedSize(int size) const {
+void ImageGetResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const DicomImageResponse& DicomImageResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DicomImageResponse_horos_2eproto.base);
+const ImageGetResponse& ImageGetResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ImageGetResponse_horos_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void DicomImageResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.DicomImageResponse)
+void ImageGetResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:icr.ImageGetResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -873,7 +936,7 @@ void DicomImageResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* DicomImageResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ImageGetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
@@ -886,7 +949,7 @@ const char* DicomImageResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_dicom_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomImageResponse.dicom_name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetResponse.dicom_name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -952,9 +1015,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* DicomImageResponse::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* ImageGetResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.DicomImageResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageGetResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -963,7 +1026,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_dicom_name().data(), static_cast<int>(this->_internal_dicom_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomImageResponse.dicom_name");
+      "icr.ImageGetResponse.dicom_name");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_dicom_name(), target);
   }
@@ -996,12 +1059,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.DicomImageResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageGetResponse)
   return target;
 }
 
-size_t DicomImageResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.DicomImageResponse)
+size_t ImageGetResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:icr.ImageGetResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1084,23 +1147,23 @@ size_t DicomImageResponse::ByteSizeLong() const {
   return total_size;
 }
 
-void DicomImageResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.DicomImageResponse)
+void ImageGetResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageGetResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const DicomImageResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DicomImageResponse>(
+  const ImageGetResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageGetResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.DicomImageResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageGetResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.DicomImageResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageGetResponse)
     MergeFrom(*source);
   }
 }
 
-void DicomImageResponse::MergeFrom(const DicomImageResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.DicomImageResponse)
+void ImageGetResponse::MergeFrom(const ImageGetResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageGetResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1115,25 +1178,25 @@ void DicomImageResponse::MergeFrom(const DicomImageResponse& from) {
   }
 }
 
-void DicomImageResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.DicomImageResponse)
+void ImageGetResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageGetResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DicomImageResponse::CopyFrom(const DicomImageResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.DicomImageResponse)
+void ImageGetResponse::CopyFrom(const ImageGetResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageGetResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool DicomImageResponse::IsInitialized() const {
+bool ImageGetResponse::IsInitialized() const {
   return true;
 }
 
-void DicomImageResponse::InternalSwap(DicomImageResponse* other) {
+void ImageGetResponse::InternalSwap(ImageGetResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   image_size_.InternalSwap(&other->image_size_);
@@ -1143,7 +1206,569 @@ void DicomImageResponse::InternalSwap(DicomImageResponse* other) {
   dicom_name_.Swap(&other->dicom_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata DicomImageResponse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata ImageGetResponse::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void ImageSetRequest::InitAsDefaultInstance() {
+}
+class ImageSetRequest::_Internal {
+ public:
+};
+
+ImageSetRequest::ImageSetRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  image_size_(arena),
+  voxel_size_(arena),
+  origin_(arena),
+  data_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:icr.ImageSetRequest)
+}
+ImageSetRequest::ImageSetRequest(const ImageSetRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      image_size_(from.image_size_),
+      voxel_size_(from.voxel_size_),
+      origin_(from.origin_),
+      data_(from.data_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_dicom_name().empty()) {
+    dicom_name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_dicom_name(),
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:icr.ImageSetRequest)
+}
+
+void ImageSetRequest::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageSetRequest_horos_2eproto.base);
+  dicom_name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+ImageSetRequest::~ImageSetRequest() {
+  // @@protoc_insertion_point(destructor:icr.ImageSetRequest)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void ImageSetRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  dicom_name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void ImageSetRequest::ArenaDtor(void* object) {
+  ImageSetRequest* _this = reinterpret_cast< ImageSetRequest* >(object);
+  (void)_this;
+}
+void ImageSetRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ImageSetRequest::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ImageSetRequest& ImageSetRequest::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ImageSetRequest_horos_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ImageSetRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:icr.ImageSetRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  image_size_.Clear();
+  voxel_size_.Clear();
+  origin_.Clear();
+  data_.Clear();
+  dicom_name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ImageSetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string dicom_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_dicom_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetRequest.dicom_name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated int32 image_size = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_image_size(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+          _internal_add_image_size(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated float voxel_size = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_voxel_size(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 29) {
+          _internal_add_voxel_size(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated float origin = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_origin(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 37) {
+          _internal_add_origin(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // repeated float data = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedFloatParser(_internal_mutable_data(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45) {
+          _internal_add_data(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ImageSetRequest::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageSetRequest)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string dicom_name = 1;
+  if (this->dicom_name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_dicom_name().data(), static_cast<int>(this->_internal_dicom_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "icr.ImageSetRequest.dicom_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_dicom_name(), target);
+  }
+
+  // repeated int32 image_size = 2;
+  {
+    int byte_size = _image_size_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          2, _internal_image_size(), byte_size, target);
+    }
+  }
+
+  // repeated float voxel_size = 3;
+  if (this->_internal_voxel_size_size() > 0) {
+    target = stream->WriteFixedPacked(3, _internal_voxel_size(), target);
+  }
+
+  // repeated float origin = 4;
+  if (this->_internal_origin_size() > 0) {
+    target = stream->WriteFixedPacked(4, _internal_origin(), target);
+  }
+
+  // repeated float data = 5;
+  if (this->_internal_data_size() > 0) {
+    target = stream->WriteFixedPacked(5, _internal_data(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageSetRequest)
+  return target;
+}
+
+size_t ImageSetRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:icr.ImageSetRequest)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated int32 image_size = 2;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->image_size_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _image_size_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated float voxel_size = 3;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_voxel_size_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _voxel_size_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated float origin = 4;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_origin_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _origin_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated float data = 5;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_data_size());
+    size_t data_size = 4UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _data_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // string dicom_name = 1;
+  if (this->dicom_name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_dicom_name());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ImageSetRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageSetRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ImageSetRequest* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageSetRequest>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageSetRequest)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageSetRequest)
+    MergeFrom(*source);
+  }
+}
+
+void ImageSetRequest::MergeFrom(const ImageSetRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageSetRequest)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  image_size_.MergeFrom(from.image_size_);
+  voxel_size_.MergeFrom(from.voxel_size_);
+  origin_.MergeFrom(from.origin_);
+  data_.MergeFrom(from.data_);
+  if (from.dicom_name().size() > 0) {
+    _internal_set_dicom_name(from._internal_dicom_name());
+  }
+}
+
+void ImageSetRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageSetRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ImageSetRequest::CopyFrom(const ImageSetRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageSetRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ImageSetRequest::IsInitialized() const {
+  return true;
+}
+
+void ImageSetRequest::InternalSwap(ImageSetRequest* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  image_size_.InternalSwap(&other->image_size_);
+  voxel_size_.InternalSwap(&other->voxel_size_);
+  origin_.InternalSwap(&other->origin_);
+  data_.InternalSwap(&other->data_);
+  dicom_name_.Swap(&other->dicom_name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ImageSetRequest::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+void ImageSetResponse::InitAsDefaultInstance() {
+}
+class ImageSetResponse::_Internal {
+ public:
+};
+
+ImageSetResponse::ImageSetResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:icr.ImageSetResponse)
+}
+ImageSetResponse::ImageSetResponse(const ImageSetResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_id().empty()) {
+    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:icr.ImageSetResponse)
+}
+
+void ImageSetResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageSetResponse_horos_2eproto.base);
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+ImageSetResponse::~ImageSetResponse() {
+  // @@protoc_insertion_point(destructor:icr.ImageSetResponse)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void ImageSetResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void ImageSetResponse::ArenaDtor(void* object) {
+  ImageSetResponse* _this = reinterpret_cast< ImageSetResponse* >(object);
+  (void)_this;
+}
+void ImageSetResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ImageSetResponse::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const ImageSetResponse& ImageSetResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ImageSetResponse_horos_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void ImageSetResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:icr.ImageSetResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ImageSetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // string id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetResponse.id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* ImageSetResponse::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageSetResponse)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string id = 1;
+  if (this->id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "icr.ImageSetResponse.id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageSetResponse)
+  return target;
+}
+
+size_t ImageSetResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:icr.ImageSetResponse)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string id = 1;
+  if (this->id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void ImageSetResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageSetResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  const ImageSetResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageSetResponse>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageSetResponse)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageSetResponse)
+    MergeFrom(*source);
+  }
+}
+
+void ImageSetResponse::MergeFrom(const ImageSetResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageSetResponse)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.id().size() > 0) {
+    _internal_set_id(from._internal_id());
+  }
+}
+
+void ImageSetResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageSetResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void ImageSetResponse::CopyFrom(const ImageSetResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageSetResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool ImageSetResponse::IsInitialized() const {
+  return true;
+}
+
+void ImageSetResponse::InternalSwap(ImageSetResponse* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata ImageSetResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -1157,11 +1782,17 @@ template<> PROTOBUF_NOINLINE ::icr::DicomNameRequest* Arena::CreateMaybeMessage<
 template<> PROTOBUF_NOINLINE ::icr::DicomNameResponse* Arena::CreateMaybeMessage< ::icr::DicomNameResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::icr::DicomNameResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::DicomImageRequest* Arena::CreateMaybeMessage< ::icr::DicomImageRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::DicomImageRequest >(arena);
+template<> PROTOBUF_NOINLINE ::icr::ImageGetRequest* Arena::CreateMaybeMessage< ::icr::ImageGetRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::icr::ImageGetRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::DicomImageResponse* Arena::CreateMaybeMessage< ::icr::DicomImageResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::DicomImageResponse >(arena);
+template<> PROTOBUF_NOINLINE ::icr::ImageGetResponse* Arena::CreateMaybeMessage< ::icr::ImageGetResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::icr::ImageGetResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::icr::ImageSetRequest* Arena::CreateMaybeMessage< ::icr::ImageSetRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::icr::ImageSetRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::icr::ImageSetResponse* Arena::CreateMaybeMessage< ::icr::ImageSetResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::icr::ImageSetResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 
