@@ -75,6 +75,8 @@ def run_set_image(port):
         print( "{run_set_image} multiplying by 2.... " )
         img_array = img_array * 2
         img_response.data[:] = img_array.tolist() # reassign the whole thing
+
+        #stub.clear ??? 4290645 vs. 4194304 size error with larger images...
         set_response = stub.SetCurrentImage( img_response )
         print("{run_set_image}Client received set response): " + set_response.id)
 
@@ -89,6 +91,6 @@ if __name__ == '__main__':
     logging.basicConfig()
     run_get_filename(Port)
     #for i in range(1):
-    #run_get_image(Port)
-    run_set_image(Port)
+    run_get_image(Port)
+    #run_set_image(Port)
     #    time.sleep(1)

@@ -10,11 +10,16 @@
 #import "PluginFilter.h"
 #import "ServerManager.h"
 
+#include <quill/Quill.h>
+
 @interface grpyOsiriXFilter : PluginFilter {
     ServerManager* Manager;       ///< Manage and start the server thread (we are the owner)
     ConsoleController* Console;   ///< Console window (owned by Manager)
     icr::ServerAdaptor* Adaptor;  ///< Communication adaptor reference (between the server thread and above;
                                   ///< owned by Manager)
+    
+    std::shared_ptr<quill::Handler> LogHandler;
+    std::shared_ptr<quill::Logger> Logger;
 }
 
 -(void)dealloc;
@@ -25,6 +30,7 @@
 -(long)filterImage:(NSString*) menuName;
 
 -(void)StartServer;
+-(void)StartLogger;
 
 -(void)GetCurrentImageFile:(NSString*) log_string;
 -(void)GetCurrentImage:(NSString*) log_string;

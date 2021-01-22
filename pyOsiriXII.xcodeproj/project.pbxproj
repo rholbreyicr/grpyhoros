@@ -110,6 +110,8 @@
 		BF37672525B86DF10034C20A /* libabsl_bad_optional_access.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */; };
 		BF37672625B86DF10034C20A /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C725B86DF10034C20A /* libabsl_time_zone.a */; };
 		BF37672725B86DF10034C20A /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C725B86DF10034C20A /* libabsl_time_zone.a */; };
+		BF37672C25B9BC4D0034C20A /* libquill.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37672B25B9BC4D0034C20A /* libquill.a */; };
+		BF37672D25B9BC4D0034C20A /* libquill.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37672B25B9BC4D0034C20A /* libquill.a */; };
 		BF6EFCB725846B160068543D /* HorosServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD54D25768EC500246D66 /* HorosServer.mm */; };
 		BF6EFCBC25846B1D0068543D /* horos.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */; };
 		BF6EFCC125846B210068543D /* horos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52E25751EA700246D66 /* horos.pb.cc */; };
@@ -255,6 +257,7 @@
 		BF3766C525B86DF10034C20A /* libabsl_hashtablez_sampler.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_hashtablez_sampler.a; path = "grpc-1.34/grpc_libs/libabsl_hashtablez_sampler.a"; sourceTree = "<group>"; };
 		BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_optional_access.a; path = "grpc-1.34/grpc_libs/libabsl_bad_optional_access.a"; sourceTree = "<group>"; };
 		BF3766C725B86DF10034C20A /* libabsl_time_zone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time_zone.a; path = "grpc-1.34/grpc_libs/libabsl_time_zone.a"; sourceTree = "<group>"; };
+		BF37672B25B9BC4D0034C20A /* libquill.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libquill.a; sourceTree = "<group>"; };
 		BF4FD4DA2574432B00246D66 /* ConsoleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleController.h; sourceTree = "<group>"; };
 		BF4FD4DC2574432B00246D66 /* ConsoleController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsoleController.xib; sourceTree = "<group>"; };
 		BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos.grpc.pb.cc; path = rpc/cpp/horos.grpc.pb.cc; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 				BF37671B25B86DF10034C20A /* libupb.a in Frameworks */,
 				BF3766D525B86DF10034C20A /* libabsl_graphcycles_internal.a in Frameworks */,
 				BFF84EEE25AF5E1700726A17 /* libpng16.dylib in Frameworks */,
+				BF37672D25B9BC4D0034C20A /* libquill.a in Frameworks */,
 				BF3766E525B86DF10034C20A /* libabsl_status.a in Frameworks */,
 				BF37672725B86DF10034C20A /* libabsl_time_zone.a in Frameworks */,
 				BF3766DD25B86DF10034C20A /* libgrpc.a in Frameworks */,
@@ -357,6 +361,7 @@
 				BF37671A25B86DF10034C20A /* libupb.a in Frameworks */,
 				BF3766D425B86DF10034C20A /* libabsl_graphcycles_internal.a in Frameworks */,
 				BF90A4BF25A270A80069D611 /* Cocoa.framework in Frameworks */,
+				BF37672C25B9BC4D0034C20A /* libquill.a in Frameworks */,
 				BF3766E425B86DF10034C20A /* libabsl_status.a in Frameworks */,
 				BF37672625B86DF10034C20A /* libabsl_time_zone.a in Frameworks */,
 				BF3766DC25B86DF10034C20A /* libgrpc.a in Frameworks */,
@@ -421,6 +426,7 @@
 		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BF37672B25B9BC4D0034C20A /* libquill.a */,
 				BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */,
 				BF3766A925B86DF00034C20A /* libabsl_bad_variant_access.a */,
 				BF37669D25B86DEF0034C20A /* libabsl_base.a */,
@@ -1327,6 +1333,7 @@
 				HEADER_SEARCH_PATHS = (
 					"/usr/local/grpc-1.34.0/release/mk-static/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
+					/usr/local/Cellar/quill/1.6.1/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";
@@ -1377,6 +1384,7 @@
 				HEADER_SEARCH_PATHS = (
 					"/usr/local/grpc-1.34.0/release/mk-static/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
+					/usr/local/Cellar/quill/1.6.1/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";

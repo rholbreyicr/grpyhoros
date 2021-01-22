@@ -13,6 +13,12 @@
 
 #include <fstream>
 
+// quill logger
+#include <stdlib.h>
+static const char* LogFile = "uk.ac.icr.pyosirix_daily.log";
+
+#import <browserController.h>
+
 using icr::DicomNameRequest;
 using icr::DicomNameResponse;
 using icr::ImageGetRequest;
@@ -38,12 +44,38 @@ using icr::ImageSetResponse;
         //[NSThread detachNewThreadSelector:@selector(dummyFunc:) toTarget:[Dummy alloc] withObject:nil];
         //clean up
     }
+    
+    [self StartLogger];
 }
 
 - (void) dealloc {
     
     [Manager release];    
     [super dealloc];
+}
+
+-(void)StartLogger {
+    
+    std::string log_file_name( LogFile );
+    const char* HOME = std::getenv( "HOME" );
+    if( HOME )
+        log_file_name = std::string( HOME ) + "/Library/Logs/"
+            + log_file_name; // otherwise, leave in current working dir
+    
+    // Start the backend logging thread
+    quill::start();
+
+    // Create a rotating file handler which rotates daily at 02:00
+    LogHandler.reset( quill::time_rotating_file_handler(
+        log_file_name, "a", "daily", 1, 10, quill::Timezone::LocalTime, "01:00" ) );
+    
+    LogHandler->set_log_level(quill::LogLevel::Info);
+
+    // Create a logger using this handler
+    Logger.reset( quill::create_logger("day_log", LogHandler.get()) );
+    
+    //quill::Logger* logger = quill::get_logger();
+    LOG_INFO(Logger, "Initializing grpyHoros:OsiriX...{}", " let's hope all goes well" );
 }
 
 - (long) filterImage:(NSString*) menuName
@@ -75,23 +107,24 @@ using icr::ImageSetResponse;
     if( !currV )
     {
         log_string = @"<Error> No 2D viewer available";
+        LOG_ERROR(Logger, "GetCurrentImageFile: {}", [log_string UTF8String] );
     }
     else
     {
         DCMPix* curPix = [[currV pixList] objectAtIndex: [[currV imageView] curImage]];
         log_string = [curPix sourceFile];
     }
-    std::string reply_str( [log_string UTF8String] );
 
     //mutex!
     {
         [Adaptor->Lock lock];
         DicomNameResponse* reply = (DicomNameResponse*)Adaptor->Response;
-        reply->set_id( reply_str );
+        reply->set_id( std::string([log_string UTF8String]) );
         [Adaptor->Lock unlock];
     }
-
+    
     [Console AddText:[NSString stringWithFormat:@"GetCurrentImageFile: %@", log_string]];
+    LOG_INFO(Logger, "GetCurrentImageFile: {}", [log_string UTF8String] );
 }
 
 //get all file names
@@ -110,6 +143,9 @@ using icr::ImageSetResponse;
 
 -(void)GetCurrentImage:(NSString*) log_string
 {
+    BrowserController* browser = [BrowserController currentBrowser];
+    [browser selectedStudies];
+    
     float forigin[3], fvox_size[3], *fraw_data;
     int idim[2];
     
@@ -117,6 +153,7 @@ using icr::ImageSetResponse;
     if( !currV )
     {
         log_string = @"<Error> No 2D viewer available";
+        LOG_ERROR(Logger, "GetCurrentImage: {}", [log_string UTF8String] );
     }
     else
     {
@@ -136,13 +173,12 @@ using icr::ImageSetResponse;
         
         fraw_data = [pix fImage];
     }
-    std::string reply_str( [log_string UTF8String] );
 
     //mutex!
     {
         [Adaptor->Lock lock];
         ImageGetResponse* reply = (ImageGetResponse*)Adaptor->Response;
-        reply->set_id( reply_str );
+        reply->set_id( std::string([log_string UTF8String]) );
 
         if( currV )
         {
@@ -165,11 +201,15 @@ using icr::ImageSetResponse;
     }
     
     [Console AddText:[NSString stringWithFormat:@"GetCurrentImage request was: %@", log_string]];
+    LOG_INFO( Logger, "GetCurrentImage: {}", [log_string UTF8String] );
 }
 
 
 -(void)SetCurrentImage:(NSString*) log_string
 {
+    
+    
+    
     float forigin[3], fvox_size[3], *fraw_data;
     int idim[2];
     
@@ -177,6 +217,7 @@ using icr::ImageSetResponse;
     if( !currV )
     {
         log_string = @"<Error>: No 2D viewer available>";
+        LOG_ERROR(Logger, "SetCurrentImage: {}", [log_string UTF8String] );
     }
     else
     {
@@ -194,14 +235,12 @@ using icr::ImageSetResponse;
         
         fraw_data = [pix fImage];
     }
-    std::string reply_str( [log_string UTF8String] );
 
     //mutex!
     {
         [Adaptor->Lock lock];
         ImageSetRequest* request = (ImageSetRequest*)Adaptor->Request;
         ImageSetResponse* reply = (ImageSetResponse*)Adaptor->Response;
-        reply->set_id( reply_str );
 
         if( currV )
         {
@@ -218,20 +257,24 @@ using icr::ImageSetResponse;
             if( !fraw_data || (request->data_size() != n_pixels) ) fail = true;
             if( fail )
             {
-                reply->set_id( "<Error> Image parameter mismatch" );
+                log_string = @"<Error> Image parameter mismatch";
+                reply->set_id( std::string([log_string UTF8String]) );
             }
             else
             {
                 const auto pdata = request->data();
                 for( int k=0; k<n_pixels; k++ )
                     fraw_data[k] = pdata[k];
+                
+                reply->set_id( std::string([log_string UTF8String]) );
             }
         }
-        [Adaptor->Lock unlock];
+        [Adaptor->Lock unlock];  
+        [currV updateImage:nil];
     }
     
-    [currV updateImage:nil];
-    [Console AddText:[NSString stringWithFormat:@"GetCurrentImage request was: %@", log_string]];
+    [Console AddText:[NSString stringWithFormat:@"SetCurrentImage: %@", log_string]];
+    LOG_INFO( Logger, "SetCurrentImage: {}", [log_string UTF8String] );
 }
 
 - (void) LogConnection:(NSString*)connec_str
