@@ -32,9 +32,11 @@
 -(void)StartServer;
 -(void)StartLogger;
 
+-(void)LogConnection:(NSString*) connec;
+-(void)CollectSeries:(id)obj into:(NSMutableArray*)collection;
+
 -(void)GetCurrentImageFile:(NSString*) log_string;
 -(void)GetCurrentImage:(NSString*) log_string;
 -(void)SetCurrentImage:(NSString*) log_string;
--(void)LogConnection:(NSString*) connec;
 
 @end

@@ -27,6 +27,9 @@ void* HorosServer::RunServer( void* input ) {
     grpc::reflection::InitProtoReflectionServerBuilderPlugin();
     ServerBuilder builder;
     
+    // set unlimited receive.... default is GRPC_DEFAULT_MAX_RECV_MESSAGE_LENGTH = 4MB
+    builder.SetMaxReceiveMessageSize(-1);
+    
     // Listen on the given address without any authentication mechanism.
     builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
     

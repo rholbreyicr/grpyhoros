@@ -91,6 +91,6 @@ if __name__ == '__main__':
     logging.basicConfig()
     run_get_filename(Port)
     #for i in range(1):
-    run_get_image(Port)
-    #run_set_image(Port)
+    #run_get_image(Port)
+    run_set_image(Port)
     #    time.sleep(1)

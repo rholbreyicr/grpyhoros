@@ -56,7 +56,7 @@ using icr::ImageGetResponse;
         const DicomNameRequest* request = (DicomNameRequest*)Adaptor->Request;
         DicomNameResponse* reply = (DicomNameResponse*)Adaptor->Response;
         reply_str.append(request->id());
-        reply->set_dicom_name( reply_str );
+        reply->set_id( reply_str );
         [Adaptor->Lock unlock];
     }
 
@@ -81,7 +81,7 @@ using icr::ImageGetResponse;
     {
         [Adaptor->Lock lock];
         ImageGetResponse* reply = (ImageGetResponse*)Adaptor->Response;
-        reply->set_dicom_name( reply_str );
+        reply->set_id( reply_str );
 
         for( int k=0; k<3; k++ )
         {

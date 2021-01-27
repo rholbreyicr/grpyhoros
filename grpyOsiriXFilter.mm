@@ -18,6 +18,9 @@
 static const char* LogFile = "uk.ac.icr.pyosirix_daily.log";
 
 #import <browserController.h>
+#import <DicomSeries.h>
+#import <DicomStudy.h>
+#import <DicomImage.h>
 
 using icr::DicomNameRequest;
 using icr::DicomNameResponse;
@@ -103,6 +106,60 @@ using icr::ImageSetResponse;
 
 -(void)GetCurrentImageFile:(NSString*) log_string {
     
+    BrowserController* browser = [BrowserController currentBrowser];
+    NSString* path = [browser documentsDirectory];
+    [Console AddText:[NSString stringWithFormat:@"Path: %@", path]];
+
+    NSArray* series_or_studies = [browser databaseSelection];
+    NSMutableArray* collected_series = [NSMutableArray array];
+    [self CollectSeries: series_or_studies into:collected_series];
+    
+    if( collected_series )
+    {
+//        [Console AddText:[NSString stringWithFormat:@"Selected: %lu series", [collected_series count]]];
+//        for( id ss_obj in collected_series )
+//        {
+//            DicomStudy* studies = [ss_obj  selectedStudies];
+//            if( studies )
+//            {
+//                [Console AddText:[NSString stringWithFormat:@"Selected: %lu studies", [studies count]]];
+//                int k = 0;
+//                for( id study in studies )
+//                {
+//                    [Console AddText:[NSString stringWithFormat:@"Study: %d", k++]];
+//                    DicomSeries* series = [study selectedSeries];
+//                    if( series )
+//                    {
+//                        NSString* ser_descr = [series seriesDescription];
+//                        if( ser_descr )
+//                            [Console AddText:[NSString stringWithFormat:@"  Descr: %@", ser_descr]];
+//                    }
+//                }
+//            }
+            
+//            DicomSeries* series = [ss_obj selectedSeries];
+//            if( series )
+//            {
+//                NSString* ser_descr = [series seriesDescription];
+//                if( ser_descr )
+//                    [Console AddText:[NSString stringWithFormat:@"Descr: %@", ser_descr]];
+//            }
+//        }
+        
+        for (NSUInteger i = 0; i < collected_series.count; ++i) {
+            DicomSeries* s = [collected_series objectAtIndex:i];
+            //if (![DicomStudy displaySeriesWithSOPClassUID:s.seriesSOPClassUID andSeriesDescription:s.name])
+            //    [series removeObjectAtIndex:i--];
+            [Console AddText:[NSString stringWithFormat:@"Study UID: %@ | Series UID: %@ (Patient: %@)",
+                              [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
+        }
+    }
+
+    //seriesDescription;
+    //@property(nonatomic, retain) NSString* seriesDICOMUID;
+    //@property(nonatomic, retain) NSString* seriesInstanceUID;
+    //@property(nonatomic, retain) NSString* seriesSOPClassUID;
+    
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     if( !currV )
     {
@@ -111,8 +168,38 @@ using icr::ImageSetResponse;
     }
     else
     {
+        DicomSeries* cs = [currV currentSeries];
+        if( cs )
+            [Console AddText:[NSString stringWithFormat:@"Study UID: %@ | Series UID: %@ (Patient: %@)",
+                             [[cs study] studyInstanceUID], [cs seriesInstanceUID], [[cs study] patientID] ] ];
+        
+        NSArray* displ_series = [ViewerController getDisplayedSeries];
+        if( displ_series )
+        {
+            for (NSUInteger i = 0; i < displ_series.count; ++i) {
+                DicomSeries* s = [displ_series objectAtIndex:i];
+                [Console AddText:[NSString stringWithFormat:@"Displayed Study UID: %@ | Series UID: %@ (Patient: %@)",
+                                  [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
+            }
+        }
+        
         DCMPix* curPix = [[currV pixList] objectAtIndex: [[currV imageView] curImage]];
         log_string = [curPix sourceFile];
+        
+        //test
+        std::ofstream fout("/tmp/series_addr.txt");
+        for (NSManagedObject* s in [ViewerController  getDisplayedSeries])
+        {
+            LOG_INFO(Logger, "Series: {:#x} ", (long long)s );
+            fout << "Series: " << std::hex << s << std::endl;
+//            if (s == series)
+//                shown = YES;
+//            if (!shown) {
+//                ViewerController* viewer =
+//                    [[BrowserController currentBrowser] loadSeries:series :NULL :NO keyImagesOnly:NO];
+//                [viewer showWindow:self];
+//            }
+        }
     }
 
     //mutex!
@@ -143,9 +230,6 @@ using icr::ImageSetResponse;
 
 -(void)GetCurrentImage:(NSString*) log_string
 {
-    BrowserController* browser = [BrowserController currentBrowser];
-    [browser selectedStudies];
-    
     float forigin[3], fvox_size[3], *fraw_data;
     int idim[2];
     
@@ -280,6 +364,23 @@ using icr::ImageSetResponse;
 - (void) LogConnection:(NSString*)connec_str
 {
     [Console AddText:connec_str];
+}
+
+//borrowed from horosplugins/DicomUnEnhancer/Sources/DicomUnEnhancer.mm : _seriesIn(...)
+-(void) CollectSeries:(id)obj into:(NSMutableArray*)collection {
+    if ([obj isKindOfClass:[DicomSeries class]])
+        if (![collection containsObject:obj])
+            [collection addObject:obj];
+
+    if ([obj isKindOfClass:[NSArray class]])
+        for (id i in obj)
+            [self CollectSeries:i into:collection];
+    
+    if ([obj isKindOfClass:[DicomStudy class]])
+        [self CollectSeries:[[(DicomStudy*)obj series] allObjects] into:collection];
+    
+    if ([obj isKindOfClass:[DicomImage class]])
+        [self CollectSeries:[(DicomImage*)obj series] into:collection];
 }
 
 @end
