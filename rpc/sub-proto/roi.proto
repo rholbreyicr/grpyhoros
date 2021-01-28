@@ -1,0 +1,45 @@
+// Copyright ICR
+//
+
+syntax = "proto3";
+package icr;
+
+message ROIListRequest {
+  string id = 1;
+}
+
+message UpdateROIResponse {
+  string message = 1;
+}
+
+message ROIRequest {
+  string id = 1;
+}
+
+message Point{
+  float x = 1;
+  float y = 2;
+}
+
+message Color{
+  uint32 r = 1;
+  uint32 g = 2;
+  uint32 b = 3;
+}
+
+message ROI{
+  string id = 1;
+  string name = 2;
+  Color color = 3;
+  float opacity = 4;
+  float thickness = 5;
+  //repeated Point points = 6;
+}
+
+message ROISlice{
+  repeated ROI rois = 1;
+}
+
+message ROIList{
+  repeated ROISlice slices = 1;
+}

@@ -47,12 +47,12 @@ class Horos final {
    public:
     virtual ~StubInterface() {}
     // Request current dicom image
-    virtual ::grpc::Status GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::icr::DicomNameResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomNameResponse>> AsyncGetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomNameResponse>>(AsyncGetCurrentImageFileRaw(context, request, cq));
+    virtual ::grpc::Status GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::icr::DicomDataResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomDataResponse>> AsyncGetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomDataResponse>>(AsyncGetCurrentImageDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomNameResponse>> PrepareAsyncGetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomNameResponse>>(PrepareAsyncGetCurrentImageFileRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomDataResponse>> PrepareAsyncGetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomDataResponse>>(PrepareAsyncGetCurrentImageDataRaw(context, request, cq));
     }
     virtual ::grpc::Status GetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::icr::ImageGetResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ImageGetResponse>> AsyncGetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) {
@@ -68,15 +68,36 @@ class Horos final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ImageSetResponse>> PrepareAsyncSetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ImageSetResponse>>(PrepareAsyncSetCurrentImageRaw(context, request, cq));
     }
+    virtual ::grpc::Status GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::icr::ROIList* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROIList>> AsyncGetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROIList>>(AsyncGetROIListRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROIList>> PrepareAsyncGetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROIList>>(PrepareAsyncGetROIListRaw(context, request, cq));
+    }
+    virtual ::grpc::Status GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::icr::ROI* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROI>> AsyncGetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROI>>(AsyncGetSelectedROIRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROI>> PrepareAsyncGetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROI>>(PrepareAsyncGetSelectedROIRaw(context, request, cq));
+    }
+    virtual ::grpc::Status UpdateROI(::grpc::ClientContext* context, const ::icr::ROI& request, ::icr::UpdateROIResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::UpdateROIResponse>> AsyncUpdateROI(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::UpdateROIResponse>>(AsyncUpdateROIRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::UpdateROIResponse>> PrepareAsyncUpdateROI(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::icr::UpdateROIResponse>>(PrepareAsyncUpdateROIRaw(context, request, cq));
+    }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
       // Request current dicom image
-      virtual void GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       virtual void GetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest* request, ::icr::ImageGetResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -90,6 +111,24 @@ class Horos final {
       #else
       virtual void SetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageSetRequest* request, ::icr::ImageSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
+      virtual void GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest* request, ::icr::ROIList* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest* request, ::icr::ROIList* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest* request, ::icr::ROIList* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest* request, ::icr::ROI* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest* request, ::icr::ROI* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest* request, ::icr::ROI* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      virtual void UpdateROI(::grpc::ClientContext* context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void UpdateROI(::grpc::ClientContext* context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void UpdateROI(::grpc::ClientContext* context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     typedef class experimental_async_interface async_interface;
@@ -99,22 +138,28 @@ class Horos final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomNameResponse>* AsyncGetCurrentImageFileRaw(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomNameResponse>* PrepareAsyncGetCurrentImageFileRaw(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomDataResponse>* AsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::DicomDataResponse>* PrepareAsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ImageGetResponse>* AsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ImageGetResponse>* PrepareAsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ImageSetResponse>* AsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ImageSetResponse>* PrepareAsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROIList>* AsyncGetROIListRaw(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROIList>* PrepareAsyncGetROIListRaw(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROI>* AsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::ROI>* PrepareAsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::UpdateROIResponse>* AsyncUpdateROIRaw(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::icr::UpdateROIResponse>* PrepareAsyncUpdateROIRaw(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::icr::DicomNameResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>> AsyncGetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>>(AsyncGetCurrentImageFileRaw(context, request, cq));
+    ::grpc::Status GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::icr::DicomDataResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomDataResponse>> AsyncGetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomDataResponse>>(AsyncGetCurrentImageDataRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>> PrepareAsyncGetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>>(PrepareAsyncGetCurrentImageFileRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomDataResponse>> PrepareAsyncGetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::DicomDataResponse>>(PrepareAsyncGetCurrentImageDataRaw(context, request, cq));
     }
     ::grpc::Status GetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::icr::ImageGetResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ImageGetResponse>> AsyncGetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) {
@@ -130,14 +175,35 @@ class Horos final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ImageSetResponse>> PrepareAsyncSetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ImageSetResponse>>(PrepareAsyncSetCurrentImageRaw(context, request, cq));
     }
+    ::grpc::Status GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::icr::ROIList* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROIList>> AsyncGetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROIList>>(AsyncGetROIListRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROIList>> PrepareAsyncGetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROIList>>(PrepareAsyncGetROIListRaw(context, request, cq));
+    }
+    ::grpc::Status GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::icr::ROI* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROI>> AsyncGetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROI>>(AsyncGetSelectedROIRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROI>> PrepareAsyncGetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::ROI>>(PrepareAsyncGetSelectedROIRaw(context, request, cq));
+    }
+    ::grpc::Status UpdateROI(::grpc::ClientContext* context, const ::icr::ROI& request, ::icr::UpdateROIResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::UpdateROIResponse>> AsyncUpdateROI(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::UpdateROIResponse>>(AsyncUpdateROIRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::UpdateROIResponse>> PrepareAsyncUpdateROI(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::icr::UpdateROIResponse>>(PrepareAsyncUpdateROIRaw(context, request, cq));
+    }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void GetCurrentImageFile(::grpc::ClientContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void GetCurrentImageData(::grpc::ClientContext* context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void GetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageGetRequest* request, ::icr::ImageGetResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -151,6 +217,24 @@ class Horos final {
       #else
       void SetCurrentImage(::grpc::ClientContext* context, const ::icr::ImageSetRequest* request, ::icr::ImageSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
+      void GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest* request, ::icr::ROIList* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest* request, ::icr::ROIList* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetROIList(::grpc::ClientContext* context, const ::icr::ROIListRequest* request, ::icr::ROIList* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest* request, ::icr::ROI* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest* request, ::icr::ROI* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetSelectedROI(::grpc::ClientContext* context, const ::icr::ROIRequest* request, ::icr::ROI* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void UpdateROI(::grpc::ClientContext* context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void UpdateROI(::grpc::ClientContext* context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void UpdateROI(::grpc::ClientContext* context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
      private:
       friend class Stub;
       explicit experimental_async(Stub* stub): stub_(stub) { }
@@ -162,15 +246,24 @@ class Horos final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>* AsyncGetCurrentImageFileRaw(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::icr::DicomNameResponse>* PrepareAsyncGetCurrentImageFileRaw(::grpc::ClientContext* context, const ::icr::DicomNameRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::icr::DicomDataResponse>* AsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::icr::DicomDataResponse>* PrepareAsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::icr::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::icr::ImageGetResponse>* AsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::icr::ImageGetResponse>* PrepareAsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageGetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::icr::ImageSetResponse>* AsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::icr::ImageSetResponse>* PrepareAsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::icr::ImageSetRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_GetCurrentImageFile_;
+    ::grpc::ClientAsyncResponseReader< ::icr::ROIList>* AsyncGetROIListRaw(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::icr::ROIList>* PrepareAsyncGetROIListRaw(::grpc::ClientContext* context, const ::icr::ROIListRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::icr::ROI>* AsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::icr::ROI>* PrepareAsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::icr::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::icr::UpdateROIResponse>* AsyncUpdateROIRaw(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::icr::UpdateROIResponse>* PrepareAsyncUpdateROIRaw(::grpc::ClientContext* context, const ::icr::ROI& request, ::grpc::CompletionQueue* cq) override;
+    const ::grpc::internal::RpcMethod rpcmethod_GetCurrentImageData_;
     const ::grpc::internal::RpcMethod rpcmethod_GetCurrentImage_;
     const ::grpc::internal::RpcMethod rpcmethod_SetCurrentImage_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetROIList_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetSelectedROI_;
+    const ::grpc::internal::RpcMethod rpcmethod_UpdateROI_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -179,27 +272,30 @@ class Horos final {
     Service();
     virtual ~Service();
     // Request current dicom image
-    virtual ::grpc::Status GetCurrentImageFile(::grpc::ServerContext* context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response);
+    virtual ::grpc::Status GetCurrentImageData(::grpc::ServerContext* context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response);
     virtual ::grpc::Status GetCurrentImage(::grpc::ServerContext* context, const ::icr::ImageGetRequest* request, ::icr::ImageGetResponse* response);
     virtual ::grpc::Status SetCurrentImage(::grpc::ServerContext* context, const ::icr::ImageSetRequest* request, ::icr::ImageSetResponse* response);
+    virtual ::grpc::Status GetROIList(::grpc::ServerContext* context, const ::icr::ROIListRequest* request, ::icr::ROIList* response);
+    virtual ::grpc::Status GetSelectedROI(::grpc::ServerContext* context, const ::icr::ROIRequest* request, ::icr::ROI* response);
+    virtual ::grpc::Status UpdateROI(::grpc::ServerContext* context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetCurrentImageFile : public BaseClass {
+  class WithAsyncMethod_GetCurrentImageData : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_GetCurrentImageFile() {
+    WithAsyncMethod_GetCurrentImageData() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_GetCurrentImageFile() override {
+    ~WithAsyncMethod_GetCurrentImageData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageFile(::grpc::ServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/) override {
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetCurrentImageFile(::grpc::ServerContext* context, ::icr::DicomNameRequest* request, ::grpc::ServerAsyncResponseWriter< ::icr::DicomNameResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetCurrentImageData(::grpc::ServerContext* context, ::icr::DicomDataRequest* request, ::grpc::ServerAsyncResponseWriter< ::icr::DicomDataResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -243,51 +339,111 @@ class Horos final {
       ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetCurrentImageFile<WithAsyncMethod_GetCurrentImage<WithAsyncMethod_SetCurrentImage<Service > > > AsyncService;
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetCurrentImageFile : public BaseClass {
+  class WithAsyncMethod_GetROIList : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_GetCurrentImageFile() {
+    WithAsyncMethod_GetROIList() {
+      ::grpc::Service::MarkMethodAsync(3);
+    }
+    ~WithAsyncMethod_GetROIList() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetROIList(::grpc::ServerContext* context, ::icr::ROIListRequest* request, ::grpc::ServerAsyncResponseWriter< ::icr::ROIList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GetSelectedROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetSelectedROI() {
+      ::grpc::Service::MarkMethodAsync(4);
+    }
+    ~WithAsyncMethod_GetSelectedROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetSelectedROI(::grpc::ServerContext* context, ::icr::ROIRequest* request, ::grpc::ServerAsyncResponseWriter< ::icr::ROI>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_UpdateROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_UpdateROI() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_UpdateROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateROI(::grpc::ServerContext* context, ::icr::ROI* request, ::grpc::ServerAsyncResponseWriter< ::icr::UpdateROIResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetCurrentImageData<WithAsyncMethod_GetCurrentImage<WithAsyncMethod_SetCurrentImage<WithAsyncMethod_GetROIList<WithAsyncMethod_GetSelectedROI<WithAsyncMethod_UpdateROI<Service > > > > > > AsyncService;
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_GetCurrentImageData() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::icr::DicomNameRequest, ::icr::DicomNameResponse>(
+          new ::grpc::internal::CallbackUnaryHandler< ::icr::DicomDataRequest, ::icr::DicomDataResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::icr::DicomNameRequest* request, ::icr::DicomNameResponse* response) { return this->GetCurrentImageFile(context, request, response); }));}
-    void SetMessageAllocatorFor_GetCurrentImageFile(
-        ::grpc::experimental::MessageAllocator< ::icr::DicomNameRequest, ::icr::DicomNameResponse>* allocator) {
+                     context, const ::icr::DicomDataRequest* request, ::icr::DicomDataResponse* response) { return this->GetCurrentImageData(context, request, response); }));}
+    void SetMessageAllocatorFor_GetCurrentImageData(
+        ::grpc::experimental::MessageAllocator< ::icr::DicomDataRequest, ::icr::DicomDataResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::icr::DicomNameRequest, ::icr::DicomNameResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::icr::DicomDataRequest, ::icr::DicomDataResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_GetCurrentImageFile() override {
+    ~ExperimentalWithCallbackMethod_GetCurrentImageData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageFile(::grpc::ServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/) override {
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetCurrentImageFile(
-      ::grpc::CallbackServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/)
+    virtual ::grpc::ServerUnaryReactor* GetCurrentImageData(
+      ::grpc::CallbackServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageFile(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/)
+    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageData(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -385,24 +541,165 @@ class Horos final {
     #endif
       { return nullptr; }
   };
-  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_GetCurrentImageFile<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<Service > > > CallbackService;
-  #endif
-
-  typedef ExperimentalWithCallbackMethod_GetCurrentImageFile<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<Service > > > ExperimentalCallbackService;
   template <class BaseClass>
-  class WithGenericMethod_GetCurrentImageFile : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetROIList : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_GetCurrentImageFile() {
-      ::grpc::Service::MarkMethodGeneric(0);
+    ExperimentalWithCallbackMethod_GetROIList() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::icr::ROIListRequest, ::icr::ROIList>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::icr::ROIListRequest* request, ::icr::ROIList* response) { return this->GetROIList(context, request, response); }));}
+    void SetMessageAllocatorFor_GetROIList(
+        ::grpc::experimental::MessageAllocator< ::icr::ROIListRequest, ::icr::ROIList>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(3);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(3);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::icr::ROIListRequest, ::icr::ROIList>*>(handler)
+              ->SetMessageAllocator(allocator);
     }
-    ~WithGenericMethod_GetCurrentImageFile() override {
+    ~ExperimentalWithCallbackMethod_GetROIList() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageFile(::grpc::ServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/) override {
+    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetROIList(
+      ::grpc::CallbackServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetROIList(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetSelectedROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_GetSelectedROI() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::icr::ROIRequest, ::icr::ROI>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::icr::ROIRequest* request, ::icr::ROI* response) { return this->GetSelectedROI(context, request, response); }));}
+    void SetMessageAllocatorFor_GetSelectedROI(
+        ::grpc::experimental::MessageAllocator< ::icr::ROIRequest, ::icr::ROI>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::icr::ROIRequest, ::icr::ROI>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_GetSelectedROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetSelectedROI(
+      ::grpc::CallbackServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetSelectedROI(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_UpdateROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_UpdateROI() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::icr::ROI, ::icr::UpdateROIResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::icr::ROI* request, ::icr::UpdateROIResponse* response) { return this->UpdateROI(context, request, response); }));}
+    void SetMessageAllocatorFor_UpdateROI(
+        ::grpc::experimental::MessageAllocator< ::icr::ROI, ::icr::UpdateROIResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::icr::ROI, ::icr::UpdateROIResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_UpdateROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateROI(
+      ::grpc::CallbackServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateROI(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+  typedef ExperimentalWithCallbackMethod_GetCurrentImageData<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<ExperimentalWithCallbackMethod_GetROIList<ExperimentalWithCallbackMethod_GetSelectedROI<ExperimentalWithCallbackMethod_UpdateROI<Service > > > > > > CallbackService;
+  #endif
+
+  typedef ExperimentalWithCallbackMethod_GetCurrentImageData<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<ExperimentalWithCallbackMethod_GetROIList<ExperimentalWithCallbackMethod_GetSelectedROI<ExperimentalWithCallbackMethod_UpdateROI<Service > > > > > > ExperimentalCallbackService;
+  template <class BaseClass>
+  class WithGenericMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetCurrentImageData() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -442,22 +739,73 @@ class Horos final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetCurrentImageFile : public BaseClass {
+  class WithGenericMethod_GetROIList : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_GetCurrentImageFile() {
-      ::grpc::Service::MarkMethodRaw(0);
+    WithGenericMethod_GetROIList() {
+      ::grpc::Service::MarkMethodGeneric(3);
     }
-    ~WithRawMethod_GetCurrentImageFile() override {
+    ~WithGenericMethod_GetROIList() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageFile(::grpc::ServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/) override {
+    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetCurrentImageFile(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetSelectedROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetSelectedROI() {
+      ::grpc::Service::MarkMethodGeneric(4);
+    }
+    ~WithGenericMethod_GetSelectedROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_UpdateROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_UpdateROI() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_UpdateROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetCurrentImageData() {
+      ::grpc::Service::MarkMethodRaw(0);
+    }
+    ~WithRawMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetCurrentImageData(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -502,11 +850,71 @@ class Horos final {
     }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetCurrentImageFile : public BaseClass {
+  class WithRawMethod_GetROIList : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetCurrentImageFile() {
+    WithRawMethod_GetROIList() {
+      ::grpc::Service::MarkMethodRaw(3);
+    }
+    ~WithRawMethod_GetROIList() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetROIList(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(3, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetSelectedROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetSelectedROI() {
+      ::grpc::Service::MarkMethodRaw(4);
+    }
+    ~WithRawMethod_GetSelectedROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetSelectedROI(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_UpdateROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_UpdateROI() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_UpdateROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestUpdateROI(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetCurrentImageData() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -520,21 +928,21 @@ class Horos final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCurrentImageFile(context, request, response); }));
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCurrentImageData(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_GetCurrentImageFile() override {
+    ~ExperimentalWithRawCallbackMethod_GetCurrentImageData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageFile(::grpc::ServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/) override {
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetCurrentImageFile(
+    virtual ::grpc::ServerUnaryReactor* GetCurrentImageData(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageFile(
+    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageData(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
@@ -616,31 +1024,145 @@ class Horos final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetCurrentImageFile : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetROIList : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_GetCurrentImageFile() {
+    ExperimentalWithRawCallbackMethod_GetROIList() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(3,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetROIList(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetROIList() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetROIList(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetROIList(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetSelectedROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetSelectedROI() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetSelectedROI(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetSelectedROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetSelectedROI(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetSelectedROI(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_UpdateROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_UpdateROI() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateROI(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_UpdateROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* UpdateROI(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* UpdateROI(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetCurrentImageData() {
       ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::icr::DicomNameRequest, ::icr::DicomNameResponse>(
+          ::icr::DicomDataRequest, ::icr::DicomDataResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::icr::DicomNameRequest, ::icr::DicomNameResponse>* streamer) {
-                       return this->StreamedGetCurrentImageFile(context,
+                     ::icr::DicomDataRequest, ::icr::DicomDataResponse>* streamer) {
+                       return this->StreamedGetCurrentImageData(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_GetCurrentImageFile() override {
+    ~WithStreamedUnaryMethod_GetCurrentImageData() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetCurrentImageFile(::grpc::ServerContext* /*context*/, const ::icr::DicomNameRequest* /*request*/, ::icr::DicomNameResponse* /*response*/) override {
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::icr::DicomDataRequest* /*request*/, ::icr::DicomDataResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetCurrentImageFile(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::icr::DicomNameRequest,::icr::DicomNameResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetCurrentImageData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::icr::DicomDataRequest,::icr::DicomDataResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetCurrentImage : public BaseClass {
@@ -696,9 +1218,90 @@ class Horos final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedSetCurrentImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::icr::ImageSetRequest,::icr::ImageSetResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetCurrentImageFile<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<Service > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetROIList : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetROIList() {
+      ::grpc::Service::MarkMethodStreamed(3,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::icr::ROIListRequest, ::icr::ROIList>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::icr::ROIListRequest, ::icr::ROIList>* streamer) {
+                       return this->StreamedGetROIList(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetROIList() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::icr::ROIListRequest* /*request*/, ::icr::ROIList* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetROIList(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::icr::ROIListRequest,::icr::ROIList>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetSelectedROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetSelectedROI() {
+      ::grpc::Service::MarkMethodStreamed(4,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::icr::ROIRequest, ::icr::ROI>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::icr::ROIRequest, ::icr::ROI>* streamer) {
+                       return this->StreamedGetSelectedROI(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetSelectedROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::icr::ROIRequest* /*request*/, ::icr::ROI* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetSelectedROI(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::icr::ROIRequest,::icr::ROI>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_UpdateROI : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_UpdateROI() {
+      ::grpc::Service::MarkMethodStreamed(5,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::icr::ROI, ::icr::UpdateROIResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::icr::ROI, ::icr::UpdateROIResponse>* streamer) {
+                       return this->StreamedUpdateROI(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_UpdateROI() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::icr::ROI* /*request*/, ::icr::UpdateROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedUpdateROI(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::icr::ROI,::icr::UpdateROIResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GetCurrentImageData<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<WithStreamedUnaryMethod_GetROIList<WithStreamedUnaryMethod_GetSelectedROI<WithStreamedUnaryMethod_UpdateROI<Service > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetCurrentImageFile<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<Service > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetCurrentImageData<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<WithStreamedUnaryMethod_GetROIList<WithStreamedUnaryMethod_GetSelectedROI<WithStreamedUnaryMethod_UpdateROI<Service > > > > > > StreamedService;
 };
 
 }  // namespace icr

@@ -21,6 +21,7 @@ static const char* LogFile = "uk.ac.icr.pyosirix_daily.log";
 #import <DicomSeries.h>
 #import <DicomStudy.h>
 #import <DicomImage.h>
+#import <OsiriXAPI/DicomDatabase.h>
 
 using icr::DicomNameRequest;
 using icr::DicomNameResponse;
@@ -103,62 +104,34 @@ using icr::ImageSetResponse;
              withConsole:Console withPort:@"50051"];
 }
 
+/*
+ // this works to retrieve the selected series etc.... kept here to help
+ // with future searching
+
+ BrowserController* browser = [BrowserController currentBrowser];
+ NSString* path = [browser documentsDirectory];
+ [Console AddText:[NSString stringWithFormat:@"Path: %@", path]];
+
+ NSArray* series_or_studies = [browser databaseSelection];
+ NSMutableArray* collected_series = [NSMutableArray array];
+ [self CollectSeries: series_or_studies into:collected_series];
+ 
+ if( collected_series )
+ {
+     for (NSUInteger i = 0; i < collected_series.count; ++i) {
+         DicomSeries* s = [collected_series objectAtIndex:i];
+         //if (![DicomStudy displaySeriesWithSOPClassUID:s.seriesSOPClassUID andSeriesDescription:s.name])
+         //    [series removeObjectAtIndex:i--];
+         [Console AddText:[NSString stringWithFormat:@"Study UID: %@ | Series UID: %@ (Patient: %@)",
+                           [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
+     }
+ }
+ */
 
 -(void)GetCurrentImageFile:(NSString*) log_string {
     
-    BrowserController* browser = [BrowserController currentBrowser];
-    NSString* path = [browser documentsDirectory];
-    [Console AddText:[NSString stringWithFormat:@"Path: %@", path]];
-
-    NSArray* series_or_studies = [browser databaseSelection];
-    NSMutableArray* collected_series = [NSMutableArray array];
-    [self CollectSeries: series_or_studies into:collected_series];
-    
-    if( collected_series )
-    {
-//        [Console AddText:[NSString stringWithFormat:@"Selected: %lu series", [collected_series count]]];
-//        for( id ss_obj in collected_series )
-//        {
-//            DicomStudy* studies = [ss_obj  selectedStudies];
-//            if( studies )
-//            {
-//                [Console AddText:[NSString stringWithFormat:@"Selected: %lu studies", [studies count]]];
-//                int k = 0;
-//                for( id study in studies )
-//                {
-//                    [Console AddText:[NSString stringWithFormat:@"Study: %d", k++]];
-//                    DicomSeries* series = [study selectedSeries];
-//                    if( series )
-//                    {
-//                        NSString* ser_descr = [series seriesDescription];
-//                        if( ser_descr )
-//                            [Console AddText:[NSString stringWithFormat:@"  Descr: %@", ser_descr]];
-//                    }
-//                }
-//            }
-            
-//            DicomSeries* series = [ss_obj selectedSeries];
-//            if( series )
-//            {
-//                NSString* ser_descr = [series seriesDescription];
-//                if( ser_descr )
-//                    [Console AddText:[NSString stringWithFormat:@"Descr: %@", ser_descr]];
-//            }
-//        }
-        
-        for (NSUInteger i = 0; i < collected_series.count; ++i) {
-            DicomSeries* s = [collected_series objectAtIndex:i];
-            //if (![DicomStudy displaySeriesWithSOPClassUID:s.seriesSOPClassUID andSeriesDescription:s.name])
-            //    [series removeObjectAtIndex:i--];
-            [Console AddText:[NSString stringWithFormat:@"Study UID: %@ | Series UID: %@ (Patient: %@)",
-                              [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
-        }
-    }
-
-    //seriesDescription;
-    //@property(nonatomic, retain) NSString* seriesDICOMUID;
-    //@property(nonatomic, retain) NSString* seriesInstanceUID;
-    //@property(nonatomic, retain) NSString* seriesSOPClassUID;
+    DicomDatabase* db = [[BrowserController currentBrowser] database];
+    [db objectsWithIDs:<#(NSArray *)#>
     
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     if( !currV )

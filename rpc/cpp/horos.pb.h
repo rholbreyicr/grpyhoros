@@ -32,6 +32,7 @@
 #include <google/protobuf/repeated_field.h>  // IWYU pragma: export
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
+#include "sub-proto/roi.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_horos_2eproto
@@ -55,12 +56,12 @@ struct TableStruct_horos_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto;
 namespace icr {
-class DicomNameRequest;
-class DicomNameRequestDefaultTypeInternal;
-extern DicomNameRequestDefaultTypeInternal _DicomNameRequest_default_instance_;
-class DicomNameResponse;
-class DicomNameResponseDefaultTypeInternal;
-extern DicomNameResponseDefaultTypeInternal _DicomNameResponse_default_instance_;
+class DicomDataRequest;
+class DicomDataRequestDefaultTypeInternal;
+extern DicomDataRequestDefaultTypeInternal _DicomDataRequest_default_instance_;
+class DicomDataResponse;
+class DicomDataResponseDefaultTypeInternal;
+extern DicomDataResponseDefaultTypeInternal _DicomDataResponse_default_instance_;
 class ImageGetRequest;
 class ImageGetRequestDefaultTypeInternal;
 extern ImageGetRequestDefaultTypeInternal _ImageGetRequest_default_instance_;
@@ -75,8 +76,8 @@ class ImageSetResponseDefaultTypeInternal;
 extern ImageSetResponseDefaultTypeInternal _ImageSetResponse_default_instance_;
 }  // namespace icr
 PROTOBUF_NAMESPACE_OPEN
-template<> ::icr::DicomNameRequest* Arena::CreateMaybeMessage<::icr::DicomNameRequest>(Arena*);
-template<> ::icr::DicomNameResponse* Arena::CreateMaybeMessage<::icr::DicomNameResponse>(Arena*);
+template<> ::icr::DicomDataRequest* Arena::CreateMaybeMessage<::icr::DicomDataRequest>(Arena*);
+template<> ::icr::DicomDataResponse* Arena::CreateMaybeMessage<::icr::DicomDataResponse>(Arena*);
 template<> ::icr::ImageGetRequest* Arena::CreateMaybeMessage<::icr::ImageGetRequest>(Arena*);
 template<> ::icr::ImageGetResponse* Arena::CreateMaybeMessage<::icr::ImageGetResponse>(Arena*);
 template<> ::icr::ImageSetRequest* Arena::CreateMaybeMessage<::icr::ImageSetRequest>(Arena*);
@@ -86,23 +87,23 @@ namespace icr {
 
 // ===================================================================
 
-class DicomNameRequest PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:icr.DicomNameRequest) */ {
+class DicomDataRequest PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:icr.DicomDataRequest) */ {
  public:
-  inline DicomNameRequest() : DicomNameRequest(nullptr) {}
-  virtual ~DicomNameRequest();
+  inline DicomDataRequest() : DicomDataRequest(nullptr) {}
+  virtual ~DicomDataRequest();
 
-  DicomNameRequest(const DicomNameRequest& from);
-  DicomNameRequest(DicomNameRequest&& from) noexcept
-    : DicomNameRequest() {
+  DicomDataRequest(const DicomDataRequest& from);
+  DicomDataRequest(DicomDataRequest&& from) noexcept
+    : DicomDataRequest() {
     *this = ::std::move(from);
   }
 
-  inline DicomNameRequest& operator=(const DicomNameRequest& from) {
+  inline DicomDataRequest& operator=(const DicomDataRequest& from) {
     CopyFrom(from);
     return *this;
   }
-  inline DicomNameRequest& operator=(DicomNameRequest&& from) noexcept {
+  inline DicomDataRequest& operator=(DicomDataRequest&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -120,20 +121,20 @@ class DicomNameRequest PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const DicomNameRequest& default_instance();
+  static const DicomDataRequest& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DicomNameRequest* internal_default_instance() {
-    return reinterpret_cast<const DicomNameRequest*>(
-               &_DicomNameRequest_default_instance_);
+  static inline const DicomDataRequest* internal_default_instance() {
+    return reinterpret_cast<const DicomDataRequest*>(
+               &_DicomDataRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(DicomNameRequest& a, DicomNameRequest& b) {
+  friend void swap(DicomDataRequest& a, DicomDataRequest& b) {
     a.Swap(&b);
   }
-  inline void Swap(DicomNameRequest* other) {
+  inline void Swap(DicomDataRequest* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -141,7 +142,7 @@ class DicomNameRequest PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(DicomNameRequest* other) {
+  void UnsafeArenaSwap(DicomDataRequest* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -149,17 +150,17 @@ class DicomNameRequest PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline DicomNameRequest* New() const final {
-    return CreateMaybeMessage<DicomNameRequest>(nullptr);
+  inline DicomDataRequest* New() const final {
+    return CreateMaybeMessage<DicomDataRequest>(nullptr);
   }
 
-  DicomNameRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<DicomNameRequest>(arena);
+  DicomDataRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DicomDataRequest>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const DicomNameRequest& from);
-  void MergeFrom(const DicomNameRequest& from);
+  void CopyFrom(const DicomDataRequest& from);
+  void MergeFrom(const DicomDataRequest& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -173,13 +174,13 @@ class DicomNameRequest PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(DicomNameRequest* other);
+  void InternalSwap(DicomDataRequest* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "icr.DicomNameRequest";
+    return "icr.DicomDataRequest";
   }
   protected:
-  explicit DicomNameRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit DicomDataRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -217,7 +218,7 @@ class DicomNameRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
-  // @@protoc_insertion_point(class_scope:icr.DicomNameRequest)
+  // @@protoc_insertion_point(class_scope:icr.DicomDataRequest)
  private:
   class _Internal;
 
@@ -230,23 +231,23 @@ class DicomNameRequest PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class DicomNameResponse PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:icr.DicomNameResponse) */ {
+class DicomDataResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:icr.DicomDataResponse) */ {
  public:
-  inline DicomNameResponse() : DicomNameResponse(nullptr) {}
-  virtual ~DicomNameResponse();
+  inline DicomDataResponse() : DicomDataResponse(nullptr) {}
+  virtual ~DicomDataResponse();
 
-  DicomNameResponse(const DicomNameResponse& from);
-  DicomNameResponse(DicomNameResponse&& from) noexcept
-    : DicomNameResponse() {
+  DicomDataResponse(const DicomDataResponse& from);
+  DicomDataResponse(DicomDataResponse&& from) noexcept
+    : DicomDataResponse() {
     *this = ::std::move(from);
   }
 
-  inline DicomNameResponse& operator=(const DicomNameResponse& from) {
+  inline DicomDataResponse& operator=(const DicomDataResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline DicomNameResponse& operator=(DicomNameResponse&& from) noexcept {
+  inline DicomDataResponse& operator=(DicomDataResponse&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -264,20 +265,20 @@ class DicomNameResponse PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const DicomNameResponse& default_instance();
+  static const DicomDataResponse& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const DicomNameResponse* internal_default_instance() {
-    return reinterpret_cast<const DicomNameResponse*>(
-               &_DicomNameResponse_default_instance_);
+  static inline const DicomDataResponse* internal_default_instance() {
+    return reinterpret_cast<const DicomDataResponse*>(
+               &_DicomDataResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(DicomNameResponse& a, DicomNameResponse& b) {
+  friend void swap(DicomDataResponse& a, DicomDataResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(DicomNameResponse* other) {
+  inline void Swap(DicomDataResponse* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -285,7 +286,7 @@ class DicomNameResponse PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(DicomNameResponse* other) {
+  void UnsafeArenaSwap(DicomDataResponse* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -293,17 +294,17 @@ class DicomNameResponse PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline DicomNameResponse* New() const final {
-    return CreateMaybeMessage<DicomNameResponse>(nullptr);
+  inline DicomDataResponse* New() const final {
+    return CreateMaybeMessage<DicomDataResponse>(nullptr);
   }
 
-  DicomNameResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<DicomNameResponse>(arena);
+  DicomDataResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DicomDataResponse>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const DicomNameResponse& from);
-  void MergeFrom(const DicomNameResponse& from);
+  void CopyFrom(const DicomDataResponse& from);
+  void MergeFrom(const DicomDataResponse& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -317,13 +318,13 @@ class DicomNameResponse PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(DicomNameResponse* other);
+  void InternalSwap(DicomDataResponse* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "icr.DicomNameResponse";
+    return "icr.DicomDataResponse";
   }
   protected:
-  explicit DicomNameResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit DicomDataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -344,6 +345,9 @@ class DicomNameResponse PROTOBUF_FINAL :
 
   enum : int {
     kIdFieldNumber = 1,
+    kPatientIdFieldNumber = 2,
+    kStudyInstanceUidFieldNumber = 3,
+    kSeriesInstanceUidFieldNumber = 4,
   };
   // string id = 1;
   void clear_id();
@@ -361,7 +365,55 @@ class DicomNameResponse PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
-  // @@protoc_insertion_point(class_scope:icr.DicomNameResponse)
+  // string patient_id = 2;
+  void clear_patient_id();
+  const std::string& patient_id() const;
+  void set_patient_id(const std::string& value);
+  void set_patient_id(std::string&& value);
+  void set_patient_id(const char* value);
+  void set_patient_id(const char* value, size_t size);
+  std::string* mutable_patient_id();
+  std::string* release_patient_id();
+  void set_allocated_patient_id(std::string* patient_id);
+  private:
+  const std::string& _internal_patient_id() const;
+  void _internal_set_patient_id(const std::string& value);
+  std::string* _internal_mutable_patient_id();
+  public:
+
+  // string study_instance_uid = 3;
+  void clear_study_instance_uid();
+  const std::string& study_instance_uid() const;
+  void set_study_instance_uid(const std::string& value);
+  void set_study_instance_uid(std::string&& value);
+  void set_study_instance_uid(const char* value);
+  void set_study_instance_uid(const char* value, size_t size);
+  std::string* mutable_study_instance_uid();
+  std::string* release_study_instance_uid();
+  void set_allocated_study_instance_uid(std::string* study_instance_uid);
+  private:
+  const std::string& _internal_study_instance_uid() const;
+  void _internal_set_study_instance_uid(const std::string& value);
+  std::string* _internal_mutable_study_instance_uid();
+  public:
+
+  // string series_instance_uid = 4;
+  void clear_series_instance_uid();
+  const std::string& series_instance_uid() const;
+  void set_series_instance_uid(const std::string& value);
+  void set_series_instance_uid(std::string&& value);
+  void set_series_instance_uid(const char* value);
+  void set_series_instance_uid(const char* value, size_t size);
+  std::string* mutable_series_instance_uid();
+  std::string* release_series_instance_uid();
+  void set_allocated_series_instance_uid(std::string* series_instance_uid);
+  private:
+  const std::string& _internal_series_instance_uid() const;
+  void _internal_set_series_instance_uid(const std::string& value);
+  std::string* _internal_mutable_series_instance_uid();
+  public:
+
+  // @@protoc_insertion_point(class_scope:icr.DicomDataResponse)
  private:
   class _Internal;
 
@@ -369,6 +421,9 @@ class DicomNameResponse PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr patient_id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr study_instance_uid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr series_instance_uid_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -488,6 +543,7 @@ class ImageGetRequest PROTOBUF_FINAL :
 
   enum : int {
     kIdFieldNumber = 1,
+    kViewerIdFieldNumber = 2,
   };
   // string id = 1;
   void clear_id();
@@ -505,6 +561,22 @@ class ImageGetRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
+  // string viewer_id = 2;
+  void clear_viewer_id();
+  const std::string& viewer_id() const;
+  void set_viewer_id(const std::string& value);
+  void set_viewer_id(std::string&& value);
+  void set_viewer_id(const char* value);
+  void set_viewer_id(const char* value, size_t size);
+  std::string* mutable_viewer_id();
+  std::string* release_viewer_id();
+  void set_allocated_viewer_id(std::string* viewer_id);
+  private:
+  const std::string& _internal_viewer_id() const;
+  void _internal_set_viewer_id(const std::string& value);
+  std::string* _internal_mutable_viewer_id();
+  public:
+
   // @@protoc_insertion_point(class_scope:icr.ImageGetRequest)
  private:
   class _Internal;
@@ -513,6 +585,7 @@ class ImageGetRequest PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -631,13 +704,14 @@ class ImageGetResponse PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kImageSizeFieldNumber = 2,
-    kVoxelSizeFieldNumber = 3,
-    kOriginFieldNumber = 4,
-    kDataFieldNumber = 5,
+    kImageSizeFieldNumber = 3,
+    kVoxelSizeFieldNumber = 4,
+    kOriginFieldNumber = 5,
+    kDataFieldNumber = 6,
     kIdFieldNumber = 1,
+    kViewerIdFieldNumber = 2,
   };
-  // repeated int32 image_size = 2;
+  // repeated int32 image_size = 3;
   int image_size_size() const;
   private:
   int _internal_image_size_size() const;
@@ -659,7 +733,7 @@ class ImageGetResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
       mutable_image_size();
 
-  // repeated float voxel_size = 3;
+  // repeated float voxel_size = 4;
   int voxel_size_size() const;
   private:
   int _internal_voxel_size_size() const;
@@ -681,7 +755,7 @@ class ImageGetResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_voxel_size();
 
-  // repeated float origin = 4;
+  // repeated float origin = 5;
   int origin_size() const;
   private:
   int _internal_origin_size() const;
@@ -703,7 +777,7 @@ class ImageGetResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_origin();
 
-  // repeated float data = 5;
+  // repeated float data = 6;
   int data_size() const;
   private:
   int _internal_data_size() const;
@@ -741,6 +815,22 @@ class ImageGetResponse PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
+  // string viewer_id = 2;
+  void clear_viewer_id();
+  const std::string& viewer_id() const;
+  void set_viewer_id(const std::string& value);
+  void set_viewer_id(std::string&& value);
+  void set_viewer_id(const char* value);
+  void set_viewer_id(const char* value, size_t size);
+  std::string* mutable_viewer_id();
+  std::string* release_viewer_id();
+  void set_allocated_viewer_id(std::string* viewer_id);
+  private:
+  const std::string& _internal_viewer_id() const;
+  void _internal_set_viewer_id(const std::string& value);
+  std::string* _internal_mutable_viewer_id();
+  public:
+
   // @@protoc_insertion_point(class_scope:icr.ImageGetResponse)
  private:
   class _Internal;
@@ -757,6 +847,7 @@ class ImageGetResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > data_;
   mutable std::atomic<int> _data_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -875,13 +966,14 @@ class ImageSetRequest PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kImageSizeFieldNumber = 2,
-    kVoxelSizeFieldNumber = 3,
-    kOriginFieldNumber = 4,
-    kDataFieldNumber = 5,
+    kImageSizeFieldNumber = 3,
+    kVoxelSizeFieldNumber = 4,
+    kOriginFieldNumber = 5,
+    kDataFieldNumber = 6,
     kIdFieldNumber = 1,
+    kViewerIdFieldNumber = 2,
   };
-  // repeated int32 image_size = 2;
+  // repeated int32 image_size = 3;
   int image_size_size() const;
   private:
   int _internal_image_size_size() const;
@@ -903,7 +995,7 @@ class ImageSetRequest PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< ::PROTOBUF_NAMESPACE_ID::int32 >*
       mutable_image_size();
 
-  // repeated float voxel_size = 3;
+  // repeated float voxel_size = 4;
   int voxel_size_size() const;
   private:
   int _internal_voxel_size_size() const;
@@ -925,7 +1017,7 @@ class ImageSetRequest PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_voxel_size();
 
-  // repeated float origin = 4;
+  // repeated float origin = 5;
   int origin_size() const;
   private:
   int _internal_origin_size() const;
@@ -947,7 +1039,7 @@ class ImageSetRequest PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float >*
       mutable_origin();
 
-  // repeated float data = 5;
+  // repeated float data = 6;
   int data_size() const;
   private:
   int _internal_data_size() const;
@@ -985,6 +1077,22 @@ class ImageSetRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
+  // string viewer_id = 2;
+  void clear_viewer_id();
+  const std::string& viewer_id() const;
+  void set_viewer_id(const std::string& value);
+  void set_viewer_id(std::string&& value);
+  void set_viewer_id(const char* value);
+  void set_viewer_id(const char* value, size_t size);
+  std::string* mutable_viewer_id();
+  std::string* release_viewer_id();
+  void set_allocated_viewer_id(std::string* viewer_id);
+  private:
+  const std::string& _internal_viewer_id() const;
+  void _internal_set_viewer_id(const std::string& value);
+  std::string* _internal_mutable_viewer_id();
+  public:
+
   // @@protoc_insertion_point(class_scope:icr.ImageSetRequest)
  private:
   class _Internal;
@@ -1001,6 +1109,7 @@ class ImageSetRequest PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > data_;
   mutable std::atomic<int> _data_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -1120,6 +1229,7 @@ class ImageSetResponse PROTOBUF_FINAL :
 
   enum : int {
     kIdFieldNumber = 1,
+    kViewerIdFieldNumber = 2,
   };
   // string id = 1;
   void clear_id();
@@ -1137,6 +1247,22 @@ class ImageSetResponse PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
+  // string viewer_id = 2;
+  void clear_viewer_id();
+  const std::string& viewer_id() const;
+  void set_viewer_id(const std::string& value);
+  void set_viewer_id(std::string&& value);
+  void set_viewer_id(const char* value);
+  void set_viewer_id(const char* value, size_t size);
+  std::string* mutable_viewer_id();
+  std::string* release_viewer_id();
+  void set_allocated_viewer_id(std::string* viewer_id);
+  private:
+  const std::string& _internal_viewer_id() const;
+  void _internal_set_viewer_id(const std::string& value);
+  std::string* _internal_mutable_viewer_id();
+  public:
+
   // @@protoc_insertion_point(class_scope:icr.ImageSetResponse)
  private:
   class _Internal;
@@ -1145,6 +1271,7 @@ class ImageSetResponse PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -1157,60 +1284,60 @@ class ImageSetResponse PROTOBUF_FINAL :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// DicomNameRequest
+// DicomDataRequest
 
 // string id = 1;
-inline void DicomNameRequest::clear_id() {
+inline void DicomDataRequest::clear_id() {
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline const std::string& DicomNameRequest::id() const {
-  // @@protoc_insertion_point(field_get:icr.DicomNameRequest.id)
+inline const std::string& DicomDataRequest::id() const {
+  // @@protoc_insertion_point(field_get:icr.DicomDataRequest.id)
   return _internal_id();
 }
-inline void DicomNameRequest::set_id(const std::string& value) {
+inline void DicomDataRequest::set_id(const std::string& value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:icr.DicomNameRequest.id)
+  // @@protoc_insertion_point(field_set:icr.DicomDataRequest.id)
 }
-inline std::string* DicomNameRequest::mutable_id() {
-  // @@protoc_insertion_point(field_mutable:icr.DicomNameRequest.id)
+inline std::string* DicomDataRequest::mutable_id() {
+  // @@protoc_insertion_point(field_mutable:icr.DicomDataRequest.id)
   return _internal_mutable_id();
 }
-inline const std::string& DicomNameRequest::_internal_id() const {
+inline const std::string& DicomDataRequest::_internal_id() const {
   return id_.Get();
 }
-inline void DicomNameRequest::_internal_set_id(const std::string& value) {
+inline void DicomDataRequest::_internal_set_id(const std::string& value) {
   
   id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
 }
-inline void DicomNameRequest::set_id(std::string&& value) {
+inline void DicomDataRequest::set_id(std::string&& value) {
   
   id_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:icr.DicomNameRequest.id)
+  // @@protoc_insertion_point(field_set_rvalue:icr.DicomDataRequest.id)
 }
-inline void DicomNameRequest::set_id(const char* value) {
+inline void DicomDataRequest::set_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:icr.DicomNameRequest.id)
+  // @@protoc_insertion_point(field_set_char:icr.DicomDataRequest.id)
 }
-inline void DicomNameRequest::set_id(const char* value,
+inline void DicomDataRequest::set_id(const char* value,
     size_t size) {
   
   id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:icr.DicomNameRequest.id)
+  // @@protoc_insertion_point(field_set_pointer:icr.DicomDataRequest.id)
 }
-inline std::string* DicomNameRequest::_internal_mutable_id() {
+inline std::string* DicomDataRequest::_internal_mutable_id() {
   
   return id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline std::string* DicomNameRequest::release_id() {
-  // @@protoc_insertion_point(field_release:icr.DicomNameRequest.id)
+inline std::string* DicomDataRequest::release_id() {
+  // @@protoc_insertion_point(field_release:icr.DicomDataRequest.id)
   return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void DicomNameRequest::set_allocated_id(std::string* id) {
+inline void DicomDataRequest::set_allocated_id(std::string* id) {
   if (id != nullptr) {
     
   } else {
@@ -1218,65 +1345,65 @@ inline void DicomNameRequest::set_allocated_id(std::string* id) {
   }
   id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:icr.DicomNameRequest.id)
+  // @@protoc_insertion_point(field_set_allocated:icr.DicomDataRequest.id)
 }
 
 // -------------------------------------------------------------------
 
-// DicomNameResponse
+// DicomDataResponse
 
 // string id = 1;
-inline void DicomNameResponse::clear_id() {
+inline void DicomDataResponse::clear_id() {
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline const std::string& DicomNameResponse::id() const {
-  // @@protoc_insertion_point(field_get:icr.DicomNameResponse.id)
+inline const std::string& DicomDataResponse::id() const {
+  // @@protoc_insertion_point(field_get:icr.DicomDataResponse.id)
   return _internal_id();
 }
-inline void DicomNameResponse::set_id(const std::string& value) {
+inline void DicomDataResponse::set_id(const std::string& value) {
   _internal_set_id(value);
-  // @@protoc_insertion_point(field_set:icr.DicomNameResponse.id)
+  // @@protoc_insertion_point(field_set:icr.DicomDataResponse.id)
 }
-inline std::string* DicomNameResponse::mutable_id() {
-  // @@protoc_insertion_point(field_mutable:icr.DicomNameResponse.id)
+inline std::string* DicomDataResponse::mutable_id() {
+  // @@protoc_insertion_point(field_mutable:icr.DicomDataResponse.id)
   return _internal_mutable_id();
 }
-inline const std::string& DicomNameResponse::_internal_id() const {
+inline const std::string& DicomDataResponse::_internal_id() const {
   return id_.Get();
 }
-inline void DicomNameResponse::_internal_set_id(const std::string& value) {
+inline void DicomDataResponse::_internal_set_id(const std::string& value) {
   
   id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
 }
-inline void DicomNameResponse::set_id(std::string&& value) {
+inline void DicomDataResponse::set_id(std::string&& value) {
   
   id_.Set(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:icr.DicomNameResponse.id)
+  // @@protoc_insertion_point(field_set_rvalue:icr.DicomDataResponse.id)
 }
-inline void DicomNameResponse::set_id(const char* value) {
+inline void DicomDataResponse::set_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
               GetArena());
-  // @@protoc_insertion_point(field_set_char:icr.DicomNameResponse.id)
+  // @@protoc_insertion_point(field_set_char:icr.DicomDataResponse.id)
 }
-inline void DicomNameResponse::set_id(const char* value,
+inline void DicomDataResponse::set_id(const char* value,
     size_t size) {
   
   id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:icr.DicomNameResponse.id)
+  // @@protoc_insertion_point(field_set_pointer:icr.DicomDataResponse.id)
 }
-inline std::string* DicomNameResponse::_internal_mutable_id() {
+inline std::string* DicomDataResponse::_internal_mutable_id() {
   
   return id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline std::string* DicomNameResponse::release_id() {
-  // @@protoc_insertion_point(field_release:icr.DicomNameResponse.id)
+inline std::string* DicomDataResponse::release_id() {
+  // @@protoc_insertion_point(field_release:icr.DicomDataResponse.id)
   return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void DicomNameResponse::set_allocated_id(std::string* id) {
+inline void DicomDataResponse::set_allocated_id(std::string* id) {
   if (id != nullptr) {
     
   } else {
@@ -1284,7 +1411,193 @@ inline void DicomNameResponse::set_allocated_id(std::string* id) {
   }
   id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:icr.DicomNameResponse.id)
+  // @@protoc_insertion_point(field_set_allocated:icr.DicomDataResponse.id)
+}
+
+// string patient_id = 2;
+inline void DicomDataResponse::clear_patient_id() {
+  patient_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& DicomDataResponse::patient_id() const {
+  // @@protoc_insertion_point(field_get:icr.DicomDataResponse.patient_id)
+  return _internal_patient_id();
+}
+inline void DicomDataResponse::set_patient_id(const std::string& value) {
+  _internal_set_patient_id(value);
+  // @@protoc_insertion_point(field_set:icr.DicomDataResponse.patient_id)
+}
+inline std::string* DicomDataResponse::mutable_patient_id() {
+  // @@protoc_insertion_point(field_mutable:icr.DicomDataResponse.patient_id)
+  return _internal_mutable_patient_id();
+}
+inline const std::string& DicomDataResponse::_internal_patient_id() const {
+  return patient_id_.Get();
+}
+inline void DicomDataResponse::_internal_set_patient_id(const std::string& value) {
+  
+  patient_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void DicomDataResponse::set_patient_id(std::string&& value) {
+  
+  patient_id_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:icr.DicomDataResponse.patient_id)
+}
+inline void DicomDataResponse::set_patient_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  patient_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:icr.DicomDataResponse.patient_id)
+}
+inline void DicomDataResponse::set_patient_id(const char* value,
+    size_t size) {
+  
+  patient_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:icr.DicomDataResponse.patient_id)
+}
+inline std::string* DicomDataResponse::_internal_mutable_patient_id() {
+  
+  return patient_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* DicomDataResponse::release_patient_id() {
+  // @@protoc_insertion_point(field_release:icr.DicomDataResponse.patient_id)
+  return patient_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DicomDataResponse::set_allocated_patient_id(std::string* patient_id) {
+  if (patient_id != nullptr) {
+    
+  } else {
+    
+  }
+  patient_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), patient_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:icr.DicomDataResponse.patient_id)
+}
+
+// string study_instance_uid = 3;
+inline void DicomDataResponse::clear_study_instance_uid() {
+  study_instance_uid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& DicomDataResponse::study_instance_uid() const {
+  // @@protoc_insertion_point(field_get:icr.DicomDataResponse.study_instance_uid)
+  return _internal_study_instance_uid();
+}
+inline void DicomDataResponse::set_study_instance_uid(const std::string& value) {
+  _internal_set_study_instance_uid(value);
+  // @@protoc_insertion_point(field_set:icr.DicomDataResponse.study_instance_uid)
+}
+inline std::string* DicomDataResponse::mutable_study_instance_uid() {
+  // @@protoc_insertion_point(field_mutable:icr.DicomDataResponse.study_instance_uid)
+  return _internal_mutable_study_instance_uid();
+}
+inline const std::string& DicomDataResponse::_internal_study_instance_uid() const {
+  return study_instance_uid_.Get();
+}
+inline void DicomDataResponse::_internal_set_study_instance_uid(const std::string& value) {
+  
+  study_instance_uid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void DicomDataResponse::set_study_instance_uid(std::string&& value) {
+  
+  study_instance_uid_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:icr.DicomDataResponse.study_instance_uid)
+}
+inline void DicomDataResponse::set_study_instance_uid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  study_instance_uid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:icr.DicomDataResponse.study_instance_uid)
+}
+inline void DicomDataResponse::set_study_instance_uid(const char* value,
+    size_t size) {
+  
+  study_instance_uid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:icr.DicomDataResponse.study_instance_uid)
+}
+inline std::string* DicomDataResponse::_internal_mutable_study_instance_uid() {
+  
+  return study_instance_uid_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* DicomDataResponse::release_study_instance_uid() {
+  // @@protoc_insertion_point(field_release:icr.DicomDataResponse.study_instance_uid)
+  return study_instance_uid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DicomDataResponse::set_allocated_study_instance_uid(std::string* study_instance_uid) {
+  if (study_instance_uid != nullptr) {
+    
+  } else {
+    
+  }
+  study_instance_uid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), study_instance_uid,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:icr.DicomDataResponse.study_instance_uid)
+}
+
+// string series_instance_uid = 4;
+inline void DicomDataResponse::clear_series_instance_uid() {
+  series_instance_uid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& DicomDataResponse::series_instance_uid() const {
+  // @@protoc_insertion_point(field_get:icr.DicomDataResponse.series_instance_uid)
+  return _internal_series_instance_uid();
+}
+inline void DicomDataResponse::set_series_instance_uid(const std::string& value) {
+  _internal_set_series_instance_uid(value);
+  // @@protoc_insertion_point(field_set:icr.DicomDataResponse.series_instance_uid)
+}
+inline std::string* DicomDataResponse::mutable_series_instance_uid() {
+  // @@protoc_insertion_point(field_mutable:icr.DicomDataResponse.series_instance_uid)
+  return _internal_mutable_series_instance_uid();
+}
+inline const std::string& DicomDataResponse::_internal_series_instance_uid() const {
+  return series_instance_uid_.Get();
+}
+inline void DicomDataResponse::_internal_set_series_instance_uid(const std::string& value) {
+  
+  series_instance_uid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void DicomDataResponse::set_series_instance_uid(std::string&& value) {
+  
+  series_instance_uid_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:icr.DicomDataResponse.series_instance_uid)
+}
+inline void DicomDataResponse::set_series_instance_uid(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  series_instance_uid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:icr.DicomDataResponse.series_instance_uid)
+}
+inline void DicomDataResponse::set_series_instance_uid(const char* value,
+    size_t size) {
+  
+  series_instance_uid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:icr.DicomDataResponse.series_instance_uid)
+}
+inline std::string* DicomDataResponse::_internal_mutable_series_instance_uid() {
+  
+  return series_instance_uid_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* DicomDataResponse::release_series_instance_uid() {
+  // @@protoc_insertion_point(field_release:icr.DicomDataResponse.series_instance_uid)
+  return series_instance_uid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void DicomDataResponse::set_allocated_series_instance_uid(std::string* series_instance_uid) {
+  if (series_instance_uid != nullptr) {
+    
+  } else {
+    
+  }
+  series_instance_uid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), series_instance_uid,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:icr.DicomDataResponse.series_instance_uid)
 }
 
 // -------------------------------------------------------------------
@@ -1353,6 +1666,68 @@ inline void ImageGetRequest::set_allocated_id(std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:icr.ImageGetRequest.id)
 }
 
+// string viewer_id = 2;
+inline void ImageGetRequest::clear_viewer_id() {
+  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& ImageGetRequest::viewer_id() const {
+  // @@protoc_insertion_point(field_get:icr.ImageGetRequest.viewer_id)
+  return _internal_viewer_id();
+}
+inline void ImageGetRequest::set_viewer_id(const std::string& value) {
+  _internal_set_viewer_id(value);
+  // @@protoc_insertion_point(field_set:icr.ImageGetRequest.viewer_id)
+}
+inline std::string* ImageGetRequest::mutable_viewer_id() {
+  // @@protoc_insertion_point(field_mutable:icr.ImageGetRequest.viewer_id)
+  return _internal_mutable_viewer_id();
+}
+inline const std::string& ImageGetRequest::_internal_viewer_id() const {
+  return viewer_id_.Get();
+}
+inline void ImageGetRequest::_internal_set_viewer_id(const std::string& value) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void ImageGetRequest::set_viewer_id(std::string&& value) {
+  
+  viewer_id_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:icr.ImageGetRequest.viewer_id)
+}
+inline void ImageGetRequest::set_viewer_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:icr.ImageGetRequest.viewer_id)
+}
+inline void ImageGetRequest::set_viewer_id(const char* value,
+    size_t size) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:icr.ImageGetRequest.viewer_id)
+}
+inline std::string* ImageGetRequest::_internal_mutable_viewer_id() {
+  
+  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* ImageGetRequest::release_viewer_id() {
+  // @@protoc_insertion_point(field_release:icr.ImageGetRequest.viewer_id)
+  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void ImageGetRequest::set_allocated_viewer_id(std::string* viewer_id) {
+  if (viewer_id != nullptr) {
+    
+  } else {
+    
+  }
+  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:icr.ImageGetRequest.viewer_id)
+}
+
 // -------------------------------------------------------------------
 
 // ImageGetResponse
@@ -1419,7 +1794,69 @@ inline void ImageGetResponse::set_allocated_id(std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:icr.ImageGetResponse.id)
 }
 
-// repeated int32 image_size = 2;
+// string viewer_id = 2;
+inline void ImageGetResponse::clear_viewer_id() {
+  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& ImageGetResponse::viewer_id() const {
+  // @@protoc_insertion_point(field_get:icr.ImageGetResponse.viewer_id)
+  return _internal_viewer_id();
+}
+inline void ImageGetResponse::set_viewer_id(const std::string& value) {
+  _internal_set_viewer_id(value);
+  // @@protoc_insertion_point(field_set:icr.ImageGetResponse.viewer_id)
+}
+inline std::string* ImageGetResponse::mutable_viewer_id() {
+  // @@protoc_insertion_point(field_mutable:icr.ImageGetResponse.viewer_id)
+  return _internal_mutable_viewer_id();
+}
+inline const std::string& ImageGetResponse::_internal_viewer_id() const {
+  return viewer_id_.Get();
+}
+inline void ImageGetResponse::_internal_set_viewer_id(const std::string& value) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void ImageGetResponse::set_viewer_id(std::string&& value) {
+  
+  viewer_id_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:icr.ImageGetResponse.viewer_id)
+}
+inline void ImageGetResponse::set_viewer_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:icr.ImageGetResponse.viewer_id)
+}
+inline void ImageGetResponse::set_viewer_id(const char* value,
+    size_t size) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:icr.ImageGetResponse.viewer_id)
+}
+inline std::string* ImageGetResponse::_internal_mutable_viewer_id() {
+  
+  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* ImageGetResponse::release_viewer_id() {
+  // @@protoc_insertion_point(field_release:icr.ImageGetResponse.viewer_id)
+  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void ImageGetResponse::set_allocated_viewer_id(std::string* viewer_id) {
+  if (viewer_id != nullptr) {
+    
+  } else {
+    
+  }
+  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:icr.ImageGetResponse.viewer_id)
+}
+
+// repeated int32 image_size = 3;
 inline int ImageGetResponse::_internal_image_size_size() const {
   return image_size_.size();
 }
@@ -1466,7 +1903,7 @@ ImageGetResponse::mutable_image_size() {
   return _internal_mutable_image_size();
 }
 
-// repeated float voxel_size = 3;
+// repeated float voxel_size = 4;
 inline int ImageGetResponse::_internal_voxel_size_size() const {
   return voxel_size_.size();
 }
@@ -1513,7 +1950,7 @@ ImageGetResponse::mutable_voxel_size() {
   return _internal_mutable_voxel_size();
 }
 
-// repeated float origin = 4;
+// repeated float origin = 5;
 inline int ImageGetResponse::_internal_origin_size() const {
   return origin_.size();
 }
@@ -1560,7 +1997,7 @@ ImageGetResponse::mutable_origin() {
   return _internal_mutable_origin();
 }
 
-// repeated float data = 5;
+// repeated float data = 6;
 inline int ImageGetResponse::_internal_data_size() const {
   return data_.size();
 }
@@ -1673,7 +2110,69 @@ inline void ImageSetRequest::set_allocated_id(std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:icr.ImageSetRequest.id)
 }
 
-// repeated int32 image_size = 2;
+// string viewer_id = 2;
+inline void ImageSetRequest::clear_viewer_id() {
+  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& ImageSetRequest::viewer_id() const {
+  // @@protoc_insertion_point(field_get:icr.ImageSetRequest.viewer_id)
+  return _internal_viewer_id();
+}
+inline void ImageSetRequest::set_viewer_id(const std::string& value) {
+  _internal_set_viewer_id(value);
+  // @@protoc_insertion_point(field_set:icr.ImageSetRequest.viewer_id)
+}
+inline std::string* ImageSetRequest::mutable_viewer_id() {
+  // @@protoc_insertion_point(field_mutable:icr.ImageSetRequest.viewer_id)
+  return _internal_mutable_viewer_id();
+}
+inline const std::string& ImageSetRequest::_internal_viewer_id() const {
+  return viewer_id_.Get();
+}
+inline void ImageSetRequest::_internal_set_viewer_id(const std::string& value) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void ImageSetRequest::set_viewer_id(std::string&& value) {
+  
+  viewer_id_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:icr.ImageSetRequest.viewer_id)
+}
+inline void ImageSetRequest::set_viewer_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:icr.ImageSetRequest.viewer_id)
+}
+inline void ImageSetRequest::set_viewer_id(const char* value,
+    size_t size) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:icr.ImageSetRequest.viewer_id)
+}
+inline std::string* ImageSetRequest::_internal_mutable_viewer_id() {
+  
+  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* ImageSetRequest::release_viewer_id() {
+  // @@protoc_insertion_point(field_release:icr.ImageSetRequest.viewer_id)
+  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void ImageSetRequest::set_allocated_viewer_id(std::string* viewer_id) {
+  if (viewer_id != nullptr) {
+    
+  } else {
+    
+  }
+  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:icr.ImageSetRequest.viewer_id)
+}
+
+// repeated int32 image_size = 3;
 inline int ImageSetRequest::_internal_image_size_size() const {
   return image_size_.size();
 }
@@ -1720,7 +2219,7 @@ ImageSetRequest::mutable_image_size() {
   return _internal_mutable_image_size();
 }
 
-// repeated float voxel_size = 3;
+// repeated float voxel_size = 4;
 inline int ImageSetRequest::_internal_voxel_size_size() const {
   return voxel_size_.size();
 }
@@ -1767,7 +2266,7 @@ ImageSetRequest::mutable_voxel_size() {
   return _internal_mutable_voxel_size();
 }
 
-// repeated float origin = 4;
+// repeated float origin = 5;
 inline int ImageSetRequest::_internal_origin_size() const {
   return origin_.size();
 }
@@ -1814,7 +2313,7 @@ ImageSetRequest::mutable_origin() {
   return _internal_mutable_origin();
 }
 
-// repeated float data = 5;
+// repeated float data = 6;
 inline int ImageSetRequest::_internal_data_size() const {
   return data_.size();
 }
@@ -1925,6 +2424,68 @@ inline void ImageSetResponse::set_allocated_id(std::string* id) {
   id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
       GetArena());
   // @@protoc_insertion_point(field_set_allocated:icr.ImageSetResponse.id)
+}
+
+// string viewer_id = 2;
+inline void ImageSetResponse::clear_viewer_id() {
+  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& ImageSetResponse::viewer_id() const {
+  // @@protoc_insertion_point(field_get:icr.ImageSetResponse.viewer_id)
+  return _internal_viewer_id();
+}
+inline void ImageSetResponse::set_viewer_id(const std::string& value) {
+  _internal_set_viewer_id(value);
+  // @@protoc_insertion_point(field_set:icr.ImageSetResponse.viewer_id)
+}
+inline std::string* ImageSetResponse::mutable_viewer_id() {
+  // @@protoc_insertion_point(field_mutable:icr.ImageSetResponse.viewer_id)
+  return _internal_mutable_viewer_id();
+}
+inline const std::string& ImageSetResponse::_internal_viewer_id() const {
+  return viewer_id_.Get();
+}
+inline void ImageSetResponse::_internal_set_viewer_id(const std::string& value) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void ImageSetResponse::set_viewer_id(std::string&& value) {
+  
+  viewer_id_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:icr.ImageSetResponse.viewer_id)
+}
+inline void ImageSetResponse::set_viewer_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:icr.ImageSetResponse.viewer_id)
+}
+inline void ImageSetResponse::set_viewer_id(const char* value,
+    size_t size) {
+  
+  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:icr.ImageSetResponse.viewer_id)
+}
+inline std::string* ImageSetResponse::_internal_mutable_viewer_id() {
+  
+  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* ImageSetResponse::release_viewer_id() {
+  // @@protoc_insertion_point(field_release:icr.ImageSetResponse.viewer_id)
+  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void ImageSetResponse::set_allocated_viewer_id(std::string* viewer_id) {
+  if (viewer_id != nullptr) {
+    
+  } else {
+    
+  }
+  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:icr.ImageSetResponse.viewer_id)
 }
 
 #ifdef __GNUC__

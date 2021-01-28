@@ -7,47 +7,58 @@
 // ../script/protoc.sh `pwd`/.. python `pwd`/../horos.proto `pwd`
 
 syntax = "proto3";
-
 package icr;
 
 // A simple key-value storage service
 service Horos {
   // Request current dicom image
-  rpc GetCurrentImageFile (DicomNameRequest) returns (DicomNameResponse) {}
+  rpc GetCurrentImageData (DicomDataRequest) returns (DicomDataResponse) {}
   rpc GetCurrentImage (ImageGetRequest) returns (ImageGetResponse) {}
   rpc SetCurrentImage (ImageSetRequest) returns (ImageSetResponse) {}
+  rpc GetROIList (ROIListRequest) returns (ROIList) {}
+  rpc GetSelectedROI (ROIRequest) returns (ROI) {}
+  rpc UpdateROI (ROI) returns (UpdateROIResponse) {}
 }
 
+import "sub-proto/roi.proto";
+
 // The request message containing the key
-message DicomNameRequest {
+message DicomDataRequest {
   string id = 1;
 }
 
 // The response message containing the value associated with the key
-message DicomNameResponse {
+message DicomDataResponse {
   string id = 1;
+  string patient_id = 2;
+  string study_instance_uid = 3;
+  string series_instance_uid = 4; // actually this contains: "study_number ser_instance_uid echo_time" (on horos anyway)
 }
 
 message ImageGetRequest {
   string id = 1;
+  string viewer_id = 2;
 }
 
 message ImageGetResponse {
   string id = 1;
-  repeated int32 image_size = 2;
-  repeated float voxel_size = 3;
-  repeated float origin = 4;
-  repeated float data = 5;
+  string viewer_id = 2;
+  repeated int32 image_size = 3;
+  repeated float voxel_size = 4;
+  repeated float origin = 5;
+  repeated float data = 6;
 }
 
 message ImageSetRequest {
   string id = 1;
-  repeated int32 image_size = 2;
-  repeated float voxel_size = 3;
-  repeated float origin = 4;
-  repeated float data = 5;
+  string viewer_id = 2;
+  repeated int32 image_size = 3;
+  repeated float voxel_size = 4;
+  repeated float origin = 5;
+  repeated float data = 6;
 }
 
 message ImageSetResponse {
   string id = 1;
+  string viewer_id = 2;
 }
