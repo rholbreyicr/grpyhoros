@@ -3,7 +3,7 @@
 import grpc
 
 import horos_pb2 as horos__pb2
-from sub_proto import roi_pb2 as sub__proto_dot_roi__pb2
+import roi_pb2 as roi__pb2
 
 
 class HorosStub(object):
@@ -33,18 +33,18 @@ class HorosStub(object):
                 )
         self.GetROIList = channel.unary_unary(
                 '/icr.Horos/GetROIList',
-                request_serializer=sub__proto_dot_roi__pb2.ROIListRequest.SerializeToString,
-                response_deserializer=sub__proto_dot_roi__pb2.ROIList.FromString,
+                request_serializer=roi__pb2.ROIListRequest.SerializeToString,
+                response_deserializer=roi__pb2.ROIList.FromString,
                 )
         self.GetSelectedROI = channel.unary_unary(
                 '/icr.Horos/GetSelectedROI',
-                request_serializer=sub__proto_dot_roi__pb2.ROIRequest.SerializeToString,
-                response_deserializer=sub__proto_dot_roi__pb2.ROI.FromString,
+                request_serializer=roi__pb2.ROIRequest.SerializeToString,
+                response_deserializer=roi__pb2.ROI.FromString,
                 )
         self.UpdateROI = channel.unary_unary(
                 '/icr.Horos/UpdateROI',
-                request_serializer=sub__proto_dot_roi__pb2.ROI.SerializeToString,
-                response_deserializer=sub__proto_dot_roi__pb2.UpdateROIResponse.FromString,
+                request_serializer=roi__pb2.ROI.SerializeToString,
+                response_deserializer=roi__pb2.UpdateROIResponse.FromString,
                 )
 
 
@@ -109,18 +109,18 @@ def add_HorosServicer_to_server(servicer, server):
             ),
             'GetROIList': grpc.unary_unary_rpc_method_handler(
                     servicer.GetROIList,
-                    request_deserializer=sub__proto_dot_roi__pb2.ROIListRequest.FromString,
-                    response_serializer=sub__proto_dot_roi__pb2.ROIList.SerializeToString,
+                    request_deserializer=roi__pb2.ROIListRequest.FromString,
+                    response_serializer=roi__pb2.ROIList.SerializeToString,
             ),
             'GetSelectedROI': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSelectedROI,
-                    request_deserializer=sub__proto_dot_roi__pb2.ROIRequest.FromString,
-                    response_serializer=sub__proto_dot_roi__pb2.ROI.SerializeToString,
+                    request_deserializer=roi__pb2.ROIRequest.FromString,
+                    response_serializer=roi__pb2.ROI.SerializeToString,
             ),
             'UpdateROI': grpc.unary_unary_rpc_method_handler(
                     servicer.UpdateROI,
-                    request_deserializer=sub__proto_dot_roi__pb2.ROI.FromString,
-                    response_serializer=sub__proto_dot_roi__pb2.UpdateROIResponse.SerializeToString,
+                    request_deserializer=roi__pb2.ROI.FromString,
+                    response_serializer=roi__pb2.UpdateROIResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -196,8 +196,8 @@ class Horos(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/icr.Horos/GetROIList',
-            sub__proto_dot_roi__pb2.ROIListRequest.SerializeToString,
-            sub__proto_dot_roi__pb2.ROIList.FromString,
+            roi__pb2.ROIListRequest.SerializeToString,
+            roi__pb2.ROIList.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -213,8 +213,8 @@ class Horos(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/icr.Horos/GetSelectedROI',
-            sub__proto_dot_roi__pb2.ROIRequest.SerializeToString,
-            sub__proto_dot_roi__pb2.ROI.FromString,
+            roi__pb2.ROIRequest.SerializeToString,
+            roi__pb2.ROI.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -230,7 +230,7 @@ class Horos(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/icr.Horos/UpdateROI',
-            sub__proto_dot_roi__pb2.ROI.SerializeToString,
-            sub__proto_dot_roi__pb2.UpdateROIResponse.FromString,
+            roi__pb2.ROI.SerializeToString,
+            roi__pb2.UpdateROIResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

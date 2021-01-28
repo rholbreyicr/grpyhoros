@@ -27,15 +27,17 @@ import matplotlib.pyplot as plt
 
 import sys
 
-def run_get_filename(port):
+def run_get_data(port):
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
     # used in circumstances in which the with statement does not fit the needs
     # of the code.
     with grpc.insecure_channel('localhost:' + str(port)) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
-        response = stub.GetCurrentImageFile(horos_pb2.DicomNameRequest(id='hurray for horos'))
-    print("{run_get_filename}Client received (file): " + response.id)
-
+        response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='hurray for horos'))
+    print("{run_get_data}Client received (file): " + response.id)
+    print("{run_get_data}Client received (patient_id): " + response.patient_id)
+    print("{run_get_data}Client received (study_uid): " + response.study_instance_uid)
+    print("{run_get_data}Client received (series_uid): " + response.series_instance_uid)
 
 def run_get_image(port):
     server_url = 'localhost:' + str(port)
@@ -44,17 +46,17 @@ def run_get_image(port):
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
-    img_response = stub.GetCurrentImage(horos_pb2.ImageGetRequest(id='hurray for horos'))
-    print("{run_get_image}Client received (file): " + img_response.id)
+    response = stub.GetCurrentImage(horos_pb2.ImageGetRequest(id='hurray for horos'))
+    print("{run_get_image}Client received (file): " + response.id)
 
-    if not img_response.id.startswith( "<Error>"):
-        print("{run_get_image}Client received (img size X): " + str(img_response.image_size[0]))
-        print("{run_get_image}Client received (img size Y): " + str(img_response.image_size[1]))
+    if not response.id.startswith( "<Error>"):
+        print("{run_get_image}Client received (img size X): " + str(response.image_size[0]))
+        print("{run_get_image}Client received (img size Y): " + str(response.image_size[1]))
 
-        img_data = img_response.data
+        img_data = response.data
         img_array = np.array( img_data )
         print( "{run_get_image}Image array shape: ",  img_array.shape )
-        img = np.reshape(img_array,  (img_response.image_size[1], img_response.image_size[0]) )
+        img = np.reshape(img_array,  (response.image_size[1], response.image_size[0]) )
         plt.imshow( img, cmap='binary' )
         plt.axis('off')
         plt.show()
@@ -89,7 +91,7 @@ if __name__ == '__main__':
         Port = sys.argv[1]
 
     logging.basicConfig()
-    run_get_filename(Port)
+    run_get_data(Port)
     #for i in range(1):
     #run_get_image(Port)
     run_set_image(Port)

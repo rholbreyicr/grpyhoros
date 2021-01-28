@@ -20,7 +20,7 @@ service Horos {
   rpc UpdateROI (ROI) returns (UpdateROIResponse) {}
 }
 
-import "sub-proto/roi.proto";
+import "roi.proto";
 
 // The request message containing the key
 message DicomDataRequest {

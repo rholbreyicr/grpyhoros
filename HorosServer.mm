@@ -53,9 +53,9 @@ void* HorosServer::RunServer( void* input ) {
 }
 
 
-Status HorosServer::GetCurrentImageFile(ServerContext* context,
-                                        const DicomNameRequest* request,
-                                        DicomNameResponse* reply ) {
+Status HorosServer::GetCurrentImageData(ServerContext* context,
+                                        const DicomDataRequest* request,
+                                        DicomDataResponse* reply ) {
   
     [p_Adaptor->Lock lock];
     p_Adaptor->Request = (const void*)request;
@@ -64,7 +64,7 @@ Status HorosServer::GetCurrentImageFile(ServerContext* context,
     
     NSString* dummy_str = [[NSString stringWithFormat: @"log_string" ] retain];  // only needed for selector call... used id?
     [(__bridge id)(p_Adaptor->Osirix)
-     performSelectorOnMainThread:@selector(GetCurrentImageFile:)
+     performSelectorOnMainThread:@selector(GetCurrentImageData:)
      withObject:dummy_str waitUntilDone:YES];
     
     [dummy_str release];

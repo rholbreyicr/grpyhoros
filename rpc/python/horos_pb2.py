@@ -11,7 +11,7 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from sub_proto import roi_pb2 as sub__proto_dot_roi__pb2
+import roi_pb2 as roi__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
@@ -20,9 +20,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bhoros.proto\x12\x03icr\x1a\x13sub-proto/roi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"l\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t2\xe6\x02\n\x05Horos\x12\x46\n\x13GetCurrentImageData\x12\x15.icr.DicomDataRequest\x1a\x16.icr.DicomDataResponse\"\x00\x12@\n\x0fGetCurrentImage\x12\x14.icr.ImageGetRequest\x1a\x15.icr.ImageGetResponse\"\x00\x12@\n\x0fSetCurrentImage\x12\x14.icr.ImageSetRequest\x1a\x15.icr.ImageSetResponse\"\x00\x12\x31\n\nGetROIList\x12\x13.icr.ROIListRequest\x1a\x0c.icr.ROIList\"\x00\x12-\n\x0eGetSelectedROI\x12\x0f.icr.ROIRequest\x1a\x08.icr.ROI\"\x00\x12/\n\tUpdateROI\x12\x08.icr.ROI\x1a\x16.icr.UpdateROIResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bhoros.proto\x12\x03icr\x1a\troi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"l\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\t2\xe6\x02\n\x05Horos\x12\x46\n\x13GetCurrentImageData\x12\x15.icr.DicomDataRequest\x1a\x16.icr.DicomDataResponse\"\x00\x12@\n\x0fGetCurrentImage\x12\x14.icr.ImageGetRequest\x1a\x15.icr.ImageGetResponse\"\x00\x12@\n\x0fSetCurrentImage\x12\x14.icr.ImageSetRequest\x1a\x15.icr.ImageSetResponse\"\x00\x12\x31\n\nGetROIList\x12\x13.icr.ROIListRequest\x1a\x0c.icr.ROIList\"\x00\x12-\n\x0eGetSelectedROI\x12\x0f.icr.ROIRequest\x1a\x08.icr.ROI\"\x00\x12/\n\tUpdateROI\x12\x08.icr.ROI\x1a\x16.icr.UpdateROIResponse\"\x00\x62\x06proto3'
   ,
-  dependencies=[sub__proto_dot_roi__pb2.DESCRIPTOR,])
+  dependencies=[roi__pb2.DESCRIPTOR,])
 
 
 
@@ -54,8 +54,8 @@ _DICOMDATAREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=41,
-  serialized_end=71,
+  serialized_start=31,
+  serialized_end=61,
 )
 
 
@@ -107,8 +107,8 @@ _DICOMDATARESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=73,
-  serialized_end=181,
+  serialized_start=63,
+  serialized_end=171,
 )
 
 
@@ -146,8 +146,8 @@ _IMAGEGETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=183,
-  serialized_end=231,
+  serialized_start=173,
+  serialized_end=221,
 )
 
 
@@ -213,8 +213,8 @@ _IMAGEGETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=233,
-  serialized_end=352,
+  serialized_start=223,
+  serialized_end=342,
 )
 
 
@@ -280,8 +280,8 @@ _IMAGESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=354,
-  serialized_end=472,
+  serialized_start=344,
+  serialized_end=462,
 )
 
 
@@ -319,8 +319,8 @@ _IMAGESETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=474,
-  serialized_end=523,
+  serialized_start=464,
+  serialized_end=513,
 )
 
 DESCRIPTOR.message_types_by_name['DicomDataRequest'] = _DICOMDATAREQUEST
@@ -382,8 +382,8 @@ _HOROS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=526,
-  serialized_end=884,
+  serialized_start=516,
+  serialized_end=874,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCurrentImageData',
@@ -420,8 +420,8 @@ _HOROS = _descriptor.ServiceDescriptor(
     full_name='icr.Horos.GetROIList',
     index=3,
     containing_service=None,
-    input_type=sub__proto_dot_roi__pb2._ROILISTREQUEST,
-    output_type=sub__proto_dot_roi__pb2._ROILIST,
+    input_type=roi__pb2._ROILISTREQUEST,
+    output_type=roi__pb2._ROILIST,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -430,8 +430,8 @@ _HOROS = _descriptor.ServiceDescriptor(
     full_name='icr.Horos.GetSelectedROI',
     index=4,
     containing_service=None,
-    input_type=sub__proto_dot_roi__pb2._ROIREQUEST,
-    output_type=sub__proto_dot_roi__pb2._ROI,
+    input_type=roi__pb2._ROIREQUEST,
+    output_type=roi__pb2._ROI,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
@@ -440,8 +440,8 @@ _HOROS = _descriptor.ServiceDescriptor(
     full_name='icr.Horos.UpdateROI',
     index=5,
     containing_service=None,
-    input_type=sub__proto_dot_roi__pb2._ROI,
-    output_type=sub__proto_dot_roi__pb2._UPDATEROIRESPONSE,
+    input_type=roi__pb2._ROI,
+    output_type=roi__pb2._UPDATEROIRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

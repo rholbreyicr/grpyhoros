@@ -141,6 +141,8 @@
 		BF90A4BF25A270A80069D611 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		BF90A4C125A270A80069D611 /* OsiriXAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8420023112E829A200E1E9CE /* OsiriXAPI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		BFF84EEE25AF5E1700726A17 /* libpng16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF84EED25AF5E1700726A17 /* libpng16.dylib */; };
+		BFFEA17025C2FC5100D8A44A /* roi.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BFFEA16E25C2FC5100D8A44A /* roi.pb.cc */; };
+		BFFEA17125C2FC5100D8A44A /* roi.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = BFFEA16F25C2FC5100D8A44A /* roi.pb.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +275,8 @@
 		BF6EFDA12586BF5E0068543D /* pyosirix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pyosirix.png; sourceTree = "<group>"; };
 		BF90A4D525A270A80069D611 /* grpyHoros.osirixplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grpyHoros.osirixplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFF84EED25AF5E1700726A17 /* libpng16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libpng16.dylib; sourceTree = "<group>"; };
+		BFFEA16E25C2FC5100D8A44A /* roi.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = roi.pb.cc; path = rpc/cpp/roi.pb.cc; sourceTree = "<group>"; };
+		BFFEA16F25C2FC5100D8A44A /* roi.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = roi.pb.h; path = rpc/cpp/roi.pb.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -554,6 +558,8 @@
 			isa = PBXGroup;
 			children = (
 				BF4FD571257868DC00246D66 /* ServerAdaptor.h */,
+				BFFEA16E25C2FC5100D8A44A /* roi.pb.cc */,
+				BFFEA16F25C2FC5100D8A44A /* roi.pb.h */,
 				BF4FD53025751EA700246D66 /* horos.pb.h */,
 				BF4FD52E25751EA700246D66 /* horos.pb.cc */,
 				BF4FD52F25751EA700246D66 /* horos.grpc.pb.h */,
@@ -641,6 +647,7 @@
 				BF90A48D25A270A80069D611 /* ConsoleController.h in Headers */,
 				BF90A48E25A270A80069D611 /* grpyOsiriXFilter.h in Headers */,
 				BF90A48F25A270A80069D611 /* ServerManager.h in Headers */,
+				BFFEA17125C2FC5100D8A44A /* roi.pb.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +859,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFEA17025C2FC5100D8A44A /* roi.pb.cc in Sources */,
 				BF90A49425A270A80069D611 /* grpyOsiriXFilter.mm in Sources */,
 				BF90A49525A270A80069D611 /* HorosServer.mm in Sources */,
 				BF90A49625A270A80069D611 /* ConsoleController.mm in Sources */,

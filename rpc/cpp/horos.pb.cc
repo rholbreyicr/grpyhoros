@@ -200,32 +200,32 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013horos.proto\022\003icr\032\023sub-proto/roi.proto\""
-  "\036\n\020DicomDataRequest\022\n\n\002id\030\001 \001(\t\"l\n\021Dicom"
-  "DataResponse\022\n\n\002id\030\001 \001(\t\022\022\n\npatient_id\030\002"
-  " \001(\t\022\032\n\022study_instance_uid\030\003 \001(\t\022\033\n\023seri"
-  "es_instance_uid\030\004 \001(\t\"0\n\017ImageGetRequest"
-  "\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\t\"w\n\020Image"
-  "GetResponse\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001"
-  "(\t\022\022\n\nimage_size\030\003 \003(\005\022\022\n\nvoxel_size\030\004 \003"
-  "(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data\030\006 \003(\002\"v\n\017Imag"
-  "eSetRequest\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001"
-  "(\t\022\022\n\nimage_size\030\003 \003(\005\022\022\n\nvoxel_size\030\004 \003"
-  "(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data\030\006 \003(\002\"1\n\020Imag"
-  "eSetResponse\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 "
-  "\001(\t2\346\002\n\005Horos\022F\n\023GetCurrentImageData\022\025.i"
-  "cr.DicomDataRequest\032\026.icr.DicomDataRespo"
-  "nse\"\000\022@\n\017GetCurrentImage\022\024.icr.ImageGetR"
-  "equest\032\025.icr.ImageGetResponse\"\000\022@\n\017SetCu"
-  "rrentImage\022\024.icr.ImageSetRequest\032\025.icr.I"
-  "mageSetResponse\"\000\0221\n\nGetROIList\022\023.icr.RO"
-  "IListRequest\032\014.icr.ROIList\"\000\022-\n\016GetSelec"
-  "tedROI\022\017.icr.ROIRequest\032\010.icr.ROI\"\000\022/\n\tU"
-  "pdateROI\022\010.icr.ROI\032\026.icr.UpdateROIRespon"
-  "se\"\000b\006proto3"
+  "\n\013horos.proto\022\003icr\032\troi.proto\"\036\n\020DicomDa"
+  "taRequest\022\n\n\002id\030\001 \001(\t\"l\n\021DicomDataRespon"
+  "se\022\n\n\002id\030\001 \001(\t\022\022\n\npatient_id\030\002 \001(\t\022\032\n\022st"
+  "udy_instance_uid\030\003 \001(\t\022\033\n\023series_instanc"
+  "e_uid\030\004 \001(\t\"0\n\017ImageGetRequest\022\n\n\002id\030\001 \001"
+  "(\t\022\021\n\tviewer_id\030\002 \001(\t\"w\n\020ImageGetRespons"
+  "e\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\t\022\022\n\nimag"
+  "e_size\030\003 \003(\005\022\022\n\nvoxel_size\030\004 \003(\002\022\016\n\006orig"
+  "in\030\005 \003(\002\022\014\n\004data\030\006 \003(\002\"v\n\017ImageSetReques"
+  "t\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\t\022\022\n\nimag"
+  "e_size\030\003 \003(\005\022\022\n\nvoxel_size\030\004 \003(\002\022\016\n\006orig"
+  "in\030\005 \003(\002\022\014\n\004data\030\006 \003(\002\"1\n\020ImageSetRespon"
+  "se\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\t2\346\002\n\005Ho"
+  "ros\022F\n\023GetCurrentImageData\022\025.icr.DicomDa"
+  "taRequest\032\026.icr.DicomDataResponse\"\000\022@\n\017G"
+  "etCurrentImage\022\024.icr.ImageGetRequest\032\025.i"
+  "cr.ImageGetResponse\"\000\022@\n\017SetCurrentImage"
+  "\022\024.icr.ImageSetRequest\032\025.icr.ImageSetRes"
+  "ponse\"\000\0221\n\nGetROIList\022\023.icr.ROIListReque"
+  "st\032\014.icr.ROIList\"\000\022-\n\016GetSelectedROI\022\017.i"
+  "cr.ROIRequest\032\010.icr.ROI\"\000\022/\n\tUpdateROI\022\010"
+  ".icr.ROI\032\026.icr.UpdateROIResponse\"\000b\006prot"
+  "o3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_horos_2eproto_deps[1] = {
-  &::descriptor_table_sub_2dproto_2froi_2eproto,
+  &::descriptor_table_roi_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_horos_2eproto_sccs[6] = {
   &scc_info_DicomDataRequest_horos_2eproto.base,
@@ -237,7 +237,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_horos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto = {
-  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 892,
+  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 882,
   &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_sccs, descriptor_table_horos_2eproto_deps, 6, 1,
   schemas, file_default_instances, TableStruct_horos_2eproto::offsets,
   file_level_metadata_horos_2eproto, 6, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,

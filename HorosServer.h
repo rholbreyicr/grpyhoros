@@ -53,9 +53,9 @@ class HorosServer final : public Horos::Service {
      @param request
      @param reply
      */
-    Status GetCurrentImageFile(ServerContext* context,
-                               const DicomNameRequest* request,
-                               DicomNameResponse* reply ) override;
+    Status GetCurrentImageData(ServerContext* context,
+                               const DicomDataRequest* request,
+                               DicomDataResponse* reply ) override;
 
     Status GetCurrentImage(ServerContext* context,
                            const ImageGetRequest* request,

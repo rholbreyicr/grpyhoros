@@ -23,8 +23,8 @@ static const char* LogFile = "uk.ac.icr.pyosirix_daily.log";
 #import <DicomImage.h>
 #import <OsiriXAPI/DicomDatabase.h>
 
-using icr::DicomNameRequest;
-using icr::DicomNameResponse;
+using icr::DicomDataRequest;
+using icr::DicomDataResponse;
 using icr::ImageGetRequest;
 using icr::ImageGetResponse;
 using icr::ImageSetRequest;
@@ -128,37 +128,43 @@ using icr::ImageSetResponse;
  }
  */
 
--(void)GetCurrentImageFile:(NSString*) log_string {
+-(void)GetCurrentImageData:(NSString*) log_string {
     
-    DicomDatabase* db = [[BrowserController currentBrowser] database];
-    [db objectsWithIDs:<#(NSArray *)#>
+    //DicomDatabase* db = [[BrowserController currentBrowser] database];
+    //[db objectsWithIDs:<#(NSArray *)#>
+    NSString* patient_id = @"patient_id";
+    NSString* series_uid = @"ser_uid";
+    NSString* study_uid = @"study_uid";
     
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     if( !currV )
     {
         log_string = @"<Error> No 2D viewer available";
-        LOG_ERROR(Logger, "GetCurrentImageFile: {}", [log_string UTF8String] );
+        LOG_ERROR(Logger, "GetCurrentImageData: {}", [log_string UTF8String] );
     }
     else
     {
         DicomSeries* cs = [currV currentSeries];
-        if( cs )
-            [Console AddText:[NSString stringWithFormat:@"Study UID: %@ | Series UID: %@ (Patient: %@)",
-                             [[cs study] studyInstanceUID], [cs seriesInstanceUID], [[cs study] patientID] ] ];
-        
-        NSArray* displ_series = [ViewerController getDisplayedSeries];
-        if( displ_series )
-        {
-            for (NSUInteger i = 0; i < displ_series.count; ++i) {
-                DicomSeries* s = [displ_series objectAtIndex:i];
-                [Console AddText:[NSString stringWithFormat:@"Displayed Study UID: %@ | Series UID: %@ (Patient: %@)",
-                                  [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
-            }
+        if( cs ) {
+            patient_id = [[cs study] patientID];
+            study_uid  = [[cs study] studyInstanceUID];
+            series_uid = [cs seriesInstanceUID];
         }
+            
+//        NSArray* displ_series = [ViewerController getDisplayedSeries];
+//        if( displ_series )
+//        {
+//            for (NSUInteger i = 0; i < displ_series.count; ++i) {
+//                DicomSeries* s = [displ_series objectAtIndex:i];
+//                [Console AddText:[NSString stringWithFormat:@"Displayed Study UID: %@ | Series UID: %@ (Patient: %@)",
+//                                  [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
+//            }
+//        }
         
         DCMPix* curPix = [[currV pixList] objectAtIndex: [[currV imageView] curImage]];
         log_string = [curPix sourceFile];
-        
+
+#if 0
         //test
         std::ofstream fout("/tmp/series_addr.txt");
         for (NSManagedObject* s in [ViewerController  getDisplayedSeries])
@@ -173,18 +179,23 @@ using icr::ImageSetResponse;
 //                [viewer showWindow:self];
 //            }
         }
+#endif
+        
     }
 
     //mutex!
     {
         [Adaptor->Lock lock];
-        DicomNameResponse* reply = (DicomNameResponse*)Adaptor->Response;
+        DicomDataResponse* reply = (DicomDataResponse*)Adaptor->Response;
         reply->set_id( std::string([log_string UTF8String]) );
+        reply->set_patient_id( [patient_id UTF8String]);
+        reply->set_study_instance_uid( [study_uid UTF8String]);
+        reply->set_series_instance_uid( [series_uid UTF8String]);
         [Adaptor->Lock unlock];
     }
     
-    [Console AddText:[NSString stringWithFormat:@"GetCurrentImageFile: %@", log_string]];
-    LOG_INFO(Logger, "GetCurrentImageFile: {}", [log_string UTF8String] );
+    [Console AddText:[NSString stringWithFormat:@"GetCurrentImageData: %@", log_string]];
+    LOG_INFO(Logger, "GetCurrentImageData: {}", [log_string UTF8String] );
 }
 
 //get all file names
