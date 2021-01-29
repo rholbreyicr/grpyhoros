@@ -57,6 +57,9 @@ class HorosServer final : public Horos::Service {
                                const DicomDataRequest* request,
                                DicomDataResponse* reply ) override;
 
+    /**
+     
+     */
     Status GetCurrentImage(ServerContext* context,
                            const ImageGetRequest* request,
                            ImageGetResponse* reply ) override;

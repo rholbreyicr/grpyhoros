@@ -12,8 +12,8 @@
 
 #include <png++/png.hpp>
 
-using icr::DicomNameRequest;
-using icr::DicomNameResponse;
+using icr::DicomDataRequest;
+using icr::DicomDataResponse;
 using icr::ImageGetRequest;
 using icr::ImageGetResponse;
 
@@ -46,15 +46,15 @@ using icr::ImageGetResponse;
 
 //-(long)filterImage:(NSString*) menuName;
 
--(void)GetCurrentImageFile:(NSString*) log_string
+-(void)GetCurrentImageData:(NSString*) log_string
 {
     std::string reply_str("MockPy>GetCurrentImageFile>");
 
     //mutex!
     {
         [Adaptor->Lock lock];
-        const DicomNameRequest* request = (DicomNameRequest*)Adaptor->Request;
-        DicomNameResponse* reply = (DicomNameResponse*)Adaptor->Response;
+        const DicomDataRequest* request = (DicomDataRequest*)Adaptor->Request;
+        DicomDataResponse* reply = (DicomDataResponse*)Adaptor->Response;
         reply_str.append(request->id());
         reply->set_id( reply_str );
         [Adaptor->Lock unlock];

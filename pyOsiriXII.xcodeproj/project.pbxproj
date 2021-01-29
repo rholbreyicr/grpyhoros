@@ -143,6 +143,7 @@
 		BFF84EEE25AF5E1700726A17 /* libpng16.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF84EED25AF5E1700726A17 /* libpng16.dylib */; };
 		BFFEA17025C2FC5100D8A44A /* roi.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BFFEA16E25C2FC5100D8A44A /* roi.pb.cc */; };
 		BFFEA17125C2FC5100D8A44A /* roi.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = BFFEA16F25C2FC5100D8A44A /* roi.pb.h */; };
+		BFFEA17E25C4814C00D8A44A /* roi.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BFFEA16E25C2FC5100D8A44A /* roi.pb.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -828,6 +829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF6EFD1C25847ED00068543D /* MockPyOsiriXIIFilter.mm in Sources */,
+				BFFEA17E25C4814C00D8A44A /* roi.pb.cc in Sources */,
 				BF2BF062258447E8008EA8FE /* main.m in Sources */,
 				BF6EFCB725846B160068543D /* HorosServer.mm in Sources */,
 				BF2BF0B525846192008EA8FE /* AppController.mm in Sources */,

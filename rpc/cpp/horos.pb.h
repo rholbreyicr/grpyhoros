@@ -344,11 +344,36 @@ class DicomDataResponse PROTOBUF_FINAL :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kFileListFieldNumber = 5,
     kIdFieldNumber = 1,
     kPatientIdFieldNumber = 2,
     kStudyInstanceUidFieldNumber = 3,
     kSeriesInstanceUidFieldNumber = 4,
   };
+  // repeated string file_list = 5;
+  int file_list_size() const;
+  private:
+  int _internal_file_list_size() const;
+  public:
+  void clear_file_list();
+  const std::string& file_list(int index) const;
+  std::string* mutable_file_list(int index);
+  void set_file_list(int index, const std::string& value);
+  void set_file_list(int index, std::string&& value);
+  void set_file_list(int index, const char* value);
+  void set_file_list(int index, const char* value, size_t size);
+  std::string* add_file_list();
+  void add_file_list(const std::string& value);
+  void add_file_list(std::string&& value);
+  void add_file_list(const char* value);
+  void add_file_list(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& file_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_file_list();
+  private:
+  const std::string& _internal_file_list(int index) const;
+  std::string* _internal_add_file_list();
+  public:
+
   // string id = 1;
   void clear_id();
   const std::string& id() const;
@@ -420,6 +445,7 @@ class DicomDataResponse PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> file_list_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr patient_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr study_instance_uid_;
@@ -561,20 +587,13 @@ class ImageGetRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
-  // string viewer_id = 2;
+  // uint64 viewer_id = 2;
   void clear_viewer_id();
-  const std::string& viewer_id() const;
-  void set_viewer_id(const std::string& value);
-  void set_viewer_id(std::string&& value);
-  void set_viewer_id(const char* value);
-  void set_viewer_id(const char* value, size_t size);
-  std::string* mutable_viewer_id();
-  std::string* release_viewer_id();
-  void set_allocated_viewer_id(std::string* viewer_id);
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id() const;
+  void set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  const std::string& _internal_viewer_id() const;
-  void _internal_set_viewer_id(const std::string& value);
-  std::string* _internal_mutable_viewer_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_viewer_id() const;
+  void _internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:icr.ImageGetRequest)
@@ -585,7 +604,7 @@ class ImageGetRequest PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -815,20 +834,13 @@ class ImageGetResponse PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
-  // string viewer_id = 2;
+  // uint64 viewer_id = 2;
   void clear_viewer_id();
-  const std::string& viewer_id() const;
-  void set_viewer_id(const std::string& value);
-  void set_viewer_id(std::string&& value);
-  void set_viewer_id(const char* value);
-  void set_viewer_id(const char* value, size_t size);
-  std::string* mutable_viewer_id();
-  std::string* release_viewer_id();
-  void set_allocated_viewer_id(std::string* viewer_id);
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id() const;
+  void set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  const std::string& _internal_viewer_id() const;
-  void _internal_set_viewer_id(const std::string& value);
-  std::string* _internal_mutable_viewer_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_viewer_id() const;
+  void _internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:icr.ImageGetResponse)
@@ -847,7 +859,7 @@ class ImageGetResponse PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > data_;
   mutable std::atomic<int> _data_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -1077,20 +1089,13 @@ class ImageSetRequest PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
-  // string viewer_id = 2;
+  // uint64 viewer_id = 2;
   void clear_viewer_id();
-  const std::string& viewer_id() const;
-  void set_viewer_id(const std::string& value);
-  void set_viewer_id(std::string&& value);
-  void set_viewer_id(const char* value);
-  void set_viewer_id(const char* value, size_t size);
-  std::string* mutable_viewer_id();
-  std::string* release_viewer_id();
-  void set_allocated_viewer_id(std::string* viewer_id);
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id() const;
+  void set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  const std::string& _internal_viewer_id() const;
-  void _internal_set_viewer_id(const std::string& value);
-  std::string* _internal_mutable_viewer_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_viewer_id() const;
+  void _internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:icr.ImageSetRequest)
@@ -1109,7 +1114,7 @@ class ImageSetRequest PROTOBUF_FINAL :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< float > data_;
   mutable std::atomic<int> _data_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -1247,20 +1252,13 @@ class ImageSetResponse PROTOBUF_FINAL :
   std::string* _internal_mutable_id();
   public:
 
-  // string viewer_id = 2;
+  // uint64 viewer_id = 2;
   void clear_viewer_id();
-  const std::string& viewer_id() const;
-  void set_viewer_id(const std::string& value);
-  void set_viewer_id(std::string&& value);
-  void set_viewer_id(const char* value);
-  void set_viewer_id(const char* value, size_t size);
-  std::string* mutable_viewer_id();
-  std::string* release_viewer_id();
-  void set_allocated_viewer_id(std::string* viewer_id);
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id() const;
+  void set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   private:
-  const std::string& _internal_viewer_id() const;
-  void _internal_set_viewer_id(const std::string& value);
-  std::string* _internal_mutable_viewer_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_viewer_id() const;
+  void _internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:icr.ImageSetResponse)
@@ -1271,7 +1269,7 @@ class ImageSetResponse PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr viewer_id_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 viewer_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
@@ -1600,6 +1598,80 @@ inline void DicomDataResponse::set_allocated_series_instance_uid(std::string* se
   // @@protoc_insertion_point(field_set_allocated:icr.DicomDataResponse.series_instance_uid)
 }
 
+// repeated string file_list = 5;
+inline int DicomDataResponse::_internal_file_list_size() const {
+  return file_list_.size();
+}
+inline int DicomDataResponse::file_list_size() const {
+  return _internal_file_list_size();
+}
+inline void DicomDataResponse::clear_file_list() {
+  file_list_.Clear();
+}
+inline std::string* DicomDataResponse::add_file_list() {
+  // @@protoc_insertion_point(field_add_mutable:icr.DicomDataResponse.file_list)
+  return _internal_add_file_list();
+}
+inline const std::string& DicomDataResponse::_internal_file_list(int index) const {
+  return file_list_.Get(index);
+}
+inline const std::string& DicomDataResponse::file_list(int index) const {
+  // @@protoc_insertion_point(field_get:icr.DicomDataResponse.file_list)
+  return _internal_file_list(index);
+}
+inline std::string* DicomDataResponse::mutable_file_list(int index) {
+  // @@protoc_insertion_point(field_mutable:icr.DicomDataResponse.file_list)
+  return file_list_.Mutable(index);
+}
+inline void DicomDataResponse::set_file_list(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:icr.DicomDataResponse.file_list)
+  file_list_.Mutable(index)->assign(value);
+}
+inline void DicomDataResponse::set_file_list(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:icr.DicomDataResponse.file_list)
+  file_list_.Mutable(index)->assign(std::move(value));
+}
+inline void DicomDataResponse::set_file_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  file_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:icr.DicomDataResponse.file_list)
+}
+inline void DicomDataResponse::set_file_list(int index, const char* value, size_t size) {
+  file_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:icr.DicomDataResponse.file_list)
+}
+inline std::string* DicomDataResponse::_internal_add_file_list() {
+  return file_list_.Add();
+}
+inline void DicomDataResponse::add_file_list(const std::string& value) {
+  file_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:icr.DicomDataResponse.file_list)
+}
+inline void DicomDataResponse::add_file_list(std::string&& value) {
+  file_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:icr.DicomDataResponse.file_list)
+}
+inline void DicomDataResponse::add_file_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  file_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:icr.DicomDataResponse.file_list)
+}
+inline void DicomDataResponse::add_file_list(const char* value, size_t size) {
+  file_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:icr.DicomDataResponse.file_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+DicomDataResponse::file_list() const {
+  // @@protoc_insertion_point(field_list:icr.DicomDataResponse.file_list)
+  return file_list_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+DicomDataResponse::mutable_file_list() {
+  // @@protoc_insertion_point(field_mutable_list:icr.DicomDataResponse.file_list)
+  return &file_list_;
+}
+
 // -------------------------------------------------------------------
 
 // ImageGetRequest
@@ -1666,66 +1738,24 @@ inline void ImageGetRequest::set_allocated_id(std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:icr.ImageGetRequest.id)
 }
 
-// string viewer_id = 2;
+// uint64 viewer_id = 2;
 inline void ImageGetRequest::clear_viewer_id() {
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
-inline const std::string& ImageGetRequest::viewer_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageGetRequest::_internal_viewer_id() const {
+  return viewer_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageGetRequest::viewer_id() const {
   // @@protoc_insertion_point(field_get:icr.ImageGetRequest.viewer_id)
   return _internal_viewer_id();
 }
-inline void ImageGetRequest::set_viewer_id(const std::string& value) {
+inline void ImageGetRequest::_internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  viewer_id_ = value;
+}
+inline void ImageGetRequest::set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_viewer_id(value);
   // @@protoc_insertion_point(field_set:icr.ImageGetRequest.viewer_id)
-}
-inline std::string* ImageGetRequest::mutable_viewer_id() {
-  // @@protoc_insertion_point(field_mutable:icr.ImageGetRequest.viewer_id)
-  return _internal_mutable_viewer_id();
-}
-inline const std::string& ImageGetRequest::_internal_viewer_id() const {
-  return viewer_id_.Get();
-}
-inline void ImageGetRequest::_internal_set_viewer_id(const std::string& value) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void ImageGetRequest::set_viewer_id(std::string&& value) {
-  
-  viewer_id_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:icr.ImageGetRequest.viewer_id)
-}
-inline void ImageGetRequest::set_viewer_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:icr.ImageGetRequest.viewer_id)
-}
-inline void ImageGetRequest::set_viewer_id(const char* value,
-    size_t size) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:icr.ImageGetRequest.viewer_id)
-}
-inline std::string* ImageGetRequest::_internal_mutable_viewer_id() {
-  
-  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* ImageGetRequest::release_viewer_id() {
-  // @@protoc_insertion_point(field_release:icr.ImageGetRequest.viewer_id)
-  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void ImageGetRequest::set_allocated_viewer_id(std::string* viewer_id) {
-  if (viewer_id != nullptr) {
-    
-  } else {
-    
-  }
-  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:icr.ImageGetRequest.viewer_id)
 }
 
 // -------------------------------------------------------------------
@@ -1794,66 +1824,24 @@ inline void ImageGetResponse::set_allocated_id(std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:icr.ImageGetResponse.id)
 }
 
-// string viewer_id = 2;
+// uint64 viewer_id = 2;
 inline void ImageGetResponse::clear_viewer_id() {
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
-inline const std::string& ImageGetResponse::viewer_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageGetResponse::_internal_viewer_id() const {
+  return viewer_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageGetResponse::viewer_id() const {
   // @@protoc_insertion_point(field_get:icr.ImageGetResponse.viewer_id)
   return _internal_viewer_id();
 }
-inline void ImageGetResponse::set_viewer_id(const std::string& value) {
+inline void ImageGetResponse::_internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  viewer_id_ = value;
+}
+inline void ImageGetResponse::set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_viewer_id(value);
   // @@protoc_insertion_point(field_set:icr.ImageGetResponse.viewer_id)
-}
-inline std::string* ImageGetResponse::mutable_viewer_id() {
-  // @@protoc_insertion_point(field_mutable:icr.ImageGetResponse.viewer_id)
-  return _internal_mutable_viewer_id();
-}
-inline const std::string& ImageGetResponse::_internal_viewer_id() const {
-  return viewer_id_.Get();
-}
-inline void ImageGetResponse::_internal_set_viewer_id(const std::string& value) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void ImageGetResponse::set_viewer_id(std::string&& value) {
-  
-  viewer_id_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:icr.ImageGetResponse.viewer_id)
-}
-inline void ImageGetResponse::set_viewer_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:icr.ImageGetResponse.viewer_id)
-}
-inline void ImageGetResponse::set_viewer_id(const char* value,
-    size_t size) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:icr.ImageGetResponse.viewer_id)
-}
-inline std::string* ImageGetResponse::_internal_mutable_viewer_id() {
-  
-  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* ImageGetResponse::release_viewer_id() {
-  // @@protoc_insertion_point(field_release:icr.ImageGetResponse.viewer_id)
-  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void ImageGetResponse::set_allocated_viewer_id(std::string* viewer_id) {
-  if (viewer_id != nullptr) {
-    
-  } else {
-    
-  }
-  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:icr.ImageGetResponse.viewer_id)
 }
 
 // repeated int32 image_size = 3;
@@ -2110,66 +2098,24 @@ inline void ImageSetRequest::set_allocated_id(std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:icr.ImageSetRequest.id)
 }
 
-// string viewer_id = 2;
+// uint64 viewer_id = 2;
 inline void ImageSetRequest::clear_viewer_id() {
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
-inline const std::string& ImageSetRequest::viewer_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageSetRequest::_internal_viewer_id() const {
+  return viewer_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageSetRequest::viewer_id() const {
   // @@protoc_insertion_point(field_get:icr.ImageSetRequest.viewer_id)
   return _internal_viewer_id();
 }
-inline void ImageSetRequest::set_viewer_id(const std::string& value) {
+inline void ImageSetRequest::_internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  viewer_id_ = value;
+}
+inline void ImageSetRequest::set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_viewer_id(value);
   // @@protoc_insertion_point(field_set:icr.ImageSetRequest.viewer_id)
-}
-inline std::string* ImageSetRequest::mutable_viewer_id() {
-  // @@protoc_insertion_point(field_mutable:icr.ImageSetRequest.viewer_id)
-  return _internal_mutable_viewer_id();
-}
-inline const std::string& ImageSetRequest::_internal_viewer_id() const {
-  return viewer_id_.Get();
-}
-inline void ImageSetRequest::_internal_set_viewer_id(const std::string& value) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void ImageSetRequest::set_viewer_id(std::string&& value) {
-  
-  viewer_id_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:icr.ImageSetRequest.viewer_id)
-}
-inline void ImageSetRequest::set_viewer_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:icr.ImageSetRequest.viewer_id)
-}
-inline void ImageSetRequest::set_viewer_id(const char* value,
-    size_t size) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:icr.ImageSetRequest.viewer_id)
-}
-inline std::string* ImageSetRequest::_internal_mutable_viewer_id() {
-  
-  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* ImageSetRequest::release_viewer_id() {
-  // @@protoc_insertion_point(field_release:icr.ImageSetRequest.viewer_id)
-  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void ImageSetRequest::set_allocated_viewer_id(std::string* viewer_id) {
-  if (viewer_id != nullptr) {
-    
-  } else {
-    
-  }
-  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:icr.ImageSetRequest.viewer_id)
 }
 
 // repeated int32 image_size = 3;
@@ -2426,66 +2372,24 @@ inline void ImageSetResponse::set_allocated_id(std::string* id) {
   // @@protoc_insertion_point(field_set_allocated:icr.ImageSetResponse.id)
 }
 
-// string viewer_id = 2;
+// uint64 viewer_id = 2;
 inline void ImageSetResponse::clear_viewer_id() {
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
-inline const std::string& ImageSetResponse::viewer_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageSetResponse::_internal_viewer_id() const {
+  return viewer_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 ImageSetResponse::viewer_id() const {
   // @@protoc_insertion_point(field_get:icr.ImageSetResponse.viewer_id)
   return _internal_viewer_id();
 }
-inline void ImageSetResponse::set_viewer_id(const std::string& value) {
+inline void ImageSetResponse::_internal_set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  viewer_id_ = value;
+}
+inline void ImageSetResponse::set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_viewer_id(value);
   // @@protoc_insertion_point(field_set:icr.ImageSetResponse.viewer_id)
-}
-inline std::string* ImageSetResponse::mutable_viewer_id() {
-  // @@protoc_insertion_point(field_mutable:icr.ImageSetResponse.viewer_id)
-  return _internal_mutable_viewer_id();
-}
-inline const std::string& ImageSetResponse::_internal_viewer_id() const {
-  return viewer_id_.Get();
-}
-inline void ImageSetResponse::_internal_set_viewer_id(const std::string& value) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
-}
-inline void ImageSetResponse::set_viewer_id(std::string&& value) {
-  
-  viewer_id_.Set(
-    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:icr.ImageSetResponse.viewer_id)
-}
-inline void ImageSetResponse::set_viewer_id(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
-              GetArena());
-  // @@protoc_insertion_point(field_set_char:icr.ImageSetResponse.viewer_id)
-}
-inline void ImageSetResponse::set_viewer_id(const char* value,
-    size_t size) {
-  
-  viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
-      reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:icr.ImageSetResponse.viewer_id)
-}
-inline std::string* ImageSetResponse::_internal_mutable_viewer_id() {
-  
-  return viewer_id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline std::string* ImageSetResponse::release_viewer_id() {
-  // @@protoc_insertion_point(field_release:icr.ImageSetResponse.viewer_id)
-  return viewer_id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-inline void ImageSetResponse::set_allocated_viewer_id(std::string* viewer_id) {
-  if (viewer_id != nullptr) {
-    
-  } else {
-    
-  }
-  viewer_id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), viewer_id,
-      GetArena());
-  // @@protoc_insertion_point(field_set_allocated:icr.ImageSetResponse.viewer_id)
 }
 
 #ifdef __GNUC__

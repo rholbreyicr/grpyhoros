@@ -33,11 +33,13 @@ def run_get_data(port):
     # of the code.
     with grpc.insecure_channel('localhost:' + str(port)) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
-        response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='hurray for horos'))
+        response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='with_file_list'))
     print("{run_get_data}Client received (file): " + response.id)
     print("{run_get_data}Client received (patient_id): " + response.patient_id)
     print("{run_get_data}Client received (study_uid): " + response.study_instance_uid)
     print("{run_get_data}Client received (series_uid): " + response.series_instance_uid)
+    for _file in response.file_list:
+        print( _file )
 
 def run_get_image(port):
     server_url = 'localhost:' + str(port)
@@ -52,6 +54,7 @@ def run_get_image(port):
     if not response.id.startswith( "<Error>"):
         print("{run_get_image}Client received (img size X): " + str(response.image_size[0]))
         print("{run_get_image}Client received (img size Y): " + str(response.image_size[1]))
+        print("{run_get_image}Client received (viewer id): " + str(response.viewer_id))
 
         img_data = response.data
         img_array = np.array( img_data )
@@ -93,6 +96,6 @@ if __name__ == '__main__':
     logging.basicConfig()
     run_get_data(Port)
     #for i in range(1):
-    #run_get_image(Port)
-    run_set_image(Port)
+    run_get_image(Port)
+    #run_set_image(Port)
     #    time.sleep(1)

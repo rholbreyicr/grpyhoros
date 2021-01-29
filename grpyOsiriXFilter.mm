@@ -49,11 +49,15 @@ using icr::ImageSetResponse;
         //clean up
     }
     
+    //NSMutableDictionary *grpcObjects = [[NSMutableDictionary alloc] init];
+    DisplayedSeries = [[NSMutableArray alloc] init];
+    
     [self StartLogger];
 }
 
 - (void) dealloc {
     
+    //[grpcObjects release];
     [Manager release];    
     [super dealloc];
 }
@@ -71,7 +75,7 @@ using icr::ImageSetResponse;
 
     // Create a rotating file handler which rotates daily at 02:00
     LogHandler.reset( quill::time_rotating_file_handler(
-        log_file_name, "a", "daily", 1, 10, quill::Timezone::LocalTime, "01:00" ) );
+        log_file_name, "w", "daily", 1, 10, quill::Timezone::LocalTime, "01:00" ) );
     
     LogHandler->set_log_level(quill::LogLevel::Info);
 
@@ -126,15 +130,19 @@ using icr::ImageSetResponse;
                            [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
      }
  }
+ 
+ //... maybe we can query the database directly.... ?
+ //DicomDatabase* db = [[BrowserController currentBrowser] database];
+ //[db objectsWithIDs:<#(NSArray *)#>
+ 
  */
 
--(void)GetCurrentImageData:(NSString*) log_string {
+-(void)GetCurrentImageData:(NSString*)arg_string {
     
-    //DicomDatabase* db = [[BrowserController currentBrowser] database];
-    //[db objectsWithIDs:<#(NSArray *)#>
     NSString* patient_id = @"patient_id";
     NSString* series_uid = @"ser_uid";
-    NSString* study_uid = @"study_uid";
+    NSString* study_uid  = @"study_uid";
+    NSString* log_string = @"log_string";
     
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     if( !currV )
@@ -150,37 +158,9 @@ using icr::ImageSetResponse;
             study_uid  = [[cs study] studyInstanceUID];
             series_uid = [cs seriesInstanceUID];
         }
-            
-//        NSArray* displ_series = [ViewerController getDisplayedSeries];
-//        if( displ_series )
-//        {
-//            for (NSUInteger i = 0; i < displ_series.count; ++i) {
-//                DicomSeries* s = [displ_series objectAtIndex:i];
-//                [Console AddText:[NSString stringWithFormat:@"Displayed Study UID: %@ | Series UID: %@ (Patient: %@)",
-//                                  [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
-//            }
-//        }
         
         DCMPix* curPix = [[currV pixList] objectAtIndex: [[currV imageView] curImage]];
         log_string = [curPix sourceFile];
-
-#if 0
-        //test
-        std::ofstream fout("/tmp/series_addr.txt");
-        for (NSManagedObject* s in [ViewerController  getDisplayedSeries])
-        {
-            LOG_INFO(Logger, "Series: {:#x} ", (long long)s );
-            fout << "Series: " << std::hex << s << std::endl;
-//            if (s == series)
-//                shown = YES;
-//            if (!shown) {
-//                ViewerController* viewer =
-//                    [[BrowserController currentBrowser] loadSeries:series :NULL :NO keyImagesOnly:NO];
-//                [viewer showWindow:self];
-//            }
-        }
-#endif
-        
     }
 
     //mutex!
@@ -191,6 +171,16 @@ using icr::ImageSetResponse;
         reply->set_patient_id( [patient_id UTF8String]);
         reply->set_study_instance_uid( [study_uid UTF8String]);
         reply->set_series_instance_uid( [series_uid UTF8String]);
+        
+        if( [arg_string isEqualToString: @"with_file_list"] && currV )
+        {
+            NSArray* fileList = [currV fileList];
+            for(int i=0; i<[fileList count]; i++)
+            {
+                NSString* path = [[fileList objectAtIndex:i] valueForKey:@"completePath"];
+                reply->add_file_list( [path UTF8String] );
+            }
+        }
         [Adaptor->Lock unlock];
     }
     
@@ -198,24 +188,13 @@ using icr::ImageSetResponse;
     LOG_INFO(Logger, "GetCurrentImageData: {}", [log_string UTF8String] );
 }
 
-//get all file names
-//    //DicomImage* dcm = [currV currentImage];
-//    NSArray* fileList = [currV fileList];
-//    std::ofstream fout("/tmp/files.txt");
-//    for(int ii=0; ii<[fileList count]; ii++)
-//    {
-//        NSString* path = [[fileList objectAtIndex:ii] valueForKey:@"completePath"];
-//        printf( "File %d: %s \n", ii, [path UTF8String] );
-//
-//        fout << "File " << ii << " " << [path UTF8String] << std::endl;
-//    }
-//    fout.close();
-//}
 
--(void)GetCurrentImage:(NSString*) log_string
+-(void)GetCurrentImage:(NSString*)arg_string
 {
+    NSString* log_string = @"log_string";
     float forigin[3], fvox_size[3], *fraw_data;
     int idim[2];
+    uint64 series_addr = 0;
     
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     if( !currV )
@@ -240,6 +219,38 @@ using icr::ImageSetResponse;
         idim[1] = [pix pheight];
         
         fraw_data = [pix fImage];
+        
+        DicomSeries* dicom_series = [currV currentSeries];
+        series_addr = (uint64)dicom_series;
+        [DisplayedSeries addObject:dicom_series];
+#if 1
+        //test
+        NSArray* displ_series = [ViewerController getDisplayedSeries];
+        if( displ_series )
+        {
+            //dump to console using count loop
+            for (NSUInteger i = 0; i < displ_series.count; ++i) {
+                DicomSeries* s = [displ_series objectAtIndex:i];
+                [Console AddText:[NSString stringWithFormat:@"Displayed Study UID: %@ | Series UID: %@ (Patient: %@)",
+                                  [[s study] studyInstanceUID], [s seriesInstanceUID], [[s study] patientID] ] ];
+            }
+
+            //dump to file using range for loop
+            std::ofstream fout("/tmp/series_addr.txt");
+            for (NSManagedObject* s in displ_series)
+            {
+                LOG_INFO(Logger, "Series: {:#x} ", (long long)s );
+                fout << "Series: " << " (" << uint64(s) << ") " << std::hex << s << std::endl;
+                //            if (s == series)
+                //                shown = YES;
+                //            if (!shown) {
+                //                ViewerController* viewer =
+                //                    [[BrowserController currentBrowser] loadSeries:series :NULL :NO keyImagesOnly:NO];
+                //                [viewer showWindow:self];
+                //            }
+            }
+        }
+#endif
     }
 
     //mutex!
@@ -264,6 +275,8 @@ using icr::ImageSetResponse;
                 for( int k=0; k<n_pixels; k++ )
                     reply->add_data( fraw_data[k] );
             }
+            
+            reply->set_viewer_id(series_addr);
         }
         [Adaptor->Lock unlock];
     }
@@ -273,10 +286,9 @@ using icr::ImageSetResponse;
 }
 
 
--(void)SetCurrentImage:(NSString*) log_string
+-(void)SetCurrentImage:(NSString*)arg_string
 {
-    
-    
+    NSString* log_string = @"log_string";
     
     float forigin[3], fvox_size[3], *fraw_data;
     int idim[2];
@@ -344,6 +356,108 @@ using icr::ImageSetResponse;
     [Console AddText:[NSString stringWithFormat:@"SetCurrentImage: %@", log_string]];
     LOG_INFO( Logger, "SetCurrentImage: {}", [log_string UTF8String] );
 }
+
+
+#if 0
+-(void)GetSelectedROI:(NSString *)log_string {
+    
+    ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
+    ROI *sROI = [currV selectedROI];
+    
+    NSString *roiName;
+    float roiThickness;
+    unsigned int red;
+    unsigned int green;
+    unsigned int blue;
+    
+    if( !currV )
+    {
+        log_string = @"Error: <No 2D viewer available>";
+    }
+    else
+    {
+        roiName = [sROI name];
+        roiThickness = [sROI thickness];
+        RGBColor roiColor = [sROI rgbcolor];
+        red = roiColor.red;
+        green = roiColor.green;
+        blue = roiColor.blue;
+        log_string = @"OK";
+    }
+    
+    NSString *key = [self keyForObject:sROI];
+    // Already contined in objects?
+    if (!key)
+    {
+        key = [[NSUUID UUID] UUIDString];
+        [grpcObjects setValue:sROI forKey:key];
+        NSString *rep = [NSString stringWithFormat:@"Key not found, %lu", [grpcObjects count]];
+        [Console AddText:rep];
+    }
+    else
+    {
+        [Console AddText:@"Key IS found!"];
+    }
+    
+    std::string key_str( [key UTF8String] );
+    
+    //mutex!
+    {
+        [Adaptor->Lock lock];
+        icr::ROI* reply = (icr::ROI*)Adaptor->Response;
+        reply->set_id(key_str);
+        reply->set_name([roiName UTF8String]);
+        reply->set_thickness(roiThickness);
+        reply->mutable_color()->set_r(red);
+        reply->mutable_color()->set_g(green);
+        reply->mutable_color()->set_b(blue);
+        [Adaptor->Lock unlock];
+    }
+
+    [Console AddText:[NSString stringWithFormat:@"GetCurrentImageFile: %@", log_string]];
+}
+
+-(void)UpdateROI:(NSString *)log_string {
+    
+    //mutex!
+    {
+        [Adaptor->Lock lock];
+        icr::ROI* roi = (icr::ROI*)Adaptor->Request;
+        icr::UpdateROIResponse *reply = (icr::UpdateROIResponse *)Adaptor->Response;
+        short int red = roi->mutable_color()->r();
+        short int green = roi->mutable_color()->g();
+        short int blue = roi->mutable_color()->b();
+        NSString * name = [NSString stringWithCString:roi->name().c_str() encoding:[NSString defaultCStringEncoding] ];
+        NSString * key = [NSString stringWithCString:roi->id().c_str() encoding:[NSString defaultCStringEncoding] ];
+        float thickness = roi->thickness();
+        
+        ROI* osirixROI = [grpcObjects objectForKey:key];
+        if (!osirixROI)
+        {
+            log_string = @"Error: ROI no longer available";
+        }
+        else{
+            ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
+            RGBColor rgb;
+            rgb.red = red;
+            rgb.green = green;
+            rgb.blue = blue;
+            [osirixROI setColor:rgb];
+            [osirixROI setName:name];
+            [osirixROI setThickness:thickness];
+            [currV needsDisplayUpdate];
+        }
+        std::string reply_str( [log_string UTF8String] );
+        reply->set_message(reply_str);
+        [Adaptor->Lock unlock];
+    }
+
+    [Console AddText:[NSString stringWithFormat:@"GetCurrentImageFile: %@", log_string]];
+}
+
+
+#endif
+
 
 - (void) LogConnection:(NSString*)connec_str
 {

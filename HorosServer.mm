@@ -62,12 +62,12 @@ Status HorosServer::GetCurrentImageData(ServerContext* context,
     p_Adaptor->Response = (void*)reply;
     [p_Adaptor->Lock unlock];
     
-    NSString* dummy_str = [[NSString stringWithFormat: @"log_string" ] retain];  // only needed for selector call... used id?
+    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
      performSelectorOnMainThread:@selector(GetCurrentImageData:)
-     withObject:dummy_str waitUntilDone:YES];
+     withObject:arg_str waitUntilDone:YES];
     
-    [dummy_str release];
+    [arg_str release];
     return Status::OK;
 }
     
@@ -79,13 +79,13 @@ Status HorosServer::GetCurrentImage(ServerContext* context,
     p_Adaptor->Request = (const void*)request;
     p_Adaptor->Response = (void*)reply;
     [p_Adaptor->Lock unlock];
-        
-    NSString* dummy_str = [[NSString stringWithFormat: @"log_string" ] retain];  // only needed for selector call... used id?
+    
+    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
      performSelectorOnMainThread:@selector(GetCurrentImage:)
-     withObject:dummy_str waitUntilDone:YES];
+     withObject:arg_str waitUntilDone:YES];
     
-    [dummy_str release];    
+    [arg_str release];
     return Status::OK;
 }
 
@@ -98,12 +98,12 @@ Status HorosServer::SetCurrentImage(ServerContext* context,
     p_Adaptor->Response = (void*)reply;
     [p_Adaptor->Lock unlock];
         
-    NSString* dummy_str = [[NSString stringWithFormat: @"log_string" ] retain];  // only needed for selector call... used id?
+    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
      performSelectorOnMainThread:@selector(SetCurrentImage:)
-     withObject:dummy_str waitUntilDone:YES];
+     withObject:arg_str waitUntilDone:YES];
     
-    [dummy_str release];
+    [arg_str release];
     return Status::OK;
 }
 

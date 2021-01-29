@@ -144,6 +144,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_horos_2eproto::offsets[] PROTO
   PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, patient_id_),
   PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, study_instance_uid_),
   PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, series_instance_uid_),
+  PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, file_list_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::icr::ImageGetRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -184,10 +185,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_horos_2eproto::offsets[] PROTO
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::icr::DicomDataRequest)},
   { 6, -1, sizeof(::icr::DicomDataResponse)},
-  { 15, -1, sizeof(::icr::ImageGetRequest)},
-  { 22, -1, sizeof(::icr::ImageGetResponse)},
-  { 33, -1, sizeof(::icr::ImageSetRequest)},
-  { 44, -1, sizeof(::icr::ImageSetResponse)},
+  { 16, -1, sizeof(::icr::ImageGetRequest)},
+  { 23, -1, sizeof(::icr::ImageGetResponse)},
+  { 34, -1, sizeof(::icr::ImageSetRequest)},
+  { 45, -1, sizeof(::icr::ImageSetResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -201,28 +202,28 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\013horos.proto\022\003icr\032\troi.proto\"\036\n\020DicomDa"
-  "taRequest\022\n\n\002id\030\001 \001(\t\"l\n\021DicomDataRespon"
+  "taRequest\022\n\n\002id\030\001 \001(\t\"\177\n\021DicomDataRespon"
   "se\022\n\n\002id\030\001 \001(\t\022\022\n\npatient_id\030\002 \001(\t\022\032\n\022st"
   "udy_instance_uid\030\003 \001(\t\022\033\n\023series_instanc"
-  "e_uid\030\004 \001(\t\"0\n\017ImageGetRequest\022\n\n\002id\030\001 \001"
-  "(\t\022\021\n\tviewer_id\030\002 \001(\t\"w\n\020ImageGetRespons"
-  "e\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\t\022\022\n\nimag"
-  "e_size\030\003 \003(\005\022\022\n\nvoxel_size\030\004 \003(\002\022\016\n\006orig"
-  "in\030\005 \003(\002\022\014\n\004data\030\006 \003(\002\"v\n\017ImageSetReques"
-  "t\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\t\022\022\n\nimag"
-  "e_size\030\003 \003(\005\022\022\n\nvoxel_size\030\004 \003(\002\022\016\n\006orig"
-  "in\030\005 \003(\002\022\014\n\004data\030\006 \003(\002\"1\n\020ImageSetRespon"
-  "se\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\t2\346\002\n\005Ho"
-  "ros\022F\n\023GetCurrentImageData\022\025.icr.DicomDa"
-  "taRequest\032\026.icr.DicomDataResponse\"\000\022@\n\017G"
-  "etCurrentImage\022\024.icr.ImageGetRequest\032\025.i"
-  "cr.ImageGetResponse\"\000\022@\n\017SetCurrentImage"
-  "\022\024.icr.ImageSetRequest\032\025.icr.ImageSetRes"
-  "ponse\"\000\0221\n\nGetROIList\022\023.icr.ROIListReque"
-  "st\032\014.icr.ROIList\"\000\022-\n\016GetSelectedROI\022\017.i"
-  "cr.ROIRequest\032\010.icr.ROI\"\000\022/\n\tUpdateROI\022\010"
-  ".icr.ROI\032\026.icr.UpdateROIResponse\"\000b\006prot"
-  "o3"
+  "e_uid\030\004 \001(\t\022\021\n\tfile_list\030\005 \003(\t\"0\n\017ImageG"
+  "etRequest\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\004"
+  "\"w\n\020ImageGetResponse\022\n\n\002id\030\001 \001(\t\022\021\n\tview"
+  "er_id\030\002 \001(\004\022\022\n\nimage_size\030\003 \003(\005\022\022\n\nvoxel"
+  "_size\030\004 \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data\030\006 \003("
+  "\002\"v\n\017ImageSetRequest\022\n\n\002id\030\001 \001(\t\022\021\n\tview"
+  "er_id\030\002 \001(\004\022\022\n\nimage_size\030\003 \003(\005\022\022\n\nvoxel"
+  "_size\030\004 \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data\030\006 \003("
+  "\002\"1\n\020ImageSetResponse\022\n\n\002id\030\001 \001(\t\022\021\n\tvie"
+  "wer_id\030\002 \001(\0042\346\002\n\005Horos\022F\n\023GetCurrentImag"
+  "eData\022\025.icr.DicomDataRequest\032\026.icr.Dicom"
+  "DataResponse\"\000\022@\n\017GetCurrentImage\022\024.icr."
+  "ImageGetRequest\032\025.icr.ImageGetResponse\"\000"
+  "\022@\n\017SetCurrentImage\022\024.icr.ImageSetReques"
+  "t\032\025.icr.ImageSetResponse\"\000\0221\n\nGetROIList"
+  "\022\023.icr.ROIListRequest\032\014.icr.ROIList\"\000\022-\n"
+  "\016GetSelectedROI\022\017.icr.ROIRequest\032\010.icr.R"
+  "OI\"\000\022/\n\tUpdateROI\022\010.icr.ROI\032\026.icr.Update"
+  "ROIResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_horos_2eproto_deps[1] = {
   &::descriptor_table_roi_2eproto,
@@ -237,7 +238,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_horos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto = {
-  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 882,
+  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 901,
   &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_sccs, descriptor_table_horos_2eproto_deps, 6, 1,
   schemas, file_default_instances, TableStruct_horos_2eproto::offsets,
   file_level_metadata_horos_2eproto, 6, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,
@@ -465,13 +466,15 @@ class DicomDataResponse::_Internal {
 };
 
 DicomDataResponse::DicomDataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  file_list_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:icr.DicomDataResponse)
 }
 DicomDataResponse::DicomDataResponse(const DicomDataResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      file_list_(from.file_list_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_id().empty()) {
@@ -539,6 +542,7 @@ void DicomDataResponse::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  file_list_.Clear();
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   patient_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   study_instance_uid_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
@@ -588,6 +592,20 @@ const char* DicomDataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataResponse.series_instance_uid"));
           CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated string file_list = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_file_list();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataResponse.file_list"));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -658,6 +676,16 @@ failure:
         4, this->_internal_series_instance_uid(), target);
   }
 
+  // repeated string file_list = 5;
+  for (int i = 0, n = this->_internal_file_list_size(); i < n; i++) {
+    const auto& s = this->_internal_file_list(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "icr.DicomDataResponse.file_list");
+    target = stream->WriteString(5, s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -673,6 +701,14 @@ size_t DicomDataResponse::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated string file_list = 5;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(file_list_.size());
+  for (int i = 0, n = file_list_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      file_list_.Get(i));
+  }
 
   // string id = 1;
   if (this->id().size() > 0) {
@@ -733,6 +769,7 @@ void DicomDataResponse::MergeFrom(const DicomDataResponse& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  file_list_.MergeFrom(from.file_list_);
   if (from.id().size() > 0) {
     _internal_set_id(from._internal_id());
   }
@@ -768,6 +805,7 @@ bool DicomDataResponse::IsInitialized() const {
 void DicomDataResponse::InternalSwap(DicomDataResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  file_list_.InternalSwap(&other->file_list_);
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   patient_id_.Swap(&other->patient_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   study_instance_uid_.Swap(&other->study_instance_uid_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
@@ -801,18 +839,14 @@ ImageGetRequest::ImageGetRequest(const ImageGetRequest& from)
     id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_viewer_id().empty()) {
-    viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_viewer_id(),
-      GetArena());
-  }
+  viewer_id_ = from.viewer_id_;
   // @@protoc_insertion_point(copy_constructor:icr.ImageGetRequest)
 }
 
 void ImageGetRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageGetRequest_horos_2eproto.base);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
 
 ImageGetRequest::~ImageGetRequest() {
@@ -824,7 +858,6 @@ ImageGetRequest::~ImageGetRequest() {
 void ImageGetRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ImageGetRequest::ArenaDtor(void* object) {
@@ -849,7 +882,7 @@ void ImageGetRequest::Clear() {
   (void) cached_has_bits;
 
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -870,12 +903,10 @@ const char* ImageGetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string viewer_id = 2;
+      // uint64 viewer_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_viewer_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetRequest.viewer_id"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          viewer_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -917,14 +948,10 @@ failure:
         1, this->_internal_id(), target);
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_viewer_id().data(), static_cast<int>(this->_internal_viewer_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageGetRequest.viewer_id");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_viewer_id(), target);
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_viewer_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -950,10 +977,10 @@ size_t ImageGetRequest::ByteSizeLong() const {
         this->_internal_id());
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_viewer_id());
   }
 
@@ -991,7 +1018,7 @@ void ImageGetRequest::MergeFrom(const ImageGetRequest& from) {
   if (from.id().size() > 0) {
     _internal_set_id(from._internal_id());
   }
-  if (from.viewer_id().size() > 0) {
+  if (from.viewer_id() != 0) {
     _internal_set_viewer_id(from._internal_viewer_id());
   }
 }
@@ -1018,7 +1045,7 @@ void ImageGetRequest::InternalSwap(ImageGetRequest* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.Swap(&other->viewer_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(viewer_id_, other->viewer_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageGetRequest::GetMetadata() const {
@@ -1056,18 +1083,14 @@ ImageGetResponse::ImageGetResponse(const ImageGetResponse& from)
     id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_viewer_id().empty()) {
-    viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_viewer_id(),
-      GetArena());
-  }
+  viewer_id_ = from.viewer_id_;
   // @@protoc_insertion_point(copy_constructor:icr.ImageGetResponse)
 }
 
 void ImageGetResponse::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageGetResponse_horos_2eproto.base);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
 
 ImageGetResponse::~ImageGetResponse() {
@@ -1079,7 +1102,6 @@ ImageGetResponse::~ImageGetResponse() {
 void ImageGetResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ImageGetResponse::ArenaDtor(void* object) {
@@ -1108,7 +1130,7 @@ void ImageGetResponse::Clear() {
   origin_.Clear();
   data_.Clear();
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1129,12 +1151,10 @@ const char* ImageGetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string viewer_id = 2;
+      // uint64 viewer_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_viewer_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetResponse.viewer_id"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          viewer_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1216,14 +1236,10 @@ failure:
         1, this->_internal_id(), target);
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_viewer_id().data(), static_cast<int>(this->_internal_viewer_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageGetResponse.viewer_id");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_viewer_id(), target);
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_viewer_id(), target);
   }
 
   // repeated int32 image_size = 3;
@@ -1333,10 +1349,10 @@ size_t ImageGetResponse::ByteSizeLong() const {
         this->_internal_id());
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_viewer_id());
   }
 
@@ -1378,7 +1394,7 @@ void ImageGetResponse::MergeFrom(const ImageGetResponse& from) {
   if (from.id().size() > 0) {
     _internal_set_id(from._internal_id());
   }
-  if (from.viewer_id().size() > 0) {
+  if (from.viewer_id() != 0) {
     _internal_set_viewer_id(from._internal_viewer_id());
   }
 }
@@ -1409,7 +1425,7 @@ void ImageGetResponse::InternalSwap(ImageGetResponse* other) {
   origin_.InternalSwap(&other->origin_);
   data_.InternalSwap(&other->data_);
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.Swap(&other->viewer_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(viewer_id_, other->viewer_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageGetResponse::GetMetadata() const {
@@ -1447,18 +1463,14 @@ ImageSetRequest::ImageSetRequest(const ImageSetRequest& from)
     id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_viewer_id().empty()) {
-    viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_viewer_id(),
-      GetArena());
-  }
+  viewer_id_ = from.viewer_id_;
   // @@protoc_insertion_point(copy_constructor:icr.ImageSetRequest)
 }
 
 void ImageSetRequest::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageSetRequest_horos_2eproto.base);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
 
 ImageSetRequest::~ImageSetRequest() {
@@ -1470,7 +1482,6 @@ ImageSetRequest::~ImageSetRequest() {
 void ImageSetRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ImageSetRequest::ArenaDtor(void* object) {
@@ -1499,7 +1510,7 @@ void ImageSetRequest::Clear() {
   origin_.Clear();
   data_.Clear();
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1520,12 +1531,10 @@ const char* ImageSetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string viewer_id = 2;
+      // uint64 viewer_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_viewer_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetRequest.viewer_id"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          viewer_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1607,14 +1616,10 @@ failure:
         1, this->_internal_id(), target);
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_viewer_id().data(), static_cast<int>(this->_internal_viewer_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageSetRequest.viewer_id");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_viewer_id(), target);
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_viewer_id(), target);
   }
 
   // repeated int32 image_size = 3;
@@ -1724,10 +1729,10 @@ size_t ImageSetRequest::ByteSizeLong() const {
         this->_internal_id());
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_viewer_id());
   }
 
@@ -1769,7 +1774,7 @@ void ImageSetRequest::MergeFrom(const ImageSetRequest& from) {
   if (from.id().size() > 0) {
     _internal_set_id(from._internal_id());
   }
-  if (from.viewer_id().size() > 0) {
+  if (from.viewer_id() != 0) {
     _internal_set_viewer_id(from._internal_viewer_id());
   }
 }
@@ -1800,7 +1805,7 @@ void ImageSetRequest::InternalSwap(ImageSetRequest* other) {
   origin_.InternalSwap(&other->origin_);
   data_.InternalSwap(&other->data_);
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.Swap(&other->viewer_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(viewer_id_, other->viewer_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageSetRequest::GetMetadata() const {
@@ -1830,18 +1835,14 @@ ImageSetResponse::ImageSetResponse(const ImageSetResponse& from)
     id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_viewer_id().empty()) {
-    viewer_id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_viewer_id(),
-      GetArena());
-  }
+  viewer_id_ = from.viewer_id_;
   // @@protoc_insertion_point(copy_constructor:icr.ImageSetResponse)
 }
 
 void ImageSetResponse::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ImageSetResponse_horos_2eproto.base);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
 }
 
 ImageSetResponse::~ImageSetResponse() {
@@ -1853,7 +1854,6 @@ ImageSetResponse::~ImageSetResponse() {
 void ImageSetResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  viewer_id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void ImageSetResponse::ArenaDtor(void* object) {
@@ -1878,7 +1878,7 @@ void ImageSetResponse::Clear() {
   (void) cached_has_bits;
 
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  viewer_id_ = PROTOBUF_ULONGLONG(0);
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1899,12 +1899,10 @@ const char* ImageSetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string viewer_id = 2;
+      // uint64 viewer_id = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-          auto str = _internal_mutable_viewer_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetResponse.viewer_id"));
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          viewer_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1946,14 +1944,10 @@ failure:
         1, this->_internal_id(), target);
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_viewer_id().data(), static_cast<int>(this->_internal_viewer_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageSetResponse.viewer_id");
-    target = stream->WriteStringMaybeAliased(
-        2, this->_internal_viewer_id(), target);
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_viewer_id(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1979,10 +1973,10 @@ size_t ImageSetResponse::ByteSizeLong() const {
         this->_internal_id());
   }
 
-  // string viewer_id = 2;
-  if (this->viewer_id().size() > 0) {
+  // uint64 viewer_id = 2;
+  if (this->viewer_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_viewer_id());
   }
 
@@ -2020,7 +2014,7 @@ void ImageSetResponse::MergeFrom(const ImageSetResponse& from) {
   if (from.id().size() > 0) {
     _internal_set_id(from._internal_id());
   }
-  if (from.viewer_id().size() > 0) {
+  if (from.viewer_id() != 0) {
     _internal_set_viewer_id(from._internal_viewer_id());
   }
 }
@@ -2047,7 +2041,7 @@ void ImageSetResponse::InternalSwap(ImageSetResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  viewer_id_.Swap(&other->viewer_id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  swap(viewer_id_, other->viewer_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ImageSetResponse::GetMetadata() const {

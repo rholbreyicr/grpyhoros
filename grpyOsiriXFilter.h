@@ -18,6 +18,9 @@
     icr::ServerAdaptor* Adaptor;  ///< Communication adaptor reference (between the server thread and above;
                                   ///< owned by Manager)
     
+    //NSMutableDictionary *grpcObjects = [[NSMutableDictionary alloc] init];
+    NSMutableArray* DisplayedSeries;
+    
     std::shared_ptr<quill::Handler> LogHandler;
     std::shared_ptr<quill::Logger> Logger;
 }
@@ -35,9 +38,9 @@
 -(void)LogConnection:(NSString*) connec;
 -(void)CollectSeries:(id)obj into:(NSMutableArray*)collection;
 
--(void)GetCurrentImageData:(NSString*) log_string;
--(void)GetCurrentImage:(NSString*) log_string;
--(void)SetCurrentImage:(NSString*) log_string;
+-(void)GetCurrentImageData:(NSString*) arg_string;
+-(void)GetCurrentImage:(NSString*) arg_string;
+-(void)SetCurrentImage:(NSString*) arg_string;
 
 //-(void)GetSelectedROI:(NSString*) log_string;
 //-(void)UpdateROI:(NSString*) log_string;

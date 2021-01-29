@@ -10,6 +10,15 @@
 // cd ../python
 // ../script/protoc.sh `pwd`/.. python `pwd`/../horos.proto `pwd`
 //
+//
+// export PROTO=/usr/local/grpc/bin
+// ${PROTO}/protoc -I . --grpc_out=cpp --plugin=protoc-gen-grpc=${PROTO}/grpc_cpp_plugin horos.proto
+// ${PROTO}/protoc -I . --cpp_out=cpp horos.proto
+// ${PROTO}/protoc -I . --cpp_out=cpp roi.proto
+// ${PROTO}/protoc -I . --grpc_out=python --plugin=protoc-gen-grpc=${PROTO}/grpc_python_plugin horos.proto
+// ${PROTO}/protoc -I . --python_out=python horos.proto
+// ${PROTO}/protoc -I . --python_out=python roi.proto 
+//
 #ifndef GRPC_horos_2eproto__INCLUDED
 #define GRPC_horos_2eproto__INCLUDED
 
