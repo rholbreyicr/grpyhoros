@@ -33,7 +33,7 @@ using icr::ImageGetResponse;
     
     [Manager StartServer:(void*)self
              withAdaptor:Adaptor
-             withConsole:Console withPort:@"50051"];
+             withConsole:Console withPort:@"50052"];
     
     return self;
 }
@@ -48,7 +48,7 @@ using icr::ImageGetResponse;
 
 -(void)GetCurrentImageData:(NSString*) log_string
 {
-    std::string reply_str("MockPy>GetCurrentImageFile>");
+    std::string reply_str("MockPy>GetCurrentImageData>");
 
     //mutex!
     {
@@ -63,7 +63,7 @@ using icr::ImageGetResponse;
     //Have to call gui stuff on the main thread (which may not be case for the mock)
     [(__bridge id)(Adaptor->Osirix)
      performSelectorOnMainThread:@selector(LogConnection:)
-     withObject:@"MockPy>GetCurrentImageFile" waitUntilDone:NO];
+     withObject:@"MockPy>GetCurrentImageData" waitUntilDone:NO];
 }
 
 
