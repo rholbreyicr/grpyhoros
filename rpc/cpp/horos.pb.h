@@ -55,7 +55,7 @@ struct TableStruct_horos_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto;
-namespace icr {
+namespace pyosirix {
 class DicomDataRequest;
 class DicomDataRequestDefaultTypeInternal;
 extern DicomDataRequestDefaultTypeInternal _DicomDataRequest_default_instance_;
@@ -76,14 +76,14 @@ class ImageSetResponseDefaultTypeInternal;
 extern ImageSetResponseDefaultTypeInternal _ImageSetResponse_default_instance_;
 }  // namespace icr
 PROTOBUF_NAMESPACE_OPEN
-template<> ::icr::DicomDataRequest* Arena::CreateMaybeMessage<::icr::DicomDataRequest>(Arena*);
-template<> ::icr::DicomDataResponse* Arena::CreateMaybeMessage<::icr::DicomDataResponse>(Arena*);
-template<> ::icr::ImageGetRequest* Arena::CreateMaybeMessage<::icr::ImageGetRequest>(Arena*);
-template<> ::icr::ImageGetResponse* Arena::CreateMaybeMessage<::icr::ImageGetResponse>(Arena*);
-template<> ::icr::ImageSetRequest* Arena::CreateMaybeMessage<::icr::ImageSetRequest>(Arena*);
-template<> ::icr::ImageSetResponse* Arena::CreateMaybeMessage<::icr::ImageSetResponse>(Arena*);
+template<> ::pyosirix::DicomDataRequest* Arena::CreateMaybeMessage<::pyosirix::DicomDataRequest>(Arena*);
+template<> ::pyosirix::DicomDataResponse* Arena::CreateMaybeMessage<::pyosirix::DicomDataResponse>(Arena*);
+template<> ::pyosirix::ImageGetRequest* Arena::CreateMaybeMessage<::pyosirix::ImageGetRequest>(Arena*);
+template<> ::pyosirix::ImageGetResponse* Arena::CreateMaybeMessage<::pyosirix::ImageGetResponse>(Arena*);
+template<> ::pyosirix::ImageSetRequest* Arena::CreateMaybeMessage<::pyosirix::ImageSetRequest>(Arena*);
+template<> ::pyosirix::ImageSetResponse* Arena::CreateMaybeMessage<::pyosirix::ImageSetResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace icr {
+namespace pyosirix {
 
 // ===================================================================
 

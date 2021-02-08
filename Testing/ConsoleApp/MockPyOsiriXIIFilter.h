@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     ServerManager* Manager;       ///< Manage and start the server thread (we are the owner)
     ConsoleController* Console;   ///< Console window reference (owned by Manager)
-    icr::ServerAdaptor* Adaptor;  ///< Communication adaptor reference (between the server thread and above;
+    pyosirix::ServerAdaptor* Adaptor;  ///< Communication adaptor reference (between the server thread and above;
                                   ///< owned by Manager)
 }
 

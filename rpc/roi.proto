@@ -2,7 +2,7 @@
 //
 
 syntax = "proto3";
-package icr;
+package pyosirix;
 
 message ROIListRequest {
   string id = 1;

@@ -11,7 +11,7 @@
 //@class PyOsiriXIIFilter;
 @class NSLock;
 
-namespace icr {
+namespace pyosirix {
 
 /** \brief ServerAdaptor
         Communication object between server and plugin code (which usually has to be on the main thread).

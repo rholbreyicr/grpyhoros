@@ -54,7 +54,7 @@ struct TableStruct_roi_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_roi_2eproto;
-namespace icr {
+namespace pyosirix {
 class Color;
 class ColorDefaultTypeInternal;
 extern ColorDefaultTypeInternal _Color_default_instance_;
@@ -81,16 +81,16 @@ class UpdateROIResponseDefaultTypeInternal;
 extern UpdateROIResponseDefaultTypeInternal _UpdateROIResponse_default_instance_;
 }  // namespace icr
 PROTOBUF_NAMESPACE_OPEN
-template<> ::icr::Color* Arena::CreateMaybeMessage<::icr::Color>(Arena*);
-template<> ::icr::Point* Arena::CreateMaybeMessage<::icr::Point>(Arena*);
-template<> ::icr::ROI* Arena::CreateMaybeMessage<::icr::ROI>(Arena*);
-template<> ::icr::ROIList* Arena::CreateMaybeMessage<::icr::ROIList>(Arena*);
-template<> ::icr::ROIListRequest* Arena::CreateMaybeMessage<::icr::ROIListRequest>(Arena*);
-template<> ::icr::ROIRequest* Arena::CreateMaybeMessage<::icr::ROIRequest>(Arena*);
-template<> ::icr::ROISlice* Arena::CreateMaybeMessage<::icr::ROISlice>(Arena*);
-template<> ::icr::UpdateROIResponse* Arena::CreateMaybeMessage<::icr::UpdateROIResponse>(Arena*);
+template<> ::pyosirix::Color* Arena::CreateMaybeMessage<::pyosirix::Color>(Arena*);
+template<> ::pyosirix::Point* Arena::CreateMaybeMessage<::pyosirix::Point>(Arena*);
+template<> ::pyosirix::ROI* Arena::CreateMaybeMessage<::pyosirix::ROI>(Arena*);
+template<> ::pyosirix::ROIList* Arena::CreateMaybeMessage<::pyosirix::ROIList>(Arena*);
+template<> ::pyosirix::ROIListRequest* Arena::CreateMaybeMessage<::pyosirix::ROIListRequest>(Arena*);
+template<> ::pyosirix::ROIRequest* Arena::CreateMaybeMessage<::pyosirix::ROIRequest>(Arena*);
+template<> ::pyosirix::ROISlice* Arena::CreateMaybeMessage<::pyosirix::ROISlice>(Arena*);
+template<> ::pyosirix::UpdateROIResponse* Arena::CreateMaybeMessage<::pyosirix::UpdateROIResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace icr {
+namespace pyosirix {
 
 // ===================================================================
 
@@ -990,17 +990,17 @@ class ROI PROTOBUF_FINAL :
   bool _internal_has_color() const;
   public:
   void clear_color();
-  const ::icr::Color& color() const;
-  ::icr::Color* release_color();
-  ::icr::Color* mutable_color();
-  void set_allocated_color(::icr::Color* color);
+  const ::pyosirix::Color& color() const;
+  ::pyosirix::Color* release_color();
+  ::pyosirix::Color* mutable_color();
+  void set_allocated_color(::pyosirix::Color* color);
   private:
-  const ::icr::Color& _internal_color() const;
-  ::icr::Color* _internal_mutable_color();
+  const ::pyosirix::Color& _internal_color() const;
+  ::pyosirix::Color* _internal_mutable_color();
   public:
   void unsafe_arena_set_allocated_color(
-      ::icr::Color* color);
-  ::icr::Color* unsafe_arena_release_color();
+      ::pyosirix::Color* color);
+  ::pyosirix::Color* unsafe_arena_release_color();
 
   // float opacity = 4;
   void clear_opacity();
@@ -1029,7 +1029,7 @@ class ROI PROTOBUF_FINAL :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  ::icr::Color* color_;
+  ::pyosirix::Color* color_;
   float opacity_;
   float thickness_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -1158,16 +1158,16 @@ class ROISlice PROTOBUF_FINAL :
   int _internal_rois_size() const;
   public:
   void clear_rois();
-  ::icr::ROI* mutable_rois(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROI >*
+  ::pyosirix::ROI* mutable_rois(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROI >*
       mutable_rois();
   private:
-  const ::icr::ROI& _internal_rois(int index) const;
-  ::icr::ROI* _internal_add_rois();
+  const ::pyosirix::ROI& _internal_rois(int index) const;
+  ::pyosirix::ROI* _internal_add_rois();
   public:
-  const ::icr::ROI& rois(int index) const;
-  ::icr::ROI* add_rois();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROI >&
+  const ::pyosirix::ROI& rois(int index) const;
+  ::pyosirix::ROI* add_rois();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROI >&
       rois() const;
 
   // @@protoc_insertion_point(class_scope:icr.ROISlice)
@@ -1177,7 +1177,7 @@ class ROISlice PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROI > rois_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROI > rois_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_roi_2eproto;
 };
@@ -1304,16 +1304,16 @@ class ROIList PROTOBUF_FINAL :
   int _internal_slices_size() const;
   public:
   void clear_slices();
-  ::icr::ROISlice* mutable_slices(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROISlice >*
+  ::pyosirix::ROISlice* mutable_slices(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROISlice >*
       mutable_slices();
   private:
-  const ::icr::ROISlice& _internal_slices(int index) const;
-  ::icr::ROISlice* _internal_add_slices();
+  const ::pyosirix::ROISlice& _internal_slices(int index) const;
+  ::pyosirix::ROISlice* _internal_add_slices();
   public:
-  const ::icr::ROISlice& slices(int index) const;
-  ::icr::ROISlice* add_slices();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROISlice >&
+  const ::pyosirix::ROISlice& slices(int index) const;
+  ::pyosirix::ROISlice* add_slices();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROISlice >&
       slices() const;
 
   // @@protoc_insertion_point(class_scope:icr.ROIList)
@@ -1323,7 +1323,7 @@ class ROIList PROTOBUF_FINAL :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROISlice > slices_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROISlice > slices_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_roi_2eproto;
 };
@@ -1781,17 +1781,17 @@ inline void ROI::clear_color() {
   }
   color_ = nullptr;
 }
-inline const ::icr::Color& ROI::_internal_color() const {
-  const ::icr::Color* p = color_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::icr::Color*>(
-      &::icr::_Color_default_instance_);
+inline const ::pyosirix::Color& ROI::_internal_color() const {
+  const ::pyosirix::Color* p = color_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::pyosirix::Color*>(
+      &::pyosirix::_Color_default_instance_);
 }
-inline const ::icr::Color& ROI::color() const {
+inline const ::pyosirix::Color& ROI::color() const {
   // @@protoc_insertion_point(field_get:icr.ROI.color)
   return _internal_color();
 }
 inline void ROI::unsafe_arena_set_allocated_color(
-    ::icr::Color* color) {
+    ::pyosirix::Color* color) {
   if (GetArena() == nullptr) {
     delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(color_);
   }
@@ -1803,35 +1803,35 @@ inline void ROI::unsafe_arena_set_allocated_color(
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:icr.ROI.color)
 }
-inline ::icr::Color* ROI::release_color() {
+inline ::pyosirix::Color* ROI::release_color() {
   
-  ::icr::Color* temp = color_;
+  ::pyosirix::Color* temp = color_;
   color_ = nullptr;
   if (GetArena() != nullptr) {
     temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
   }
   return temp;
 }
-inline ::icr::Color* ROI::unsafe_arena_release_color() {
+inline ::pyosirix::Color* ROI::unsafe_arena_release_color() {
   // @@protoc_insertion_point(field_release:icr.ROI.color)
   
-  ::icr::Color* temp = color_;
+  ::pyosirix::Color* temp = color_;
   color_ = nullptr;
   return temp;
 }
-inline ::icr::Color* ROI::_internal_mutable_color() {
+inline ::pyosirix::Color* ROI::_internal_mutable_color() {
   
   if (color_ == nullptr) {
-    auto* p = CreateMaybeMessage<::icr::Color>(GetArena());
+    auto* p = CreateMaybeMessage<::pyosirix::Color>(GetArena());
     color_ = p;
   }
   return color_;
 }
-inline ::icr::Color* ROI::mutable_color() {
+inline ::pyosirix::Color* ROI::mutable_color() {
   // @@protoc_insertion_point(field_mutable:icr.ROI.color)
   return _internal_mutable_color();
 }
-inline void ROI::set_allocated_color(::icr::Color* color) {
+inline void ROI::set_allocated_color(::pyosirix::Color* color) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArena();
   if (message_arena == nullptr) {
     delete color_;
@@ -1905,30 +1905,30 @@ inline int ROISlice::rois_size() const {
 inline void ROISlice::clear_rois() {
   rois_.Clear();
 }
-inline ::icr::ROI* ROISlice::mutable_rois(int index) {
+inline ::pyosirix::ROI* ROISlice::mutable_rois(int index) {
   // @@protoc_insertion_point(field_mutable:icr.ROISlice.rois)
   return rois_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROI >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROI >*
 ROISlice::mutable_rois() {
   // @@protoc_insertion_point(field_mutable_list:icr.ROISlice.rois)
   return &rois_;
 }
-inline const ::icr::ROI& ROISlice::_internal_rois(int index) const {
+inline const ::pyosirix::ROI& ROISlice::_internal_rois(int index) const {
   return rois_.Get(index);
 }
-inline const ::icr::ROI& ROISlice::rois(int index) const {
+inline const ::pyosirix::ROI& ROISlice::rois(int index) const {
   // @@protoc_insertion_point(field_get:icr.ROISlice.rois)
   return _internal_rois(index);
 }
-inline ::icr::ROI* ROISlice::_internal_add_rois() {
+inline ::pyosirix::ROI* ROISlice::_internal_add_rois() {
   return rois_.Add();
 }
-inline ::icr::ROI* ROISlice::add_rois() {
+inline ::pyosirix::ROI* ROISlice::add_rois() {
   // @@protoc_insertion_point(field_add:icr.ROISlice.rois)
   return _internal_add_rois();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROI >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROI >&
 ROISlice::rois() const {
   // @@protoc_insertion_point(field_list:icr.ROISlice.rois)
   return rois_;
@@ -1948,30 +1948,30 @@ inline int ROIList::slices_size() const {
 inline void ROIList::clear_slices() {
   slices_.Clear();
 }
-inline ::icr::ROISlice* ROIList::mutable_slices(int index) {
+inline ::pyosirix::ROISlice* ROIList::mutable_slices(int index) {
   // @@protoc_insertion_point(field_mutable:icr.ROIList.slices)
   return slices_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROISlice >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROISlice >*
 ROIList::mutable_slices() {
   // @@protoc_insertion_point(field_mutable_list:icr.ROIList.slices)
   return &slices_;
 }
-inline const ::icr::ROISlice& ROIList::_internal_slices(int index) const {
+inline const ::pyosirix::ROISlice& ROIList::_internal_slices(int index) const {
   return slices_.Get(index);
 }
-inline const ::icr::ROISlice& ROIList::slices(int index) const {
+inline const ::pyosirix::ROISlice& ROIList::slices(int index) const {
   // @@protoc_insertion_point(field_get:icr.ROIList.slices)
   return _internal_slices(index);
 }
-inline ::icr::ROISlice* ROIList::_internal_add_slices() {
+inline ::pyosirix::ROISlice* ROIList::_internal_add_slices() {
   return slices_.Add();
 }
-inline ::icr::ROISlice* ROIList::add_slices() {
+inline ::pyosirix::ROISlice* ROIList::add_slices() {
   // @@protoc_insertion_point(field_add:icr.ROIList.slices)
   return _internal_add_slices();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::icr::ROISlice >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::pyosirix::ROISlice >&
 ROIList::slices() const {
   // @@protoc_insertion_point(field_list:icr.ROIList.slices)
   return slices_;

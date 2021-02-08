@@ -8,7 +8,7 @@
 #include "HorosServer.h"
 #import <Foundation/Foundation.h>
 
-namespace icr {
+namespace pyosirix {
 
 ServerAdaptor* HorosServer::p_Adaptor = NULL;
 

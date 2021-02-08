@@ -12,11 +12,11 @@
   ${PROTO}/protoc -I . --cpp_out=cpp roi.proto
   ${PROTO}/protoc -I . --grpc_out=python --plugin=protoc-gen-grpc=${PROTO}/grpc_python_plugin horos.proto
   ${PROTO}/protoc -I . --python_out=python horos.proto
-  ${PROTO}/protoc -I . --python_out=python roi.proto 
+  ${PROTO}/protoc -I . --python_out=python roi.proto
 */
 
 syntax = "proto3";
-package icr;
+package pyosirix;
 
 // A simple key-value storage service
 service Horos {

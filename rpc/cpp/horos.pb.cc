@@ -14,7 +14,7 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-namespace icr {
+namespace pyosirix {
 class DicomDataRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DicomDataRequest> _instance;
@@ -44,11 +44,11 @@ static void InitDefaultsscc_info_DicomDataRequest_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_DicomDataRequest_default_instance_;
-    new (ptr) ::icr::DicomDataRequest();
+    void* ptr = &::pyosirix::_DicomDataRequest_default_instance_;
+    new (ptr) ::pyosirix::DicomDataRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::DicomDataRequest::InitAsDefaultInstance();
+  ::pyosirix::DicomDataRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DicomDataRequest_horos_2eproto =
@@ -58,11 +58,11 @@ static void InitDefaultsscc_info_DicomDataResponse_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_DicomDataResponse_default_instance_;
-    new (ptr) ::icr::DicomDataResponse();
+    void* ptr = &::pyosirix::_DicomDataResponse_default_instance_;
+    new (ptr) ::pyosirix::DicomDataResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::DicomDataResponse::InitAsDefaultInstance();
+  ::pyosirix::DicomDataResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DicomDataResponse_horos_2eproto =
@@ -72,11 +72,11 @@ static void InitDefaultsscc_info_ImageGetRequest_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ImageGetRequest_default_instance_;
-    new (ptr) ::icr::ImageGetRequest();
+    void* ptr = &::pyosirix::_ImageGetRequest_default_instance_;
+    new (ptr) ::pyosirix::ImageGetRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ImageGetRequest::InitAsDefaultInstance();
+  ::pyosirix::ImageGetRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageGetRequest_horos_2eproto =
@@ -86,11 +86,11 @@ static void InitDefaultsscc_info_ImageGetResponse_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ImageGetResponse_default_instance_;
-    new (ptr) ::icr::ImageGetResponse();
+    void* ptr = &::pyosirix::_ImageGetResponse_default_instance_;
+    new (ptr) ::pyosirix::ImageGetResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ImageGetResponse::InitAsDefaultInstance();
+  ::pyosirix::ImageGetResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageGetResponse_horos_2eproto =
@@ -100,11 +100,11 @@ static void InitDefaultsscc_info_ImageSetRequest_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ImageSetRequest_default_instance_;
-    new (ptr) ::icr::ImageSetRequest();
+    void* ptr = &::pyosirix::_ImageSetRequest_default_instance_;
+    new (ptr) ::pyosirix::ImageSetRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ImageSetRequest::InitAsDefaultInstance();
+  ::pyosirix::ImageSetRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageSetRequest_horos_2eproto =
@@ -114,11 +114,11 @@ static void InitDefaultsscc_info_ImageSetResponse_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ImageSetResponse_default_instance_;
-    new (ptr) ::icr::ImageSetResponse();
+    void* ptr = &::pyosirix::_ImageSetResponse_default_instance_;
+    new (ptr) ::pyosirix::ImageSetResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ImageSetResponse::InitAsDefaultInstance();
+  ::pyosirix::ImageSetResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ImageSetResponse_horos_2eproto =
@@ -130,74 +130,74 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_s
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_horos_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataRequest, id_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, id_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, patient_id_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, study_instance_uid_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, series_instance_uid_),
-  PROTOBUF_FIELD_OFFSET(::icr::DicomDataResponse, file_list_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataResponse, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataResponse, patient_id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataResponse, study_instance_uid_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataResponse, series_instance_uid_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::DicomDataResponse, file_list_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetRequest, id_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetRequest, viewer_id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetRequest, viewer_id_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, id_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, viewer_id_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, image_size_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, voxel_size_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, origin_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageGetResponse, data_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetResponse, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetResponse, viewer_id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetResponse, image_size_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetResponse, voxel_size_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetResponse, origin_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageGetResponse, data_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, id_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, viewer_id_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, image_size_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, voxel_size_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, origin_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetRequest, data_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetRequest, viewer_id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetRequest, image_size_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetRequest, voxel_size_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetRequest, origin_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetRequest, data_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetResponse, id_),
-  PROTOBUF_FIELD_OFFSET(::icr::ImageSetResponse, viewer_id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetResponse, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ImageSetResponse, viewer_id_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::icr::DicomDataRequest)},
-  { 6, -1, sizeof(::icr::DicomDataResponse)},
-  { 16, -1, sizeof(::icr::ImageGetRequest)},
-  { 23, -1, sizeof(::icr::ImageGetResponse)},
-  { 34, -1, sizeof(::icr::ImageSetRequest)},
-  { 45, -1, sizeof(::icr::ImageSetResponse)},
+  { 0, -1, sizeof(::pyosirix::DicomDataRequest)},
+  { 6, -1, sizeof(::pyosirix::DicomDataResponse)},
+  { 16, -1, sizeof(::pyosirix::ImageGetRequest)},
+  { 23, -1, sizeof(::pyosirix::ImageGetResponse)},
+  { 34, -1, sizeof(::pyosirix::ImageSetRequest)},
+  { 45, -1, sizeof(::pyosirix::ImageSetResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_DicomDataRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_DicomDataResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageGetRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageGetResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageSetRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ImageSetResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_DicomDataRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_DicomDataResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ImageGetRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ImageGetResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ImageSetRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ImageSetResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -246,7 +246,7 @@ const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_horos_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_horos_2eproto)), true);
-namespace icr {
+namespace pyosirix {
 
 // ===================================================================
 
@@ -2052,23 +2052,23 @@ void ImageSetResponse::InternalSwap(ImageSetResponse* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace icr
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::icr::DicomDataRequest* Arena::CreateMaybeMessage< ::icr::DicomDataRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::DicomDataRequest >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::DicomDataRequest* Arena::CreateMaybeMessage< ::pyosirix::DicomDataRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::DicomDataRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::DicomDataResponse* Arena::CreateMaybeMessage< ::icr::DicomDataResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::DicomDataResponse >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::DicomDataResponse* Arena::CreateMaybeMessage< ::pyosirix::DicomDataResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::DicomDataResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ImageGetRequest* Arena::CreateMaybeMessage< ::icr::ImageGetRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ImageGetRequest >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ImageGetRequest* Arena::CreateMaybeMessage< ::pyosirix::ImageGetRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ImageGetRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ImageGetResponse* Arena::CreateMaybeMessage< ::icr::ImageGetResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ImageGetResponse >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ImageGetResponse* Arena::CreateMaybeMessage< ::pyosirix::ImageGetResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ImageGetResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ImageSetRequest* Arena::CreateMaybeMessage< ::icr::ImageSetRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ImageSetRequest >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ImageSetRequest* Arena::CreateMaybeMessage< ::pyosirix::ImageSetRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ImageSetRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ImageSetResponse* Arena::CreateMaybeMessage< ::icr::ImageSetResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ImageSetResponse >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ImageSetResponse* Arena::CreateMaybeMessage< ::pyosirix::ImageSetResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ImageSetResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

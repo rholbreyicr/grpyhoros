@@ -23,12 +23,12 @@ static const char* LogFile = "uk.ac.icr.pyosirix_daily.log";
 #import <DicomImage.h>
 #import <OsiriXAPI/DicomDatabase.h>
 
-using icr::DicomDataRequest;
-using icr::DicomDataResponse;
-using icr::ImageGetRequest;
-using icr::ImageGetResponse;
-using icr::ImageSetRequest;
-using icr::ImageSetResponse;
+using pyosirix::DicomDataRequest;
+using pyosirix::DicomDataResponse;
+using pyosirix::ImageGetRequest;
+using pyosirix::ImageGetResponse;
+using pyosirix::ImageSetRequest;
+using pyosirix::ImageSetResponse;
 
 //-----------------------------------------------------------------------------------
 
@@ -99,7 +99,7 @@ using icr::ImageSetResponse;
     Console = [[ConsoleController alloc] init];
 
     //Declare the adaptor communication object and pass ownership to Manager
-    Adaptor = new icr::ServerAdaptor;
+    Adaptor = new pyosirix::ServerAdaptor;
     
     Manager = [[ServerManager alloc] init];
 

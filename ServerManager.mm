@@ -29,7 +29,7 @@
 }
 
 -(void)StartServer:(void*)plugin_filter
-       withAdaptor:(icr::ServerAdaptor*)adaptor
+       withAdaptor:(pyosirix::ServerAdaptor*)adaptor
        withConsole:(ConsoleController*)console
        withPort:(NSString*)port
 {
@@ -51,7 +51,7 @@
     //Initialize the communication object
     Adaptor = adaptor;
     if( !Adaptor )
-        Adaptor = new icr::ServerAdaptor;
+        Adaptor = new pyosirix::ServerAdaptor;
     Adaptor->Osirix = (void*)plugin_filter;
     
     if( port.length == 0 )
@@ -76,7 +76,7 @@
  
 -(void)SpawnThread
 {
-    icr::HorosServer::RunServer( (void*)Adaptor );
+    pyosirix::HorosServer::RunServer( (void*)Adaptor );
 }
  
 @end

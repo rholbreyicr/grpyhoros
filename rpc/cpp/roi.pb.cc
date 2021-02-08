@@ -17,7 +17,7 @@
 extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Color_roi_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROI_roi_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROISlice_roi_2eproto;
-namespace icr {
+namespace pyosirix {
 class ROIListRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ROIListRequest> _instance;
@@ -55,11 +55,11 @@ static void InitDefaultsscc_info_Color_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_Color_default_instance_;
-    new (ptr) ::icr::Color();
+    void* ptr = &::pyosirix::_Color_default_instance_;
+    new (ptr) ::pyosirix::Color();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::Color::InitAsDefaultInstance();
+  ::pyosirix::Color::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Color_roi_2eproto =
@@ -69,11 +69,11 @@ static void InitDefaultsscc_info_Point_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_Point_default_instance_;
-    new (ptr) ::icr::Point();
+    void* ptr = &::pyosirix::_Point_default_instance_;
+    new (ptr) ::pyosirix::Point();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::Point::InitAsDefaultInstance();
+  ::pyosirix::Point::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_roi_2eproto =
@@ -83,11 +83,11 @@ static void InitDefaultsscc_info_ROI_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ROI_default_instance_;
-    new (ptr) ::icr::ROI();
+    void* ptr = &::pyosirix::_ROI_default_instance_;
+    new (ptr) ::pyosirix::ROI();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ROI::InitAsDefaultInstance();
+  ::pyosirix::ROI::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROI_roi_2eproto =
@@ -98,11 +98,11 @@ static void InitDefaultsscc_info_ROIList_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ROIList_default_instance_;
-    new (ptr) ::icr::ROIList();
+    void* ptr = &::pyosirix::_ROIList_default_instance_;
+    new (ptr) ::pyosirix::ROIList();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ROIList::InitAsDefaultInstance();
+  ::pyosirix::ROIList::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROIList_roi_2eproto =
@@ -113,11 +113,11 @@ static void InitDefaultsscc_info_ROIListRequest_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ROIListRequest_default_instance_;
-    new (ptr) ::icr::ROIListRequest();
+    void* ptr = &::pyosirix::_ROIListRequest_default_instance_;
+    new (ptr) ::pyosirix::ROIListRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ROIListRequest::InitAsDefaultInstance();
+  ::pyosirix::ROIListRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ROIListRequest_roi_2eproto =
@@ -127,11 +127,11 @@ static void InitDefaultsscc_info_ROIRequest_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ROIRequest_default_instance_;
-    new (ptr) ::icr::ROIRequest();
+    void* ptr = &::pyosirix::_ROIRequest_default_instance_;
+    new (ptr) ::pyosirix::ROIRequest();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ROIRequest::InitAsDefaultInstance();
+  ::pyosirix::ROIRequest::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ROIRequest_roi_2eproto =
@@ -141,11 +141,11 @@ static void InitDefaultsscc_info_ROISlice_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_ROISlice_default_instance_;
-    new (ptr) ::icr::ROISlice();
+    void* ptr = &::pyosirix::_ROISlice_default_instance_;
+    new (ptr) ::pyosirix::ROISlice();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::ROISlice::InitAsDefaultInstance();
+  ::pyosirix::ROISlice::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROISlice_roi_2eproto =
@@ -156,11 +156,11 @@ static void InitDefaultsscc_info_UpdateROIResponse_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::icr::_UpdateROIResponse_default_instance_;
-    new (ptr) ::icr::UpdateROIResponse();
+    void* ptr = &::pyosirix::_UpdateROIResponse_default_instance_;
+    new (ptr) ::pyosirix::UpdateROIResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::icr::UpdateROIResponse::InitAsDefaultInstance();
+  ::pyosirix::UpdateROIResponse::InitAsDefaultInstance();
 }
 
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UpdateROIResponse_roi_2eproto =
@@ -172,81 +172,81 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_s
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_roi_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ROIListRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIListRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ROIListRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIListRequest, id_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::UpdateROIResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::UpdateROIResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::UpdateROIResponse, message_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::UpdateROIResponse, message_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ROIRequest, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ROIRequest, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIRequest, id_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::Point, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Point, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::Point, x_),
-  PROTOBUF_FIELD_OFFSET(::icr::Point, y_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Point, x_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Point, y_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::Color, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Color, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::Color, r_),
-  PROTOBUF_FIELD_OFFSET(::icr::Color, g_),
-  PROTOBUF_FIELD_OFFSET(::icr::Color, b_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Color, r_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Color, g_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Color, b_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ROI, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ROI, id_),
-  PROTOBUF_FIELD_OFFSET(::icr::ROI, name_),
-  PROTOBUF_FIELD_OFFSET(::icr::ROI, color_),
-  PROTOBUF_FIELD_OFFSET(::icr::ROI, opacity_),
-  PROTOBUF_FIELD_OFFSET(::icr::ROI, thickness_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, name_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, color_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, opacity_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, thickness_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ROISlice, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROISlice, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ROISlice, rois_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROISlice, rois_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::icr::ROIList, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIList, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::icr::ROIList, slices_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIList, slices_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::icr::ROIListRequest)},
-  { 6, -1, sizeof(::icr::UpdateROIResponse)},
-  { 12, -1, sizeof(::icr::ROIRequest)},
-  { 18, -1, sizeof(::icr::Point)},
-  { 25, -1, sizeof(::icr::Color)},
-  { 33, -1, sizeof(::icr::ROI)},
-  { 43, -1, sizeof(::icr::ROISlice)},
-  { 49, -1, sizeof(::icr::ROIList)},
+  { 0, -1, sizeof(::pyosirix::ROIListRequest)},
+  { 6, -1, sizeof(::pyosirix::UpdateROIResponse)},
+  { 12, -1, sizeof(::pyosirix::ROIRequest)},
+  { 18, -1, sizeof(::pyosirix::Point)},
+  { 25, -1, sizeof(::pyosirix::Color)},
+  { 33, -1, sizeof(::pyosirix::ROI)},
+  { 43, -1, sizeof(::pyosirix::ROISlice)},
+  { 49, -1, sizeof(::pyosirix::ROIList)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ROIListRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_UpdateROIResponse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ROIRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_Point_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_Color_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ROI_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ROISlice_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::icr::_ROIList_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIListRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_UpdateROIResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIRequest_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_Point_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_Color_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROI_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROISlice_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIList_default_instance_),
 };
 
 const char descriptor_table_protodef_roi_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -283,7 +283,7 @@ const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_roi_2e
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_roi_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_roi_2eproto)), true);
-namespace icr {
+namespace pyosirix {
 
 // ===================================================================
 
@@ -1396,15 +1396,15 @@ void Color::InternalSwap(Color* other) {
 // ===================================================================
 
 void ROI::InitAsDefaultInstance() {
-  ::icr::_ROI_default_instance_._instance.get_mutable()->color_ = const_cast< ::icr::Color*>(
-      ::icr::Color::internal_default_instance());
+  ::pyosirix::_ROI_default_instance_._instance.get_mutable()->color_ = const_cast< ::pyosirix::Color*>(
+      ::pyosirix::Color::internal_default_instance());
 }
 class ROI::_Internal {
  public:
-  static const ::icr::Color& color(const ROI* msg);
+  static const ::pyosirix::Color& color(const ROI* msg);
 };
 
-const ::icr::Color&
+const ::pyosirix::Color&
 ROI::_Internal::color(const ROI* msg) {
   return *msg->color_;
 }
@@ -1428,7 +1428,7 @@ ROI::ROI(const ROI& from)
       GetArena());
   }
   if (from._internal_has_color()) {
-    color_ = new ::icr::Color(*from.color_);
+    color_ = new ::pyosirix::Color(*from.color_);
   } else {
     color_ = nullptr;
   }
@@ -1693,7 +1693,7 @@ void ROI::MergeFrom(const ROI& from) {
     _internal_set_name(from._internal_name());
   }
   if (from.has_color()) {
-    _internal_mutable_color()->::icr::Color::MergeFrom(from._internal_color());
+    _internal_mutable_color()->::pyosirix::Color::MergeFrom(from._internal_color());
   }
   if (!(from.opacity() <= 0 && from.opacity() >= 0)) {
     _internal_set_opacity(from._internal_opacity());
@@ -2148,29 +2148,29 @@ void ROIList::InternalSwap(ROIList* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace icr
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::icr::ROIListRequest* Arena::CreateMaybeMessage< ::icr::ROIListRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ROIListRequest >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ROIListRequest* Arena::CreateMaybeMessage< ::pyosirix::ROIListRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ROIListRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::UpdateROIResponse* Arena::CreateMaybeMessage< ::icr::UpdateROIResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::UpdateROIResponse >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::UpdateROIResponse* Arena::CreateMaybeMessage< ::pyosirix::UpdateROIResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::UpdateROIResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ROIRequest* Arena::CreateMaybeMessage< ::icr::ROIRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ROIRequest >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ROIRequest* Arena::CreateMaybeMessage< ::pyosirix::ROIRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ROIRequest >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::Point* Arena::CreateMaybeMessage< ::icr::Point >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::Point >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::Point* Arena::CreateMaybeMessage< ::pyosirix::Point >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::Point >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::Color* Arena::CreateMaybeMessage< ::icr::Color >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::Color >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::Color* Arena::CreateMaybeMessage< ::pyosirix::Color >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::Color >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ROI* Arena::CreateMaybeMessage< ::icr::ROI >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ROI >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ROI* Arena::CreateMaybeMessage< ::pyosirix::ROI >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ROI >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ROISlice* Arena::CreateMaybeMessage< ::icr::ROISlice >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ROISlice >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ROISlice* Arena::CreateMaybeMessage< ::pyosirix::ROISlice >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ROISlice >(arena);
 }
-template<> PROTOBUF_NOINLINE ::icr::ROIList* Arena::CreateMaybeMessage< ::icr::ROIList >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::icr::ROIList >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ROIList* Arena::CreateMaybeMessage< ::pyosirix::ROIList >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ROIList >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -29,7 +29,7 @@ using grpc::ServerBuilder;
 using grpc::ServerContext;
 using grpc::Status;
 
-namespace icr {
+namespace pyosirix {
 
 /**
  @brief HorosServer Subclases from gRPC's proto defined server object. Each

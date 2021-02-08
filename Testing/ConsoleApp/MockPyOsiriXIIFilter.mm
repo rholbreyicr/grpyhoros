@@ -12,10 +12,10 @@
 
 #include <png++/png.hpp>
 
-using icr::DicomDataRequest;
-using icr::DicomDataResponse;
-using icr::ImageGetRequest;
-using icr::ImageGetResponse;
+using pyosirix::DicomDataRequest;
+using pyosirix::DicomDataResponse;
+using pyosirix::ImageGetRequest;
+using pyosirix::ImageGetResponse;
 
 @implementation MockPyOsiriXIIFilter
 
@@ -27,7 +27,7 @@ using icr::ImageGetResponse;
     Console = [[ConsoleController alloc] init];
 
     //Declare the adaptor communication object and pass ownership to Manager
-    Adaptor = new icr::ServerAdaptor;
+    Adaptor = new pyosirix::ServerAdaptor;
     
     Manager = [[ServerManager alloc] init];
     
