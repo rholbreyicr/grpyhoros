@@ -82,8 +82,12 @@ using pyosirix::ImageSetResponse;
     // Create a logger using this handler
     Logger.reset( quill::create_logger("day_log", LogHandler.get()) );
     
-    //quill::Logger* logger = quill::get_logger();
-    LOG_INFO(Logger, "Initializing grpyHoros:OsiriX...{}", " let's hope all goes well" );
+    NSString* horos_marketing_version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString* horos_build_number      = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSString* pyosirix_build_number   = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    VersionString = [NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
+                     pyosirix_build_number, horos_marketing_version, horos_build_number];
+    LOG_INFO(Logger, "Initializing grpyHoros:OsiriX {}", [VersionString UTF8String] );
 }
 
 - (long) filterImage:(NSString*) menuName
@@ -462,6 +466,9 @@ using pyosirix::ImageSetResponse;
 - (void) LogConnection:(NSString*)connec_str
 {
     [Console AddText:connec_str];
+
+    // would like to add this but frequently crashes (? ... VersionString has random contents)
+    //[Console AddText:VersionString];
 }
 
 //borrowed from horosplugins/DicomUnEnhancer/Sources/DicomUnEnhancer.mm : _seriesIn(...)

@@ -89,7 +89,7 @@ def run_set_image(port):
 
 if __name__ == '__main__':
 
-    Port = 50051
+    Port = 50052
     if len(sys.argv) > 1:
         Port = sys.argv[1]
 

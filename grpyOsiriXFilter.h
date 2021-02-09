@@ -16,10 +16,11 @@
     ServerManager* Manager;       ///< Manage and start the server thread (we are the owner)
     ConsoleController* Console;   ///< Console window (owned by Manager)
     pyosirix::ServerAdaptor* Adaptor;  ///< Communication adaptor reference (between the server thread and above;
-                                  ///< owned by Manager)
+                                       ///< owned by Manager)
     
     //NSMutableDictionary *grpcObjects = [[NSMutableDictionary alloc] init];
     NSMutableArray* DisplayedSeries;
+    NSString* VersionString;
     
     std::shared_ptr<quill::Handler> LogHandler;
     std::shared_ptr<quill::Logger> Logger;
