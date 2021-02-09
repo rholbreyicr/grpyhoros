@@ -26,6 +26,12 @@ struct ServerAdaptor {
     NSLock* Lock;  ///< Mutex, owned by plugin, used to control access to Request & Response
 
     char Port[16];  ///< Initialized by plugin
+    
+    // TLS/SSL
+    bool EnableSSL;
+    const char* ServerCertFile   = "cert/server.crt";
+    const char* ServerKeyFile    = "cert/server.key";
+    const char* ClientCACertFile = "cert/ca.crt";
 
     const void* Request;  ///<  C++ server request type (based on call type, owned by Server)
     void* Response;       ///<  C++ server response  type (based on call type, owned by Server)

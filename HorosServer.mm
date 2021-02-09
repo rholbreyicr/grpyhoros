@@ -30,8 +30,22 @@ void* HorosServer::RunServer( void* input ) {
     // set unlimited receive.... default is GRPC_DEFAULT_MAX_RECV_MESSAGE_LENGTH = 4MB
     builder.SetMaxReceiveMessageSize(-1);
     
+    //borrowed from https://stackoverflow.com/questions/32792284/grpc-in-cpp-providing-tls-support
+    std::shared_ptr<grpc::ServerCredentials> creds;
+    if( p_Adaptor->EnableSSL )
+    {
+        grpc::SslServerCredentialsOptions::PemKeyCertPair pkcp ={"a","b"};
+        grpc::SslServerCredentialsOptions ssl_opts;
+        ssl_opts.pem_root_certs="";
+        ssl_opts.pem_key_cert_pairs.push_back(pkcp);
+        creds = grpc::SslServerCredentials(ssl_opts);
+    }
+    else
+        creds = grpc::InsecureServerCredentials();
+    
+    
     // Listen on the given address without any authentication mechanism.
-    builder.AddListeningPort(server_address, grpc::InsecureServerCredentials());
+    builder.AddListeningPort(server_address, creds);
     
     // Register "service" as the instance through which we'll communicate with
     // clients. In this case it corresponds to an *synchronous* service.
