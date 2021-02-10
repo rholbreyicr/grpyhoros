@@ -9,15 +9,7 @@
 // ../script/protoc.sh `pwd`/.. cpp `pwd`/../horos.proto `pwd`
 // cd ../python
 // ../script/protoc.sh `pwd`/.. python `pwd`/../horos.proto `pwd`
-//
-//
-// export PROTO=/usr/local/grpc/bin
-// ${PROTO}/protoc -I . --grpc_out=cpp --plugin=protoc-gen-grpc=${PROTO}/grpc_cpp_plugin horos.proto
-// ${PROTO}/protoc -I . --cpp_out=cpp horos.proto
-// ${PROTO}/protoc -I . --cpp_out=cpp roi.proto
-// ${PROTO}/protoc -I . --grpc_out=python --plugin=protoc-gen-grpc=${PROTO}/grpc_python_plugin horos.proto
-// ${PROTO}/protoc -I . --python_out=python horos.proto
-// ${PROTO}/protoc -I . --python_out=python roi.proto
+// see Makefile for more....
 //
 #ifndef GRPC_horos_2eproto__INCLUDED
 #define GRPC_horos_2eproto__INCLUDED
@@ -55,14 +47,7 @@ class Horos final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    // Request current dicom image
-    virtual ::grpc::Status GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>> AsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>>(AsyncGetCurrentImageDataRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>> PrepareAsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>>(PrepareAsyncGetCurrentImageDataRaw(context, request, cq));
-    }
+    // Request current plugin/host version
     virtual ::grpc::Status GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataRequest* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataRequest>> AsyncGetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataRequest>>(AsyncGetCurrentVersionRaw(context, request, cq));
@@ -70,6 +55,15 @@ class Horos final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataRequest>> PrepareAsyncGetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataRequest>>(PrepareAsyncGetCurrentVersionRaw(context, request, cq));
     }
+    // Request current dicom image metadata
+    virtual ::grpc::Status GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>> AsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>>(AsyncGetCurrentImageDataRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>> PrepareAsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>>(PrepareAsyncGetCurrentImageDataRaw(context, request, cq));
+    }
+    // Request current dicom image metadata
     virtual ::grpc::Status GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::pyosirix::ImageGetResponse* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageGetResponse>> AsyncGetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageGetResponse>>(AsyncGetCurrentImageRaw(context, request, cq));
@@ -84,43 +78,45 @@ class Horos final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageSetResponse>> PrepareAsyncSetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageSetResponse>>(PrepareAsyncSetCurrentImageRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::pyosirix::ROIList* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIList>> AsyncGetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIList>>(AsyncGetROIListRaw(context, request, cq));
+    virtual ::grpc::Status GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::ROIResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIResponse>> AsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIResponse>>(AsyncGetSelectedROIRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIList>> PrepareAsyncGetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIList>>(PrepareAsyncGetROIListRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIResponse>> PrepareAsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIResponse>>(PrepareAsyncGetSelectedROIRaw(context, request, cq));
     }
-    virtual ::grpc::Status GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::ROI* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROI>> AsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROI>>(AsyncGetSelectedROIRaw(context, request, cq));
+    virtual ::grpc::Status GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::SliceROIResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::SliceROIResponse>> AsyncGetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::SliceROIResponse>>(AsyncGetSliceROIsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROI>> PrepareAsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROI>>(PrepareAsyncGetSelectedROIRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::SliceROIResponse>> PrepareAsyncGetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::SliceROIResponse>>(PrepareAsyncGetSliceROIsRaw(context, request, cq));
     }
-    virtual ::grpc::Status UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::pyosirix::UpdateROIResponse* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::UpdateROIResponse>> AsyncUpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::UpdateROIResponse>>(AsyncUpdateROIRaw(context, request, cq));
+    virtual ::grpc::Status GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::StackROIResponse* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::StackROIResponse>> AsyncGetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::StackROIResponse>>(AsyncGetStackROIsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::UpdateROIResponse>> PrepareAsyncUpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::UpdateROIResponse>>(PrepareAsyncUpdateROIRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::StackROIResponse>> PrepareAsyncGetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::StackROIResponse>>(PrepareAsyncGetStackROIsRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      // Request current dicom image
-      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, std::function<void(::grpc::Status)>) = 0;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      #else
-      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
-      #endif
+      // Request current plugin/host version
       virtual void GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
       virtual void GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
+      // Request current dicom image metadata
+      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, std::function<void(::grpc::Status)>) = 0;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      #else
+      virtual void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      #endif
+      // Request current dicom image metadata
       virtual void GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       virtual void GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
@@ -133,23 +129,23 @@ class Horos final {
       #else
       virtual void SetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest* request, ::pyosirix::ImageSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
-      virtual void UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -160,37 +156,37 @@ class Horos final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>* AsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>* PrepareAsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataRequest>* AsyncGetCurrentVersionRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataRequest>* PrepareAsyncGetCurrentVersionRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>* AsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::DicomDataResponse>* PrepareAsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageGetResponse>* AsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageGetResponse>* PrepareAsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageSetResponse>* AsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ImageSetResponse>* PrepareAsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIList>* AsyncGetROIListRaw(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIList>* PrepareAsyncGetROIListRaw(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROI>* AsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROI>* PrepareAsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::UpdateROIResponse>* AsyncUpdateROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::UpdateROIResponse>* PrepareAsyncUpdateROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIResponse>* AsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::ROIResponse>* PrepareAsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::SliceROIResponse>* AsyncGetSliceROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::SliceROIResponse>* PrepareAsyncGetSliceROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::StackROIResponse>* AsyncGetStackROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::pyosirix::StackROIResponse>* PrepareAsyncGetStackROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>> AsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>>(AsyncGetCurrentImageDataRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>> PrepareAsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>>(PrepareAsyncGetCurrentImageDataRaw(context, request, cq));
-    }
     ::grpc::Status GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataRequest* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>> AsyncGetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>>(AsyncGetCurrentVersionRaw(context, request, cq));
     }
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>> PrepareAsyncGetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>>(PrepareAsyncGetCurrentVersionRaw(context, request, cq));
+    }
+    ::grpc::Status GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>> AsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>>(AsyncGetCurrentImageDataRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>> PrepareAsyncGetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>>(PrepareAsyncGetCurrentImageDataRaw(context, request, cq));
     }
     ::grpc::Status GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::pyosirix::ImageGetResponse* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ImageGetResponse>> AsyncGetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::grpc::CompletionQueue* cq) {
@@ -206,41 +202,41 @@ class Horos final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ImageSetResponse>> PrepareAsyncSetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ImageSetResponse>>(PrepareAsyncSetCurrentImageRaw(context, request, cq));
     }
-    ::grpc::Status GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::pyosirix::ROIList* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIList>> AsyncGetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIList>>(AsyncGetROIListRaw(context, request, cq));
+    ::grpc::Status GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::ROIResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIResponse>> AsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIResponse>>(AsyncGetSelectedROIRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIList>> PrepareAsyncGetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIList>>(PrepareAsyncGetROIListRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIResponse>> PrepareAsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIResponse>>(PrepareAsyncGetSelectedROIRaw(context, request, cq));
     }
-    ::grpc::Status GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::ROI* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROI>> AsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROI>>(AsyncGetSelectedROIRaw(context, request, cq));
+    ::grpc::Status GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::SliceROIResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::SliceROIResponse>> AsyncGetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::SliceROIResponse>>(AsyncGetSliceROIsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROI>> PrepareAsyncGetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::ROI>>(PrepareAsyncGetSelectedROIRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::SliceROIResponse>> PrepareAsyncGetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::SliceROIResponse>>(PrepareAsyncGetSliceROIsRaw(context, request, cq));
     }
-    ::grpc::Status UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::pyosirix::UpdateROIResponse* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::UpdateROIResponse>> AsyncUpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::UpdateROIResponse>>(AsyncUpdateROIRaw(context, request, cq));
+    ::grpc::Status GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::pyosirix::StackROIResponse* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::StackROIResponse>> AsyncGetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::StackROIResponse>>(AsyncGetStackROIsRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::UpdateROIResponse>> PrepareAsyncUpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::UpdateROIResponse>>(PrepareAsyncUpdateROIRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::StackROIResponse>> PrepareAsyncGetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::pyosirix::StackROIResponse>>(PrepareAsyncGetStackROIsRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, std::function<void(::grpc::Status)>) override;
-      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
-      #else
-      void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
-      #endif
       void GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       void GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
       void GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      #endif
+      void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, std::function<void(::grpc::Status)>) override;
+      #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      #else
+      void GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       void GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -254,23 +250,23 @@ class Horos final {
       #else
       void SetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest* request, ::pyosirix::ImageSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response, std::function<void(::grpc::Status)>) override;
+      void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void GetROIList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response, std::function<void(::grpc::Status)>) override;
+      void GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void GetSelectedROI(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void GetSliceROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
-      void UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response, std::function<void(::grpc::Status)>) override;
+      void GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void UpdateROI(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void GetStackROIs(::grpc::ClientContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -283,27 +279,27 @@ class Horos final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>* AsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>* PrepareAsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>* AsyncGetCurrentVersionRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>* PrepareAsyncGetCurrentVersionRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>* AsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>* PrepareAsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::pyosirix::ImageGetResponse>* AsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::pyosirix::ImageGetResponse>* PrepareAsyncGetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::pyosirix::ImageSetResponse>* AsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::pyosirix::ImageSetResponse>* PrepareAsyncSetCurrentImageRaw(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIList>* AsyncGetROIListRaw(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIList>* PrepareAsyncGetROIListRaw(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::ROI>* AsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::ROI>* PrepareAsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::UpdateROIResponse>* AsyncUpdateROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::pyosirix::UpdateROIResponse>* PrepareAsyncUpdateROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_GetCurrentImageData_;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIResponse>* AsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::ROIResponse>* PrepareAsyncGetSelectedROIRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::SliceROIResponse>* AsyncGetSliceROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::SliceROIResponse>* PrepareAsyncGetSliceROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::StackROIResponse>* AsyncGetStackROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::pyosirix::StackROIResponse>* PrepareAsyncGetStackROIsRaw(::grpc::ClientContext* context, const ::pyosirix::ROIRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_GetCurrentVersion_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetCurrentImageData_;
     const ::grpc::internal::RpcMethod rpcmethod_GetCurrentImage_;
     const ::grpc::internal::RpcMethod rpcmethod_SetCurrentImage_;
-    const ::grpc::internal::RpcMethod rpcmethod_GetROIList_;
     const ::grpc::internal::RpcMethod rpcmethod_GetSelectedROI_;
-    const ::grpc::internal::RpcMethod rpcmethod_UpdateROI_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetSliceROIs_;
+    const ::grpc::internal::RpcMethod rpcmethod_GetStackROIs_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -311,34 +307,16 @@ class Horos final {
    public:
     Service();
     virtual ~Service();
-    // Request current dicom image
-    virtual ::grpc::Status GetCurrentImageData(::grpc::ServerContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response);
+    // Request current plugin/host version
     virtual ::grpc::Status GetCurrentVersion(::grpc::ServerContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response);
+    // Request current dicom image metadata
+    virtual ::grpc::Status GetCurrentImageData(::grpc::ServerContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response);
+    // Request current dicom image metadata
     virtual ::grpc::Status GetCurrentImage(::grpc::ServerContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response);
     virtual ::grpc::Status SetCurrentImage(::grpc::ServerContext* context, const ::pyosirix::ImageSetRequest* request, ::pyosirix::ImageSetResponse* response);
-    virtual ::grpc::Status GetROIList(::grpc::ServerContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response);
-    virtual ::grpc::Status GetSelectedROI(::grpc::ServerContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response);
-    virtual ::grpc::Status UpdateROI(::grpc::ServerContext* context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response);
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_GetCurrentImageData : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_GetCurrentImageData() {
-      ::grpc::Service::MarkMethodAsync(0);
-    }
-    ~WithAsyncMethod_GetCurrentImageData() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetCurrentImageData(::grpc::ServerContext* context, ::pyosirix::DicomDataRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::DicomDataResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
+    virtual ::grpc::Status GetSelectedROI(::grpc::ServerContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response);
+    virtual ::grpc::Status GetSliceROIs(::grpc::ServerContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response);
+    virtual ::grpc::Status GetStackROIs(::grpc::ServerContext* context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_GetCurrentVersion : public BaseClass {
@@ -346,7 +324,7 @@ class Horos final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetCurrentVersion() {
-      ::grpc::Service::MarkMethodAsync(1);
+      ::grpc::Service::MarkMethodAsync(0);
     }
     ~WithAsyncMethod_GetCurrentVersion() override {
       BaseClassMustBeDerivedFromService(this);
@@ -357,6 +335,26 @@ class Horos final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCurrentVersion(::grpc::ServerContext* context, ::pyosirix::DicomDataRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::DicomDataRequest>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetCurrentImageData() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetCurrentImageData(::grpc::ServerContext* context, ::pyosirix::DicomDataRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::DicomDataResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -401,113 +399,66 @@ class Horos final {
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetROIList : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_GetROIList() {
-      ::grpc::Service::MarkMethodAsync(4);
-    }
-    ~WithAsyncMethod_GetROIList() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetROIList(::grpc::ServerContext* context, ::pyosirix::ROIListRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::ROIList>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithAsyncMethod_GetSelectedROI : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_GetSelectedROI() {
-      ::grpc::Service::MarkMethodAsync(5);
+      ::grpc::Service::MarkMethodAsync(4);
     }
     ~WithAsyncMethod_GetSelectedROI() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/) override {
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetSelectedROI(::grpc::ServerContext* context, ::pyosirix::ROIRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::ROI>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetSelectedROI(::grpc::ServerContext* context, ::pyosirix::ROIRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::ROIResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GetSliceROIs : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_GetSliceROIs() {
+      ::grpc::Service::MarkMethodAsync(5);
+    }
+    ~WithAsyncMethod_GetSliceROIs() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSliceROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetSliceROIs(::grpc::ServerContext* context, ::pyosirix::ROIRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::SliceROIResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_UpdateROI : public BaseClass {
+  class WithAsyncMethod_GetStackROIs : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_UpdateROI() {
+    WithAsyncMethod_GetStackROIs() {
       ::grpc::Service::MarkMethodAsync(6);
     }
-    ~WithAsyncMethod_UpdateROI() override {
+    ~WithAsyncMethod_GetStackROIs() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/) override {
+    ::grpc::Status GetStackROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUpdateROI(::grpc::ServerContext* context, ::pyosirix::ROI* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::UpdateROIResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetStackROIs(::grpc::ServerContext* context, ::pyosirix::ROIRequest* request, ::grpc::ServerAsyncResponseWriter< ::pyosirix::StackROIResponse>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetCurrentImageData<WithAsyncMethod_GetCurrentVersion<WithAsyncMethod_GetCurrentImage<WithAsyncMethod_SetCurrentImage<WithAsyncMethod_GetROIList<WithAsyncMethod_GetSelectedROI<WithAsyncMethod_UpdateROI<Service > > > > > > > AsyncService;
-  template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetCurrentImageData : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_GetCurrentImageData() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response) { return this->GetCurrentImageData(context, request, response); }));}
-    void SetMessageAllocatorFor_GetCurrentImageData(
-        ::grpc::experimental::MessageAllocator< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
-    #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_GetCurrentImageData() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetCurrentImageData(
-      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageData(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/)
-    #endif
-      { return nullptr; }
-  };
+  typedef WithAsyncMethod_GetCurrentVersion<WithAsyncMethod_GetCurrentImageData<WithAsyncMethod_GetCurrentImage<WithAsyncMethod_SetCurrentImage<WithAsyncMethod_GetSelectedROI<WithAsyncMethod_GetSliceROIs<WithAsyncMethod_GetStackROIs<Service > > > > > > > AsyncService;
   template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetCurrentVersion : public BaseClass {
    private:
@@ -519,7 +470,7 @@ class Horos final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(1,
+        MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -531,9 +482,9 @@ class Horos final {
     void SetMessageAllocatorFor_GetCurrentVersion(
         ::grpc::experimental::MessageAllocator< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
     #endif
       static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest>*>(handler)
               ->SetMessageAllocator(allocator);
@@ -552,6 +503,53 @@ class Horos final {
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentVersion(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataRequest* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_GetCurrentImageData() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response) { return this->GetCurrentImageData(context, request, response); }));}
+    void SetMessageAllocatorFor_GetCurrentImageData(
+        ::grpc::experimental::MessageAllocator< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(1);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetCurrentImageData(
+      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageData(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -650,53 +648,6 @@ class Horos final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_GetROIList : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithCallbackMethod_GetROIList() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodCallback(4,
-          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIListRequest, ::pyosirix::ROIList>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIList* response) { return this->GetROIList(context, request, response); }));}
-    void SetMessageAllocatorFor_GetROIList(
-        ::grpc::experimental::MessageAllocator< ::pyosirix::ROIListRequest, ::pyosirix::ROIList>* allocator) {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
-    #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
-    #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIListRequest, ::pyosirix::ROIList>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~ExperimentalWithCallbackMethod_GetROIList() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetROIList(
-      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetROIList(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
   class ExperimentalWithCallbackMethod_GetSelectedROI : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
@@ -707,124 +658,171 @@ class Horos final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(5,
-          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::ROI>(
+        MarkMethodCallback(4,
+          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::ROIResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROI* response) { return this->GetSelectedROI(context, request, response); }));}
+                     context, const ::pyosirix::ROIRequest* request, ::pyosirix::ROIResponse* response) { return this->GetSelectedROI(context, request, response); }));}
     void SetMessageAllocatorFor_GetSelectedROI(
-        ::grpc::experimental::MessageAllocator< ::pyosirix::ROIRequest, ::pyosirix::ROI>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::pyosirix::ROIRequest, ::pyosirix::ROIResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(4);
     #else
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(4);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::ROI>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::ROIResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_GetSelectedROI() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/) override {
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* GetSelectedROI(
-      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* GetSelectedROI(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/)
     #endif
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithCallbackMethod_UpdateROI : public BaseClass {
+  class ExperimentalWithCallbackMethod_GetSliceROIs : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithCallbackMethod_UpdateROI() {
+    ExperimentalWithCallbackMethod_GetSliceROIs() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodCallback(6,
-          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROI, ::pyosirix::UpdateROIResponse>(
+        MarkMethodCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::SliceROIResponse>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::pyosirix::ROI* request, ::pyosirix::UpdateROIResponse* response) { return this->UpdateROI(context, request, response); }));}
-    void SetMessageAllocatorFor_UpdateROI(
-        ::grpc::experimental::MessageAllocator< ::pyosirix::ROI, ::pyosirix::UpdateROIResponse>* allocator) {
+                     context, const ::pyosirix::ROIRequest* request, ::pyosirix::SliceROIResponse* response) { return this->GetSliceROIs(context, request, response); }));}
+    void SetMessageAllocatorFor_GetSliceROIs(
+        ::grpc::experimental::MessageAllocator< ::pyosirix::ROIRequest, ::pyosirix::SliceROIResponse>* allocator) {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(5);
+    #else
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(5);
+    #endif
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::SliceROIResponse>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~ExperimentalWithCallbackMethod_GetSliceROIs() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSliceROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetSliceROIs(
+      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetSliceROIs(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithCallbackMethod_GetStackROIs : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithCallbackMethod_GetStackROIs() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodCallback(6,
+          new ::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::StackROIResponse>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::pyosirix::ROIRequest* request, ::pyosirix::StackROIResponse* response) { return this->GetStackROIs(context, request, response); }));}
+    void SetMessageAllocatorFor_GetStackROIs(
+        ::grpc::experimental::MessageAllocator< ::pyosirix::ROIRequest, ::pyosirix::StackROIResponse>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(6);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(6);
     #endif
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROI, ::pyosirix::UpdateROIResponse>*>(handler)
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::pyosirix::ROIRequest, ::pyosirix::StackROIResponse>*>(handler)
               ->SetMessageAllocator(allocator);
     }
-    ~ExperimentalWithCallbackMethod_UpdateROI() override {
+    ~ExperimentalWithCallbackMethod_GetStackROIs() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/) override {
+    ::grpc::Status GetStackROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* UpdateROI(
-      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/)
+    virtual ::grpc::ServerUnaryReactor* GetStackROIs(
+      ::grpc::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateROI(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/)
+    virtual ::grpc::experimental::ServerUnaryReactor* GetStackROIs(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/)
     #endif
       { return nullptr; }
   };
   #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-  typedef ExperimentalWithCallbackMethod_GetCurrentImageData<ExperimentalWithCallbackMethod_GetCurrentVersion<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<ExperimentalWithCallbackMethod_GetROIList<ExperimentalWithCallbackMethod_GetSelectedROI<ExperimentalWithCallbackMethod_UpdateROI<Service > > > > > > > CallbackService;
+  typedef ExperimentalWithCallbackMethod_GetCurrentVersion<ExperimentalWithCallbackMethod_GetCurrentImageData<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<ExperimentalWithCallbackMethod_GetSelectedROI<ExperimentalWithCallbackMethod_GetSliceROIs<ExperimentalWithCallbackMethod_GetStackROIs<Service > > > > > > > CallbackService;
   #endif
 
-  typedef ExperimentalWithCallbackMethod_GetCurrentImageData<ExperimentalWithCallbackMethod_GetCurrentVersion<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<ExperimentalWithCallbackMethod_GetROIList<ExperimentalWithCallbackMethod_GetSelectedROI<ExperimentalWithCallbackMethod_UpdateROI<Service > > > > > > > ExperimentalCallbackService;
-  template <class BaseClass>
-  class WithGenericMethod_GetCurrentImageData : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_GetCurrentImageData() {
-      ::grpc::Service::MarkMethodGeneric(0);
-    }
-    ~WithGenericMethod_GetCurrentImageData() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
+  typedef ExperimentalWithCallbackMethod_GetCurrentVersion<ExperimentalWithCallbackMethod_GetCurrentImageData<ExperimentalWithCallbackMethod_GetCurrentImage<ExperimentalWithCallbackMethod_SetCurrentImage<ExperimentalWithCallbackMethod_GetSelectedROI<ExperimentalWithCallbackMethod_GetSliceROIs<ExperimentalWithCallbackMethod_GetStackROIs<Service > > > > > > > ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_GetCurrentVersion : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetCurrentVersion() {
-      ::grpc::Service::MarkMethodGeneric(1);
+      ::grpc::Service::MarkMethodGeneric(0);
     }
     ~WithGenericMethod_GetCurrentVersion() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
     ::grpc::Status GetCurrentVersion(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataRequest* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetCurrentImageData() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -864,74 +862,54 @@ class Horos final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_GetROIList : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_GetROIList() {
-      ::grpc::Service::MarkMethodGeneric(4);
-    }
-    ~WithGenericMethod_GetROIList() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
   class WithGenericMethod_GetSelectedROI : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_GetSelectedROI() {
-      ::grpc::Service::MarkMethodGeneric(5);
+      ::grpc::Service::MarkMethodGeneric(4);
     }
     ~WithGenericMethod_GetSelectedROI() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/) override {
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_UpdateROI : public BaseClass {
+  class WithGenericMethod_GetSliceROIs : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_UpdateROI() {
+    WithGenericMethod_GetSliceROIs() {
+      ::grpc::Service::MarkMethodGeneric(5);
+    }
+    ~WithGenericMethod_GetSliceROIs() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSliceROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_GetStackROIs : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_GetStackROIs() {
       ::grpc::Service::MarkMethodGeneric(6);
     }
-    ~WithGenericMethod_UpdateROI() override {
+    ~WithGenericMethod_GetStackROIs() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/) override {
+    ::grpc::Status GetStackROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_GetCurrentImageData : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_GetCurrentImageData() {
-      ::grpc::Service::MarkMethodRaw(0);
-    }
-    ~WithRawMethod_GetCurrentImageData() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetCurrentImageData(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -940,7 +918,7 @@ class Horos final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetCurrentVersion() {
-      ::grpc::Service::MarkMethodRaw(1);
+      ::grpc::Service::MarkMethodRaw(0);
     }
     ~WithRawMethod_GetCurrentVersion() override {
       BaseClassMustBeDerivedFromService(this);
@@ -951,6 +929,26 @@ class Horos final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetCurrentVersion(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetCurrentImageData() {
+      ::grpc::Service::MarkMethodRaw(1);
+    }
+    ~WithRawMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetCurrentImageData(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -995,102 +993,64 @@ class Horos final {
     }
   };
   template <class BaseClass>
-  class WithRawMethod_GetROIList : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_GetROIList() {
-      ::grpc::Service::MarkMethodRaw(4);
-    }
-    ~WithRawMethod_GetROIList() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestGetROIList(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
   class WithRawMethod_GetSelectedROI : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_GetSelectedROI() {
-      ::grpc::Service::MarkMethodRaw(5);
+      ::grpc::Service::MarkMethodRaw(4);
     }
     ~WithRawMethod_GetSelectedROI() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/) override {
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestGetSelectedROI(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(4, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_GetSliceROIs : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_GetSliceROIs() {
+      ::grpc::Service::MarkMethodRaw(5);
+    }
+    ~WithRawMethod_GetSliceROIs() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSliceROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetSliceROIs(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(5, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_UpdateROI : public BaseClass {
+  class WithRawMethod_GetStackROIs : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_UpdateROI() {
+    WithRawMethod_GetStackROIs() {
       ::grpc::Service::MarkMethodRaw(6);
     }
-    ~WithRawMethod_UpdateROI() override {
+    ~WithRawMethod_GetStackROIs() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/) override {
+    ::grpc::Status GetStackROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestUpdateROI(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetStackROIs(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(6, context, request, response, new_call_cq, notification_cq, tag);
     }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetCurrentImageData : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_GetCurrentImageData() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCurrentImageData(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_GetCurrentImageData() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetCurrentImageData(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageData(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
   };
   template <class BaseClass>
   class ExperimentalWithRawCallbackMethod_GetCurrentVersion : public BaseClass {
@@ -1103,7 +1063,7 @@ class Horos final {
     #else
       ::grpc::Service::experimental().
     #endif
-        MarkMethodRawCallback(1,
+        MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -1126,6 +1086,44 @@ class Horos final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentVersion(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetCurrentImageData() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetCurrentImageData(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetCurrentImageData(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetCurrentImageData(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
@@ -1207,11 +1205,11 @@ class Horos final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetROIList : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetSelectedROI : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_GetROIList() {
+    ExperimentalWithRawCallbackMethod_GetSelectedROI() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -1225,51 +1223,13 @@ class Horos final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetROIList(context, request, response); }));
-    }
-    ~ExperimentalWithRawCallbackMethod_GetROIList() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* GetROIList(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #else
-    virtual ::grpc::experimental::ServerUnaryReactor* GetROIList(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
-    #endif
-      { return nullptr; }
-  };
-  template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_GetSelectedROI : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    ExperimentalWithRawCallbackMethod_GetSelectedROI() {
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      ::grpc::Service::
-    #else
-      ::grpc::Service::experimental().
-    #endif
-        MarkMethodRawCallback(5,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-                   ::grpc::CallbackServerContext*
-    #else
-                   ::grpc::experimental::CallbackServerContext*
-    #endif
                      context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetSelectedROI(context, request, response); }));
     }
     ~ExperimentalWithRawCallbackMethod_GetSelectedROI() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/) override {
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1283,11 +1243,49 @@ class Horos final {
       { return nullptr; }
   };
   template <class BaseClass>
-  class ExperimentalWithRawCallbackMethod_UpdateROI : public BaseClass {
+  class ExperimentalWithRawCallbackMethod_GetSliceROIs : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    ExperimentalWithRawCallbackMethod_UpdateROI() {
+    ExperimentalWithRawCallbackMethod_GetSliceROIs() {
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+      ::grpc::Service::
+    #else
+      ::grpc::Service::experimental().
+    #endif
+        MarkMethodRawCallback(5,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+                   ::grpc::CallbackServerContext*
+    #else
+                   ::grpc::experimental::CallbackServerContext*
+    #endif
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetSliceROIs(context, request, response); }));
+    }
+    ~ExperimentalWithRawCallbackMethod_GetSliceROIs() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetSliceROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
+    virtual ::grpc::ServerUnaryReactor* GetSliceROIs(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #else
+    virtual ::grpc::experimental::ServerUnaryReactor* GetSliceROIs(
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
+    #endif
+      { return nullptr; }
+  };
+  template <class BaseClass>
+  class ExperimentalWithRawCallbackMethod_GetStackROIs : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    ExperimentalWithRawCallbackMethod_GetStackROIs() {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::Service::
     #else
@@ -1301,51 +1299,24 @@ class Horos final {
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->UpdateROI(context, request, response); }));
+                     context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->GetStackROIs(context, request, response); }));
     }
-    ~ExperimentalWithRawCallbackMethod_UpdateROI() override {
+    ~ExperimentalWithRawCallbackMethod_GetStackROIs() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/) override {
+    ::grpc::Status GetStackROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-    virtual ::grpc::ServerUnaryReactor* UpdateROI(
+    virtual ::grpc::ServerUnaryReactor* GetStackROIs(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #else
-    virtual ::grpc::experimental::ServerUnaryReactor* UpdateROI(
+    virtual ::grpc::experimental::ServerUnaryReactor* GetStackROIs(
       ::grpc::experimental::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)
     #endif
       { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_GetCurrentImageData : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_GetCurrentImageData() {
-      ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>* streamer) {
-                       return this->StreamedGetCurrentImageData(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_GetCurrentImageData() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetCurrentImageData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::DicomDataRequest,::pyosirix::DicomDataResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetCurrentVersion : public BaseClass {
@@ -1353,7 +1324,7 @@ class Horos final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetCurrentVersion() {
-      ::grpc::Service::MarkMethodStreamed(1,
+      ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest>(
             [this](::grpc::ServerContext* context,
@@ -1373,6 +1344,33 @@ class Horos final {
     }
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetCurrentVersion(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::DicomDataRequest,::pyosirix::DicomDataRequest>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetCurrentImageData : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetCurrentImageData() {
+      ::grpc::Service::MarkMethodStreamed(1,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse>* streamer) {
+                       return this->StreamedGetCurrentImageData(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetCurrentImageData() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetCurrentImageData(::grpc::ServerContext* /*context*/, const ::pyosirix::DicomDataRequest* /*request*/, ::pyosirix::DicomDataResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetCurrentImageData(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::DicomDataRequest,::pyosirix::DicomDataResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_GetCurrentImage : public BaseClass {
@@ -1429,44 +1427,17 @@ class Horos final {
     virtual ::grpc::Status StreamedSetCurrentImage(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::ImageSetRequest,::pyosirix::ImageSetResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetROIList : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_GetROIList() {
-      ::grpc::Service::MarkMethodStreamed(4,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::pyosirix::ROIListRequest, ::pyosirix::ROIList>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::pyosirix::ROIListRequest, ::pyosirix::ROIList>* streamer) {
-                       return this->StreamedGetROIList(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_GetROIList() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status GetROIList(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIListRequest* /*request*/, ::pyosirix::ROIList* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetROIList(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::ROIListRequest,::pyosirix::ROIList>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
   class WithStreamedUnaryMethod_GetSelectedROI : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_GetSelectedROI() {
-      ::grpc::Service::MarkMethodStreamed(5,
+      ::grpc::Service::MarkMethodStreamed(4,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::pyosirix::ROIRequest, ::pyosirix::ROI>(
+          ::pyosirix::ROIRequest, ::pyosirix::ROIResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::pyosirix::ROIRequest, ::pyosirix::ROI>* streamer) {
+                     ::pyosirix::ROIRequest, ::pyosirix::ROIResponse>* streamer) {
                        return this->StreamedGetSelectedROI(context,
                          streamer);
                   }));
@@ -1475,43 +1446,70 @@ class Horos final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROI* /*response*/) override {
+    ::grpc::Status GetSelectedROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::ROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetSelectedROI(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::ROIRequest,::pyosirix::ROI>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetSelectedROI(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::ROIRequest,::pyosirix::ROIResponse>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_UpdateROI : public BaseClass {
+  class WithStreamedUnaryMethod_GetSliceROIs : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithStreamedUnaryMethod_UpdateROI() {
-      ::grpc::Service::MarkMethodStreamed(6,
+    WithStreamedUnaryMethod_GetSliceROIs() {
+      ::grpc::Service::MarkMethodStreamed(5,
         new ::grpc::internal::StreamedUnaryHandler<
-          ::pyosirix::ROI, ::pyosirix::UpdateROIResponse>(
+          ::pyosirix::ROIRequest, ::pyosirix::SliceROIResponse>(
             [this](::grpc::ServerContext* context,
                    ::grpc::ServerUnaryStreamer<
-                     ::pyosirix::ROI, ::pyosirix::UpdateROIResponse>* streamer) {
-                       return this->StreamedUpdateROI(context,
+                     ::pyosirix::ROIRequest, ::pyosirix::SliceROIResponse>* streamer) {
+                       return this->StreamedGetSliceROIs(context,
                          streamer);
                   }));
     }
-    ~WithStreamedUnaryMethod_UpdateROI() override {
+    ~WithStreamedUnaryMethod_GetSliceROIs() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status UpdateROI(::grpc::ServerContext* /*context*/, const ::pyosirix::ROI* /*request*/, ::pyosirix::UpdateROIResponse* /*response*/) override {
+    ::grpc::Status GetSliceROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::SliceROIResponse* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedUpdateROI(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::ROI,::pyosirix::UpdateROIResponse>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetSliceROIs(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::ROIRequest,::pyosirix::SliceROIResponse>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetCurrentImageData<WithStreamedUnaryMethod_GetCurrentVersion<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<WithStreamedUnaryMethod_GetROIList<WithStreamedUnaryMethod_GetSelectedROI<WithStreamedUnaryMethod_UpdateROI<Service > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetStackROIs : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_GetStackROIs() {
+      ::grpc::Service::MarkMethodStreamed(6,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::pyosirix::ROIRequest, ::pyosirix::StackROIResponse>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::pyosirix::ROIRequest, ::pyosirix::StackROIResponse>* streamer) {
+                       return this->StreamedGetStackROIs(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_GetStackROIs() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetStackROIs(::grpc::ServerContext* /*context*/, const ::pyosirix::ROIRequest* /*request*/, ::pyosirix::StackROIResponse* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetStackROIs(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::pyosirix::ROIRequest,::pyosirix::StackROIResponse>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GetCurrentVersion<WithStreamedUnaryMethod_GetCurrentImageData<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<WithStreamedUnaryMethod_GetSelectedROI<WithStreamedUnaryMethod_GetSliceROIs<WithStreamedUnaryMethod_GetStackROIs<Service > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_GetCurrentImageData<WithStreamedUnaryMethod_GetCurrentVersion<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<WithStreamedUnaryMethod_GetROIList<WithStreamedUnaryMethod_GetSelectedROI<WithStreamedUnaryMethod_UpdateROI<Service > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_GetCurrentVersion<WithStreamedUnaryMethod_GetCurrentImageData<WithStreamedUnaryMethod_GetCurrentImage<WithStreamedUnaryMethod_SetCurrentImage<WithStreamedUnaryMethod_GetSelectedROI<WithStreamedUnaryMethod_GetSliceROIs<WithStreamedUnaryMethod_GetStackROIs<Service > > > > > > > StreamedService;
 };
 
 }  // namespace pyosirix

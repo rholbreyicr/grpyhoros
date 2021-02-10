@@ -4,42 +4,37 @@
 syntax = "proto3";
 package pyosirix;
 
-message ROIListRequest {
-  string id = 1;
-}
-
-message UpdateROIResponse {
-  string message = 1;
-}
-
 message ROIRequest {
   string id = 1;
 }
 
-message Point{
+message Point {
   float x = 1;
   float y = 2;
 }
 
-message Color{
+message Color {
   uint32 r = 1;
   uint32 g = 2;
   uint32 b = 3;
 }
 
-message ROI{
-  string id = 1;
+message ROIResponse {
+  string id = 1;  // patient id :: seriesinstanceUID :: slice number
   string name = 2;
   Color color = 3;
   float opacity = 4;
   float thickness = 5;
-  //repeated Point points = 6;
+  repeated Point points = 6;
 }
 
-message ROISlice{
-  repeated ROI rois = 1;
+message SliceROIResponse {
+  string id = 1; // patient id :: seriesinstanceUID :: slice number
+  repeated uint32 selected = 2;  // indices of selected rois
+  repeated ROIResponse rois = 3;
 }
 
-message ROIList{
-  repeated ROISlice slices = 1;
+message StackROIResponse {
+  string id = 1;  // patient id :: seriesinstanceUID :: -1
+  repeated SliceROIResponse slices = 2;
 }

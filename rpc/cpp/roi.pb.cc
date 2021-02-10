@@ -15,17 +15,10 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Color_roi_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROI_roi_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROISlice_roi_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_roi_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ROIResponse_roi_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_roi_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SliceROIResponse_roi_2eproto;
 namespace pyosirix {
-class ROIListRequestDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ROIListRequest> _instance;
-} _ROIListRequest_default_instance_;
-class UpdateROIResponseDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<UpdateROIResponse> _instance;
-} _UpdateROIResponse_default_instance_;
 class ROIRequestDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ROIRequest> _instance;
@@ -38,18 +31,18 @@ class ColorDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<Color> _instance;
 } _Color_default_instance_;
-class ROIDefaultTypeInternal {
+class ROIResponseDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ROI> _instance;
-} _ROI_default_instance_;
-class ROISliceDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ROIResponse> _instance;
+} _ROIResponse_default_instance_;
+class SliceROIResponseDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ROISlice> _instance;
-} _ROISlice_default_instance_;
-class ROIListDefaultTypeInternal {
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<SliceROIResponse> _instance;
+} _SliceROIResponse_default_instance_;
+class StackROIResponseDefaultTypeInternal {
  public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ROIList> _instance;
-} _ROIList_default_instance_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<StackROIResponse> _instance;
+} _StackROIResponse_default_instance_;
 }  // namespace pyosirix
 static void InitDefaultsscc_info_Color_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -79,50 +72,6 @@ static void InitDefaultsscc_info_Point_roi_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_Point_roi_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_Point_roi_2eproto}, {}};
 
-static void InitDefaultsscc_info_ROI_roi_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::pyosirix::_ROI_default_instance_;
-    new (ptr) ::pyosirix::ROI();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::pyosirix::ROI::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROI_roi_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ROI_roi_2eproto}, {
-      &scc_info_Color_roi_2eproto.base,}};
-
-static void InitDefaultsscc_info_ROIList_roi_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::pyosirix::_ROIList_default_instance_;
-    new (ptr) ::pyosirix::ROIList();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::pyosirix::ROIList::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROIList_roi_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ROIList_roi_2eproto}, {
-      &scc_info_ROISlice_roi_2eproto.base,}};
-
-static void InitDefaultsscc_info_ROIListRequest_roi_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::pyosirix::_ROIListRequest_default_instance_;
-    new (ptr) ::pyosirix::ROIListRequest();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::pyosirix::ROIListRequest::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ROIListRequest_roi_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ROIListRequest_roi_2eproto}, {}};
-
 static void InitDefaultsscc_info_ROIRequest_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -137,52 +86,57 @@ static void InitDefaultsscc_info_ROIRequest_roi_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_ROIRequest_roi_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_ROIRequest_roi_2eproto}, {}};
 
-static void InitDefaultsscc_info_ROISlice_roi_2eproto() {
+static void InitDefaultsscc_info_ROIResponse_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::pyosirix::_ROISlice_default_instance_;
-    new (ptr) ::pyosirix::ROISlice();
+    void* ptr = &::pyosirix::_ROIResponse_default_instance_;
+    new (ptr) ::pyosirix::ROIResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::pyosirix::ROISlice::InitAsDefaultInstance();
+  ::pyosirix::ROIResponse::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_ROISlice_roi_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_ROISlice_roi_2eproto}, {
-      &scc_info_ROI_roi_2eproto.base,}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<2> scc_info_ROIResponse_roi_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 2, 0, InitDefaultsscc_info_ROIResponse_roi_2eproto}, {
+      &scc_info_Color_roi_2eproto.base,
+      &scc_info_Point_roi_2eproto.base,}};
 
-static void InitDefaultsscc_info_UpdateROIResponse_roi_2eproto() {
+static void InitDefaultsscc_info_SliceROIResponse_roi_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   {
-    void* ptr = &::pyosirix::_UpdateROIResponse_default_instance_;
-    new (ptr) ::pyosirix::UpdateROIResponse();
+    void* ptr = &::pyosirix::_SliceROIResponse_default_instance_;
+    new (ptr) ::pyosirix::SliceROIResponse();
     ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
   }
-  ::pyosirix::UpdateROIResponse::InitAsDefaultInstance();
+  ::pyosirix::SliceROIResponse::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_UpdateROIResponse_roi_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_UpdateROIResponse_roi_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_SliceROIResponse_roi_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_SliceROIResponse_roi_2eproto}, {
+      &scc_info_ROIResponse_roi_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_roi_2eproto[8];
+static void InitDefaultsscc_info_StackROIResponse_roi_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::pyosirix::_StackROIResponse_default_instance_;
+    new (ptr) ::pyosirix::StackROIResponse();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::pyosirix::StackROIResponse::InitAsDefaultInstance();
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_StackROIResponse_roi_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_StackROIResponse_roi_2eproto}, {
+      &scc_info_SliceROIResponse_roi_2eproto.base,}};
+
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_roi_2eproto[6];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_roi_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_roi_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_roi_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIListRequest, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIListRequest, id_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::UpdateROIResponse, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::UpdateROIResponse, message_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::pyosirix::ROIRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -205,503 +159,84 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_roi_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::pyosirix::Color, g_),
   PROTOBUF_FIELD_OFFSET(::pyosirix::Color, b_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, id_),
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, name_),
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, color_),
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, opacity_),
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, thickness_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIResponse, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIResponse, name_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIResponse, color_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIResponse, opacity_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIResponse, thickness_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIResponse, points_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROISlice, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::SliceROIResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROISlice, rois_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::SliceROIResponse, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::SliceROIResponse, selected_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::SliceROIResponse, rois_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIList, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::StackROIResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::pyosirix::ROIList, slices_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::StackROIResponse, id_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::StackROIResponse, slices_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::pyosirix::ROIListRequest)},
-  { 6, -1, sizeof(::pyosirix::UpdateROIResponse)},
-  { 12, -1, sizeof(::pyosirix::ROIRequest)},
-  { 18, -1, sizeof(::pyosirix::Point)},
-  { 25, -1, sizeof(::pyosirix::Color)},
-  { 33, -1, sizeof(::pyosirix::ROI)},
-  { 43, -1, sizeof(::pyosirix::ROISlice)},
-  { 49, -1, sizeof(::pyosirix::ROIList)},
+  { 0, -1, sizeof(::pyosirix::ROIRequest)},
+  { 6, -1, sizeof(::pyosirix::Point)},
+  { 13, -1, sizeof(::pyosirix::Color)},
+  { 21, -1, sizeof(::pyosirix::ROIResponse)},
+  { 32, -1, sizeof(::pyosirix::SliceROIResponse)},
+  { 40, -1, sizeof(::pyosirix::StackROIResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIListRequest_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_UpdateROIResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_Point_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_Color_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROI_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROISlice_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIList_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_SliceROIResponse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_StackROIResponse_default_instance_),
 };
 
 const char descriptor_table_protodef_roi_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\troi.proto\022\010pyosirix\"\034\n\016ROIListRequest\022"
-  "\n\n\002id\030\001 \001(\t\"$\n\021UpdateROIResponse\022\017\n\007mess"
-  "age\030\001 \001(\t\"\030\n\nROIRequest\022\n\n\002id\030\001 \001(\t\"\035\n\005P"
-  "oint\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"(\n\005Color\022\t\n\001r"
-  "\030\001 \001(\r\022\t\n\001g\030\002 \001(\r\022\t\n\001b\030\003 \001(\r\"c\n\003ROI\022\n\n\002i"
-  "d\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\036\n\005color\030\003 \001(\0132\017.p"
-  "yosirix.Color\022\017\n\007opacity\030\004 \001(\002\022\021\n\tthickn"
-  "ess\030\005 \001(\002\"\'\n\010ROISlice\022\033\n\004rois\030\001 \003(\0132\r.py"
-  "osirix.ROI\"-\n\007ROIList\022\"\n\006slices\030\001 \003(\0132\022."
-  "pyosirix.ROISliceb\006proto3"
+  "\n\troi.proto\022\010pyosirix\"\030\n\nROIRequest\022\n\n\002i"
+  "d\030\001 \001(\t\"\035\n\005Point\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"("
+  "\n\005Color\022\t\n\001r\030\001 \001(\r\022\t\n\001g\030\002 \001(\r\022\t\n\001b\030\003 \001(\r"
+  "\"\214\001\n\013ROIResponse\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001"
+  "(\t\022\036\n\005color\030\003 \001(\0132\017.pyosirix.Color\022\017\n\007op"
+  "acity\030\004 \001(\002\022\021\n\tthickness\030\005 \001(\002\022\037\n\006points"
+  "\030\006 \003(\0132\017.pyosirix.Point\"U\n\020SliceROIRespo"
+  "nse\022\n\n\002id\030\001 \001(\t\022\020\n\010selected\030\002 \003(\r\022#\n\004roi"
+  "s\030\003 \003(\0132\025.pyosirix.ROIResponse\"J\n\020StackR"
+  "OIResponse\022\n\n\002id\030\001 \001(\t\022*\n\006slices\030\002 \003(\0132\032"
+  ".pyosirix.SliceROIResponseb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_roi_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_roi_2eproto_sccs[8] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_roi_2eproto_sccs[6] = {
   &scc_info_Color_roi_2eproto.base,
   &scc_info_Point_roi_2eproto.base,
-  &scc_info_ROI_roi_2eproto.base,
-  &scc_info_ROIList_roi_2eproto.base,
-  &scc_info_ROIListRequest_roi_2eproto.base,
   &scc_info_ROIRequest_roi_2eproto.base,
-  &scc_info_ROISlice_roi_2eproto.base,
-  &scc_info_UpdateROIResponse_roi_2eproto.base,
+  &scc_info_ROIResponse_roi_2eproto.base,
+  &scc_info_SliceROIResponse_roi_2eproto.base,
+  &scc_info_StackROIResponse_roi_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_roi_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_roi_2eproto = {
-  false, false, descriptor_table_protodef_roi_2eproto, "roi.proto", 385,
-  &descriptor_table_roi_2eproto_once, descriptor_table_roi_2eproto_sccs, descriptor_table_roi_2eproto_deps, 8, 0,
+  false, false, descriptor_table_protodef_roi_2eproto, "roi.proto", 434,
+  &descriptor_table_roi_2eproto_once, descriptor_table_roi_2eproto_sccs, descriptor_table_roi_2eproto_deps, 6, 0,
   schemas, file_default_instances, TableStruct_roi_2eproto::offsets,
-  file_level_metadata_roi_2eproto, 8, file_level_enum_descriptors_roi_2eproto, file_level_service_descriptors_roi_2eproto,
+  file_level_metadata_roi_2eproto, 6, file_level_enum_descriptors_roi_2eproto, file_level_service_descriptors_roi_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_roi_2eproto = (static_cast<void>(::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_roi_2eproto)), true);
 namespace pyosirix {
-
-// ===================================================================
-
-void ROIListRequest::InitAsDefaultInstance() {
-}
-class ROIListRequest::_Internal {
- public:
-};
-
-ROIListRequest::ROIListRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:pyosirix.ROIListRequest)
-}
-ROIListRequest::ROIListRequest(const ROIListRequest& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_id().empty()) {
-    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
-      GetArena());
-  }
-  // @@protoc_insertion_point(copy_constructor:pyosirix.ROIListRequest)
-}
-
-void ROIListRequest::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ROIListRequest_roi_2eproto.base);
-  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-ROIListRequest::~ROIListRequest() {
-  // @@protoc_insertion_point(destructor:pyosirix.ROIListRequest)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void ROIListRequest::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void ROIListRequest::ArenaDtor(void* object) {
-  ROIListRequest* _this = reinterpret_cast< ROIListRequest* >(object);
-  (void)_this;
-}
-void ROIListRequest::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void ROIListRequest::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const ROIListRequest& ROIListRequest::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ROIListRequest_roi_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void ROIListRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:pyosirix.ROIListRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* ROIListRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string id = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_id();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ROIListRequest.id"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* ROIListRequest::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ROIListRequest)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string id = 1;
-  if (this->id().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "pyosirix.ROIListRequest.id");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_id(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ROIListRequest)
-  return target;
-}
-
-size_t ROIListRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pyosirix.ROIListRequest)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string id = 1;
-  if (this->id().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_id());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void ROIListRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ROIListRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  const ROIListRequest* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ROIListRequest>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ROIListRequest)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ROIListRequest)
-    MergeFrom(*source);
-  }
-}
-
-void ROIListRequest::MergeFrom(const ROIListRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ROIListRequest)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.id().size() > 0) {
-    _internal_set_id(from._internal_id());
-  }
-}
-
-void ROIListRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ROIListRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void ROIListRequest::CopyFrom(const ROIListRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ROIListRequest)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool ROIListRequest::IsInitialized() const {
-  return true;
-}
-
-void ROIListRequest::InternalSwap(ROIListRequest* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata ROIListRequest::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
-
-// ===================================================================
-
-void UpdateROIResponse::InitAsDefaultInstance() {
-}
-class UpdateROIResponse::_Internal {
- public:
-};
-
-UpdateROIResponse::UpdateROIResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
-  SharedCtor();
-  RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:pyosirix.UpdateROIResponse)
-}
-UpdateROIResponse::UpdateROIResponse(const UpdateROIResponse& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_message().empty()) {
-    message_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_message(),
-      GetArena());
-  }
-  // @@protoc_insertion_point(copy_constructor:pyosirix.UpdateROIResponse)
-}
-
-void UpdateROIResponse::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_UpdateROIResponse_roi_2eproto.base);
-  message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-UpdateROIResponse::~UpdateROIResponse() {
-  // @@protoc_insertion_point(destructor:pyosirix.UpdateROIResponse)
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-void UpdateROIResponse::SharedDtor() {
-  GOOGLE_DCHECK(GetArena() == nullptr);
-  message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-}
-
-void UpdateROIResponse::ArenaDtor(void* object) {
-  UpdateROIResponse* _this = reinterpret_cast< UpdateROIResponse* >(object);
-  (void)_this;
-}
-void UpdateROIResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void UpdateROIResponse::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const UpdateROIResponse& UpdateROIResponse::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_UpdateROIResponse_roi_2eproto.base);
-  return *internal_default_instance();
-}
-
-
-void UpdateROIResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:pyosirix.UpdateROIResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  message_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* UpdateROIResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
-  while (!ctx->Done(&ptr)) {
-    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    CHK_(ptr);
-    switch (tag >> 3) {
-      // string message = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_message();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.UpdateROIResponse.message"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag,
-            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-            ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* UpdateROIResponse::_InternalSerialize(
-    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.UpdateROIResponse)
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // string message = 1;
-  if (this->message().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "pyosirix.UpdateROIResponse.message");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_message(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.UpdateROIResponse)
-  return target;
-}
-
-size_t UpdateROIResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pyosirix.UpdateROIResponse)
-  size_t total_size = 0;
-
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // string message = 1;
-  if (this->message().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_message());
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
-        _internal_metadata_, total_size, &_cached_size_);
-  }
-  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
-  SetCachedSize(cached_size);
-  return total_size;
-}
-
-void UpdateROIResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.UpdateROIResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  const UpdateROIResponse* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<UpdateROIResponse>(
-          &from);
-  if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.UpdateROIResponse)
-    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
-  } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.UpdateROIResponse)
-    MergeFrom(*source);
-  }
-}
-
-void UpdateROIResponse::MergeFrom(const UpdateROIResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.UpdateROIResponse)
-  GOOGLE_DCHECK_NE(&from, this);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from.message().size() > 0) {
-    _internal_set_message(from._internal_message());
-  }
-}
-
-void UpdateROIResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.UpdateROIResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void UpdateROIResponse::CopyFrom(const UpdateROIResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.UpdateROIResponse)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool UpdateROIResponse::IsInitialized() const {
-  return true;
-}
-
-void UpdateROIResponse::InternalSwap(UpdateROIResponse* other) {
-  using std::swap;
-  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  message_.Swap(&other->message_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata UpdateROIResponse::GetMetadata() const {
-  return GetMetadataStatic();
-}
-
 
 // ===================================================================
 
@@ -1395,27 +930,29 @@ void Color::InternalSwap(Color* other) {
 
 // ===================================================================
 
-void ROI::InitAsDefaultInstance() {
-  ::pyosirix::_ROI_default_instance_._instance.get_mutable()->color_ = const_cast< ::pyosirix::Color*>(
+void ROIResponse::InitAsDefaultInstance() {
+  ::pyosirix::_ROIResponse_default_instance_._instance.get_mutable()->color_ = const_cast< ::pyosirix::Color*>(
       ::pyosirix::Color::internal_default_instance());
 }
-class ROI::_Internal {
+class ROIResponse::_Internal {
  public:
-  static const ::pyosirix::Color& color(const ROI* msg);
+  static const ::pyosirix::Color& color(const ROIResponse* msg);
 };
 
 const ::pyosirix::Color&
-ROI::_Internal::color(const ROI* msg) {
+ROIResponse::_Internal::color(const ROIResponse* msg) {
   return *msg->color_;
 }
-ROI::ROI(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+ROIResponse::ROIResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  points_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:pyosirix.ROI)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.ROIResponse)
 }
-ROI::ROI(const ROI& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+ROIResponse::ROIResponse(const ROIResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      points_(from.points_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_id().empty()) {
@@ -1435,11 +972,11 @@ ROI::ROI(const ROI& from)
   ::memcpy(&opacity_, &from.opacity_,
     static_cast<size_t>(reinterpret_cast<char*>(&thickness_) -
     reinterpret_cast<char*>(&opacity_)) + sizeof(thickness_));
-  // @@protoc_insertion_point(copy_constructor:pyosirix.ROI)
+  // @@protoc_insertion_point(copy_constructor:pyosirix.ROIResponse)
 }
 
-void ROI::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ROI_roi_2eproto.base);
+void ROIResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ROIResponse_roi_2eproto.base);
   id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   ::memset(&color_, 0, static_cast<size_t>(
@@ -1447,40 +984,41 @@ void ROI::SharedCtor() {
       reinterpret_cast<char*>(&color_)) + sizeof(thickness_));
 }
 
-ROI::~ROI() {
-  // @@protoc_insertion_point(destructor:pyosirix.ROI)
+ROIResponse::~ROIResponse() {
+  // @@protoc_insertion_point(destructor:pyosirix.ROIResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ROI::SharedDtor() {
+void ROIResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
   id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete color_;
 }
 
-void ROI::ArenaDtor(void* object) {
-  ROI* _this = reinterpret_cast< ROI* >(object);
+void ROIResponse::ArenaDtor(void* object) {
+  ROIResponse* _this = reinterpret_cast< ROIResponse* >(object);
   (void)_this;
 }
-void ROI::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void ROIResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void ROI::SetCachedSize(int size) const {
+void ROIResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ROI& ROI::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ROI_roi_2eproto.base);
+const ROIResponse& ROIResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ROIResponse_roi_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void ROI::Clear() {
-// @@protoc_insertion_point(message_clear_start:pyosirix.ROI)
+void ROIResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:pyosirix.ROIResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  points_.Clear();
   id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   name_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   if (GetArena() == nullptr && color_ != nullptr) {
@@ -1493,7 +1031,7 @@ void ROI::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ROI::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ROIResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
@@ -1506,7 +1044,7 @@ const char* ROI::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ROI.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ROIResponse.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1515,7 +1053,7 @@ const char* ROI::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ROI.name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ROIResponse.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1540,6 +1078,18 @@ const char* ROI::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
           ptr += sizeof(float);
         } else goto handle_unusual;
         continue;
+      // repeated .pyosirix.Point points = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_points(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
+        } else goto handle_unusual;
+        continue;
       default: {
       handle_unusual:
         if ((tag & 7) == 4 || tag == 0) {
@@ -1562,9 +1112,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ROI::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* ROIResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ROI)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ROIResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1573,7 +1123,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "pyosirix.ROI.id");
+      "pyosirix.ROIResponse.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -1583,7 +1133,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "pyosirix.ROI.name");
+      "pyosirix.ROIResponse.name");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_name(), target);
   }
@@ -1608,21 +1158,36 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(5, this->_internal_thickness(), target);
   }
 
+  // repeated .pyosirix.Point points = 6;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_points_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, this->_internal_points(i), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ROI)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ROIResponse)
   return target;
 }
 
-size_t ROI::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pyosirix.ROI)
+size_t ROIResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.ROIResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .pyosirix.Point points = 6;
+  total_size += 1UL * this->_internal_points_size();
+  for (const auto& msg : this->points_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
 
   // string id = 1;
   if (this->id().size() > 0) {
@@ -1664,28 +1229,29 @@ size_t ROI::ByteSizeLong() const {
   return total_size;
 }
 
-void ROI::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ROI)
+void ROIResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ROIResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const ROI* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ROI>(
+  const ROIResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ROIResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ROI)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ROIResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ROI)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ROIResponse)
     MergeFrom(*source);
   }
 }
 
-void ROI::MergeFrom(const ROI& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ROI)
+void ROIResponse::MergeFrom(const ROIResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ROIResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  points_.MergeFrom(from.points_);
   if (from.id().size() > 0) {
     _internal_set_id(from._internal_id());
   }
@@ -1703,104 +1269,116 @@ void ROI::MergeFrom(const ROI& from) {
   }
 }
 
-void ROI::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ROI)
+void ROIResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ROIResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ROI::CopyFrom(const ROI& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ROI)
+void ROIResponse::CopyFrom(const ROIResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ROIResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ROI::IsInitialized() const {
+bool ROIResponse::IsInitialized() const {
   return true;
 }
 
-void ROI::InternalSwap(ROI* other) {
+void ROIResponse::InternalSwap(ROIResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  points_.InternalSwap(&other->points_);
   id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ROI, thickness_)
-      + sizeof(ROI::thickness_)
-      - PROTOBUF_FIELD_OFFSET(ROI, color_)>(
+      PROTOBUF_FIELD_OFFSET(ROIResponse, thickness_)
+      + sizeof(ROIResponse::thickness_)
+      - PROTOBUF_FIELD_OFFSET(ROIResponse, color_)>(
           reinterpret_cast<char*>(&color_),
           reinterpret_cast<char*>(&other->color_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ROI::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata ROIResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void ROISlice::InitAsDefaultInstance() {
+void SliceROIResponse::InitAsDefaultInstance() {
 }
-class ROISlice::_Internal {
+class SliceROIResponse::_Internal {
  public:
 };
 
-ROISlice::ROISlice(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+SliceROIResponse::SliceROIResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  selected_(arena),
   rois_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:pyosirix.ROISlice)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.SliceROIResponse)
 }
-ROISlice::ROISlice(const ROISlice& from)
+SliceROIResponse::SliceROIResponse(const SliceROIResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
+      selected_(from.selected_),
       rois_(from.rois_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:pyosirix.ROISlice)
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_id().empty()) {
+    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:pyosirix.SliceROIResponse)
 }
 
-void ROISlice::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ROISlice_roi_2eproto.base);
+void SliceROIResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_SliceROIResponse_roi_2eproto.base);
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-ROISlice::~ROISlice() {
-  // @@protoc_insertion_point(destructor:pyosirix.ROISlice)
+SliceROIResponse::~SliceROIResponse() {
+  // @@protoc_insertion_point(destructor:pyosirix.SliceROIResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ROISlice::SharedDtor() {
+void SliceROIResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void ROISlice::ArenaDtor(void* object) {
-  ROISlice* _this = reinterpret_cast< ROISlice* >(object);
+void SliceROIResponse::ArenaDtor(void* object) {
+  SliceROIResponse* _this = reinterpret_cast< SliceROIResponse* >(object);
   (void)_this;
 }
-void ROISlice::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void SliceROIResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void ROISlice::SetCachedSize(int size) const {
+void SliceROIResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ROISlice& ROISlice::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ROISlice_roi_2eproto.base);
+const SliceROIResponse& SliceROIResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_SliceROIResponse_roi_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void ROISlice::Clear() {
-// @@protoc_insertion_point(message_clear_start:pyosirix.ROISlice)
+void SliceROIResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:pyosirix.SliceROIResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  selected_.Clear();
   rois_.Clear();
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ROISlice::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* SliceROIResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
@@ -1808,16 +1386,35 @@ const char* ROISlice::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .pyosirix.ROI rois = 1;
+      // string id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.SliceROIResponse.id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated uint32 selected = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_selected(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16) {
+          _internal_add_selected(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .pyosirix.ROIResponse rois = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_rois(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -1842,41 +1439,82 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ROISlice::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* SliceROIResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ROISlice)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.SliceROIResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .pyosirix.ROI rois = 1;
+  // string id = 1;
+  if (this->id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "pyosirix.SliceROIResponse.id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_id(), target);
+  }
+
+  // repeated uint32 selected = 2;
+  {
+    int byte_size = _selected_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt32Packed(
+          2, _internal_selected(), byte_size, target);
+    }
+  }
+
+  // repeated .pyosirix.ROIResponse rois = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_rois_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_rois(i), target, stream);
+      InternalWriteMessage(3, this->_internal_rois(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ROISlice)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.SliceROIResponse)
   return target;
 }
 
-size_t ROISlice::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pyosirix.ROISlice)
+size_t SliceROIResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.SliceROIResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .pyosirix.ROI rois = 1;
+  // repeated uint32 selected = 2;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->selected_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _selected_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated .pyosirix.ROIResponse rois = 3;
   total_size += 1UL * this->_internal_rois_size();
   for (const auto& msg : this->rois_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string id = 1;
+  if (this->id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1888,122 +1526,136 @@ size_t ROISlice::ByteSizeLong() const {
   return total_size;
 }
 
-void ROISlice::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ROISlice)
+void SliceROIResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.SliceROIResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const ROISlice* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ROISlice>(
+  const SliceROIResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<SliceROIResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ROISlice)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.SliceROIResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ROISlice)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.SliceROIResponse)
     MergeFrom(*source);
   }
 }
 
-void ROISlice::MergeFrom(const ROISlice& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ROISlice)
+void SliceROIResponse::MergeFrom(const SliceROIResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.SliceROIResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  selected_.MergeFrom(from.selected_);
   rois_.MergeFrom(from.rois_);
+  if (from.id().size() > 0) {
+    _internal_set_id(from._internal_id());
+  }
 }
 
-void ROISlice::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ROISlice)
+void SliceROIResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.SliceROIResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ROISlice::CopyFrom(const ROISlice& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ROISlice)
+void SliceROIResponse::CopyFrom(const SliceROIResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.SliceROIResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ROISlice::IsInitialized() const {
+bool SliceROIResponse::IsInitialized() const {
   return true;
 }
 
-void ROISlice::InternalSwap(ROISlice* other) {
+void SliceROIResponse::InternalSwap(SliceROIResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  selected_.InternalSwap(&other->selected_);
   rois_.InternalSwap(&other->rois_);
+  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ROISlice::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata SliceROIResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
 
 // ===================================================================
 
-void ROIList::InitAsDefaultInstance() {
+void StackROIResponse::InitAsDefaultInstance() {
 }
-class ROIList::_Internal {
+class StackROIResponse::_Internal {
  public:
 };
 
-ROIList::ROIList(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+StackROIResponse::StackROIResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena),
   slices_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:pyosirix.ROIList)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.StackROIResponse)
 }
-ROIList::ROIList(const ROIList& from)
+StackROIResponse::StackROIResponse(const StackROIResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       slices_(from.slices_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  // @@protoc_insertion_point(copy_constructor:pyosirix.ROIList)
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_id().empty()) {
+    id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
+      GetArena());
+  }
+  // @@protoc_insertion_point(copy_constructor:pyosirix.StackROIResponse)
 }
 
-void ROIList::SharedCtor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_ROIList_roi_2eproto.base);
+void StackROIResponse::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_StackROIResponse_roi_2eproto.base);
+  id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-ROIList::~ROIList() {
-  // @@protoc_insertion_point(destructor:pyosirix.ROIList)
+StackROIResponse::~StackROIResponse() {
+  // @@protoc_insertion_point(destructor:pyosirix.StackROIResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void ROIList::SharedDtor() {
+void StackROIResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
+  id_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void ROIList::ArenaDtor(void* object) {
-  ROIList* _this = reinterpret_cast< ROIList* >(object);
+void StackROIResponse::ArenaDtor(void* object) {
+  StackROIResponse* _this = reinterpret_cast< StackROIResponse* >(object);
   (void)_this;
 }
-void ROIList::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void StackROIResponse::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void ROIList::SetCachedSize(int size) const {
+void StackROIResponse::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-const ROIList& ROIList::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_ROIList_roi_2eproto.base);
+const StackROIResponse& StackROIResponse::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_StackROIResponse_roi_2eproto.base);
   return *internal_default_instance();
 }
 
 
-void ROIList::Clear() {
-// @@protoc_insertion_point(message_clear_start:pyosirix.ROIList)
+void StackROIResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:pyosirix.StackROIResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   slices_.Clear();
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ROIList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* StackROIResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   ::PROTOBUF_NAMESPACE_ID::Arena* arena = GetArena(); (void)arena;
   while (!ctx->Done(&ptr)) {
@@ -2011,16 +1663,25 @@ const char* ROIList::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // repeated .pyosirix.ROISlice slices = 1;
+      // string id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_id();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.StackROIResponse.id"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .pyosirix.SliceROIResponse slices = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_slices(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -2045,41 +1706,58 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* ROIList::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* StackROIResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ROIList)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.StackROIResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .pyosirix.ROISlice slices = 1;
+  // string id = 1;
+  if (this->id().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "pyosirix.StackROIResponse.id");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_id(), target);
+  }
+
+  // repeated .pyosirix.SliceROIResponse slices = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_slices_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_slices(i), target, stream);
+      InternalWriteMessage(2, this->_internal_slices(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ROIList)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.StackROIResponse)
   return target;
 }
 
-size_t ROIList::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:pyosirix.ROIList)
+size_t StackROIResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.StackROIResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .pyosirix.ROISlice slices = 1;
+  // repeated .pyosirix.SliceROIResponse slices = 2;
   total_size += 1UL * this->_internal_slices_size();
   for (const auto& msg : this->slices_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string id = 1;
+  if (this->id().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2091,56 +1769,60 @@ size_t ROIList::ByteSizeLong() const {
   return total_size;
 }
 
-void ROIList::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ROIList)
+void StackROIResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.StackROIResponse)
   GOOGLE_DCHECK_NE(&from, this);
-  const ROIList* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ROIList>(
+  const StackROIResponse* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<StackROIResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ROIList)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.StackROIResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ROIList)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.StackROIResponse)
     MergeFrom(*source);
   }
 }
 
-void ROIList::MergeFrom(const ROIList& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ROIList)
+void StackROIResponse::MergeFrom(const StackROIResponse& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.StackROIResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
   slices_.MergeFrom(from.slices_);
+  if (from.id().size() > 0) {
+    _internal_set_id(from._internal_id());
+  }
 }
 
-void ROIList::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ROIList)
+void StackROIResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.StackROIResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void ROIList::CopyFrom(const ROIList& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ROIList)
+void StackROIResponse::CopyFrom(const StackROIResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.StackROIResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool ROIList::IsInitialized() const {
+bool StackROIResponse::IsInitialized() const {
   return true;
 }
 
-void ROIList::InternalSwap(ROIList* other) {
+void StackROIResponse::InternalSwap(StackROIResponse* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
   slices_.InternalSwap(&other->slices_);
+  id_.Swap(&other->id_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata ROIList::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata StackROIResponse::GetMetadata() const {
   return GetMetadataStatic();
 }
 
@@ -2148,12 +1830,6 @@ void ROIList::InternalSwap(ROIList* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace pyosirix
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::pyosirix::ROIListRequest* Arena::CreateMaybeMessage< ::pyosirix::ROIListRequest >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::pyosirix::ROIListRequest >(arena);
-}
-template<> PROTOBUF_NOINLINE ::pyosirix::UpdateROIResponse* Arena::CreateMaybeMessage< ::pyosirix::UpdateROIResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::pyosirix::UpdateROIResponse >(arena);
-}
 template<> PROTOBUF_NOINLINE ::pyosirix::ROIRequest* Arena::CreateMaybeMessage< ::pyosirix::ROIRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::pyosirix::ROIRequest >(arena);
 }
@@ -2163,14 +1839,14 @@ template<> PROTOBUF_NOINLINE ::pyosirix::Point* Arena::CreateMaybeMessage< ::pyo
 template<> PROTOBUF_NOINLINE ::pyosirix::Color* Arena::CreateMaybeMessage< ::pyosirix::Color >(Arena* arena) {
   return Arena::CreateMessageInternal< ::pyosirix::Color >(arena);
 }
-template<> PROTOBUF_NOINLINE ::pyosirix::ROI* Arena::CreateMaybeMessage< ::pyosirix::ROI >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::pyosirix::ROI >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::ROIResponse* Arena::CreateMaybeMessage< ::pyosirix::ROIResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::ROIResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::pyosirix::ROISlice* Arena::CreateMaybeMessage< ::pyosirix::ROISlice >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::pyosirix::ROISlice >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::SliceROIResponse* Arena::CreateMaybeMessage< ::pyosirix::SliceROIResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::SliceROIResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::pyosirix::ROIList* Arena::CreateMaybeMessage< ::pyosirix::ROIList >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::pyosirix::ROIList >(arena);
+template<> PROTOBUF_NOINLINE ::pyosirix::StackROIResponse* Arena::CreateMaybeMessage< ::pyosirix::StackROIResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::StackROIResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

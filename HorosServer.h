@@ -72,6 +72,23 @@ class HorosServer final : public Horos::Service {
                            const ImageSetRequest* request,
                            ImageSetResponse* reply ) override;
 
+    //rpc GetSelectedROI (ROIRequest) returns (ROIResponse) {}
+    //rpc GetSliceROIs (ROIRequest) returns (SliceROIResponse) {}
+    //rpc GetStackROIs (ROIRequest) returns (StackROIResponse) {}
+  
+    Status GetSelectedROI( ServerContext* context,
+                           const ROIRequest* request,
+                           ROIResponse* reply ) override;
+
+    Status GetSliceROIs( ServerContext* context,
+                         const ROIRequest* request,
+                         SliceROIResponse* reply ) override;
+
+    Status GetStackROIs( ServerContext* context,
+                         const ROIRequest* request,
+                         StackROIResponse* reply ) override;
+
+    
     static ServerAdaptor* p_Adaptor;  ///< Pointer to adaptor, not owned by this class
 
 public:

@@ -121,9 +121,10 @@ Status HorosServer::GetCurrentImage(ServerContext* context,
     return Status::OK;
 }
 
-Status HorosServer::SetCurrentImage(ServerContext* context,
-                                    const ImageSetRequest* request,
-                                    ImageSetResponse* reply ) {
+Status HorosServer::
+SetCurrentImage( ServerContext* context,
+                 const ImageSetRequest* request,
+                 ImageSetResponse* reply ) {
     
     [p_Adaptor->Lock lock];
     p_Adaptor->Request = (const void*)request;
@@ -139,4 +140,45 @@ Status HorosServer::SetCurrentImage(ServerContext* context,
     return Status::OK;
 }
 
-} //namespace icr
+Status HorosServer::
+GetSelectedROI( ServerContext* context,
+                const ROIRequest* request,
+                ROIResponse* reply )
+{
+    [p_Adaptor->Lock lock];
+    p_Adaptor->Request = (const void*)request;
+    p_Adaptor->Response = (void*)reply;
+    [p_Adaptor->Lock unlock];
+        
+    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
+//    [(__bridge id)(p_Adaptor->Osirix)
+//     performSelectorOnMainThread:@selector(SetCurrentImage:)
+//     withObject:arg_str waitUntilDone:YES];
+    
+    [arg_str release];
+    
+    
+    return Status::OK;
+}
+
+Status HorosServer::
+GetSliceROIs( ServerContext* context,
+              const ROIRequest* request,
+              SliceROIResponse* reply )
+{
+    
+    return Status::OK;
+}
+
+Status HorosServer::
+GetStackROIs( ServerContext* context,
+              const ROIRequest* request,
+              StackROIResponse* reply )
+{
+    
+    return Status::OK;
+}
+
+
+
+} //namespace pyosirix

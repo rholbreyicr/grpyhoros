@@ -82,13 +82,10 @@ using pyosirix::ImageSetResponse;
     // Create a logger using this handler
     Logger.reset( quill::create_logger("day_log", LogHandler.get()) );
     
-    NSString* horos_marketing_version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-    NSString* horos_build_number      = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    NSString* pyosirix_build_number   = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    NSString* version = [NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
-                        pyosirix_build_number, horos_marketing_version, horos_build_number];
+    NSString* version = [[self GetCurrentVersionString] retain];
     if( [version UTF8String] != nil )
         LOG_INFO(Logger, "Initializing grpyHoros:OsiriX {}", [version UTF8String] );
+    [version release];
 }
 
 - (long) filterImage:(NSString*) menuName
@@ -193,13 +190,24 @@ using pyosirix::ImageSetResponse;
     LOG_INFO(Logger, "GetCurrentImageData: {}", [log_string UTF8String] );
 }
 
--(void)GetCurrentVersion:(NSString *)arg_string {
-
+-(NSString*)GetCurrentVersionString
+{
     NSString* horos_marketing_version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSString* horos_build_number      = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSString* pyosirix_build_number   = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    NSString* log_string = [NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
-                           pyosirix_build_number, horos_marketing_version, horos_build_number];
+    NSString* version = [[NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
+                          pyosirix_build_number, horos_marketing_version, horos_build_number] retain];
+    
+    [horos_build_number release];
+    [horos_marketing_version release];
+    [pyosirix_build_number release];
+    
+    return version;
+}
+
+-(void)GetCurrentVersion:(NSString *)arg_string {
+
+    NSString* log_string = [[self GetCurrentVersionString] retain];
     if( [log_string UTF8String] == nil )
         log_string = @"version_string";
     //mutex!
@@ -212,6 +220,7 @@ using pyosirix::ImageSetResponse;
     
     [Console AddText:[NSString stringWithFormat:@"GetCurrentVersion: %@", log_string]];
     LOG_INFO(Logger, "GetCurrentVersion: {}", [log_string UTF8String] );
+    [log_string release];
 }
 
 -(void)GetCurrentImage:(NSString*)arg_string

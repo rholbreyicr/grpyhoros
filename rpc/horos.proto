@@ -5,29 +5,27 @@
 // ../script/protoc.sh `pwd`/.. cpp `pwd`/../horos.proto `pwd`
 // cd ../python
 // ../script/protoc.sh `pwd`/.. python `pwd`/../horos.proto `pwd`
-/*
-  export PROTO=/usr/local/grpc/bin
-  ${PROTO}/protoc -I . --grpc_out=cpp --plugin=protoc-gen-grpc=${PROTO}/grpc_cpp_plugin horos.proto
-  ${PROTO}/protoc -I . --cpp_out=cpp horos.proto
-  ${PROTO}/protoc -I . --cpp_out=cpp roi.proto
-  ${PROTO}/protoc -I . --grpc_out=python --plugin=protoc-gen-grpc=${PROTO}/grpc_python_plugin horos.proto
-  ${PROTO}/protoc -I . --python_out=python horos.proto
-  ${PROTO}/protoc -I . --python_out=python roi.proto
-*/
+// see Makefile for more....
 
 syntax = "proto3";
 package pyosirix;
 
 // A simple key-value storage service
 service Horos {
-  // Request current dicom image
-  rpc GetCurrentImageData (DicomDataRequest) returns (DicomDataResponse) {}
+  // Request current plugin/host version
   rpc GetCurrentVersion (DicomDataRequest) returns (DicomDataRequest) {}
+
+  // Request current dicom image metadata
+  rpc GetCurrentImageData (DicomDataRequest) returns (DicomDataResponse) {}
+
+  // Request current dicom image metadata
   rpc GetCurrentImage (ImageGetRequest) returns (ImageGetResponse) {}
   rpc SetCurrentImage (ImageSetRequest) returns (ImageSetResponse) {}
-  rpc GetROIList (ROIListRequest) returns (ROIList) {}
-  rpc GetSelectedROI (ROIRequest) returns (ROI) {}
-  rpc UpdateROI (ROI) returns (UpdateROIResponse) {}
+
+  rpc GetSelectedROI (ROIRequest) returns (ROIResponse) {}
+  rpc GetSliceROIs (ROIRequest) returns (SliceROIResponse) {}
+  rpc GetStackROIs (ROIRequest) returns (StackROIResponse) {}
+  //rpc UpdateROI (ROIRequest) returns (ROIResponse) {}
 }
 
 import "roi.proto";

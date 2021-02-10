@@ -16,15 +16,15 @@ class HorosStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetCurrentImageData = channel.unary_unary(
-                '/pyosirix.Horos/GetCurrentImageData',
-                request_serializer=horos__pb2.DicomDataRequest.SerializeToString,
-                response_deserializer=horos__pb2.DicomDataResponse.FromString,
-                )
         self.GetCurrentVersion = channel.unary_unary(
                 '/pyosirix.Horos/GetCurrentVersion',
                 request_serializer=horos__pb2.DicomDataRequest.SerializeToString,
                 response_deserializer=horos__pb2.DicomDataRequest.FromString,
+                )
+        self.GetCurrentImageData = channel.unary_unary(
+                '/pyosirix.Horos/GetCurrentImageData',
+                request_serializer=horos__pb2.DicomDataRequest.SerializeToString,
+                response_deserializer=horos__pb2.DicomDataResponse.FromString,
                 )
         self.GetCurrentImage = channel.unary_unary(
                 '/pyosirix.Horos/GetCurrentImage',
@@ -36,20 +36,20 @@ class HorosStub(object):
                 request_serializer=horos__pb2.ImageSetRequest.SerializeToString,
                 response_deserializer=horos__pb2.ImageSetResponse.FromString,
                 )
-        self.GetROIList = channel.unary_unary(
-                '/pyosirix.Horos/GetROIList',
-                request_serializer=roi__pb2.ROIListRequest.SerializeToString,
-                response_deserializer=roi__pb2.ROIList.FromString,
-                )
         self.GetSelectedROI = channel.unary_unary(
                 '/pyosirix.Horos/GetSelectedROI',
                 request_serializer=roi__pb2.ROIRequest.SerializeToString,
-                response_deserializer=roi__pb2.ROI.FromString,
+                response_deserializer=roi__pb2.ROIResponse.FromString,
                 )
-        self.UpdateROI = channel.unary_unary(
-                '/pyosirix.Horos/UpdateROI',
-                request_serializer=roi__pb2.ROI.SerializeToString,
-                response_deserializer=roi__pb2.UpdateROIResponse.FromString,
+        self.GetSliceROIs = channel.unary_unary(
+                '/pyosirix.Horos/GetSliceROIs',
+                request_serializer=roi__pb2.ROIRequest.SerializeToString,
+                response_deserializer=roi__pb2.SliceROIResponse.FromString,
+                )
+        self.GetStackROIs = channel.unary_unary(
+                '/pyosirix.Horos/GetStackROIs',
+                request_serializer=roi__pb2.ROIRequest.SerializeToString,
+                response_deserializer=roi__pb2.StackROIResponse.FromString,
                 )
 
 
@@ -57,32 +57,28 @@ class HorosServicer(object):
     """A simple key-value storage service
     """
 
-    def GetCurrentImageData(self, request, context):
-        """Request current dicom image
+    def GetCurrentVersion(self, request, context):
+        """Request current plugin/host version
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetCurrentVersion(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+    def GetCurrentImageData(self, request, context):
+        """Request current dicom image metadata
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def GetCurrentImage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Request current dicom image metadata
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def SetCurrentImage(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetROIList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -94,7 +90,13 @@ class HorosServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def UpdateROI(self, request, context):
+    def GetSliceROIs(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetStackROIs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -103,15 +105,15 @@ class HorosServicer(object):
 
 def add_HorosServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetCurrentImageData': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetCurrentImageData,
-                    request_deserializer=horos__pb2.DicomDataRequest.FromString,
-                    response_serializer=horos__pb2.DicomDataResponse.SerializeToString,
-            ),
             'GetCurrentVersion': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCurrentVersion,
                     request_deserializer=horos__pb2.DicomDataRequest.FromString,
                     response_serializer=horos__pb2.DicomDataRequest.SerializeToString,
+            ),
+            'GetCurrentImageData': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCurrentImageData,
+                    request_deserializer=horos__pb2.DicomDataRequest.FromString,
+                    response_serializer=horos__pb2.DicomDataResponse.SerializeToString,
             ),
             'GetCurrentImage': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCurrentImage,
@@ -123,20 +125,20 @@ def add_HorosServicer_to_server(servicer, server):
                     request_deserializer=horos__pb2.ImageSetRequest.FromString,
                     response_serializer=horos__pb2.ImageSetResponse.SerializeToString,
             ),
-            'GetROIList': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetROIList,
-                    request_deserializer=roi__pb2.ROIListRequest.FromString,
-                    response_serializer=roi__pb2.ROIList.SerializeToString,
-            ),
             'GetSelectedROI': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSelectedROI,
                     request_deserializer=roi__pb2.ROIRequest.FromString,
-                    response_serializer=roi__pb2.ROI.SerializeToString,
+                    response_serializer=roi__pb2.ROIResponse.SerializeToString,
             ),
-            'UpdateROI': grpc.unary_unary_rpc_method_handler(
-                    servicer.UpdateROI,
-                    request_deserializer=roi__pb2.ROI.FromString,
-                    response_serializer=roi__pb2.UpdateROIResponse.SerializeToString,
+            'GetSliceROIs': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSliceROIs,
+                    request_deserializer=roi__pb2.ROIRequest.FromString,
+                    response_serializer=roi__pb2.SliceROIResponse.SerializeToString,
+            ),
+            'GetStackROIs': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetStackROIs,
+                    request_deserializer=roi__pb2.ROIRequest.FromString,
+                    response_serializer=roi__pb2.StackROIResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -148,23 +150,6 @@ def add_HorosServicer_to_server(servicer, server):
 class Horos(object):
     """A simple key-value storage service
     """
-
-    @staticmethod
-    def GetCurrentImageData(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetCurrentImageData',
-            horos__pb2.DicomDataRequest.SerializeToString,
-            horos__pb2.DicomDataResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
     def GetCurrentVersion(request,
@@ -180,6 +165,23 @@ class Horos(object):
         return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetCurrentVersion',
             horos__pb2.DicomDataRequest.SerializeToString,
             horos__pb2.DicomDataRequest.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCurrentImageData(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetCurrentImageData',
+            horos__pb2.DicomDataRequest.SerializeToString,
+            horos__pb2.DicomDataResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -218,23 +220,6 @@ class Horos(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetROIList(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetROIList',
-            roi__pb2.ROIListRequest.SerializeToString,
-            roi__pb2.ROIList.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
     def GetSelectedROI(request,
             target,
             options=(),
@@ -247,12 +232,12 @@ class Horos(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetSelectedROI',
             roi__pb2.ROIRequest.SerializeToString,
-            roi__pb2.ROI.FromString,
+            roi__pb2.ROIResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def UpdateROI(request,
+    def GetSliceROIs(request,
             target,
             options=(),
             channel_credentials=None,
@@ -262,8 +247,25 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/UpdateROI',
-            roi__pb2.ROI.SerializeToString,
-            roi__pb2.UpdateROIResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetSliceROIs',
+            roi__pb2.ROIRequest.SerializeToString,
+            roi__pb2.SliceROIResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetStackROIs(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetStackROIs',
+            roi__pb2.ROIRequest.SerializeToString,
+            roi__pb2.StackROIResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
