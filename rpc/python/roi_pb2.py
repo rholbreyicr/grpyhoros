@@ -15,11 +15,11 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='roi.proto',
-  package='icr',
+  package='pyosirix',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\troi.proto\x12\x03icr\"\x1c\n\x0eROIListRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x11UpdateROIResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x18\n\nROIRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"(\n\x05\x43olor\x12\t\n\x01r\x18\x01 \x01(\r\x12\t\n\x01g\x18\x02 \x01(\r\x12\t\n\x01\x62\x18\x03 \x01(\r\"^\n\x03ROI\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x19\n\x05\x63olor\x18\x03 \x01(\x0b\x32\n.icr.Color\x12\x0f\n\x07opacity\x18\x04 \x01(\x02\x12\x11\n\tthickness\x18\x05 \x01(\x02\"\"\n\x08ROISlice\x12\x16\n\x04rois\x18\x01 \x03(\x0b\x32\x08.icr.ROI\"(\n\x07ROIList\x12\x1d\n\x06slices\x18\x01 \x03(\x0b\x32\r.icr.ROISliceb\x06proto3'
+  serialized_pb=b'\n\troi.proto\x12\x08pyosirix\"\x1c\n\x0eROIListRequest\x12\n\n\x02id\x18\x01 \x01(\t\"$\n\x11UpdateROIResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x18\n\nROIRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1d\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"(\n\x05\x43olor\x12\t\n\x01r\x18\x01 \x01(\r\x12\t\n\x01g\x18\x02 \x01(\r\x12\t\n\x01\x62\x18\x03 \x01(\r\"c\n\x03ROI\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x1e\n\x05\x63olor\x18\x03 \x01(\x0b\x32\x0f.pyosirix.Color\x12\x0f\n\x07opacity\x18\x04 \x01(\x02\x12\x11\n\tthickness\x18\x05 \x01(\x02\"\'\n\x08ROISlice\x12\x1b\n\x04rois\x18\x01 \x03(\x0b\x32\r.pyosirix.ROI\"-\n\x07ROIList\x12\"\n\x06slices\x18\x01 \x03(\x0b\x32\x12.pyosirix.ROISliceb\x06proto3'
 )
 
 
@@ -27,14 +27,14 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _ROILISTREQUEST = _descriptor.Descriptor(
   name='ROIListRequest',
-  full_name='icr.ROIListRequest',
+  full_name='pyosirix.ROIListRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.ROIListRequest.id', index=0,
+      name='id', full_name='pyosirix.ROIListRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -52,21 +52,21 @@ _ROILISTREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=18,
-  serialized_end=46,
+  serialized_start=23,
+  serialized_end=51,
 )
 
 
 _UPDATEROIRESPONSE = _descriptor.Descriptor(
   name='UpdateROIResponse',
-  full_name='icr.UpdateROIResponse',
+  full_name='pyosirix.UpdateROIResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='message', full_name='icr.UpdateROIResponse.message', index=0,
+      name='message', full_name='pyosirix.UpdateROIResponse.message', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -84,21 +84,21 @@ _UPDATEROIRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=48,
-  serialized_end=84,
+  serialized_start=53,
+  serialized_end=89,
 )
 
 
 _ROIREQUEST = _descriptor.Descriptor(
   name='ROIRequest',
-  full_name='icr.ROIRequest',
+  full_name='pyosirix.ROIRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.ROIRequest.id', index=0,
+      name='id', full_name='pyosirix.ROIRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -116,28 +116,28 @@ _ROIREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=86,
-  serialized_end=110,
+  serialized_start=91,
+  serialized_end=115,
 )
 
 
 _POINT = _descriptor.Descriptor(
   name='Point',
-  full_name='icr.Point',
+  full_name='pyosirix.Point',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='x', full_name='icr.Point.x', index=0,
+      name='x', full_name='pyosirix.Point.x', index=0,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='y', full_name='icr.Point.y', index=1,
+      name='y', full_name='pyosirix.Point.y', index=1,
       number=2, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -155,35 +155,35 @@ _POINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=112,
-  serialized_end=141,
+  serialized_start=117,
+  serialized_end=146,
 )
 
 
 _COLOR = _descriptor.Descriptor(
   name='Color',
-  full_name='icr.Color',
+  full_name='pyosirix.Color',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='r', full_name='icr.Color.r', index=0,
+      name='r', full_name='pyosirix.Color.r', index=0,
       number=1, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='g', full_name='icr.Color.g', index=1,
+      name='g', full_name='pyosirix.Color.g', index=1,
       number=2, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='b', full_name='icr.Color.b', index=2,
+      name='b', full_name='pyosirix.Color.b', index=2,
       number=3, type=13, cpp_type=3, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -201,49 +201,49 @@ _COLOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=143,
-  serialized_end=183,
+  serialized_start=148,
+  serialized_end=188,
 )
 
 
 _ROI = _descriptor.Descriptor(
   name='ROI',
-  full_name='icr.ROI',
+  full_name='pyosirix.ROI',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.ROI.id', index=0,
+      name='id', full_name='pyosirix.ROI.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='name', full_name='icr.ROI.name', index=1,
+      name='name', full_name='pyosirix.ROI.name', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='color', full_name='icr.ROI.color', index=2,
+      name='color', full_name='pyosirix.ROI.color', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='opacity', full_name='icr.ROI.opacity', index=3,
+      name='opacity', full_name='pyosirix.ROI.opacity', index=3,
       number=4, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='thickness', full_name='icr.ROI.thickness', index=4,
+      name='thickness', full_name='pyosirix.ROI.thickness', index=4,
       number=5, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -261,21 +261,21 @@ _ROI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=185,
-  serialized_end=279,
+  serialized_start=190,
+  serialized_end=289,
 )
 
 
 _ROISLICE = _descriptor.Descriptor(
   name='ROISlice',
-  full_name='icr.ROISlice',
+  full_name='pyosirix.ROISlice',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='rois', full_name='icr.ROISlice.rois', index=0,
+      name='rois', full_name='pyosirix.ROISlice.rois', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -293,21 +293,21 @@ _ROISLICE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=281,
-  serialized_end=315,
+  serialized_start=291,
+  serialized_end=330,
 )
 
 
 _ROILIST = _descriptor.Descriptor(
   name='ROIList',
-  full_name='icr.ROIList',
+  full_name='pyosirix.ROIList',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='slices', full_name='icr.ROIList.slices', index=0,
+      name='slices', full_name='pyosirix.ROIList.slices', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -325,8 +325,8 @@ _ROILIST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=317,
-  serialized_end=357,
+  serialized_start=332,
+  serialized_end=377,
 )
 
 _ROI.fields_by_name['color'].message_type = _COLOR
@@ -345,56 +345,56 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 ROIListRequest = _reflection.GeneratedProtocolMessageType('ROIListRequest', (_message.Message,), {
   'DESCRIPTOR' : _ROILISTREQUEST,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ROIListRequest)
+  # @@protoc_insertion_point(class_scope:pyosirix.ROIListRequest)
   })
 _sym_db.RegisterMessage(ROIListRequest)
 
 UpdateROIResponse = _reflection.GeneratedProtocolMessageType('UpdateROIResponse', (_message.Message,), {
   'DESCRIPTOR' : _UPDATEROIRESPONSE,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.UpdateROIResponse)
+  # @@protoc_insertion_point(class_scope:pyosirix.UpdateROIResponse)
   })
 _sym_db.RegisterMessage(UpdateROIResponse)
 
 ROIRequest = _reflection.GeneratedProtocolMessageType('ROIRequest', (_message.Message,), {
   'DESCRIPTOR' : _ROIREQUEST,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ROIRequest)
+  # @@protoc_insertion_point(class_scope:pyosirix.ROIRequest)
   })
 _sym_db.RegisterMessage(ROIRequest)
 
 Point = _reflection.GeneratedProtocolMessageType('Point', (_message.Message,), {
   'DESCRIPTOR' : _POINT,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.Point)
+  # @@protoc_insertion_point(class_scope:pyosirix.Point)
   })
 _sym_db.RegisterMessage(Point)
 
 Color = _reflection.GeneratedProtocolMessageType('Color', (_message.Message,), {
   'DESCRIPTOR' : _COLOR,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.Color)
+  # @@protoc_insertion_point(class_scope:pyosirix.Color)
   })
 _sym_db.RegisterMessage(Color)
 
 ROI = _reflection.GeneratedProtocolMessageType('ROI', (_message.Message,), {
   'DESCRIPTOR' : _ROI,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ROI)
+  # @@protoc_insertion_point(class_scope:pyosirix.ROI)
   })
 _sym_db.RegisterMessage(ROI)
 
 ROISlice = _reflection.GeneratedProtocolMessageType('ROISlice', (_message.Message,), {
   'DESCRIPTOR' : _ROISLICE,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ROISlice)
+  # @@protoc_insertion_point(class_scope:pyosirix.ROISlice)
   })
 _sym_db.RegisterMessage(ROISlice)
 
 ROIList = _reflection.GeneratedProtocolMessageType('ROIList', (_message.Message,), {
   'DESCRIPTOR' : _ROILIST,
   '__module__' : 'roi_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ROIList)
+  # @@protoc_insertion_point(class_scope:pyosirix.ROIList)
   })
 _sym_db.RegisterMessage(ROIList)
 

@@ -17,32 +17,37 @@ class HorosStub(object):
             channel: A grpc.Channel.
         """
         self.GetCurrentImageData = channel.unary_unary(
-                '/icr.Horos/GetCurrentImageData',
+                '/pyosirix.Horos/GetCurrentImageData',
                 request_serializer=horos__pb2.DicomDataRequest.SerializeToString,
                 response_deserializer=horos__pb2.DicomDataResponse.FromString,
                 )
+        self.GetCurrentVersion = channel.unary_unary(
+                '/pyosirix.Horos/GetCurrentVersion',
+                request_serializer=horos__pb2.DicomDataRequest.SerializeToString,
+                response_deserializer=horos__pb2.DicomDataRequest.FromString,
+                )
         self.GetCurrentImage = channel.unary_unary(
-                '/icr.Horos/GetCurrentImage',
+                '/pyosirix.Horos/GetCurrentImage',
                 request_serializer=horos__pb2.ImageGetRequest.SerializeToString,
                 response_deserializer=horos__pb2.ImageGetResponse.FromString,
                 )
         self.SetCurrentImage = channel.unary_unary(
-                '/icr.Horos/SetCurrentImage',
+                '/pyosirix.Horos/SetCurrentImage',
                 request_serializer=horos__pb2.ImageSetRequest.SerializeToString,
                 response_deserializer=horos__pb2.ImageSetResponse.FromString,
                 )
         self.GetROIList = channel.unary_unary(
-                '/icr.Horos/GetROIList',
+                '/pyosirix.Horos/GetROIList',
                 request_serializer=roi__pb2.ROIListRequest.SerializeToString,
                 response_deserializer=roi__pb2.ROIList.FromString,
                 )
         self.GetSelectedROI = channel.unary_unary(
-                '/icr.Horos/GetSelectedROI',
+                '/pyosirix.Horos/GetSelectedROI',
                 request_serializer=roi__pb2.ROIRequest.SerializeToString,
                 response_deserializer=roi__pb2.ROI.FromString,
                 )
         self.UpdateROI = channel.unary_unary(
-                '/icr.Horos/UpdateROI',
+                '/pyosirix.Horos/UpdateROI',
                 request_serializer=roi__pb2.ROI.SerializeToString,
                 response_deserializer=roi__pb2.UpdateROIResponse.FromString,
                 )
@@ -55,6 +60,12 @@ class HorosServicer(object):
     def GetCurrentImageData(self, request, context):
         """Request current dicom image
         """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetCurrentVersion(self, request, context):
+        """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -97,6 +108,11 @@ def add_HorosServicer_to_server(servicer, server):
                     request_deserializer=horos__pb2.DicomDataRequest.FromString,
                     response_serializer=horos__pb2.DicomDataResponse.SerializeToString,
             ),
+            'GetCurrentVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetCurrentVersion,
+                    request_deserializer=horos__pb2.DicomDataRequest.FromString,
+                    response_serializer=horos__pb2.DicomDataRequest.SerializeToString,
+            ),
             'GetCurrentImage': grpc.unary_unary_rpc_method_handler(
                     servicer.GetCurrentImage,
                     request_deserializer=horos__pb2.ImageGetRequest.FromString,
@@ -124,7 +140,7 @@ def add_HorosServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'icr.Horos', rpc_method_handlers)
+            'pyosirix.Horos', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -144,9 +160,26 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/icr.Horos/GetCurrentImageData',
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetCurrentImageData',
             horos__pb2.DicomDataRequest.SerializeToString,
             horos__pb2.DicomDataResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetCurrentVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetCurrentVersion',
+            horos__pb2.DicomDataRequest.SerializeToString,
+            horos__pb2.DicomDataRequest.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -161,7 +194,7 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/icr.Horos/GetCurrentImage',
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetCurrentImage',
             horos__pb2.ImageGetRequest.SerializeToString,
             horos__pb2.ImageGetResponse.FromString,
             options, channel_credentials,
@@ -178,7 +211,7 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/icr.Horos/SetCurrentImage',
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/SetCurrentImage',
             horos__pb2.ImageSetRequest.SerializeToString,
             horos__pb2.ImageSetResponse.FromString,
             options, channel_credentials,
@@ -195,7 +228,7 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/icr.Horos/GetROIList',
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetROIList',
             roi__pb2.ROIListRequest.SerializeToString,
             roi__pb2.ROIList.FromString,
             options, channel_credentials,
@@ -212,7 +245,7 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/icr.Horos/GetSelectedROI',
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetSelectedROI',
             roi__pb2.ROIRequest.SerializeToString,
             roi__pb2.ROI.FromString,
             options, channel_credentials,
@@ -229,7 +262,7 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/icr.Horos/UpdateROI',
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/UpdateROI',
             roi__pb2.ROI.SerializeToString,
             roi__pb2.UpdateROIResponse.FromString,
             options, channel_credentials,

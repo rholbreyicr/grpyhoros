@@ -22,12 +22,13 @@
 namespace pyosirix {
 
 static const char* Horos_method_names[] = {
-  "/icr.Horos/GetCurrentImageData",
-  "/icr.Horos/GetCurrentImage",
-  "/icr.Horos/SetCurrentImage",
-  "/icr.Horos/GetROIList",
-  "/icr.Horos/GetSelectedROI",
-  "/icr.Horos/UpdateROI",
+  "/pyosirix.Horos/GetCurrentImageData",
+  "/pyosirix.Horos/GetCurrentVersion",
+  "/pyosirix.Horos/GetCurrentImage",
+  "/pyosirix.Horos/SetCurrentImage",
+  "/pyosirix.Horos/GetROIList",
+  "/pyosirix.Horos/GetSelectedROI",
+  "/pyosirix.Horos/UpdateROI",
 };
 
 std::unique_ptr< Horos::Stub> Horos::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -38,11 +39,12 @@ std::unique_ptr< Horos::Stub> Horos::NewStub(const std::shared_ptr< ::grpc::Chan
 
 Horos::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_GetCurrentImageData_(Horos_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetCurrentImage_(Horos_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetCurrentImage_(Horos_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetROIList_(Horos_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetSelectedROI_(Horos_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_UpdateROI_(Horos_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCurrentVersion_(Horos_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCurrentImage_(Horos_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetCurrentImage_(Horos_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetROIList_(Horos_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetSelectedROI_(Horos_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_UpdateROI_(Horos_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Horos::Stub::GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataResponse* response) {
@@ -64,6 +66,29 @@ void Horos::Stub::experimental_async::GetCurrentImageData(::grpc::ClientContext*
 ::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataResponse>* Horos::Stub::AsyncGetCurrentImageDataRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
   auto* result =
     this->PrepareAsyncGetCurrentImageDataRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
+::grpc::Status Horos::Stub::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataRequest* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCurrentVersion_, context, request, response);
+}
+
+void Horos::Stub::experimental_async::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentVersion_, context, request, response, std::move(f));
+}
+
+void Horos::Stub::experimental_async::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentVersion_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>* Horos::Stub::PrepareAsyncGetCurrentVersionRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetCurrentVersion_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::pyosirix::DicomDataRequest>* Horos::Stub::AsyncGetCurrentVersionRaw(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetCurrentVersionRaw(context, request, cq);
   result->StartCall();
   return result;
 }
@@ -197,6 +222,16 @@ Horos::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Horos_method_names[1],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Horos::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::pyosirix::DicomDataRequest* req,
+             ::pyosirix::DicomDataRequest* resp) {
+               return service->GetCurrentVersion(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Horos_method_names[2],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::ImageGetRequest, ::pyosirix::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
              ::grpc::ServerContext* ctx,
@@ -205,7 +240,7 @@ Horos::Service::Service() {
                return service->GetCurrentImage(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Horos_method_names[2],
+      Horos_method_names[3],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::ImageSetRequest, ::pyosirix::ImageSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
@@ -215,7 +250,7 @@ Horos::Service::Service() {
                return service->SetCurrentImage(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Horos_method_names[3],
+      Horos_method_names[4],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::ROIListRequest, ::pyosirix::ROIList, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
@@ -225,7 +260,7 @@ Horos::Service::Service() {
                return service->GetROIList(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Horos_method_names[4],
+      Horos_method_names[5],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::ROIRequest, ::pyosirix::ROI, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
@@ -235,7 +270,7 @@ Horos::Service::Service() {
                return service->GetSelectedROI(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Horos_method_names[5],
+      Horos_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::ROI, ::pyosirix::UpdateROIResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
@@ -250,6 +285,13 @@ Horos::Service::~Service() {
 }
 
 ::grpc::Status Horos::Service::GetCurrentImageData(::grpc::ServerContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Horos::Service::GetCurrentVersion(::grpc::ServerContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -292,5 +334,5 @@ Horos::Service::~Service() {
 }
 
 
-}  // namespace icr
+}  // namespace pyosirix
 

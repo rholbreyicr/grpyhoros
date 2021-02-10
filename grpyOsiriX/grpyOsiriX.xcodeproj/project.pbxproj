@@ -73,6 +73,8 @@
 		BFEE4CD725AFC9A5001327DE /* grpyOsiriXFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = BFEE4CD625AFC9A5001327DE /* grpyOsiriXFilter.h */; };
 		BFF84EF625AF696100726A17 /* grpyOsiriX_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = BFF84EF525AF696100726A17 /* grpyOsiriX_Prefix.pch */; };
 		BFF84EF925AF697400726A17 /* grpyOsiriXFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = BFF84EF725AF697400726A17 /* grpyOsiriXFilter.mm */; };
+		BFFEA1B725D3732900D8A44A /* roi.pb.h in Headers */ = {isa = PBXBuildFile; fileRef = BFFEA1B525D3732900D8A44A /* roi.pb.h */; };
+		BFFEA1B825D3732900D8A44A /* roi.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BFFEA1B625D3732900D8A44A /* roi.pb.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -158,6 +160,8 @@
 		BFEE4CD625AFC9A5001327DE /* grpyOsiriXFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = grpyOsiriXFilter.h; path = ../grpyOsiriXFilter.h; sourceTree = "<group>"; };
 		BFF84EF525AF696100726A17 /* grpyOsiriX_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = grpyOsiriX_Prefix.pch; path = ../grpyOsiriX_Prefix.pch; sourceTree = "<group>"; };
 		BFF84EF725AF697400726A17 /* grpyOsiriXFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = grpyOsiriXFilter.mm; path = ../grpyOsiriXFilter.mm; sourceTree = "<group>"; };
+		BFFEA1B525D3732900D8A44A /* roi.pb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = roi.pb.h; path = ../../rpc/cpp/roi.pb.h; sourceTree = "<group>"; };
+		BFFEA1B625D3732900D8A44A /* roi.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = roi.pb.cc; path = ../../rpc/cpp/roi.pb.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -363,6 +367,8 @@
 		BF435F8B25B085F500EC384D /* grpc */ = {
 			isa = PBXGroup;
 			children = (
+				BFFEA1B625D3732900D8A44A /* roi.pb.cc */,
+				BFFEA1B525D3732900D8A44A /* roi.pb.h */,
 				BF435F8C25B0860800EC384D /* horos.grpc.pb.cc */,
 				BF435F8F25B0860800EC384D /* horos.grpc.pb.h */,
 				BF435F8E25B0860800EC384D /* horos.pb.cc */,
@@ -386,6 +392,7 @@
 				BFF84EF625AF696100726A17 /* grpyOsiriX_Prefix.pch in Headers */,
 				BFEE4CD725AFC9A5001327DE /* grpyOsiriXFilter.h in Headers */,
 				BF90A46C25A22EC30069D611 /* ServerManager.h in Headers */,
+				BFFEA1B725D3732900D8A44A /* roi.pb.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFEA1B825D3732900D8A44A /* roi.pb.cc in Sources */,
 				BF90A46825A22EC30069D611 /* HorosServer.mm in Sources */,
 				BF435F9125B0860800EC384D /* horos.grpc.pb.cc in Sources */,
 				BF435F8825B085ED00EC384D /* ConsoleController.mm in Sources */,
@@ -484,6 +492,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 0.2.1;
 				DEBUGGING_SYMBOLS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,7 +522,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-undefined",
@@ -523,6 +532,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = grpyOsiriX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SECTORDER_FLAGS = "";
+				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -539,6 +549,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 0.2.1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
@@ -564,7 +575,7 @@
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				MARKETING_VERSION = 0.2;
+				MARKETING_VERSION = 0.2.1;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-undefined",
@@ -574,6 +585,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = grpyOsiriX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SECTORDER_FLAGS = "";
+				VERSIONING_SYSTEM = "apple-generic";
 				WARNING_CFLAGS = (
 					"-Wmost",
 					"-Wno-four-char-constants",
@@ -589,6 +601,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Development;
 		};
@@ -597,6 +610,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Deployment;
 		};

@@ -39,7 +39,7 @@ class ImageSetResponseDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<ImageSetResponse> _instance;
 } _ImageSetResponse_default_instance_;
-}  // namespace icr
+}  // namespace pyosirix
 static void InitDefaultsscc_info_DicomDataRequest_horos_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -201,29 +201,33 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\013horos.proto\022\003icr\032\troi.proto\"\036\n\020DicomDa"
-  "taRequest\022\n\n\002id\030\001 \001(\t\"\177\n\021DicomDataRespon"
-  "se\022\n\n\002id\030\001 \001(\t\022\022\n\npatient_id\030\002 \001(\t\022\032\n\022st"
-  "udy_instance_uid\030\003 \001(\t\022\033\n\023series_instanc"
-  "e_uid\030\004 \001(\t\022\021\n\tfile_list\030\005 \003(\t\"0\n\017ImageG"
-  "etRequest\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030\002 \001(\004"
-  "\"w\n\020ImageGetResponse\022\n\n\002id\030\001 \001(\t\022\021\n\tview"
-  "er_id\030\002 \001(\004\022\022\n\nimage_size\030\003 \003(\005\022\022\n\nvoxel"
-  "_size\030\004 \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data\030\006 \003("
-  "\002\"v\n\017ImageSetRequest\022\n\n\002id\030\001 \001(\t\022\021\n\tview"
-  "er_id\030\002 \001(\004\022\022\n\nimage_size\030\003 \003(\005\022\022\n\nvoxel"
-  "_size\030\004 \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data\030\006 \003("
-  "\002\"1\n\020ImageSetResponse\022\n\n\002id\030\001 \001(\t\022\021\n\tvie"
-  "wer_id\030\002 \001(\0042\346\002\n\005Horos\022F\n\023GetCurrentImag"
-  "eData\022\025.icr.DicomDataRequest\032\026.icr.Dicom"
-  "DataResponse\"\000\022@\n\017GetCurrentImage\022\024.icr."
-  "ImageGetRequest\032\025.icr.ImageGetResponse\"\000"
-  "\022@\n\017SetCurrentImage\022\024.icr.ImageSetReques"
-  "t\032\025.icr.ImageSetResponse\"\000\0221\n\nGetROIList"
-  "\022\023.icr.ROIListRequest\032\014.icr.ROIList\"\000\022-\n"
-  "\016GetSelectedROI\022\017.icr.ROIRequest\032\010.icr.R"
-  "OI\"\000\022/\n\tUpdateROI\022\010.icr.ROI\032\026.icr.Update"
-  "ROIResponse\"\000b\006proto3"
+  "\n\013horos.proto\022\010pyosirix\032\troi.proto\"\036\n\020Di"
+  "comDataRequest\022\n\n\002id\030\001 \001(\t\"\177\n\021DicomDataR"
+  "esponse\022\n\n\002id\030\001 \001(\t\022\022\n\npatient_id\030\002 \001(\t\022"
+  "\032\n\022study_instance_uid\030\003 \001(\t\022\033\n\023series_in"
+  "stance_uid\030\004 \001(\t\022\021\n\tfile_list\030\005 \003(\t\"0\n\017I"
+  "mageGetRequest\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030"
+  "\002 \001(\004\"w\n\020ImageGetResponse\022\n\n\002id\030\001 \001(\t\022\021\n"
+  "\tviewer_id\030\002 \001(\004\022\022\n\nimage_size\030\003 \003(\005\022\022\n\n"
+  "voxel_size\030\004 \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data"
+  "\030\006 \003(\002\"v\n\017ImageSetRequest\022\n\n\002id\030\001 \001(\t\022\021\n"
+  "\tviewer_id\030\002 \001(\004\022\022\n\nimage_size\030\003 \003(\005\022\022\n\n"
+  "voxel_size\030\004 \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data"
+  "\030\006 \003(\002\"1\n\020ImageSetResponse\022\n\n\002id\030\001 \001(\t\022\021"
+  "\n\tviewer_id\030\002 \001(\0042\361\003\n\005Horos\022P\n\023GetCurren"
+  "tImageData\022\032.pyosirix.DicomDataRequest\032\033"
+  ".pyosirix.DicomDataResponse\"\000\022M\n\021GetCurr"
+  "entVersion\022\032.pyosirix.DicomDataRequest\032\032"
+  ".pyosirix.DicomDataRequest\"\000\022J\n\017GetCurre"
+  "ntImage\022\031.pyosirix.ImageGetRequest\032\032.pyo"
+  "sirix.ImageGetResponse\"\000\022J\n\017SetCurrentIm"
+  "age\022\031.pyosirix.ImageSetRequest\032\032.pyosiri"
+  "x.ImageSetResponse\"\000\022;\n\nGetROIList\022\030.pyo"
+  "sirix.ROIListRequest\032\021.pyosirix.ROIList\""
+  "\000\0227\n\016GetSelectedROI\022\024.pyosirix.ROIReques"
+  "t\032\r.pyosirix.ROI\"\000\0229\n\tUpdateROI\022\r.pyosir"
+  "ix.ROI\032\033.pyosirix.UpdateROIResponse\"\000b\006p"
+  "roto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_horos_2eproto_deps[1] = {
   &::descriptor_table_roi_2eproto,
@@ -238,7 +242,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_horos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto = {
-  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 901,
+  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 1045,
   &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_sccs, descriptor_table_horos_2eproto_deps, 6, 1,
   schemas, file_default_instances, TableStruct_horos_2eproto::offsets,
   file_level_metadata_horos_2eproto, 6, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,
@@ -260,7 +264,7 @@ DicomDataRequest::DicomDataRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.DicomDataRequest)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.DicomDataRequest)
 }
 DicomDataRequest::DicomDataRequest(const DicomDataRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -270,7 +274,7 @@ DicomDataRequest::DicomDataRequest(const DicomDataRequest& from)
     id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_id(),
       GetArena());
   }
-  // @@protoc_insertion_point(copy_constructor:icr.DicomDataRequest)
+  // @@protoc_insertion_point(copy_constructor:pyosirix.DicomDataRequest)
 }
 
 void DicomDataRequest::SharedCtor() {
@@ -279,7 +283,7 @@ void DicomDataRequest::SharedCtor() {
 }
 
 DicomDataRequest::~DicomDataRequest() {
-  // @@protoc_insertion_point(destructor:icr.DicomDataRequest)
+  // @@protoc_insertion_point(destructor:pyosirix.DicomDataRequest)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -305,7 +309,7 @@ const DicomDataRequest& DicomDataRequest::default_instance() {
 
 
 void DicomDataRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.DicomDataRequest)
+// @@protoc_insertion_point(message_clear_start:pyosirix.DicomDataRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -327,7 +331,7 @@ const char* DicomDataRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataRequest.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.DicomDataRequest.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -355,7 +359,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* DicomDataRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.DicomDataRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.DicomDataRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -364,7 +368,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomDataRequest.id");
+      "pyosirix.DicomDataRequest.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -373,12 +377,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.DicomDataRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.DicomDataRequest)
   return target;
 }
 
 size_t DicomDataRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.DicomDataRequest)
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.DicomDataRequest)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -402,22 +406,22 @@ size_t DicomDataRequest::ByteSizeLong() const {
 }
 
 void DicomDataRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.DicomDataRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.DicomDataRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const DicomDataRequest* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DicomDataRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.DicomDataRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.DicomDataRequest)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.DicomDataRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.DicomDataRequest)
     MergeFrom(*source);
   }
 }
 
 void DicomDataRequest::MergeFrom(const DicomDataRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.DicomDataRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.DicomDataRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -429,14 +433,14 @@ void DicomDataRequest::MergeFrom(const DicomDataRequest& from) {
 }
 
 void DicomDataRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.DicomDataRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.DicomDataRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void DicomDataRequest::CopyFrom(const DicomDataRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.DicomDataRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.DicomDataRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -470,7 +474,7 @@ DicomDataResponse::DicomDataResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   file_list_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.DicomDataResponse)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.DicomDataResponse)
 }
 DicomDataResponse::DicomDataResponse(const DicomDataResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
@@ -496,7 +500,7 @@ DicomDataResponse::DicomDataResponse(const DicomDataResponse& from)
     series_instance_uid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from._internal_series_instance_uid(),
       GetArena());
   }
-  // @@protoc_insertion_point(copy_constructor:icr.DicomDataResponse)
+  // @@protoc_insertion_point(copy_constructor:pyosirix.DicomDataResponse)
 }
 
 void DicomDataResponse::SharedCtor() {
@@ -508,7 +512,7 @@ void DicomDataResponse::SharedCtor() {
 }
 
 DicomDataResponse::~DicomDataResponse() {
-  // @@protoc_insertion_point(destructor:icr.DicomDataResponse)
+  // @@protoc_insertion_point(destructor:pyosirix.DicomDataResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -537,7 +541,7 @@ const DicomDataResponse& DicomDataResponse::default_instance() {
 
 
 void DicomDataResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.DicomDataResponse)
+// @@protoc_insertion_point(message_clear_start:pyosirix.DicomDataResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -563,7 +567,7 @@ const char* DicomDataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataResponse.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.DicomDataResponse.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -572,7 +576,7 @@ const char* DicomDataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_patient_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataResponse.patient_id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.DicomDataResponse.patient_id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -581,7 +585,7 @@ const char* DicomDataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_study_instance_uid();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataResponse.study_instance_uid"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.DicomDataResponse.study_instance_uid"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -590,7 +594,7 @@ const char* DicomDataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
           auto str = _internal_mutable_series_instance_uid();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataResponse.series_instance_uid"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.DicomDataResponse.series_instance_uid"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -602,7 +606,7 @@ const char* DicomDataResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
             ptr += 1;
             auto str = _internal_add_file_list();
             ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.DicomDataResponse.file_list"));
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.DicomDataResponse.file_list"));
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
@@ -632,7 +636,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* DicomDataResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.DicomDataResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.DicomDataResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -641,7 +645,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomDataResponse.id");
+      "pyosirix.DicomDataResponse.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -651,7 +655,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_patient_id().data(), static_cast<int>(this->_internal_patient_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomDataResponse.patient_id");
+      "pyosirix.DicomDataResponse.patient_id");
     target = stream->WriteStringMaybeAliased(
         2, this->_internal_patient_id(), target);
   }
@@ -661,7 +665,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_study_instance_uid().data(), static_cast<int>(this->_internal_study_instance_uid().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomDataResponse.study_instance_uid");
+      "pyosirix.DicomDataResponse.study_instance_uid");
     target = stream->WriteStringMaybeAliased(
         3, this->_internal_study_instance_uid(), target);
   }
@@ -671,7 +675,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_series_instance_uid().data(), static_cast<int>(this->_internal_series_instance_uid().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomDataResponse.series_instance_uid");
+      "pyosirix.DicomDataResponse.series_instance_uid");
     target = stream->WriteStringMaybeAliased(
         4, this->_internal_series_instance_uid(), target);
   }
@@ -682,7 +686,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       s.data(), static_cast<int>(s.length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.DicomDataResponse.file_list");
+      "pyosirix.DicomDataResponse.file_list");
     target = stream->WriteString(5, s, target);
   }
 
@@ -690,12 +694,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.DicomDataResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.DicomDataResponse)
   return target;
 }
 
 size_t DicomDataResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.DicomDataResponse)
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.DicomDataResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -748,22 +752,22 @@ size_t DicomDataResponse::ByteSizeLong() const {
 }
 
 void DicomDataResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.DicomDataResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.DicomDataResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const DicomDataResponse* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<DicomDataResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.DicomDataResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.DicomDataResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.DicomDataResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.DicomDataResponse)
     MergeFrom(*source);
   }
 }
 
 void DicomDataResponse::MergeFrom(const DicomDataResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.DicomDataResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.DicomDataResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -785,14 +789,14 @@ void DicomDataResponse::MergeFrom(const DicomDataResponse& from) {
 }
 
 void DicomDataResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.DicomDataResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.DicomDataResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void DicomDataResponse::CopyFrom(const DicomDataResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.DicomDataResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.DicomDataResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -829,7 +833,7 @@ ImageGetRequest::ImageGetRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.ImageGetRequest)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.ImageGetRequest)
 }
 ImageGetRequest::ImageGetRequest(const ImageGetRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -840,7 +844,7 @@ ImageGetRequest::ImageGetRequest(const ImageGetRequest& from)
       GetArena());
   }
   viewer_id_ = from.viewer_id_;
-  // @@protoc_insertion_point(copy_constructor:icr.ImageGetRequest)
+  // @@protoc_insertion_point(copy_constructor:pyosirix.ImageGetRequest)
 }
 
 void ImageGetRequest::SharedCtor() {
@@ -850,7 +854,7 @@ void ImageGetRequest::SharedCtor() {
 }
 
 ImageGetRequest::~ImageGetRequest() {
-  // @@protoc_insertion_point(destructor:icr.ImageGetRequest)
+  // @@protoc_insertion_point(destructor:pyosirix.ImageGetRequest)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -876,7 +880,7 @@ const ImageGetRequest& ImageGetRequest::default_instance() {
 
 
 void ImageGetRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.ImageGetRequest)
+// @@protoc_insertion_point(message_clear_start:pyosirix.ImageGetRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -899,7 +903,7 @@ const char* ImageGetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetRequest.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ImageGetRequest.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -934,7 +938,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* ImageGetRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageGetRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ImageGetRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -943,7 +947,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageGetRequest.id");
+      "pyosirix.ImageGetRequest.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -958,12 +962,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageGetRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ImageGetRequest)
   return target;
 }
 
 size_t ImageGetRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.ImageGetRequest)
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.ImageGetRequest)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -994,22 +998,22 @@ size_t ImageGetRequest::ByteSizeLong() const {
 }
 
 void ImageGetRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageGetRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ImageGetRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const ImageGetRequest* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageGetRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageGetRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ImageGetRequest)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageGetRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ImageGetRequest)
     MergeFrom(*source);
   }
 }
 
 void ImageGetRequest::MergeFrom(const ImageGetRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageGetRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ImageGetRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1024,14 +1028,14 @@ void ImageGetRequest::MergeFrom(const ImageGetRequest& from) {
 }
 
 void ImageGetRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageGetRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ImageGetRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ImageGetRequest::CopyFrom(const ImageGetRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageGetRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ImageGetRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1069,7 +1073,7 @@ ImageGetResponse::ImageGetResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   data_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.ImageGetResponse)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.ImageGetResponse)
 }
 ImageGetResponse::ImageGetResponse(const ImageGetResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
@@ -1084,7 +1088,7 @@ ImageGetResponse::ImageGetResponse(const ImageGetResponse& from)
       GetArena());
   }
   viewer_id_ = from.viewer_id_;
-  // @@protoc_insertion_point(copy_constructor:icr.ImageGetResponse)
+  // @@protoc_insertion_point(copy_constructor:pyosirix.ImageGetResponse)
 }
 
 void ImageGetResponse::SharedCtor() {
@@ -1094,7 +1098,7 @@ void ImageGetResponse::SharedCtor() {
 }
 
 ImageGetResponse::~ImageGetResponse() {
-  // @@protoc_insertion_point(destructor:icr.ImageGetResponse)
+  // @@protoc_insertion_point(destructor:pyosirix.ImageGetResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1120,7 +1124,7 @@ const ImageGetResponse& ImageGetResponse::default_instance() {
 
 
 void ImageGetResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.ImageGetResponse)
+// @@protoc_insertion_point(message_clear_start:pyosirix.ImageGetResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1147,7 +1151,7 @@ const char* ImageGetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageGetResponse.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ImageGetResponse.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1222,7 +1226,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* ImageGetResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageGetResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ImageGetResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1231,7 +1235,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageGetResponse.id");
+      "pyosirix.ImageGetResponse.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -1270,12 +1274,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageGetResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ImageGetResponse)
   return target;
 }
 
 size_t ImageGetResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.ImageGetResponse)
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.ImageGetResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1366,22 +1370,22 @@ size_t ImageGetResponse::ByteSizeLong() const {
 }
 
 void ImageGetResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageGetResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ImageGetResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const ImageGetResponse* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageGetResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageGetResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ImageGetResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageGetResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ImageGetResponse)
     MergeFrom(*source);
   }
 }
 
 void ImageGetResponse::MergeFrom(const ImageGetResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageGetResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ImageGetResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1400,14 +1404,14 @@ void ImageGetResponse::MergeFrom(const ImageGetResponse& from) {
 }
 
 void ImageGetResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageGetResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ImageGetResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ImageGetResponse::CopyFrom(const ImageGetResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageGetResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ImageGetResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1449,7 +1453,7 @@ ImageSetRequest::ImageSetRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   data_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.ImageSetRequest)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.ImageSetRequest)
 }
 ImageSetRequest::ImageSetRequest(const ImageSetRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
@@ -1464,7 +1468,7 @@ ImageSetRequest::ImageSetRequest(const ImageSetRequest& from)
       GetArena());
   }
   viewer_id_ = from.viewer_id_;
-  // @@protoc_insertion_point(copy_constructor:icr.ImageSetRequest)
+  // @@protoc_insertion_point(copy_constructor:pyosirix.ImageSetRequest)
 }
 
 void ImageSetRequest::SharedCtor() {
@@ -1474,7 +1478,7 @@ void ImageSetRequest::SharedCtor() {
 }
 
 ImageSetRequest::~ImageSetRequest() {
-  // @@protoc_insertion_point(destructor:icr.ImageSetRequest)
+  // @@protoc_insertion_point(destructor:pyosirix.ImageSetRequest)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1500,7 +1504,7 @@ const ImageSetRequest& ImageSetRequest::default_instance() {
 
 
 void ImageSetRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.ImageSetRequest)
+// @@protoc_insertion_point(message_clear_start:pyosirix.ImageSetRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1527,7 +1531,7 @@ const char* ImageSetRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetRequest.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ImageSetRequest.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1602,7 +1606,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* ImageSetRequest::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageSetRequest)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ImageSetRequest)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1611,7 +1615,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageSetRequest.id");
+      "pyosirix.ImageSetRequest.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -1650,12 +1654,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageSetRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ImageSetRequest)
   return target;
 }
 
 size_t ImageSetRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.ImageSetRequest)
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.ImageSetRequest)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1746,22 +1750,22 @@ size_t ImageSetRequest::ByteSizeLong() const {
 }
 
 void ImageSetRequest::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageSetRequest)
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ImageSetRequest)
   GOOGLE_DCHECK_NE(&from, this);
   const ImageSetRequest* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageSetRequest>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageSetRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ImageSetRequest)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageSetRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ImageSetRequest)
     MergeFrom(*source);
   }
 }
 
 void ImageSetRequest::MergeFrom(const ImageSetRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageSetRequest)
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ImageSetRequest)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1780,14 +1784,14 @@ void ImageSetRequest::MergeFrom(const ImageSetRequest& from) {
 }
 
 void ImageSetRequest::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageSetRequest)
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ImageSetRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ImageSetRequest::CopyFrom(const ImageSetRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageSetRequest)
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ImageSetRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -1825,7 +1829,7 @@ ImageSetResponse::ImageSetResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:icr.ImageSetResponse)
+  // @@protoc_insertion_point(arena_constructor:pyosirix.ImageSetResponse)
 }
 ImageSetResponse::ImageSetResponse(const ImageSetResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
@@ -1836,7 +1840,7 @@ ImageSetResponse::ImageSetResponse(const ImageSetResponse& from)
       GetArena());
   }
   viewer_id_ = from.viewer_id_;
-  // @@protoc_insertion_point(copy_constructor:icr.ImageSetResponse)
+  // @@protoc_insertion_point(copy_constructor:pyosirix.ImageSetResponse)
 }
 
 void ImageSetResponse::SharedCtor() {
@@ -1846,7 +1850,7 @@ void ImageSetResponse::SharedCtor() {
 }
 
 ImageSetResponse::~ImageSetResponse() {
-  // @@protoc_insertion_point(destructor:icr.ImageSetResponse)
+  // @@protoc_insertion_point(destructor:pyosirix.ImageSetResponse)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1872,7 +1876,7 @@ const ImageSetResponse& ImageSetResponse::default_instance() {
 
 
 void ImageSetResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:icr.ImageSetResponse)
+// @@protoc_insertion_point(message_clear_start:pyosirix.ImageSetResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1895,7 +1899,7 @@ const char* ImageSetResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_id();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "icr.ImageSetResponse.id"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "pyosirix.ImageSetResponse.id"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -1930,7 +1934,7 @@ failure:
 
 ::PROTOBUF_NAMESPACE_ID::uint8* ImageSetResponse::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:icr.ImageSetResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.ImageSetResponse)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1939,7 +1943,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_id().data(), static_cast<int>(this->_internal_id().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "icr.ImageSetResponse.id");
+      "pyosirix.ImageSetResponse.id");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_id(), target);
   }
@@ -1954,12 +1958,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:icr.ImageSetResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.ImageSetResponse)
   return target;
 }
 
 size_t ImageSetResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:icr.ImageSetResponse)
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.ImageSetResponse)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -1990,22 +1994,22 @@ size_t ImageSetResponse::ByteSizeLong() const {
 }
 
 void ImageSetResponse::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:icr.ImageSetResponse)
+// @@protoc_insertion_point(generalized_merge_from_start:pyosirix.ImageSetResponse)
   GOOGLE_DCHECK_NE(&from, this);
   const ImageSetResponse* source =
       ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<ImageSetResponse>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:icr.ImageSetResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:pyosirix.ImageSetResponse)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:icr.ImageSetResponse)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:pyosirix.ImageSetResponse)
     MergeFrom(*source);
   }
 }
 
 void ImageSetResponse::MergeFrom(const ImageSetResponse& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:icr.ImageSetResponse)
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.ImageSetResponse)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -2020,14 +2024,14 @@ void ImageSetResponse::MergeFrom(const ImageSetResponse& from) {
 }
 
 void ImageSetResponse::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:icr.ImageSetResponse)
+// @@protoc_insertion_point(generalized_copy_from_start:pyosirix.ImageSetResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
 void ImageSetResponse::CopyFrom(const ImageSetResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:icr.ImageSetResponse)
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.ImageSetResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
@@ -2050,7 +2054,7 @@ void ImageSetResponse::InternalSwap(ImageSetResponse* other) {
 
 
 // @@protoc_insertion_point(namespace_scope)
-}  // namespace icr
+}  // namespace pyosirix
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::pyosirix::DicomDataRequest* Arena::CreateMaybeMessage< ::pyosirix::DicomDataRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::pyosirix::DicomDataRequest >(arena);

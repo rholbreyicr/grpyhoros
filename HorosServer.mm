@@ -32,15 +32,15 @@ void* HorosServer::RunServer( void* input ) {
     
     //borrowed from https://stackoverflow.com/questions/32792284/grpc-in-cpp-providing-tls-support
     std::shared_ptr<grpc::ServerCredentials> creds;
-    if( p_Adaptor->EnableSSL )
-    {
-        grpc::SslServerCredentialsOptions::PemKeyCertPair pkcp ={"a","b"};
-        grpc::SslServerCredentialsOptions ssl_opts;
-        ssl_opts.pem_root_certs="";
-        ssl_opts.pem_key_cert_pairs.push_back(pkcp);
-        creds = grpc::SslServerCredentials(ssl_opts);
-    }
-    else
+//    if( p_Adaptor->EnableSSL )
+//    {
+//        grpc::SslServerCredentialsOptions::PemKeyCertPair pkcp ={"a","b"};
+//        grpc::SslServerCredentialsOptions ssl_opts;
+//        ssl_opts.pem_root_certs="";
+//        ssl_opts.pem_key_cert_pairs.push_back(pkcp);
+//        creds = grpc::SslServerCredentials(ssl_opts);
+//    }
+//    else
         creds = grpc::InsecureServerCredentials();
     
     
@@ -84,7 +84,25 @@ Status HorosServer::GetCurrentImageData(ServerContext* context,
     [arg_str release];
     return Status::OK;
 }
+
+Status HorosServer::GetCurrentVersion( ServerContext* context,
+                                       const DicomDataRequest* request,
+                                       DicomDataRequest* reply ) {
+  
+    [p_Adaptor->Lock lock];
+    p_Adaptor->Request = (const void*)request;
+    p_Adaptor->Response = (void*)reply;
+    [p_Adaptor->Lock unlock];
     
+    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
+    [(__bridge id)(p_Adaptor->Osirix)
+     performSelectorOnMainThread:@selector(GetCurrentVersion:)
+     withObject:arg_str waitUntilDone:YES];
+    
+    [arg_str release];
+    return Status::OK;
+}
+
 Status HorosServer::GetCurrentImage(ServerContext* context,
                                     const ImageGetRequest* request,
                                     ImageGetResponse* reply ) {

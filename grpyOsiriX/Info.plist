@@ -12,16 +12,18 @@
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
+	<key>CFBundleVersion</key>
+	<string>0.2.1</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>NSPrincipalClass</key>
-	<string>grpyOsiriXFilter</string>
 	<key>MenuTitles</key>
 	<array>
 		<string>grpyOsiriX</string>
 	</array>
+	<key>NSPrincipalClass</key>
+	<string>grpyOsiriXFilter</string>
 	<key>pluginType</key>
 	<string>Database</string>
 </dict>

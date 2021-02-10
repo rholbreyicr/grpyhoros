@@ -34,12 +34,17 @@ def run_get_data(port):
     with grpc.insecure_channel('localhost:' + str(port)) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
         response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='with_file_list'))
-    print("{run_get_data}Client received (file): " + response.id)
-    print("{run_get_data}Client received (patient_id): " + response.patient_id)
-    print("{run_get_data}Client received (study_uid): " + response.study_instance_uid)
-    print("{run_get_data}Client received (series_uid): " + response.series_instance_uid)
-    for _file in response.file_list:
-        print( _file )
+        version = stub.GetCurrentVersion(horos_pb2.DicomDataRequest(id='id'))
+
+    print("{run_get_data}Client received (version): " + version.id )
+
+    if not response.id.startswith("<Error>"):
+        print("{run_get_data}Client received (file): " + response.id)
+        print("{run_get_data}Client received (patient_id): " + response.patient_id)
+        print("{run_get_data}Client received (study_uid): " + response.study_instance_uid)
+        print("{run_get_data}Client received (series_uid): " + response.series_instance_uid)
+        for _file in response.file_list:
+            print( _file )
 
 def run_get_image(port):
     server_url = 'localhost:' + str(port)
@@ -89,7 +94,7 @@ def run_set_image(port):
 
 if __name__ == '__main__':
 
-    Port = 50052
+    Port = 50051
     if len(sys.argv) > 1:
         Port = sys.argv[1]
 

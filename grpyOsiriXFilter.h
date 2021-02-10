@@ -20,7 +20,7 @@
     
     //NSMutableDictionary *grpcObjects = [[NSMutableDictionary alloc] init];
     NSMutableArray* DisplayedSeries;
-    NSString* VersionString;
+    //NSString* VersionString;
     
     std::shared_ptr<quill::Handler> LogHandler;
     std::shared_ptr<quill::Logger> Logger;
@@ -40,6 +40,7 @@
 -(void)CollectSeries:(id)obj into:(NSMutableArray*)collection;
 
 -(void)GetCurrentImageData:(NSString*) arg_string;
+-(void)GetCurrentVersion:(NSString*) arg_string;
 -(void)GetCurrentImage:(NSString*) arg_string;
 -(void)SetCurrentImage:(NSString*) arg_string;
 

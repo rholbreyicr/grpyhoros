@@ -16,11 +16,11 @@ import roi_pb2 as roi__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='horos.proto',
-  package='icr',
+  package='pyosirix',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bhoros.proto\x12\x03icr\x1a\troi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x7f\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\x12\x11\n\tfile_list\x18\x05 \x03(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x32\xe6\x02\n\x05Horos\x12\x46\n\x13GetCurrentImageData\x12\x15.icr.DicomDataRequest\x1a\x16.icr.DicomDataResponse\"\x00\x12@\n\x0fGetCurrentImage\x12\x14.icr.ImageGetRequest\x1a\x15.icr.ImageGetResponse\"\x00\x12@\n\x0fSetCurrentImage\x12\x14.icr.ImageSetRequest\x1a\x15.icr.ImageSetResponse\"\x00\x12\x31\n\nGetROIList\x12\x13.icr.ROIListRequest\x1a\x0c.icr.ROIList\"\x00\x12-\n\x0eGetSelectedROI\x12\x0f.icr.ROIRequest\x1a\x08.icr.ROI\"\x00\x12/\n\tUpdateROI\x12\x08.icr.ROI\x1a\x16.icr.UpdateROIResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bhoros.proto\x12\x08pyosirix\x1a\troi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x7f\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\x12\x11\n\tfile_list\x18\x05 \x03(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x32\xf1\x03\n\x05Horos\x12P\n\x13GetCurrentImageData\x12\x1a.pyosirix.DicomDataRequest\x1a\x1b.pyosirix.DicomDataResponse\"\x00\x12M\n\x11GetCurrentVersion\x12\x1a.pyosirix.DicomDataRequest\x1a\x1a.pyosirix.DicomDataRequest\"\x00\x12J\n\x0fGetCurrentImage\x12\x19.pyosirix.ImageGetRequest\x1a\x1a.pyosirix.ImageGetResponse\"\x00\x12J\n\x0fSetCurrentImage\x12\x19.pyosirix.ImageSetRequest\x1a\x1a.pyosirix.ImageSetResponse\"\x00\x12;\n\nGetROIList\x12\x18.pyosirix.ROIListRequest\x1a\x11.pyosirix.ROIList\"\x00\x12\x37\n\x0eGetSelectedROI\x12\x14.pyosirix.ROIRequest\x1a\r.pyosirix.ROI\"\x00\x12\x39\n\tUpdateROI\x12\r.pyosirix.ROI\x1a\x1b.pyosirix.UpdateROIResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[roi__pb2.DESCRIPTOR,])
 
@@ -29,14 +29,14 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _DICOMDATAREQUEST = _descriptor.Descriptor(
   name='DicomDataRequest',
-  full_name='icr.DicomDataRequest',
+  full_name='pyosirix.DicomDataRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.DicomDataRequest.id', index=0,
+      name='id', full_name='pyosirix.DicomDataRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -54,49 +54,49 @@ _DICOMDATAREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=31,
-  serialized_end=61,
+  serialized_start=36,
+  serialized_end=66,
 )
 
 
 _DICOMDATARESPONSE = _descriptor.Descriptor(
   name='DicomDataResponse',
-  full_name='icr.DicomDataResponse',
+  full_name='pyosirix.DicomDataResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.DicomDataResponse.id', index=0,
+      name='id', full_name='pyosirix.DicomDataResponse.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='patient_id', full_name='icr.DicomDataResponse.patient_id', index=1,
+      name='patient_id', full_name='pyosirix.DicomDataResponse.patient_id', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='study_instance_uid', full_name='icr.DicomDataResponse.study_instance_uid', index=2,
+      name='study_instance_uid', full_name='pyosirix.DicomDataResponse.study_instance_uid', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='series_instance_uid', full_name='icr.DicomDataResponse.series_instance_uid', index=3,
+      name='series_instance_uid', full_name='pyosirix.DicomDataResponse.series_instance_uid', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='file_list', full_name='icr.DicomDataResponse.file_list', index=4,
+      name='file_list', full_name='pyosirix.DicomDataResponse.file_list', index=4,
       number=5, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -114,28 +114,28 @@ _DICOMDATARESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=63,
-  serialized_end=190,
+  serialized_start=68,
+  serialized_end=195,
 )
 
 
 _IMAGEGETREQUEST = _descriptor.Descriptor(
   name='ImageGetRequest',
-  full_name='icr.ImageGetRequest',
+  full_name='pyosirix.ImageGetRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.ImageGetRequest.id', index=0,
+      name='id', full_name='pyosirix.ImageGetRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='viewer_id', full_name='icr.ImageGetRequest.viewer_id', index=1,
+      name='viewer_id', full_name='pyosirix.ImageGetRequest.viewer_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -153,56 +153,56 @@ _IMAGEGETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=192,
-  serialized_end=240,
+  serialized_start=197,
+  serialized_end=245,
 )
 
 
 _IMAGEGETRESPONSE = _descriptor.Descriptor(
   name='ImageGetResponse',
-  full_name='icr.ImageGetResponse',
+  full_name='pyosirix.ImageGetResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.ImageGetResponse.id', index=0,
+      name='id', full_name='pyosirix.ImageGetResponse.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='viewer_id', full_name='icr.ImageGetResponse.viewer_id', index=1,
+      name='viewer_id', full_name='pyosirix.ImageGetResponse.viewer_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='image_size', full_name='icr.ImageGetResponse.image_size', index=2,
+      name='image_size', full_name='pyosirix.ImageGetResponse.image_size', index=2,
       number=3, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='voxel_size', full_name='icr.ImageGetResponse.voxel_size', index=3,
+      name='voxel_size', full_name='pyosirix.ImageGetResponse.voxel_size', index=3,
       number=4, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='origin', full_name='icr.ImageGetResponse.origin', index=4,
+      name='origin', full_name='pyosirix.ImageGetResponse.origin', index=4,
       number=5, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='data', full_name='icr.ImageGetResponse.data', index=5,
+      name='data', full_name='pyosirix.ImageGetResponse.data', index=5,
       number=6, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -220,56 +220,56 @@ _IMAGEGETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=242,
-  serialized_end=361,
+  serialized_start=247,
+  serialized_end=366,
 )
 
 
 _IMAGESETREQUEST = _descriptor.Descriptor(
   name='ImageSetRequest',
-  full_name='icr.ImageSetRequest',
+  full_name='pyosirix.ImageSetRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.ImageSetRequest.id', index=0,
+      name='id', full_name='pyosirix.ImageSetRequest.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='viewer_id', full_name='icr.ImageSetRequest.viewer_id', index=1,
+      name='viewer_id', full_name='pyosirix.ImageSetRequest.viewer_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='image_size', full_name='icr.ImageSetRequest.image_size', index=2,
+      name='image_size', full_name='pyosirix.ImageSetRequest.image_size', index=2,
       number=3, type=5, cpp_type=1, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='voxel_size', full_name='icr.ImageSetRequest.voxel_size', index=3,
+      name='voxel_size', full_name='pyosirix.ImageSetRequest.voxel_size', index=3,
       number=4, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='origin', full_name='icr.ImageSetRequest.origin', index=4,
+      name='origin', full_name='pyosirix.ImageSetRequest.origin', index=4,
       number=5, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='data', full_name='icr.ImageSetRequest.data', index=5,
+      name='data', full_name='pyosirix.ImageSetRequest.data', index=5,
       number=6, type=2, cpp_type=6, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -287,28 +287,28 @@ _IMAGESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=363,
-  serialized_end=481,
+  serialized_start=368,
+  serialized_end=486,
 )
 
 
 _IMAGESETRESPONSE = _descriptor.Descriptor(
   name='ImageSetResponse',
-  full_name='icr.ImageSetResponse',
+  full_name='pyosirix.ImageSetResponse',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='icr.ImageSetResponse.id', index=0,
+      name='id', full_name='pyosirix.ImageSetResponse.id', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='viewer_id', full_name='icr.ImageSetResponse.viewer_id', index=1,
+      name='viewer_id', full_name='pyosirix.ImageSetResponse.viewer_id', index=1,
       number=2, type=4, cpp_type=4, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -326,8 +326,8 @@ _IMAGESETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=483,
-  serialized_end=532,
+  serialized_start=488,
+  serialized_end=537,
 )
 
 DESCRIPTOR.message_types_by_name['DicomDataRequest'] = _DICOMDATAREQUEST
@@ -341,42 +341,42 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 DicomDataRequest = _reflection.GeneratedProtocolMessageType('DicomDataRequest', (_message.Message,), {
   'DESCRIPTOR' : _DICOMDATAREQUEST,
   '__module__' : 'horos_pb2'
-  # @@protoc_insertion_point(class_scope:icr.DicomDataRequest)
+  # @@protoc_insertion_point(class_scope:pyosirix.DicomDataRequest)
   })
 _sym_db.RegisterMessage(DicomDataRequest)
 
 DicomDataResponse = _reflection.GeneratedProtocolMessageType('DicomDataResponse', (_message.Message,), {
   'DESCRIPTOR' : _DICOMDATARESPONSE,
   '__module__' : 'horos_pb2'
-  # @@protoc_insertion_point(class_scope:icr.DicomDataResponse)
+  # @@protoc_insertion_point(class_scope:pyosirix.DicomDataResponse)
   })
 _sym_db.RegisterMessage(DicomDataResponse)
 
 ImageGetRequest = _reflection.GeneratedProtocolMessageType('ImageGetRequest', (_message.Message,), {
   'DESCRIPTOR' : _IMAGEGETREQUEST,
   '__module__' : 'horos_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ImageGetRequest)
+  # @@protoc_insertion_point(class_scope:pyosirix.ImageGetRequest)
   })
 _sym_db.RegisterMessage(ImageGetRequest)
 
 ImageGetResponse = _reflection.GeneratedProtocolMessageType('ImageGetResponse', (_message.Message,), {
   'DESCRIPTOR' : _IMAGEGETRESPONSE,
   '__module__' : 'horos_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ImageGetResponse)
+  # @@protoc_insertion_point(class_scope:pyosirix.ImageGetResponse)
   })
 _sym_db.RegisterMessage(ImageGetResponse)
 
 ImageSetRequest = _reflection.GeneratedProtocolMessageType('ImageSetRequest', (_message.Message,), {
   'DESCRIPTOR' : _IMAGESETREQUEST,
   '__module__' : 'horos_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ImageSetRequest)
+  # @@protoc_insertion_point(class_scope:pyosirix.ImageSetRequest)
   })
 _sym_db.RegisterMessage(ImageSetRequest)
 
 ImageSetResponse = _reflection.GeneratedProtocolMessageType('ImageSetResponse', (_message.Message,), {
   'DESCRIPTOR' : _IMAGESETRESPONSE,
   '__module__' : 'horos_pb2'
-  # @@protoc_insertion_point(class_scope:icr.ImageSetResponse)
+  # @@protoc_insertion_point(class_scope:pyosirix.ImageSetResponse)
   })
 _sym_db.RegisterMessage(ImageSetResponse)
 
@@ -384,17 +384,17 @@ _sym_db.RegisterMessage(ImageSetResponse)
 
 _HOROS = _descriptor.ServiceDescriptor(
   name='Horos',
-  full_name='icr.Horos',
+  full_name='pyosirix.Horos',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=535,
-  serialized_end=893,
+  serialized_start=540,
+  serialized_end=1037,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCurrentImageData',
-    full_name='icr.Horos.GetCurrentImageData',
+    full_name='pyosirix.Horos.GetCurrentImageData',
     index=0,
     containing_service=None,
     input_type=_DICOMDATAREQUEST,
@@ -403,9 +403,19 @@ _HOROS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
-    name='GetCurrentImage',
-    full_name='icr.Horos.GetCurrentImage',
+    name='GetCurrentVersion',
+    full_name='pyosirix.Horos.GetCurrentVersion',
     index=1,
+    containing_service=None,
+    input_type=_DICOMDATAREQUEST,
+    output_type=_DICOMDATAREQUEST,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetCurrentImage',
+    full_name='pyosirix.Horos.GetCurrentImage',
+    index=2,
     containing_service=None,
     input_type=_IMAGEGETREQUEST,
     output_type=_IMAGEGETRESPONSE,
@@ -414,8 +424,8 @@ _HOROS = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='SetCurrentImage',
-    full_name='icr.Horos.SetCurrentImage',
-    index=2,
+    full_name='pyosirix.Horos.SetCurrentImage',
+    index=3,
     containing_service=None,
     input_type=_IMAGESETREQUEST,
     output_type=_IMAGESETRESPONSE,
@@ -424,8 +434,8 @@ _HOROS = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetROIList',
-    full_name='icr.Horos.GetROIList',
-    index=3,
+    full_name='pyosirix.Horos.GetROIList',
+    index=4,
     containing_service=None,
     input_type=roi__pb2._ROILISTREQUEST,
     output_type=roi__pb2._ROILIST,
@@ -434,8 +444,8 @@ _HOROS = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='GetSelectedROI',
-    full_name='icr.Horos.GetSelectedROI',
-    index=4,
+    full_name='pyosirix.Horos.GetSelectedROI',
+    index=5,
     containing_service=None,
     input_type=roi__pb2._ROIREQUEST,
     output_type=roi__pb2._ROI,
@@ -444,8 +454,8 @@ _HOROS = _descriptor.ServiceDescriptor(
   ),
   _descriptor.MethodDescriptor(
     name='UpdateROI',
-    full_name='icr.Horos.UpdateROI',
-    index=5,
+    full_name='pyosirix.Horos.UpdateROI',
+    index=6,
     containing_service=None,
     input_type=roi__pb2._ROI,
     output_type=roi__pb2._UPDATEROIRESPONSE,

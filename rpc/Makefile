@@ -1,6 +1,7 @@
 .PHONY: gen clean server client test cert
 
-PROTOC=/usr/local/grpc/bin
+#PROTOC=/usr/local/bin
+PROTOC=/usr/local/grpc-1.34.0/release/static/bin
 
 gen:
 	${PROTOC}/protoc -I . --grpc_out=cpp --plugin=protoc-gen-grpc=${PROTOC}/grpc_cpp_plugin horos.proto
@@ -10,8 +11,8 @@ gen:
 	${PROTOC}/protoc -I . --python_out=python horos.proto
 	${PROTOC}/protoc -I . --python_out=python roi.proto
 
-#clean:
-#	rm cpp/*.cc python/*.py
+clean:
+	rm cpp/*.cc python/*.py
 
 #server1:
 #	go run cmd/server/main.go -port 50051

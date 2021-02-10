@@ -22,6 +22,7 @@ package pyosirix;
 service Horos {
   // Request current dicom image
   rpc GetCurrentImageData (DicomDataRequest) returns (DicomDataResponse) {}
+  rpc GetCurrentVersion (DicomDataRequest) returns (DicomDataRequest) {}
   rpc GetCurrentImage (ImageGetRequest) returns (ImageGetResponse) {}
   rpc SetCurrentImage (ImageSetRequest) returns (ImageSetResponse) {}
   rpc GetROIList (ROIListRequest) returns (ROIList) {}

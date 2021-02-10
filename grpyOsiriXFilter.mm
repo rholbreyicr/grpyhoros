@@ -85,9 +85,10 @@ using pyosirix::ImageSetResponse;
     NSString* horos_marketing_version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSString* horos_build_number      = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSString* pyosirix_build_number   = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    VersionString = [NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
-                     pyosirix_build_number, horos_marketing_version, horos_build_number];
-    LOG_INFO(Logger, "Initializing grpyHoros:OsiriX {}", [VersionString UTF8String] );
+    NSString* version = [NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
+                        pyosirix_build_number, horos_marketing_version, horos_build_number];
+    if( [version UTF8String] != nil )
+        LOG_INFO(Logger, "Initializing grpyHoros:OsiriX {}", [version UTF8String] );
 }
 
 - (long) filterImage:(NSString*) menuName
@@ -192,6 +193,26 @@ using pyosirix::ImageSetResponse;
     LOG_INFO(Logger, "GetCurrentImageData: {}", [log_string UTF8String] );
 }
 
+-(void)GetCurrentVersion:(NSString *)arg_string {
+
+    NSString* horos_marketing_version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSString* horos_build_number      = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSString* pyosirix_build_number   = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
+    NSString* log_string = [NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
+                           pyosirix_build_number, horos_marketing_version, horos_build_number];
+    if( [log_string UTF8String] == nil )
+        log_string = @"version_string";
+    //mutex!
+    {
+        [Adaptor->Lock lock];
+        DicomDataRequest* reply = (DicomDataRequest*)Adaptor->Response;
+        reply->set_id( std::string([log_string UTF8String]) );
+        [Adaptor->Lock unlock];
+    }
+    
+    [Console AddText:[NSString stringWithFormat:@"GetCurrentVersion: %@", log_string]];
+    LOG_INFO(Logger, "GetCurrentVersion: {}", [log_string UTF8String] );
+}
 
 -(void)GetCurrentImage:(NSString*)arg_string
 {
