@@ -29,6 +29,8 @@ using pyosirix::ImageGetRequest;
 using pyosirix::ImageGetResponse;
 using pyosirix::ImageSetRequest;
 using pyosirix::ImageSetResponse;
+using pyosirix::ROIRequest;
+using pyosirix::ROIResponse;
 
 //-----------------------------------------------------------------------------------
 
@@ -392,17 +394,18 @@ using pyosirix::ImageSetResponse;
 }
 
 
-#if 0
 -(void)GetSelectedROI:(NSString *)log_string {
     
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
-    ROI *sROI = [currV selectedROI];
+    ROI* selectedROI = nil;
     
-    NSString *roiName;
-    float roiThickness;
-    unsigned int red;
-    unsigned int green;
-    unsigned int blue;
+    NSString *roiName = @"roi";
+    NSMutableArray* pts = nil;
+
+    float roiThickness = 0.f;
+    unsigned int red = 0;
+    unsigned int green = 0;
+    unsigned int blue = 0;
     
     if( !currV )
     {
@@ -410,47 +413,67 @@ using pyosirix::ImageSetResponse;
     }
     else
     {
-        roiName = [sROI name];
-        roiThickness = [sROI thickness];
-        RGBColor roiColor = [sROI rgbcolor];
-        red = roiColor.red;
-        green = roiColor.green;
-        blue = roiColor.blue;
-        log_string = @"OK";
+        selectedROI = [currV selectedROI];
+        if( selectedROI )
+        {
+            roiName = [selectedROI name];
+            roiThickness = [selectedROI thickness];
+            RGBColor roiColor = [selectedROI rgbcolor];
+            red = roiColor.red;
+            green = roiColor.green;
+            blue = roiColor.blue;
+            
+            pts = [selectedROI points];
+            log_string = @"GetSelectedROI: set roi params";
+        }
     }
     
-    NSString *key = [self keyForObject:sROI];
-    // Already contined in objects?
-    if (!key)
-    {
-        key = [[NSUUID UUID] UUIDString];
-        [grpcObjects setValue:sROI forKey:key];
-        NSString *rep = [NSString stringWithFormat:@"Key not found, %lu", [grpcObjects count]];
-        [Console AddText:rep];
-    }
-    else
-    {
-        [Console AddText:@"Key IS found!"];
-    }
-    
-    std::string key_str( [key UTF8String] );
+//    NSString *key = [self keyForObject:sROI];
+//    // Already contined in objects?
+//    if (!key)
+//    {
+//        key = [[NSUUID UUID] UUIDString];
+//        [grpcObjects setValue:sROI forKey:key];
+//        NSString *rep = [NSString stringWithFormat:@"Key not found, %lu", [grpcObjects count]];
+//        [Console AddText:rep];
+//    }
+//    else
+//    {
+//        [Console AddText:@"Key IS found!"];
+//    }
+//
+//    std::string key_str( [key UTF8String] );
     
     //mutex!
     {
         [Adaptor->Lock lock];
-        icr::ROI* reply = (icr::ROI*)Adaptor->Response;
-        reply->set_id(key_str);
+        ROIRequest* request = (ROIRequest*)Adaptor->Request;
+        ROIResponse* reply = (ROIResponse*)Adaptor->Response;
+        reply->set_id(request->id());
         reply->set_name([roiName UTF8String]);
         reply->set_thickness(roiThickness);
         reply->mutable_color()->set_r(red);
         reply->mutable_color()->set_g(green);
         reply->mutable_color()->set_b(blue);
+        
+        if( pts )
+        {
+            for( size_t k=0; k<[pts count]; k++ )
+            {
+                NSPoint* roi_pt = (NSPoint*)[pts objectAtIndex:k];
+                auto pt = reply->mutable_points()->Add();
+                pt->set_x(roi_pt->x);
+                pt->set_y(roi_pt->y);
+            }
+        }
         [Adaptor->Lock unlock];
     }
 
-    [Console AddText:[NSString stringWithFormat:@"GetCurrentImageFile: %@", log_string]];
+    [Console AddText:[NSString stringWithFormat:@"GetSelectedROI: %@", log_string]];
+    LOG_INFO( Logger, "GetSelectedROI: {}", [log_string UTF8String] );
 }
 
+#if 0
 -(void)UpdateROI:(NSString *)log_string {
     
     //mutex!

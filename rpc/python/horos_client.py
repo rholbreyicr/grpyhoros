@@ -11,7 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""The Python implementation of the GRPC horos.Horos client."""
+"""The Python implementation of the GRPC pyOsiriX client."""
 
 from __future__ import print_function
 import logging
@@ -20,12 +20,21 @@ import time
 import grpc
 import horos_pb2
 import horos_pb2_grpc
+import roi_pb2
 
 import numpy as np
 import SimpleITK as sitk
 import matplotlib.pyplot as plt
 
 import sys
+
+def run_get_version(port):
+    with grpc.insecure_channel('localhost:' + str(port)) as channel:
+        stub = horos_pb2_grpc.HorosStub(channel)
+        version = stub.GetCurrentVersion(horos_pb2.DicomDataRequest(id='id'))
+
+    print("{run_get_data}Client received (version): " + version.id )
+
 
 def run_get_data(port):
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
@@ -34,9 +43,6 @@ def run_get_data(port):
     with grpc.insecure_channel('localhost:' + str(port)) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
         response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='with_file_list'))
-        version = stub.GetCurrentVersion(horos_pb2.DicomDataRequest(id='id'))
-
-    print("{run_get_data}Client received (version): " + version.id )
 
     if not response.id.startswith("<Error>"):
         print("{run_get_data}Client received (file): " + response.id)
@@ -69,6 +75,20 @@ def run_get_image(port):
         plt.axis('off')
         plt.show()
 
+def run_get_roi(port):
+    server_url = 'localhost:' + str(port)
+    channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
+    channel = grpc.insecure_channel(server_url, options=channel_opt)
+    stub = horos_pb2_grpc.HorosStub(channel)
+
+    roi = stub.GetSelectedROI( roi_pb2.ROIRequest(id='hurray for horos') )
+    if not roi.id.startswith("<Error>"):
+        print("{run_get_roi} Client received (roi): " + roi.id)
+        print("color: red " + str(roi.color.r) +
+              " green " + str(roi.color.g) +
+              " blue " + str(roi.color.b))
+
 def run_set_image(port):
     server_url = 'localhost:' + str(port)
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
@@ -99,8 +119,8 @@ if __name__ == '__main__':
         Port = sys.argv[1]
 
     logging.basicConfig()
-    run_get_data(Port)
-    #for i in range(1):
-    run_get_image(Port)
+    run_get_version(Port)
+    #run_get_data(Port)
+    run_get_roi(Port)
+    #run_get_image(Port)
     #run_set_image(Port)
-    #    time.sleep(1)

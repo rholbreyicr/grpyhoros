@@ -62,7 +62,7 @@
 -(void)GetCurrentImage:(NSString*) arg_string;
 -(void)SetCurrentImage:(NSString*) arg_string;
 
-//-(void)GetSelectedROI:(NSString*) log_string;
+-(void)GetSelectedROI:(NSString*) log_string;
 //-(void)UpdateROI:(NSString*) log_string;
 
 @end

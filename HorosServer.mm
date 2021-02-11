@@ -151,9 +151,9 @@ GetSelectedROI( ServerContext* context,
     [p_Adaptor->Lock unlock];
         
     NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
-//    [(__bridge id)(p_Adaptor->Osirix)
-//     performSelectorOnMainThread:@selector(SetCurrentImage:)
-//     withObject:arg_str waitUntilDone:YES];
+    [(__bridge id)(p_Adaptor->Osirix)
+     performSelectorOnMainThread:@selector(GetSelectedROI:)
+     withObject:arg_str waitUntilDone:YES];
     
     [arg_str release];
     
