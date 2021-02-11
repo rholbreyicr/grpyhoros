@@ -36,11 +36,6 @@ class HorosStub(object):
                 request_serializer=horos__pb2.ImageSetRequest.SerializeToString,
                 response_deserializer=horos__pb2.ImageSetResponse.FromString,
                 )
-        self.GetSelectedROI = channel.unary_unary(
-                '/pyosirix.Horos/GetSelectedROI',
-                request_serializer=roi__pb2.ROIRequest.SerializeToString,
-                response_deserializer=roi__pb2.ROIResponse.FromString,
-                )
         self.GetSliceROIs = channel.unary_unary(
                 '/pyosirix.Horos/GetSliceROIs',
                 request_serializer=roi__pb2.ROIRequest.SerializeToString,
@@ -84,14 +79,9 @@ class HorosServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetSelectedROI(self, request, context):
-        """Missing associated documentation comment in .proto file."""
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
     def GetSliceROIs(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """rpc GetSelectedROI (ROIRequest) returns (ROIResponse) {}
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -124,11 +114,6 @@ def add_HorosServicer_to_server(servicer, server):
                     servicer.SetCurrentImage,
                     request_deserializer=horos__pb2.ImageSetRequest.FromString,
                     response_serializer=horos__pb2.ImageSetResponse.SerializeToString,
-            ),
-            'GetSelectedROI': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSelectedROI,
-                    request_deserializer=roi__pb2.ROIRequest.FromString,
-                    response_serializer=roi__pb2.ROIResponse.SerializeToString,
             ),
             'GetSliceROIs': grpc.unary_unary_rpc_method_handler(
                     servicer.GetSliceROIs,
@@ -216,23 +201,6 @@ class Horos(object):
         return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/SetCurrentImage',
             horos__pb2.ImageSetRequest.SerializeToString,
             horos__pb2.ImageSetResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetSelectedROI(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetSelectedROI',
-            roi__pb2.ROIRequest.SerializeToString,
-            roi__pb2.ROIResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

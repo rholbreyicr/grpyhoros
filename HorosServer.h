@@ -47,8 +47,8 @@ namespace pyosirix {
 class HorosServer final : public Horos::Service {
 
     /**
-     @brief GetCurrentImageFile
-       proto defined rpc call: get the dicom file name of the current image of the 2D viewer
+     @brief GetCurrentImageData
+       (proto defined rpc call) Get the source file name of the current image of the 2D viewer
      @param context
      @param request
      @param reply
@@ -57,6 +57,7 @@ class HorosServer final : public Horos::Service {
                                 const DicomDataRequest* request,
                                 DicomDataResponse* reply ) override;
 
+    /** Get the current version of the plugin/host software */
     Status GetCurrentVersion( ServerContext* context,
                               const DicomDataRequest* request,
                               DicomDataRequest* reply ) override;
@@ -72,13 +73,10 @@ class HorosServer final : public Horos::Service {
                            const ImageSetRequest* request,
                            ImageSetResponse* reply ) override;
 
-    //rpc GetSelectedROI (ROIRequest) returns (ROIResponse) {}
-    //rpc GetSliceROIs (ROIRequest) returns (SliceROIResponse) {}
-    //rpc GetStackROIs (ROIRequest) returns (StackROIResponse) {}
-  
-    Status GetSelectedROI( ServerContext* context,
-                           const ROIRequest* request,
-                           ROIResponse* reply ) override;
+ 
+//    Status GetSelectedROI( ServerContext* context,
+//                           const ROIRequest* request,
+//                           ROIResponse* reply ) override;
 
     Status GetSliceROIs( ServerContext* context,
                          const ROIRequest* request,

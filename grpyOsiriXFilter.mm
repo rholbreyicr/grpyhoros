@@ -30,7 +30,8 @@ using pyosirix::ImageGetResponse;
 using pyosirix::ImageSetRequest;
 using pyosirix::ImageSetResponse;
 using pyosirix::ROIRequest;
-using pyosirix::ROIResponse;
+using pyosirix::SliceROIResponse;
+//using pyosirix::ROI; ... not a good idea, too ambiguous
 
 //-----------------------------------------------------------------------------------
 
@@ -197,7 +198,7 @@ using pyosirix::ROIResponse;
     NSString* horos_marketing_version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSString* horos_build_number      = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSString* pyosirix_build_number   = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    NSString* version = [[NSString stringWithFormat:@"plugin version: %@ [OsiriX/Horos: %@ (%@)]",
+    NSString* version = [[NSString stringWithFormat:@"Plugin version: %@ [OsiriX/Horos: %@ (%@)]",
                           pyosirix_build_number, horos_marketing_version, horos_build_number] retain];
     
     [horos_build_number release];
@@ -394,7 +395,7 @@ using pyosirix::ROIResponse;
 }
 
 
--(void)GetSelectedROI:(NSString *)log_string {
+-(void)GetSliceROIs:(NSString *)log_string {
     
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     ROI* selectedROI = nil;
@@ -414,6 +415,7 @@ using pyosirix::ROIResponse;
     else
     {
         selectedROI = [currV selectedROI];
+        [currV roiList];
         if( selectedROI )
         {
             roiName = [selectedROI name];
@@ -424,7 +426,7 @@ using pyosirix::ROIResponse;
             blue = roiColor.blue;
             
             pts = [selectedROI points];
-            log_string = @"GetSelectedROI: set roi params";
+            log_string = @"retrieved roi params";
         }
     }
     
@@ -448,27 +450,36 @@ using pyosirix::ROIResponse;
     {
         [Adaptor->Lock lock];
         ROIRequest* request = (ROIRequest*)Adaptor->Request;
-        ROIResponse* reply = (ROIResponse*)Adaptor->Response;
+        SliceROIResponse* reply = (SliceROIResponse*)Adaptor->Response;
         reply->set_id(request->id());
-        reply->set_name([roiName UTF8String]);
-        reply->set_thickness(roiThickness);
-        reply->mutable_color()->set_r(red);
-        reply->mutable_color()->set_g(green);
-        reply->mutable_color()->set_b(blue);
+        pyosirix::ROI* pyo_roi = reply->mutable_roi_list()->Add();
+        
+        pyo_roi->set_name([roiName UTF8String]);
+        pyo_roi->set_thickness(roiThickness);
+        pyo_roi->mutable_color()->set_r(red);
+        pyo_roi->mutable_color()->set_g(green);
+        pyo_roi->mutable_color()->set_b(blue);
         
         if( pts )
         {
+            std::ofstream fout( "/tmp/osx_pts.txt" );
             for( size_t k=0; k<[pts count]; k++ )
             {
-                NSPoint* roi_pt = (NSPoint*)[pts objectAtIndex:k];
-                auto pt = reply->mutable_points()->Add();
-                pt->set_x(roi_pt->x);
-                pt->set_y(roi_pt->y);
+                MyPoint* my_pt = [pts objectAtIndex:k];  // defined in osirix api
+                auto pt = pyo_roi->mutable_point_list()->Add();  // adds a point and returns a pointer
+                if( pt && my_pt )
+                {
+                    pt->set_x( (float)[my_pt x] );
+                    pt->set_y( (float)[my_pt y] );
+                    
+                    fout << [my_pt x] << " " << [my_pt y] << std::endl;
+                }
             }
         }
         [Adaptor->Lock unlock];
     }
 
+    log_string = [log_string stringByAppendingFormat:@" (with %d points)", (int)[pts count] ];
     [Console AddText:[NSString stringWithFormat:@"GetSelectedROI: %@", log_string]];
     LOG_INFO( Logger, "GetSelectedROI: {}", [log_string UTF8String] );
 }
@@ -519,9 +530,11 @@ using pyosirix::ROIResponse;
 - (void) LogConnection:(NSString*)connec_str
 {
     [Console AddText:connec_str];
-
-    // would like to add this but frequently crashes (? ... VersionString has random contents)
-    //[Console AddText:VersionString];
+    
+    NSString* version = [[self GetCurrentVersionString] retain];
+    if( [version UTF8String] != nil )
+        [Console AddText:version];
+    [version release];
 }
 
 //borrowed from horosplugins/DicomUnEnhancer/Sources/DicomUnEnhancer.mm : _seriesIn(...)

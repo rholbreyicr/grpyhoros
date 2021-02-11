@@ -33,22 +33,28 @@ def run_get_version(port):
         stub = horos_pb2_grpc.HorosStub(channel)
         version = stub.GetCurrentVersion(horos_pb2.DicomDataRequest(id='id'))
 
-    print("{run_get_data}Client received (version): " + version.id )
+    print("{run_get_version}Client received (version): " + version.id )
 
 
 def run_get_data(port):
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
     # used in circumstances in which the with statement does not fit the needs
     # of the code.
+    """
+    GetCurrentImageData is being tested here: an image is retrieved and displayed
+    :param port:
+    :return: A DicomDataRequest object. If 'with_file_list' is supplied as the string
+    arg, the source image list is also returned
+    """
     with grpc.insecure_channel('localhost:' + str(port)) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
         response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='with_file_list'))
 
     if not response.id.startswith("<Error>"):
-        print("{run_get_data}Client received (file): " + response.id)
-        print("{run_get_data}Client received (patient_id): " + response.patient_id)
-        print("{run_get_data}Client received (study_uid): " + response.study_instance_uid)
-        print("{run_get_data}Client received (series_uid): " + response.series_instance_uid)
+        print("{run_get_data}Client received (file): " + response.id +
+              " (patient_id): " + response.patient_id)
+        print(" (study_uid): " + response.study_instance_uid)
+        print(" (series_uid): " + response.series_instance_uid)
         for _file in response.file_list:
             print( _file )
 
@@ -63,13 +69,13 @@ def run_get_image(port):
     print("{run_get_image}Client received (file): " + response.id)
 
     if not response.id.startswith( "<Error>"):
-        print("{run_get_image}Client received (img size X): " + str(response.image_size[0]))
-        print("{run_get_image}Client received (img size Y): " + str(response.image_size[1]))
-        print("{run_get_image}Client received (viewer id): " + str(response.viewer_id))
+        print("{run_get_image}Client received (img size X): " + str(response.image_size[0])
+            + " (img size Y): " + str(response.image_size[1]) )
+        print("(viewer id): " + str(response.viewer_id))
 
         img_data = response.data
         img_array = np.array( img_data )
-        print( "{run_get_image}Image array shape: ",  img_array.shape )
+        print( "Image array shape: ",  img_array.shape )
         img = np.reshape(img_array,  (response.image_size[1], response.image_size[0]) )
         plt.imshow( img, cmap='binary' )
         plt.axis('off')
@@ -82,12 +88,17 @@ def run_get_roi(port):
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
-    roi = stub.GetSelectedROI( roi_pb2.ROIRequest(id='hurray for horos') )
-    if not roi.id.startswith("<Error>"):
-        print("{run_get_roi} Client received (roi): " + roi.id)
-        print("color: red " + str(roi.color.r) +
-              " green " + str(roi.color.g) +
-              " blue " + str(roi.color.b))
+    slice = stub.GetSliceROIs( roi_pb2.ROIRequest(id='...') )
+    if not slice.id.startswith("<Error>"):
+        for _roi in slice.roi_list:
+            print("{run_get_roi} Client received (roi): " + _roi.id)
+            print(" (color): red " + str(_roi.color.r) +
+                  " green " + str(_roi.color.g) +
+                  " blue " + str(_roi.color.b))
+            print(" (thickness):" + str(_roi.thickness) )
+            print(" (points): " + str( len(_roi.point_list) ) )
+            for _pt in _roi.point_list:
+                print( str(_pt.x) + ", " + str(_pt.y) )
 
 def run_set_image(port):
     server_url = 'localhost:' + str(port)
@@ -102,13 +113,13 @@ def run_set_image(port):
     if not img_response.id.startswith( "<Error>"):
         img_data = img_response.data
         img_array = np.array( img_data )
-        print( "{run_set_image} multiplying by 2.... " )
+        print( "{ multiplying by 2.... " )
         img_array = img_array * 2
         img_response.data[:] = img_array.tolist() # reassign the whole thing
 
         #stub.clear ??? 4290645 vs. 4194304 size error with larger images...
         set_response = stub.SetCurrentImage( img_response )
-        print("{run_set_image}Client received set response): " + set_response.id)
+        print(" After setting, received response): " + set_response.id)
 
 
 

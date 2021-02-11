@@ -11,7 +11,16 @@
 #import "ServerManager.h"
 
 #include <quill/Quill.h>
+#import <OsiriXAPI/MyPoint.h>
 
+
+/**
+ @brief grpyOsiriXFilter
+        Plugin entry point class and interface handler.
+ 
+        The class handles the initial setup, starts the grpc server and then
+        handles server requests (which generally have to be on the main thread)
+ */
 @interface grpyOsiriXFilter : PluginFilter {
     ServerManager* Manager;       ///< Manage and start the server thread (we are the owner)
     ConsoleController* Console;   ///< Console window (owned by Manager)
@@ -27,42 +36,39 @@
 
 -(void)dealloc;
 
-/**
-    \brief filterImage
-           plugin API defined entry function
- */
+/** plugin API defined entry function */
 -(long)filterImage:(NSString*) menuName;
 
-/**
- \brief StartServer
-        Start the grpc server running on a separate thread
- */
+/** Start the grpc server running on a separate thread */
 -(void)StartServer;
 
-/**
- \brief StartLogger
-        Start the quill logger running
- */
+/** Start the quill logger running */
 -(void)StartLogger;
 
-/**
- \brief GetCurrentVersionString
-        Get the current version of the software (plugin & host) as a string
- \@param version
-        The software version number/names or dummy string on error
- */
+/** Get the current version of the software (plugin & host) as a string */
 -(NSString*)GetCurrentVersionString;
 
+/** Log the grpc server connection is running  */
 -(void)LogConnection:(NSString*) connec;
+
+/** Collect all DicomSeries of a given DicomStudy (or set of DicomStudy objects) into a collection */
 -(void)CollectSeries:(id)obj into:(NSMutableArray*)collection;
 
-//rpc commands
+/** Get metadata for the current displayed image in the host. If 'with_file_list' is supplied as the string
+ arg, the source image list is also returned */
 -(void)GetCurrentImageData:(NSString*) arg_string;
+
+/** Get the current plugin/host software versions */
 -(void)GetCurrentVersion:(NSString*) arg_string;
+
+/** Get the current displayed image (including pixel data) in the host in a displayable format */
 -(void)GetCurrentImage:(NSString*) arg_string;
+
+/** Set the current displayed image (including pixel data) in the host using a previously retrieved image */
 -(void)SetCurrentImage:(NSString*) arg_string;
 
--(void)GetSelectedROI:(NSString*) log_string;
+/** Get the ROIs in the currently selected slice */
+-(void)GetSliceROIs:(NSString*) log_string;
 //-(void)UpdateROI:(NSString*) log_string;
 
 @end

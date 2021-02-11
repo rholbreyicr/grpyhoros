@@ -140,10 +140,29 @@ SetCurrentImage( ServerContext* context,
     return Status::OK;
 }
 
+//Status HorosServer::
+//GetSelectedROI( ServerContext* context,
+//                const ROIRequest* request,
+//                ROIResponse* reply )
+//{
+//    [p_Adaptor->Lock lock];
+//    p_Adaptor->Request = (const void*)request;
+//    p_Adaptor->Response = (void*)reply;
+//    [p_Adaptor->Lock unlock];
+//
+//    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
+//    [(__bridge id)(p_Adaptor->Osirix)
+//     performSelectorOnMainThread:@selector(GetSelectedROI:)
+//     withObject:arg_str waitUntilDone:YES];
+//
+//    [arg_str release];
+//    return Status::OK;
+//}
+
 Status HorosServer::
-GetSelectedROI( ServerContext* context,
-                const ROIRequest* request,
-                ROIResponse* reply )
+GetSliceROIs( ServerContext* context,
+              const ROIRequest* request,
+              SliceROIResponse* reply )
 {
     [p_Adaptor->Lock lock];
     p_Adaptor->Request = (const void*)request;
@@ -152,21 +171,10 @@ GetSelectedROI( ServerContext* context,
         
     NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
-     performSelectorOnMainThread:@selector(GetSelectedROI:)
+     performSelectorOnMainThread:@selector(GetSliceROIs:)
      withObject:arg_str waitUntilDone:YES];
     
     [arg_str release];
-    
-    
-    return Status::OK;
-}
-
-Status HorosServer::
-GetSliceROIs( ServerContext* context,
-              const ROIRequest* request,
-              SliceROIResponse* reply )
-{
-    
     return Status::OK;
 }
 

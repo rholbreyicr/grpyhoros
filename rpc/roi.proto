@@ -19,22 +19,27 @@ message Color {
   uint32 b = 3;
 }
 
-message ROIResponse {
+message ROI {
   string id = 1;  // patient id :: seriesinstanceUID :: slice number
   string name = 2;
   Color color = 3;
   float opacity = 4;
   float thickness = 5;
-  repeated Point points = 6;
+  repeated Point point_list = 6;
 }
 
+// message SelectedROIResponse {
+//   string id = 1;  // patient id :: seriesinstanceUID :: slice number
+//   repeated ROI roi_list = 2;
+// }
+
 message SliceROIResponse {
-  string id = 1; // patient id :: seriesinstanceUID :: slice number
-  repeated uint32 selected = 2;  // indices of selected rois
-  repeated ROIResponse rois = 3;
+  string id = 1;  // patient id :: seriesinstanceUID :: slice number
+  repeated uint32 selected = 2;
+  repeated ROI roi_list = 3;
 }
 
 message StackROIResponse {
-  string id = 1;  // patient id :: seriesinstanceUID :: -1
-  repeated SliceROIResponse slices = 2;
+  //no id here, every slice and roi already has one ... ?
+  repeated SliceROIResponse slice_list = 1;
 }
