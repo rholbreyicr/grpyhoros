@@ -12,6 +12,7 @@
 #include "horos.grpc.pb.h"
 
 #include <fstream>
+#include <set>
 
 // quill logger
 #include <stdlib.h>
@@ -398,15 +399,16 @@ using pyosirix::SliceROIResponse;
 -(void)GetSliceROIs:(NSString *)log_string {
     
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
-    ROI* selectedROI = nil;
+    NSMutableArray* selectedROIs = nil;
+    NSMutableArray* allROIs = nil;
     
     NSString *roiName = @"roi";
     NSMutableArray* pts = nil;
-
-    float roiThickness = 0.f;
-    unsigned int red = 0;
-    unsigned int green = 0;
-    unsigned int blue = 0;
+    std::set<unsigned long long> selected_roi_addr;
+//    float roiThickness = 0.f;
+//    unsigned int red = 0;
+//    unsigned int green = 0;
+//    unsigned int blue = 0;
     
     if( !currV )
     {
@@ -414,38 +416,60 @@ using pyosirix::SliceROIResponse;
     }
     else
     {
-        selectedROI = [currV selectedROI];
-        [currV roiList];
-        if( selectedROI )
+        std::ofstream fout( "/tmp/roi-address.txt" );
+        
+        selectedROIs = [currV selectedROIs];
+        allROIs = [currV roiList];
+        
+        short cur_img = [[currV imageView] curImage];
+        NSLog (@":pyosirix: current image: %d", cur_img);
+
+        NSLog (@":pyosirix: %d 'selected roi's", (int)[selectedROIs count] );
+        for (int i = 0; i < [selectedROIs count]; i++)
         {
-            roiName = [selectedROI name];
-            roiThickness = [selectedROI thickness];
-            RGBColor roiColor = [selectedROI rgbcolor];
-            red = roiColor.red;
-            green = roiColor.green;
-            blue = roiColor.blue;
+            ROI* roi = [selectedROIs objectAtIndex:i];
+            fout << i << " " << std::hex << roi << " "
+                 << std::dec << [roi ROImode] << std::endl;
+            NSLog (@":pyosirix: roi name: %@", [ roi name] );
+            NSLog (@":pyosirix: selected-roi element %d = %@", i, roi);
             
-            pts = [selectedROI points];
-            log_string = @"retrieved roi params";
+            if( roi )
+                selected_roi_addr.insert( reinterpret_cast<unsigned long long>(roi) );
+        }
+        
+        for (int i = 0; i < [allROIs count]; i++)
+        {
+            for(int j=0;j<[[allROIs objectAtIndex: i] count];j++)
+            {
+                ROI* roi = [[allROIs objectAtIndex: i] objectAtIndex:j];
+                if( roi )
+                {
+                    fout << i << " " << j << " " << std::hex << roi << " "
+                         << std::dec << [roi ROImode] << std::endl;
+                    NSLog (@":pyosirix: all-roi element %d, %d exists", i, j);
+                }
+                else
+                {
+                    fout << i << " " << j << " 0x000000000" << std::endl;
+                    NSLog (@":pyosirix: all-roi element %d, %d is null", i, j);
+                }
+            }
+        }
+        
+        if( selectedROIs && allROIs )
+        {
+//            roiName = [selectedROI name];
+//            roiThickness = [selectedROI thickness];
+//            RGBColor roiColor = [selectedROI rgbcolor];
+//            red = roiColor.red;
+//            green = roiColor.green;
+//            blue = roiColor.blue;
+//
+//            pts = [selectedROI points];
+            log_string = @"Retrieved roi params";
         }
     }
-    
-//    NSString *key = [self keyForObject:sROI];
-//    // Already contined in objects?
-//    if (!key)
-//    {
-//        key = [[NSUUID UUID] UUIDString];
-//        [grpcObjects setValue:sROI forKey:key];
-//        NSString *rep = [NSString stringWithFormat:@"Key not found, %lu", [grpcObjects count]];
-//        [Console AddText:rep];
-//    }
-//    else
-//    {
-//        [Console AddText:@"Key IS found!"];
-//    }
-//
-//    std::string key_str( [key UTF8String] );
-    
+      
     //mutex!
     {
         [Adaptor->Lock lock];
@@ -454,28 +478,28 @@ using pyosirix::SliceROIResponse;
         reply->set_id(request->id());
         pyosirix::ROI* pyo_roi = reply->mutable_roi_list()->Add();
         
-        pyo_roi->set_name([roiName UTF8String]);
-        pyo_roi->set_thickness(roiThickness);
-        pyo_roi->mutable_color()->set_r(red);
-        pyo_roi->mutable_color()->set_g(green);
-        pyo_roi->mutable_color()->set_b(blue);
-        
-        if( pts )
-        {
-            std::ofstream fout( "/tmp/osx_pts.txt" );
-            for( size_t k=0; k<[pts count]; k++ )
-            {
-                MyPoint* my_pt = [pts objectAtIndex:k];  // defined in osirix api
-                auto pt = pyo_roi->mutable_point_list()->Add();  // adds a point and returns a pointer
-                if( pt && my_pt )
-                {
-                    pt->set_x( (float)[my_pt x] );
-                    pt->set_y( (float)[my_pt y] );
-                    
-                    fout << [my_pt x] << " " << [my_pt y] << std::endl;
-                }
-            }
-        }
+//        pyo_roi->set_name([roiName UTF8String]);
+//        pyo_roi->set_thickness(roiThickness);
+//        pyo_roi->mutable_color()->set_r(red);
+//        pyo_roi->mutable_color()->set_g(green);
+//        pyo_roi->mutable_color()->set_b(blue);
+//
+//        if( pts )
+//        {
+//            //std::ofstream fout( "/tmp/osx_pts.txt" );
+//            for( size_t k=0; k<[pts count]; k++ )
+//            {
+//                MyPoint* my_pt = [pts objectAtIndex:k];  // defined in osirix api
+//                auto pt = pyo_roi->mutable_point_list()->Add();  // adds a point and returns a pointer
+//                if( pt && my_pt )
+//                {
+//                    pt->set_x( (float)[my_pt x] );
+//                    pt->set_y( (float)[my_pt y] );
+//
+//                    //fout << [my_pt x] << " " << [my_pt y] << std::endl;
+//                }
+//            }
+//        }
         [Adaptor->Lock unlock];
     }
 

@@ -14,11 +14,11 @@ ServerAdaptor* HorosServer::p_Adaptor = NULL;
 
 void* HorosServer::RunServer( void* input ) {
             
-    std::string server_address( "0.0.0.0:50051" );
+    std::string server_address( "localhost:50051" );
     if( input ) {
         // Copy pointer, declared in pyOsiriXIIFilter, but don't take ownership
         p_Adaptor = (ServerAdaptor*)input;
-        server_address = std::string( "0.0.0.0:" );
+        server_address = std::string( "localhost:" );
         server_address.append( p_Adaptor->Port );
     }
     

@@ -969,7 +969,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/grpc-1.34/include",
 					"/usr/local/Cellar/png++/0.2.10/include",
 					/usr/local/Cellar/libpng/1.6.37/include,
 				);
@@ -1050,7 +1050,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/grpc-1.34/include",
 					"/usr/local/Cellar/png++/0.2.10/include",
 					/usr/local/Cellar/libpng/1.6.37/include,
 				);
@@ -1348,9 +1348,9 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = (
-					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/grpc-1.34/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
-					/usr/local/Cellar/quill/1.6.1/include,
+					/usr/local/Cellar/quill/1.7.2/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";
@@ -1401,9 +1401,9 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = (
-					"/usr/local/grpc-1.34.0/release/mk-static/include",
+					"$(PROJECT_DIR)/grpc-1.34/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
-					/usr/local/Cellar/quill/1.6.1/include,
+					/usr/local/Cellar/quill/1.7.2/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";
