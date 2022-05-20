@@ -82,9 +82,13 @@ using pyosirix::SliceROIResponse;
         log_file_name, "w", "daily", 1, 10, quill::Timezone::LocalTime, "01:00" ) );
     
     LogHandler->set_log_level(quill::LogLevel::Info);
-
     // Create a logger using this handler
     Logger.reset( quill::create_logger("day_log", LogHandler.get()) );
+
+    // enable a backtrace that will get flushed when we log CRITICAL
+    Logger->init_backtrace(2, quill::LogLevel::Critical);
+    LOG_BACKTRACE(Logger, "Backtrace log {}", 1);
+    LOG_BACKTRACE(Logger, "Backtrace log {}", 2);
     
     NSString* version = [[self GetCurrentVersionString] retain];
     if( [version UTF8String] != nil )
@@ -109,6 +113,8 @@ using pyosirix::SliceROIResponse;
     
     Manager = [[ServerManager alloc] init];
 
+    LOG_INFO(Logger, "Starting server..." );
+    
     [Manager StartServer:(void*)self
              withAdaptor:Adaptor
              withConsole:Console withPort:@"50051"];
@@ -144,6 +150,8 @@ using pyosirix::SliceROIResponse;
  */
 
 -(void)GetCurrentImageData:(NSString*)arg_string {
+    
+    LOG_INFO(Logger, "GetCurrentImageData: {} ...", [arg_string UTF8String] );
     
     NSString* patient_id = @"patient_id";
     NSString* series_uid = @"ser_uid";
@@ -191,11 +199,13 @@ using pyosirix::SliceROIResponse;
     }
     
     [Console AddText:[NSString stringWithFormat:@"GetCurrentImageData: %@", log_string]];
-    LOG_INFO(Logger, "GetCurrentImageData: {}", [log_string UTF8String] );
+    LOG_INFO(Logger, "GetCurrentImageData done with: {}", [log_string UTF8String] );
 }
 
 -(NSString*)GetCurrentVersionString
 {
+    LOG_INFO(Logger, "GetCurrentVersionString..." );
+    
     NSString* horos_marketing_version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     NSString* horos_build_number      = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     NSString* pyosirix_build_number   = [[NSBundle bundleForClass:[self class]] objectForInfoDictionaryKey:@"CFBundleVersion"];
@@ -211,6 +221,8 @@ using pyosirix::SliceROIResponse;
 
 -(void)GetCurrentVersion:(NSString *)arg_string {
 
+    LOG_INFO(Logger, "GetCurrentVersion..." );
+    
     NSString* log_string = [[self GetCurrentVersionString] retain];
     if( [log_string UTF8String] == nil )
         log_string = @"version_string";
@@ -229,6 +241,8 @@ using pyosirix::SliceROIResponse;
 
 -(void)GetCurrentImage:(NSString*)arg_string
 {
+    LOG_INFO(Logger, "GetCurrentImage: {} ...", [arg_string UTF8String] );
+    
     NSString* log_string = @"log_string";
     float forigin[3], fvox_size[3], *fraw_data;
     int idim[2];
@@ -326,6 +340,8 @@ using pyosirix::SliceROIResponse;
 
 -(void)SetCurrentImage:(NSString*)arg_string
 {
+    LOG_INFO(Logger, "SetCurrentImage: {} ...", [arg_string UTF8String] );
+    
     NSString* log_string = @"log_string";
     
     float forigin[3], fvox_size[3], *fraw_data;
@@ -398,6 +414,8 @@ using pyosirix::SliceROIResponse;
 
 -(void)GetSliceROIs:(NSString *)log_string {
     
+    LOG_INFO(Logger, "GetSliceROIs...");
+    
     ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
     NSMutableArray* selectedROIs = nil;
     NSMutableArray* allROIs = nil;
@@ -405,10 +423,10 @@ using pyosirix::SliceROIResponse;
     NSString *roiName = @"roi";
     NSMutableArray* pts = nil;
     std::set<unsigned long long> selected_roi_addr;
-//    float roiThickness = 0.f;
-//    unsigned int red = 0;
-//    unsigned int green = 0;
-//    unsigned int blue = 0;
+    float roiThickness = 0.f;
+    unsigned int red = 0;
+    unsigned int green = 0;
+    unsigned int blue = 0;
     
     if( !currV )
     {
@@ -458,14 +476,14 @@ using pyosirix::SliceROIResponse;
         
         if( selectedROIs && allROIs )
         {
-//            roiName = [selectedROI name];
-//            roiThickness = [selectedROI thickness];
-//            RGBColor roiColor = [selectedROI rgbcolor];
-//            red = roiColor.red;
-//            green = roiColor.green;
-//            blue = roiColor.blue;
-//
-//            pts = [selectedROI points];
+            roiName = [selectedROIs name];
+            roiThickness = [selectedROIs thickness];
+            RGBColor roiColor = [selectedROIs rgbcolor];
+            red = roiColor.red;
+            green = roiColor.green;
+            blue = roiColor.blue;
+
+            pts = [selectedROIs points];
             log_string = @"Retrieved roi params";
         }
     }
@@ -478,28 +496,28 @@ using pyosirix::SliceROIResponse;
         reply->set_id(request->id());
         pyosirix::ROI* pyo_roi = reply->mutable_roi_list()->Add();
         
-//        pyo_roi->set_name([roiName UTF8String]);
-//        pyo_roi->set_thickness(roiThickness);
-//        pyo_roi->mutable_color()->set_r(red);
-//        pyo_roi->mutable_color()->set_g(green);
-//        pyo_roi->mutable_color()->set_b(blue);
-//
-//        if( pts )
-//        {
-//            //std::ofstream fout( "/tmp/osx_pts.txt" );
-//            for( size_t k=0; k<[pts count]; k++ )
-//            {
-//                MyPoint* my_pt = [pts objectAtIndex:k];  // defined in osirix api
-//                auto pt = pyo_roi->mutable_point_list()->Add();  // adds a point and returns a pointer
-//                if( pt && my_pt )
-//                {
-//                    pt->set_x( (float)[my_pt x] );
-//                    pt->set_y( (float)[my_pt y] );
-//
-//                    //fout << [my_pt x] << " " << [my_pt y] << std::endl;
-//                }
-//            }
-//        }
+        pyo_roi->set_name([roiName UTF8String]);
+        pyo_roi->set_thickness(roiThickness);
+        pyo_roi->mutable_color()->set_r(red);
+        pyo_roi->mutable_color()->set_g(green);
+        pyo_roi->mutable_color()->set_b(blue);
+
+        if( pts )
+        {
+            //std::ofstream fout( "/tmp/osx_pts.txt" );
+            for( size_t k=0; k<[pts count]; k++ )
+            {
+                MyPoint* my_pt = [pts objectAtIndex:k];  // defined in osirix api
+                auto pt = pyo_roi->mutable_point_list()->Add();  // adds a point and returns a pointer
+                if( pt && my_pt )
+                {
+                    pt->set_x( (float)[my_pt x] );
+                    pt->set_y( (float)[my_pt y] );
+
+                    //fout << [my_pt x] << " " << [my_pt y] << std::endl;
+                }
+            }
+        }
         [Adaptor->Lock unlock];
     }
 

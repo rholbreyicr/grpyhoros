@@ -1350,7 +1350,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/grpc-1.34/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
-					/usr/local/Cellar/quill/1.7.2/include,
+					/Users/rholbrey/working/quill/install/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";
@@ -1403,7 +1403,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/grpc-1.34/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
-					/usr/local/Cellar/quill/1.7.2/include,
+					/Users/rholbrey/working/quill/install/include,
 				);
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@executable_path/../Plug-ins";

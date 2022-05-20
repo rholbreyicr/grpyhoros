@@ -35,10 +35,6 @@ def run_get_version(port):
 
     print("{run_get_version}Client received (version): " + version.id )
 
-# May '22
-# Note: options=[('grpc.enable_http_proxy', 0),] is used as suggested by:
-# https://github.com/grpc/grpc/issues/9987
-# so that we avoid the issue with having to reset the port
 
 def run_get_data(port):
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
@@ -50,7 +46,7 @@ def run_get_data(port):
     :return: A DicomDataRequest object. If 'with_file_list' is supplied as the string
     arg, the source image list is also returned
     """
-    with grpc.insecure_channel('localhost:' + str(port), options=[('grpc.enable_http_proxy', 0),]) as channel:
+    with grpc.insecure_channel('localhost:' + str(port)) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
         response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='with_file_list'))
 
@@ -65,8 +61,7 @@ def run_get_data(port):
 def run_get_image(port):
     server_url = 'localhost:' + str(port)
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024),
-                   ('grpc.enable_http_proxy', 0)]
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
@@ -89,8 +84,30 @@ def run_get_image(port):
 def run_get_roi(port):
     server_url = 'localhost:' + str(port)
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)
-                   ('grpc.enable_http_proxy', 0)]
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
+    channel = grpc.insecure_channel(server_url, options=channel_opt)
+    stub = horos_pb2_grpc.HorosStub(channel)
+
+    slice = stub.GetSliceROIs( roi_pb2.ROIRequest(id='...') )
+    if not slice.id.startswith("<Error>"):
+        for _roi in slice.roi_list:
+            print("{run_get_roi} Client received (roi): " + _roi.id)
+            print(" (color): red " + str(_roi.color.r) +
+                  " green " + str(_roi.color.g) +
+                  " blue " + str(_roi.color.b))
+            print(" (thickness):" + str(_roi.thickness) )
+            print(" (points): " + str( len(_roi.point_list) ) )
+            for _pt in _roi.point_list:
+                print( str(_pt.x) + ", " + str(_pt.y) )
+    else:
+        print( "{run_get_roi} error at: " + slice.id )
+
+
+
+def run_get_all_rois(port):
+    server_url = 'localhost:' + str(port)
+    channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
@@ -106,31 +123,10 @@ def run_get_roi(port):
             for _pt in _roi.point_list:
                 print( str(_pt.x) + ", " + str(_pt.y) )
 
-def run_get_all_rois(port):
-    server_url = 'localhost:' + str(port)
-    channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)
-                   ('grpc.enable_http_proxy', 0)]
-    channel = grpc.insecure_channel(server_url, options=channel_opt)
-    stub = horos_pb2_grpc.HorosStub(channel)
-
-    slice = stub.GetSliceROIs( roi_pb2.ROIRequest(id='...') )
-    # if not slice.id.startswith("<Error>"):
-    #     for _roi in slice.roi_list:
-    #         print("{run_get_roi} Client received (roi): " + _roi.id)
-    #         print(" (color): red " + str(_roi.color.r) +
-    #               " green " + str(_roi.color.g) +
-    #               " blue " + str(_roi.color.b))
-    #         print(" (thickness):" + str(_roi.thickness) )
-    #         print(" (points): " + str( len(_roi.point_list) ) )
-    #         for _pt in _roi.point_list:
-    #             print( str(_pt.x) + ", " + str(_pt.y) )
-
 def run_set_image(port):
     server_url = 'localhost:' + str(port)
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)
-                   ('grpc.enable_http_proxy', 0)]
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
@@ -158,7 +154,8 @@ if __name__ == '__main__':
 
     logging.basicConfig()
     run_get_version(Port)
-    run_get_data(Port)
+    #run_get_data(Port)
+    run_get_roi(Port)
     #run_get_all_rois(Port)
     #run_get_image(Port)
     #run_set_image(Port)
