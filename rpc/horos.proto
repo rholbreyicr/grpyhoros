@@ -22,9 +22,9 @@ service Horos {
   rpc GetCurrentImage (ImageGetRequest) returns (ImageGetResponse) {}
   rpc SetCurrentImage (ImageSetRequest) returns (ImageSetResponse) {}
 
-  //rpc GetSelectedROI (ROIRequest) returns (ROIResponse) {}
-  rpc GetSliceROIs (ROIRequest) returns (SliceROIResponse) {}
-  rpc GetStackROIs (ROIRequest) returns (StackROIResponse) {}
+  rpc GetROIsAsList (ROIListRequest) returns (ROIListResponse) {}
+  //rpc GetSliceROIs (ROIRequest) returns (SliceROIResponse) {}
+  //rpc GetStackROIs (ROIRequest) returns (StackROIResponse) {}
   //rpc UpdateROI (ROIRequest) returns (ROIResponse) {}
 }
 

@@ -36,15 +36,10 @@ class HorosStub(object):
                 request_serializer=horos__pb2.ImageSetRequest.SerializeToString,
                 response_deserializer=horos__pb2.ImageSetResponse.FromString,
                 )
-        self.GetSliceROIs = channel.unary_unary(
-                '/pyosirix.Horos/GetSliceROIs',
-                request_serializer=roi__pb2.ROIRequest.SerializeToString,
-                response_deserializer=roi__pb2.SliceROIResponse.FromString,
-                )
-        self.GetStackROIs = channel.unary_unary(
-                '/pyosirix.Horos/GetStackROIs',
-                request_serializer=roi__pb2.ROIRequest.SerializeToString,
-                response_deserializer=roi__pb2.StackROIResponse.FromString,
+        self.GetROIsAsList = channel.unary_unary(
+                '/pyosirix.Horos/GetROIsAsList',
+                request_serializer=roi__pb2.ROIListRequest.SerializeToString,
+                response_deserializer=roi__pb2.ROIListResponse.FromString,
                 )
 
 
@@ -79,14 +74,7 @@ class HorosServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def GetSliceROIs(self, request, context):
-        """rpc GetSelectedROI (ROIRequest) returns (ROIResponse) {}
-        """
-        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details('Method not implemented!')
-        raise NotImplementedError('Method not implemented!')
-
-    def GetStackROIs(self, request, context):
+    def GetROIsAsList(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -115,15 +103,10 @@ def add_HorosServicer_to_server(servicer, server):
                     request_deserializer=horos__pb2.ImageSetRequest.FromString,
                     response_serializer=horos__pb2.ImageSetResponse.SerializeToString,
             ),
-            'GetSliceROIs': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetSliceROIs,
-                    request_deserializer=roi__pb2.ROIRequest.FromString,
-                    response_serializer=roi__pb2.SliceROIResponse.SerializeToString,
-            ),
-            'GetStackROIs': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetStackROIs,
-                    request_deserializer=roi__pb2.ROIRequest.FromString,
-                    response_serializer=roi__pb2.StackROIResponse.SerializeToString,
+            'GetROIsAsList': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetROIsAsList,
+                    request_deserializer=roi__pb2.ROIListRequest.FromString,
+                    response_serializer=roi__pb2.ROIListResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -205,7 +188,7 @@ class Horos(object):
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def GetSliceROIs(request,
+    def GetROIsAsList(request,
             target,
             options=(),
             channel_credentials=None,
@@ -215,25 +198,8 @@ class Horos(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetSliceROIs',
-            roi__pb2.ROIRequest.SerializeToString,
-            roi__pb2.SliceROIResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
-
-    @staticmethod
-    def GetStackROIs(request,
-            target,
-            options=(),
-            channel_credentials=None,
-            call_credentials=None,
-            insecure=False,
-            compression=None,
-            wait_for_ready=None,
-            timeout=None,
-            metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetStackROIs',
-            roi__pb2.ROIRequest.SerializeToString,
-            roi__pb2.StackROIResponse.FromString,
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetROIsAsList',
+            roi__pb2.ROIListRequest.SerializeToString,
+            roi__pb2.ROIListResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

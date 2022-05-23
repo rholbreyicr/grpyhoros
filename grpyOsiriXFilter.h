@@ -67,8 +67,6 @@
 /** Set the current displayed image (including pixel data) in the host using a previously retrieved image */
 -(void)SetCurrentImage:(NSString*) arg_string;
 
-/** Get the ROIs in the currently selected slice */
--(void)GetSliceROIs:(NSString*) log_string;
-//-(void)UpdateROI:(NSString*) log_string;
+-(void)GetROIsAsList:(NSString*) log_string;
 
 @end

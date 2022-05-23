@@ -214,7 +214,7 @@ const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "\tviewer_id\030\002 \001(\004\022\022\n\nimage_size\030\003 \003(\005\022\022\n\n"
   "voxel_size\030\004 \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data"
   "\030\006 \003(\002\"1\n\020ImageSetResponse\022\n\n\002id\030\001 \001(\t\022\021"
-  "\n\tviewer_id\030\002 \001(\0042\310\003\n\005Horos\022M\n\021GetCurren"
+  "\n\tviewer_id\030\002 \001(\0042\210\003\n\005Horos\022M\n\021GetCurren"
   "tVersion\022\032.pyosirix.DicomDataRequest\032\032.p"
   "yosirix.DicomDataRequest\"\000\022P\n\023GetCurrent"
   "ImageData\022\032.pyosirix.DicomDataRequest\032\033."
@@ -222,11 +222,9 @@ const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "ntImage\022\031.pyosirix.ImageGetRequest\032\032.pyo"
   "sirix.ImageGetResponse\"\000\022J\n\017SetCurrentIm"
   "age\022\031.pyosirix.ImageSetRequest\032\032.pyosiri"
-  "x.ImageSetResponse\"\000\022B\n\014GetSliceROIs\022\024.p"
-  "yosirix.ROIRequest\032\032.pyosirix.SliceROIRe"
-  "sponse\"\000\022B\n\014GetStackROIs\022\024.pyosirix.ROIR"
-  "equest\032\032.pyosirix.StackROIResponse\"\000b\006pr"
-  "oto3"
+  "x.ImageSetResponse\"\000\022F\n\rGetROIsAsList\022\030."
+  "pyosirix.ROIListRequest\032\031.pyosirix.ROILi"
+  "stResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_horos_2eproto_deps[1] = {
   &::descriptor_table_roi_2eproto,
@@ -241,7 +239,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_horos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto = {
-  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 1004,
+  false, false, descriptor_table_protodef_horos_2eproto, "horos.proto", 940,
   &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_sccs, descriptor_table_horos_2eproto_deps, 6, 1,
   schemas, file_default_instances, TableStruct_horos_2eproto::offsets,
   file_level_metadata_horos_2eproto, 6, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,

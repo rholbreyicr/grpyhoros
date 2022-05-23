@@ -30,8 +30,8 @@ using pyosirix::ImageGetRequest;
 using pyosirix::ImageGetResponse;
 using pyosirix::ImageSetRequest;
 using pyosirix::ImageSetResponse;
-using pyosirix::ROIRequest;
-using pyosirix::SliceROIResponse;
+using pyosirix::ROIListRequest;
+using pyosirix::ROIListResponse;
 //using pyosirix::ROI; ... not a good idea, too ambiguous
 
 //-----------------------------------------------------------------------------------
@@ -181,18 +181,23 @@ using pyosirix::SliceROIResponse;
     {
         [Adaptor->Lock lock];
         DicomDataResponse* reply = (DicomDataResponse*)Adaptor->Response;
-        reply->set_id( std::string([log_string UTF8String]) );
-        reply->set_patient_id( [patient_id UTF8String]);
-        reply->set_study_instance_uid( [study_uid UTF8String]);
-        reply->set_series_instance_uid( [series_uid UTF8String]);
+        if( log_string )
+            reply->set_id( std::string([log_string UTF8String]) );
+        if( patient_id )
+            reply->set_patient_id( [patient_id UTF8String]);
+        if( study_uid )
+            reply->set_study_instance_uid( [study_uid UTF8String]);
+        if( series_uid )
+            reply->set_series_instance_uid( [series_uid UTF8String]);
         
-        if( [arg_string isEqualToString: @"with_file_list"] && currV )
+        if( arg_string && [arg_string isEqualToString: @"with_file_list"] && currV )
         {
             NSArray* fileList = [currV fileList];
             for(int i=0; i<[fileList count]; i++)
             {
                 NSString* path = [[fileList objectAtIndex:i] valueForKey:@"completePath"];
-                reply->add_file_list( [path UTF8String] );
+                if( path )
+                    reply->add_file_list( [path UTF8String] );
             }
         }
         [Adaptor->Lock unlock];
@@ -228,10 +233,17 @@ using pyosirix::SliceROIResponse;
         log_string = @"version_string";
     //mutex!
     {
-        [Adaptor->Lock lock];
-        DicomDataRequest* reply = (DicomDataRequest*)Adaptor->Response;
-        reply->set_id( std::string([log_string UTF8String]) );
-        [Adaptor->Lock unlock];
+        if( [Adaptor->Lock tryLock] ) {
+            DicomDataRequest* reply = (DicomDataRequest*)Adaptor->Response;
+            reply->set_id( std::string([log_string UTF8String]) );
+            [Adaptor->Lock unlock];
+        }
+        else
+        {
+            [Adaptor->Lock unlock];  // try to clear
+            LOG_INFO(Logger, "GetCurrentVersion: ... unlocking");
+        }
+            
     }
     
     [Console AddText:[NSString stringWithFormat:@"GetCurrentVersion: %@", log_string]];
@@ -412,161 +424,199 @@ using pyosirix::SliceROIResponse;
 }
 
 
--(void)GetSliceROIs:(NSString *)log_string {
-    
-    LOG_INFO(Logger, "GetSliceROIs...");
-    
-    ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
-    NSMutableArray* selectedROIs = nil;
-    NSMutableArray* allROIs = nil;
-    
-    NSString *roiName = @"roi";
-    NSMutableArray* pts = nil;
-    std::set<unsigned long long> selected_roi_addr;
-    float roiThickness = 0.f;
-    unsigned int red = 0;
-    unsigned int green = 0;
-    unsigned int blue = 0;
-    
-    if( !currV )
-    {
-        log_string = @"Error: <No 2D viewer available>";
-    }
-    else
-    {
-        std::ofstream fout( "/tmp/roi-address.txt" );
-        
-        selectedROIs = [currV selectedROIs];
-        allROIs = [currV roiList];
-        
-        short cur_img = [[currV imageView] curImage];
-        NSLog (@":pyosirix: current image: %d", cur_img);
+-(void)GetROIsAsList:(NSString*) log_string
+{
+    [Console AddText:[NSString stringWithFormat:@"GetROIsAsList starting... %@", log_string]];
 
-        NSLog (@":pyosirix: %d 'selected roi's", (int)[selectedROIs count] );
-        for (int i = 0; i < [selectedROIs count]; i++)
-        {
-            ROI* roi = [selectedROIs objectAtIndex:i];
-            fout << i << " " << std::hex << roi << " "
-                 << std::dec << [roi ROImode] << std::endl;
-            NSLog (@":pyosirix: roi name: %@", [ roi name] );
-            NSLog (@":pyosirix: selected-roi element %d = %@", i, roi);
+    LOG_INFO(Logger, "GetROIs...");
+    ViewerController* viewerController = [ViewerController frontMostDisplayed2DViewer];
+    
+    NSArray                 *pixList = [viewerController pixList];
+    long                    i, j, k, numCsvPoints, numROIs;
+    int LF = 0x0a;
+    int DQUOTE = 0x22;
             
-            if( roi )
-                selected_roi_addr.insert( reinterpret_cast<unsigned long long>(roi) );
-        }
-        
-        for (int i = 0; i < [allROIs count]; i++)
-        {
-            for(int j=0;j<[[allROIs objectAtIndex: i] count];j++)
-            {
-                ROI* roi = [[allROIs objectAtIndex: i] objectAtIndex:j];
-                if( roi )
-                {
-                    fout << i << " " << j << " " << std::hex << roi << " "
-                         << std::dec << [roi ROImode] << std::endl;
-                    NSLog (@":pyosirix: all-roi element %d, %d exists", i, j);
-                }
-                else
-                {
-                    fout << i << " " << j << " 0x000000000" << std::endl;
-                    NSLog (@":pyosirix: all-roi element %d, %d is null", i, j);
-                }
-            }
-        }
-        
-        if( selectedROIs && allROIs )
-        {
-            roiName = [selectedROIs name];
-            roiThickness = [selectedROIs thickness];
-            RGBColor roiColor = [selectedROIs rgbcolor];
-            red = roiColor.red;
-            green = roiColor.green;
-            blue = roiColor.blue;
+    // prepare for final output
+    NSMutableDictionary        *seriesInfo = [ [ NSMutableDictionary alloc ] init ];
+    NSMutableArray            *imagesInSeries = [ NSMutableArray arrayWithCapacity: 0 ];
 
-            pts = [selectedROIs points];
-            log_string = @"Retrieved roi params";
-        }
-    }
-      
-    //mutex!
-    {
-        [Adaptor->Lock lock];
-        ROIRequest* request = (ROIRequest*)Adaptor->Request;
-        SliceROIResponse* reply = (SliceROIResponse*)Adaptor->Response;
-        reply->set_id(request->id());
-        pyosirix::ROI* pyo_roi = reply->mutable_roi_list()->Add();
-        
-        pyo_roi->set_name([roiName UTF8String]);
-        pyo_roi->set_thickness(roiThickness);
-        pyo_roi->mutable_color()->set_r(red);
-        pyo_roi->mutable_color()->set_g(green);
-        pyo_roi->mutable_color()->set_b(blue);
-
-        if( pts )
-        {
-            //std::ofstream fout( "/tmp/osx_pts.txt" );
-            for( size_t k=0; k<[pts count]; k++ )
-            {
-                MyPoint* my_pt = [pts objectAtIndex:k];  // defined in osirix api
-                auto pt = pyo_roi->mutable_point_list()->Add();  // adds a point and returns a pointer
-                if( pt && my_pt )
-                {
-                    pt->set_x( (float)[my_pt x] );
-                    pt->set_y( (float)[my_pt y] );
-
-                    //fout << [my_pt x] << " " << [my_pt y] << std::endl;
-                }
-            }
-        }
-        [Adaptor->Lock unlock];
-    }
-
-    log_string = [log_string stringByAppendingFormat:@" (with %d points)", (int)[pts count] ];
-    [Console AddText:[NSString stringWithFormat:@"GetSelectedROI: %@", log_string]];
-    LOG_INFO( Logger, "GetSelectedROI: {}", [log_string UTF8String] );
-}
-
-#if 0
--(void)UpdateROI:(NSString *)log_string {
+    NSMutableString    *csvText = [ NSMutableString stringWithCapacity: 100 ];
+    [ csvText appendFormat: @"ImageNo,RoiNo,RoiMean,RoiMin,RoiMax,RoiTotal,RoiDev,RoiName,RoiCenterX,RoiCenterY,RoiCenterZ,Length,Area,RoiType,NumOfPoints,mmX,mmY,mmZ,pxX,pxY,...%c", LF ];
     
-    //mutex!
-    {
-        [Adaptor->Lock lock];
-        icr::ROI* roi = (icr::ROI*)Adaptor->Request;
-        icr::UpdateROIResponse *reply = (icr::UpdateROIResponse *)Adaptor->Response;
-        short int red = roi->mutable_color()->r();
-        short int green = roi->mutable_color()->g();
-        short int blue = roi->mutable_color()->b();
-        NSString * name = [NSString stringWithCString:roi->name().c_str() encoding:[NSString defaultCStringEncoding] ];
-        NSString * key = [NSString stringWithCString:roi->id().c_str() encoding:[NSString defaultCStringEncoding] ];
-        float thickness = roi->thickness();
-        
-        ROI* osirixROI = [grpcObjects objectForKey:key];
-        if (!osirixROI)
-        {
-            log_string = @"Error: ROI no longer available";
-        }
-        else{
-            ViewerController *currV = [ViewerController frontMostDisplayed2DViewer];
-            RGBColor rgb;
-            rgb.red = red;
-            rgb.green = green;
-            rgb.blue = blue;
-            [osirixROI setColor:rgb];
-            [osirixROI setName:name];
-            [osirixROI setThickness:thickness];
-            [currV needsDisplayUpdate];
-        }
-        std::string reply_str( [log_string UTF8String] );
-        reply->set_message(reply_str);
-        [Adaptor->Lock unlock];
-    }
+    NSMutableString *csvRoiPoints;
+    
+    // get array of arrray of ROI in current series
+    NSArray *roiSeriesList = [ viewerController roiList ];
+    
+    // show progress
+    Wait *splash = [ [ Wait alloc ] initWithString: @"Exporting ROIs..." ];
+    [ splash showWindow:viewerController ];
+    [ [ splash progress] setMaxValue: [ roiSeriesList count ] ];
 
-    [Console AddText:[NSString stringWithFormat:@"GetCurrentImageFile: %@", log_string]];
+    // walk through each array of ROI
+    for ( i = 0; i < [ roiSeriesList count ]; i++ ) {
+        
+        // current DICOM pix
+        DCMPix *pix = [ pixList objectAtIndex: i ];
+        
+        // array of ROI in current pix
+        NSArray *roiImageList = [ roiSeriesList objectAtIndex: i ];
+
+        NSMutableDictionary *imageInfo = [ [ NSMutableDictionary alloc ] init ];
+        NSMutableArray        *roisInImage = [ NSMutableArray arrayWithCapacity: 0 ];
+
+        // walk through each ROI in current pix
+        numROIs = [ roiImageList count ];
+        for ( j = 0; j < numROIs; j++ ) {
+            
+            ROI *roi = [ roiImageList objectAtIndex: j ];
+            
+            NSString *roiName = [ roi name ];
+            
+            float mean = 0, min = 0, max = 0, total = 0, dev = 0;
+            
+            [pix computeROI:roi :&mean :&total :&dev :&min :&max];
+            
+            // array of point in pix coordinate
+            NSMutableArray *roiPoints = [ roi points ];
+            
+            NSMutableDictionary *roiInfo = [ [ NSMutableDictionary alloc ] init ];
+            NSMutableArray *mmXYZ = [ NSMutableArray arrayWithCapacity: 0 ];
+            NSMutableArray *pixXY = [ NSMutableArray arrayWithCapacity: 0 ];
+            NSPoint roiCenterPoint;
+            
+            // calc center of the ROI
+            if ( [ roi type ] == t2DPoint ) {
+                // ROI has a bug which causes miss-calculating center of 2DPoint roi
+                roiCenterPoint = [ [ roiPoints objectAtIndex: 0 ] point ];
+            } else {
+                roiCenterPoint = [ roi centroid ];
+            }
+            float clocs[3], locs[3];
+            [ pix convertPixX: roiCenterPoint.x pixY: roiCenterPoint.y toDICOMCoords: clocs ];
+            NSString *roiCenter = [ NSString stringWithFormat: @"(%f, %f, %f)", clocs[0], clocs[1], clocs[2] ];
+            
+            char* mask_2d = 0;  // type should actually be unsigned
+            NSSize mySize;
+            mySize.width = 160;
+            mySize.height = 130;
+            NSPoint myOrigin;
+            
+            mask_2d = (char*)[pix getMapFromPolygonROI:roi size:&mySize origin:&myOrigin];
+            if( mask_2d )
+            {
+                NSString *roi_params = [ NSString stringWithFormat: @"(Size: %f, %f, Origin: %f, %f)",
+                                        mySize.width, mySize.height, myOrigin.x, myOrigin.y];
+                [Console AddText:[NSString stringWithFormat:@"GetROIsAsList starting... %@", roi_params]];
+                
+                std::string fbin_file( "/tmp/ROI_list+" );
+                std::ofstream fbin( fbin_file + std::to_string(i) + "-" + std::to_string(j) + ".raw", std::ios::out | std::ios::binary );
+                if( fbin.is_open() )
+                {
+                    fbin.write( mask_2d, mySize.width * mySize.height );
+                    fbin.close();
+                }
+            }
+            
+            float area = 0, length = 0;
+            NSMutableDictionary    *dataString = [roi dataString];
+            
+            if( [dataString objectForKey:@"AreaCM2"]) area = [[dataString objectForKey:@"AreaCM2"] floatValue];
+            if( [dataString objectForKey:@"AreaPIX2"]) area = [[dataString objectForKey:@"AreaPIX2"] floatValue];
+            if( [dataString objectForKey:@"Length"]) length = [[dataString objectForKey:@"Length"] floatValue];
+            
+            // walk through each point in the ROI
+            csvRoiPoints = [ NSMutableString stringWithCapacity: 100 ];
+            numCsvPoints = 0;
+            for ( k = 0; k < [ roiPoints count ]; k++ ) {
+                
+                MyPoint *mypt = [ roiPoints objectAtIndex: k ];
+                NSPoint pt = [ mypt point ];
+                
+                [ pix convertPixX: pt.x pixY: pt.y toDICOMCoords: locs ];
+
+                [ mmXYZ addObject: [ NSString stringWithFormat: @"(%f, %f, %f)", locs[0], locs[1], locs[2] ] ];
+                NSLog( @"ROI %d - %d (%@): %f, %f, %f", (int)i, (int)j, roiName, locs[0], locs[1], locs[2] );
+
+                //NSArray *pxXY = [ NSArray arrayWithObjects: [ NSNumber numberWithFloat: pt.x ], [ NSNumber numberWithFloat: pt.y ] ];
+                //[ xyzInRoi addObject: xyz ];
+                [ pixXY addObject: [ NSString stringWithFormat: @"(%f, %f)", pt.x, pt.y ] ];
+
+                // add to csv
+                if ( k > 0 ) [ csvRoiPoints appendString: @"," ];
+                [ csvRoiPoints appendFormat: @"%f,%f,%f,%f,%f", locs[0], locs[1], locs[2], pt.x, pt.y ];
+                numCsvPoints++;
+            }
+            
+            [ csvText appendFormat: @"%d,%d,%f,%f,%f,%f,%f,%c%@%c,%f,%f,%f,%f,%f,%d,%d,%@%c",
+             i, j, mean, min, max, total, dev, DQUOTE, roiName, DQUOTE, clocs[0], clocs[1], clocs[2], length, area, [ roi type ], numCsvPoints, csvRoiPoints, LF ];
+            
+                        
+            // roiInfo stands for a ROI
+            //   IndexInImage    : order in the pix (start by zero)
+            //   Name            : ROI name
+            //   Type            : ROI type (in integer)
+            //   Center            : center point of the ROI (in mm unit)
+            //   NumberOfPoints    : number of points
+            //   Point_mm        : array of point (x,y,z) in mm unit
+            //   Point_px        : array of point (x,y) in pixel unit
+            [ roiInfo setObject: [ NSNumber numberWithLong: j ] forKey: @"IndexInImage" ];
+            [ roiInfo setObject: [ NSNumber numberWithFloat: mean ] forKey: @"Mean" ];
+            [ roiInfo setObject: [ NSNumber numberWithFloat: min ] forKey: @"Min" ];
+            [ roiInfo setObject: [ NSNumber numberWithFloat: max ] forKey: @"Max" ];
+            [ roiInfo setObject: [ NSNumber numberWithFloat: total ] forKey: @"Total" ];
+            [ roiInfo setObject: [ NSNumber numberWithFloat: dev ] forKey: @"Dev" ];
+            [ roiInfo setObject: roiName forKey: @"Name" ];
+            [ roiInfo setObject: [ NSNumber numberWithFloat: length ] forKey: @"Length" ];
+            [ roiInfo setObject: [ NSNumber numberWithFloat: area ] forKey: @"Area" ];
+            [ roiInfo setObject: [ NSNumber numberWithLong: [ roi type ] ] forKey: @"Type" ];
+            [ roiInfo setObject: roiCenter forKey: @"Center" ];
+            [ roiInfo setObject: [ NSNumber numberWithLong: [ roiPoints count ] ] forKey: @"NumberOfPoints" ];
+            [ roiInfo setObject: mmXYZ forKey: @"Point_mm" ];
+            [ roiInfo setObject: pixXY forKey: @"Point_px" ];
+            
+            [ roisInImage addObject: roiInfo ];
+        }
+
+        if (numROIs > 0) {
+            // imageInfo stands for a DICOM pix
+            //   ImageIndex        : order in the series (start by zero)
+            //   NumberOfROIs    : number of ROIs
+            //   ROIs            : array of ROI
+            [ imageInfo setObject: [ NSNumber numberWithLong: i ] forKey: @"ImageIndex" ];
+            [ imageInfo setObject: [ NSNumber numberWithLong: numROIs ] forKey: @"NumberOfROIs" ];
+            [ imageInfo setObject: roisInImage forKey: @"ROIs" ];
+        
+            [ imagesInSeries addObject: imageInfo ];
+        }
+        
+        [splash incrementBy: 1];
+    }
+    
+    // seriesInfo stands for a series
+    //   Images    : array of imageInfo, which contains array of ROI
+    [ seriesInfo setObject: imagesInSeries forKey: @"Images" ];
+    NSMutableString *fname = [ NSMutableString stringWithString: @"/tmp/ROI_List" ];
+    
+    // this creates our csv file
+    [ fname appendString: @".csv" ];
+    const char *str = [ csvText cStringUsingEncoding: NSASCIIStringEncoding ];
+    NSData *data = [ NSData dataWithBytes: str length: strlen( str ) ];
+    [ data writeToFile: fname atomically: YES ];
+
+    // this creates an xml file from the dictionary
+    [ fname appendString: @".xml" ];
+    [ seriesInfo writeToFile: fname atomically: TRUE ];
+    [ seriesInfo release ];
+    
+    // hide progress
+    [splash close];
+    [splash release];
+    
+    
+    [Console AddText:[NSString stringWithFormat:@"GetROIsAsList request was: %@", log_string]];
 }
 
-
-#endif
 
 
 - (void) LogConnection:(NSString*)connec_str

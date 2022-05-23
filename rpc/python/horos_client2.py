@@ -93,13 +93,13 @@ def run_set_image(port):
 
 if __name__ == '__main__':
 
-    Port = 50052
+    Port = 50051
     if len(sys.argv) > 1:
         Port = sys.argv[1]
 
     logging.basicConfig()
-    run_get_data(Port)
+    #run_get_data(Port)
     #for i in range(1):
-    run_set_image(Port)
+    #run_set_image(Port)
     run_get_image(Port)
     #    time.sleep(1)

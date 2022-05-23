@@ -46,22 +46,24 @@ def run_get_data(port):
     :return: A DicomDataRequest object. If 'with_file_list' is supplied as the string
     arg, the source image list is also returned
     """
-    with grpc.insecure_channel('localhost:' + str(port)) as channel:
+    with grpc.insecure_channel('localhost:' + str(port), options=[('grpc.enable_http_proxy', 0), ]) as channel:
         stub = horos_pb2_grpc.HorosStub(channel)
         response = stub.GetCurrentImageData(horos_pb2.DicomDataRequest(id='with_file_list'))
 
     if not response.id.startswith("<Error>"):
-        print("{run_get_data}Client received (file): " + response.id +
-              " (patient_id): " + response.patient_id)
-        print(" (study_uid): " + response.study_instance_uid)
-        print(" (series_uid): " + response.series_instance_uid)
+        print("{run_get_data} Current dicom file: " + response.id)
+        print("  patient_id: " + response.patient_id)
+        print("  study_uid: " + response.study_instance_uid)
+        print("  series_uid: " + response.series_instance_uid)
+        print("  with: " + str(len(response.file_list)) + " files in selected series:- ")
         for _file in response.file_list:
             print( _file )
 
 def run_get_image(port):
     server_url = 'localhost:' + str(port)
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024),
+                   ('grpc.enable_http_proxy', 0)]
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
@@ -84,23 +86,26 @@ def run_get_image(port):
 def run_get_roi(port):
     server_url = 'localhost:' + str(port)
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024)]
+                   ('grpc.max_receive_message_length', 512 * 1024 * 1024),
+                   ('grpc.enable_http_proxy', 0)]
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
-    slice = stub.GetSliceROIs( roi_pb2.ROIRequest(id='...') )
-    if not slice.id.startswith("<Error>"):
-        for _roi in slice.roi_list:
-            print("{run_get_roi} Client received (roi): " + _roi.id)
-            print(" (color): red " + str(_roi.color.r) +
-                  " green " + str(_roi.color.g) +
-                  " blue " + str(_roi.color.b))
-            print(" (thickness):" + str(_roi.thickness) )
-            print(" (points): " + str( len(_roi.point_list) ) )
-            for _pt in _roi.point_list:
-                print( str(_pt.x) + ", " + str(_pt.y) )
-    else:
-        print( "{run_get_roi} error at: " + slice.id )
+    # slice = stub.GetSliceROIs( roi_pb2.ROIRequest(id='...') )
+    # if not slice.id.startswith("<Error>"):
+    #     for _roi in slice.roi_list:
+    #         print("{run_get_roi} Client received (roi): " + _roi.id)
+    #         print(" (color): red " + str(_roi.color.r) +
+    #               " green " + str(_roi.color.g) +
+    #               " blue " + str(_roi.color.b))
+    #         print(" (thickness):" + str(_roi.thickness) )
+    #         print(" (points): " + str( len(_roi.point_list) ) )
+    #         for _pt in _roi.point_list:
+    #             print( str(_pt.x) + ", " + str(_pt.y) )
+    # else:
+    #     print( "{run_get_roi} error at: " + slice.id )
+    response = stub.GetROIsAsList( roi_pb2.ROIListRequest(id='...') )
+    print( "{run_get_roi} returned: " + response.id )
 
 
 
@@ -154,8 +159,8 @@ if __name__ == '__main__':
 
     logging.basicConfig()
     run_get_version(Port)
-    #run_get_data(Port)
+    run_get_data(Port)
     run_get_roi(Port)
     #run_get_all_rois(Port)
-    #run_get_image(Port)
+    run_get_image(Port)
     #run_set_image(Port)
