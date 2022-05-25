@@ -27,6 +27,7 @@ static const char* Horos_method_names[] = {
   "/pyosirix.Horos/GetCurrentImage",
   "/pyosirix.Horos/SetCurrentImage",
   "/pyosirix.Horos/GetROIsAsList",
+  "/pyosirix.Horos/GetROIsAsImage",
 };
 
 std::unique_ptr< Horos::Stub> Horos::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -41,6 +42,7 @@ Horos::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   , rpcmethod_GetCurrentImage_(Horos_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_SetCurrentImage_(Horos_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetROIsAsList_(Horos_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetROIsAsImage_(Horos_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Horos::Stub::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataRequest* response) {
@@ -158,6 +160,29 @@ void Horos::Stub::experimental_async::GetROIsAsList(::grpc::ClientContext* conte
   return result;
 }
 
+::grpc::Status Horos::Stub::GetROIsAsImage(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest& request, ::pyosirix::ROIImageResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::pyosirix::ROIImageRequest, ::pyosirix::ROIImageResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetROIsAsImage_, context, request, response);
+}
+
+void Horos::Stub::experimental_async::GetROIsAsImage(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::pyosirix::ROIImageRequest, ::pyosirix::ROIImageResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetROIsAsImage_, context, request, response, std::move(f));
+}
+
+void Horos::Stub::experimental_async::GetROIsAsImage(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetROIsAsImage_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::pyosirix::ROIImageResponse>* Horos::Stub::PrepareAsyncGetROIsAsImageRaw(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::pyosirix::ROIImageResponse, ::pyosirix::ROIImageRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_GetROIsAsImage_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::pyosirix::ROIImageResponse>* Horos::Stub::AsyncGetROIsAsImageRaw(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncGetROIsAsImageRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 Horos::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Horos_method_names[0],
@@ -209,6 +234,16 @@ Horos::Service::Service() {
              ::pyosirix::ROIListResponse* resp) {
                return service->GetROIsAsList(ctx, req, resp);
              }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Horos_method_names[5],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::ROIImageRequest, ::pyosirix::ROIImageResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Horos::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::pyosirix::ROIImageRequest* req,
+             ::pyosirix::ROIImageResponse* resp) {
+               return service->GetROIsAsImage(ctx, req, resp);
+             }, this)));
 }
 
 Horos::Service::~Service() {
@@ -243,6 +278,13 @@ Horos::Service::~Service() {
 }
 
 ::grpc::Status Horos::Service::GetROIsAsList(::grpc::ServerContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIListResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Horos::Service::GetROIsAsImage(::grpc::ServerContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response) {
   (void) context;
   (void) request;
   (void) response;

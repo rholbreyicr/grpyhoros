@@ -202,14 +202,36 @@ GetROIsAsList( ServerContext* context,
      performSelectorOnMainThread:@selector(GetROIsAsList:)
      withObject:arg_str waitUntilDone:YES];
     
-
-
-
     [arg_str release];
     
-    
+    return Status::OK;
+}
+
+Status HorosServer::
+GetROIsAsImage( ServerContext* context,
+                const ROIImageRequest* request,
+                ROIImageResponse* reply )
+{
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+            
+        NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
+        [(__bridge id)(p_Adaptor->Osirix)
+         performSelectorOnMainThread:@selector(GetROIsAsImage:)
+         withObject:arg_str waitUntilDone:YES];
+        
+        [arg_str release];
+    }
+    else
+        return Status::CANCELLED;
     
     return Status::OK;
+
+    
+    
 }
 
 

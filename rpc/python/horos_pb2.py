@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bhoros.proto\x12\x08pyosirix\x1a\troi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x7f\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\x12\x11\n\tfile_list\x18\x05 \x03(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x32\x88\x03\n\x05Horos\x12M\n\x11GetCurrentVersion\x12\x1a.pyosirix.DicomDataRequest\x1a\x1a.pyosirix.DicomDataRequest\"\x00\x12P\n\x13GetCurrentImageData\x12\x1a.pyosirix.DicomDataRequest\x1a\x1b.pyosirix.DicomDataResponse\"\x00\x12J\n\x0fGetCurrentImage\x12\x19.pyosirix.ImageGetRequest\x1a\x1a.pyosirix.ImageGetResponse\"\x00\x12J\n\x0fSetCurrentImage\x12\x19.pyosirix.ImageSetRequest\x1a\x1a.pyosirix.ImageSetResponse\"\x00\x12\x46\n\rGetROIsAsList\x12\x18.pyosirix.ROIListRequest\x1a\x19.pyosirix.ROIListResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bhoros.proto\x12\x08pyosirix\x1a\troi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x7f\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\x12\x11\n\tfile_list\x18\x05 \x03(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x32\xd3\x03\n\x05Horos\x12M\n\x11GetCurrentVersion\x12\x1a.pyosirix.DicomDataRequest\x1a\x1a.pyosirix.DicomDataRequest\"\x00\x12P\n\x13GetCurrentImageData\x12\x1a.pyosirix.DicomDataRequest\x1a\x1b.pyosirix.DicomDataResponse\"\x00\x12J\n\x0fGetCurrentImage\x12\x19.pyosirix.ImageGetRequest\x1a\x1a.pyosirix.ImageGetResponse\"\x00\x12J\n\x0fSetCurrentImage\x12\x19.pyosirix.ImageSetRequest\x1a\x1a.pyosirix.ImageSetResponse\"\x00\x12\x46\n\rGetROIsAsList\x12\x18.pyosirix.ROIListRequest\x1a\x19.pyosirix.ROIListResponse\"\x00\x12I\n\x0eGetROIsAsImage\x12\x19.pyosirix.ROIImageRequest\x1a\x1a.pyosirix.ROIImageResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[roi__pb2.DESCRIPTOR,])
 
@@ -390,7 +390,7 @@ _HOROS = _descriptor.ServiceDescriptor(
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
   serialized_start=540,
-  serialized_end=932,
+  serialized_end=1007,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCurrentVersion',
@@ -439,6 +439,16 @@ _HOROS = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=roi__pb2._ROILISTREQUEST,
     output_type=roi__pb2._ROILISTRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='GetROIsAsImage',
+    full_name='pyosirix.Horos.GetROIsAsImage',
+    index=5,
+    containing_service=None,
+    input_type=roi__pb2._ROIIMAGEREQUEST,
+    output_type=roi__pb2._ROIIMAGERESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),

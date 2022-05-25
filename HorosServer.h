@@ -89,7 +89,11 @@ class HorosServer final : public Horos::Service {
     Status GetROIsAsList( ServerContext* context,
                           const ROIListRequest* request,
                           ROIListResponse* reply ) override;
-    
+
+    Status GetROIsAsImage( ServerContext* context,
+                           const ROIImageRequest* request,
+                           ROIImageResponse* reply ) override;
+   
     static ServerAdaptor* p_Adaptor;  ///< Pointer to adaptor, not owned by this class
 
 public:

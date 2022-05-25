@@ -495,28 +495,52 @@ using pyosirix::ROIListResponse;
             float clocs[3], locs[3];
             [ pix convertPixX: roiCenterPoint.x pixY: roiCenterPoint.y toDICOMCoords: clocs ];
             NSString *roiCenter = [ NSString stringWithFormat: @"(%f, %f, %f)", clocs[0], clocs[1], clocs[2] ];
-            
-            char* mask_2d = 0;  // type should actually be unsigned
-            NSSize mySize;
-            mySize.width = 160;
-            mySize.height = 130;
-            NSPoint myOrigin;
-            
-            mask_2d = (char*)[pix getMapFromPolygonROI:roi size:&mySize origin:&myOrigin];
-            if( mask_2d )
+
+             //getMap approach .... vulnerable as depracated and origin is badly defined especially
+             //at image edges (actual point selection can be given eg. -3 (units?))
+//            char* mask_2d = 0;  // type should actually be unsigned
+//            NSSize mySize;
+//            mySize.width = 160;
+//            mySize.height = 130;
+//            NSPoint myOrigin;
+//
+//            mask_2d = (char*)[pix getMapFromPolygonROI:roi size:&mySize origin:&myOrigin];
+//            if( mask_2d )
+//            {
+//                NSString *roi_params = [ NSString stringWithFormat: @"(Size: %f, %f, Origin: %f, %f)",
+//                                        mySize.width, mySize.height, myOrigin.x, myOrigin.y];
+//                [Console AddText:[NSString stringWithFormat:@"GetROIsAsList starting... %@", roi_params]];
+//
+//                std::string fbin_file( "/tmp/ROI_list+" );
+//                std::ofstream fbin( fbin_file + std::to_string(i) + "-" + std::to_string(j) + ".raw", std::ios::out | std::ios::binary );
+//                if( fbin.is_open() )
+//                {
+//                    fbin.write( mask_2d, mySize.width * mySize.height );
+//                    fbin.close();
+//                }
+//            }
+            long numberOfValues;
+            float* locations = 0;
+            float* data = 0;
+            [Console AddText:[NSString stringWithFormat:@"Running getLineROI..."]];
+            //data = (float*)[pix getLineROIValue:&numberOfValues :roi :&locations];
+            data = (float*)[[[roi curView] curDCM] getROIValue:&numberOfValues :roi :&locations];
+            if( locations && data )
             {
-                NSString *roi_params = [ NSString stringWithFormat: @"(Size: %f, %f, Origin: %f, %f)",
-                                        mySize.width, mySize.height, myOrigin.x, myOrigin.y];
-                [Console AddText:[NSString stringWithFormat:@"GetROIsAsList starting... %@", roi_params]];
-                
-                std::string fbin_file( "/tmp/ROI_list+" );
-                std::ofstream fbin( fbin_file + std::to_string(i) + "-" + std::to_string(j) + ".raw", std::ios::out | std::ios::binary );
-                if( fbin.is_open() )
+                std::ofstream fout( "/tmp/getLineROI+" + std::to_string(i) + "-" + std::to_string(j) + ".csv" );
+                if( fout.is_open() )
                 {
-                    fbin.write( mask_2d, mySize.width * mySize.height );
-                    fbin.close();
+                    for( size_t k=0; k<numberOfValues; k++ )
+                    {
+                        fout << locations[2*k] << ", " << locations[2*k+1] << ", " << data[k] << std::endl;
+                    }
+                    fout.close();
                 }
+                free( data );
+                free( locations );
             }
+            [Console AddText:[NSString stringWithFormat:@"Finished getLineROI..."]];
+            
             
             float area = 0, length = 0;
             NSMutableDictionary    *dataString = [roi dataString];

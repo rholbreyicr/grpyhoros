@@ -23,9 +23,7 @@ service Horos {
   rpc SetCurrentImage (ImageSetRequest) returns (ImageSetResponse) {}
 
   rpc GetROIsAsList (ROIListRequest) returns (ROIListResponse) {}
-  //rpc GetSliceROIs (ROIRequest) returns (SliceROIResponse) {}
-  //rpc GetStackROIs (ROIRequest) returns (StackROIResponse) {}
-  //rpc UpdateROI (ROIRequest) returns (ROIResponse) {}
+  rpc GetROIsAsImage (ROIImageRequest) returns (ROIImageResponse) {}
 }
 
 import "roi.proto";

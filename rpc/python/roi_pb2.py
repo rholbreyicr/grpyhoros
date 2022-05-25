@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\troi.proto\x12\x08pyosirix\"\x1c\n\x0eROIListRequest\x12\n\n\x02id\x18\x01 \x01(\t\"(\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"(\n\x05\x43olor\x12\t\n\x01r\x18\x01 \x01(\r\x12\t\n\x01g\x18\x02 \x01(\r\x12\t\n\x01\x62\x18\x03 \x01(\r\"\xde\x01\n\x03ROI\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\nseries_uid\x18\x03 \x01(\t\x12\x11\n\timage_uid\x18\x04 \x01(\t\x12\x1e\n\x05\x63olor\x18\x05 \x01(\x0b\x32\x0f.pyosirix.Color\x12\x0f\n\x07opacity\x18\x06 \x01(\x02\x12\x11\n\tthickness\x18\x07 \x01(\x02\x12\x10\n\x08selected\x18\x08 \x01(\r\x12\x1f\n\x06\x63\x65ntre\x18\t \x01(\x0b\x32\x0f.pyosirix.Point\x12\x1f\n\x06points\x18\n \x03(\x0b\x32\x0f.pyosirix.Point\">\n\x0fROIListResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1f\n\x08roi_list\x18\x02 \x03(\x0b\x32\r.pyosirix.ROIb\x06proto3'
+  serialized_pb=b'\n\troi.proto\x12\x08pyosirix\"\x1c\n\x0eROIListRequest\x12\n\n\x02id\x18\x01 \x01(\t\"(\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"(\n\x05\x43olor\x12\t\n\x01r\x18\x01 \x01(\r\x12\t\n\x01g\x18\x02 \x01(\r\x12\t\n\x01\x62\x18\x03 \x01(\r\"\xde\x01\n\x03ROI\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\nseries_uid\x18\x03 \x01(\t\x12\x11\n\timage_uid\x18\x04 \x01(\t\x12\x1e\n\x05\x63olor\x18\x05 \x01(\x0b\x32\x0f.pyosirix.Color\x12\x0f\n\x07opacity\x18\x06 \x01(\x02\x12\x11\n\tthickness\x18\x07 \x01(\x02\x12\x10\n\x08selected\x18\x08 \x01(\r\x12\x1f\n\x06\x63\x65ntre\x18\t \x01(\x0b\x32\x0f.pyosirix.Point\x12\x1f\n\x06points\x18\n \x03(\x0b\x32\x0f.pyosirix.Point\">\n\x0fROIListResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1f\n\x08roi_list\x18\x02 \x03(\x0b\x32\r.pyosirix.ROI\"5\n\x0fROIImageRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0einput_filepath\x18\x02 \x01(\t\"7\n\x10ROIImageResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x17\n\x0foutput_filepath\x18\x02 \x01(\tb\x06proto3'
 )
 
 
@@ -282,6 +282,84 @@ _ROILISTRESPONSE = _descriptor.Descriptor(
   serialized_end=424,
 )
 
+
+_ROIIMAGEREQUEST = _descriptor.Descriptor(
+  name='ROIImageRequest',
+  full_name='pyosirix.ROIImageRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='pyosirix.ROIImageRequest.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='input_filepath', full_name='pyosirix.ROIImageRequest.input_filepath', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=426,
+  serialized_end=479,
+)
+
+
+_ROIIMAGERESPONSE = _descriptor.Descriptor(
+  name='ROIImageResponse',
+  full_name='pyosirix.ROIImageResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='pyosirix.ROIImageResponse.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='output_filepath', full_name='pyosirix.ROIImageResponse.output_filepath', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=481,
+  serialized_end=536,
+)
+
 _ROI.fields_by_name['color'].message_type = _COLOR
 _ROI.fields_by_name['centre'].message_type = _POINT
 _ROI.fields_by_name['points'].message_type = _POINT
@@ -291,6 +369,8 @@ DESCRIPTOR.message_types_by_name['Point'] = _POINT
 DESCRIPTOR.message_types_by_name['Color'] = _COLOR
 DESCRIPTOR.message_types_by_name['ROI'] = _ROI
 DESCRIPTOR.message_types_by_name['ROIListResponse'] = _ROILISTRESPONSE
+DESCRIPTOR.message_types_by_name['ROIImageRequest'] = _ROIIMAGEREQUEST
+DESCRIPTOR.message_types_by_name['ROIImageResponse'] = _ROIIMAGERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 ROIListRequest = _reflection.GeneratedProtocolMessageType('ROIListRequest', (_message.Message,), {
@@ -327,6 +407,20 @@ ROIListResponse = _reflection.GeneratedProtocolMessageType('ROIListResponse', (_
   # @@protoc_insertion_point(class_scope:pyosirix.ROIListResponse)
   })
 _sym_db.RegisterMessage(ROIListResponse)
+
+ROIImageRequest = _reflection.GeneratedProtocolMessageType('ROIImageRequest', (_message.Message,), {
+  'DESCRIPTOR' : _ROIIMAGEREQUEST,
+  '__module__' : 'roi_pb2'
+  # @@protoc_insertion_point(class_scope:pyosirix.ROIImageRequest)
+  })
+_sym_db.RegisterMessage(ROIImageRequest)
+
+ROIImageResponse = _reflection.GeneratedProtocolMessageType('ROIImageResponse', (_message.Message,), {
+  'DESCRIPTOR' : _ROIIMAGERESPONSE,
+  '__module__' : 'roi_pb2'
+  # @@protoc_insertion_point(class_scope:pyosirix.ROIImageResponse)
+  })
+_sym_db.RegisterMessage(ROIImageResponse)
 
 
 # @@protoc_insertion_point(module_scope)

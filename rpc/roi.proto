@@ -42,3 +42,14 @@ message ROIListResponse {
   string id = 1;  // patient id :: seriesinstanceUID :: slice number
   repeated ROI roi_list = 2;
 }
+
+message ROIImageRequest {
+  string id = 1;
+  string input_filepath = 2;
+  //int32 fill_value = 2;
+}
+
+message ROIImageResponse {
+  string id = 1;
+  string output_filepath = 2;
+}

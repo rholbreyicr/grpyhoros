@@ -41,6 +41,11 @@ class HorosStub(object):
                 request_serializer=roi__pb2.ROIListRequest.SerializeToString,
                 response_deserializer=roi__pb2.ROIListResponse.FromString,
                 )
+        self.GetROIsAsImage = channel.unary_unary(
+                '/pyosirix.Horos/GetROIsAsImage',
+                request_serializer=roi__pb2.ROIImageRequest.SerializeToString,
+                response_deserializer=roi__pb2.ROIImageResponse.FromString,
+                )
 
 
 class HorosServicer(object):
@@ -80,6 +85,12 @@ class HorosServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetROIsAsImage(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_HorosServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -107,6 +118,11 @@ def add_HorosServicer_to_server(servicer, server):
                     servicer.GetROIsAsList,
                     request_deserializer=roi__pb2.ROIListRequest.FromString,
                     response_serializer=roi__pb2.ROIListResponse.SerializeToString,
+            ),
+            'GetROIsAsImage': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetROIsAsImage,
+                    request_deserializer=roi__pb2.ROIImageRequest.FromString,
+                    response_serializer=roi__pb2.ROIImageResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -201,5 +217,22 @@ class Horos(object):
         return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetROIsAsList',
             roi__pb2.ROIListRequest.SerializeToString,
             roi__pb2.ROIListResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def GetROIsAsImage(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetROIsAsImage',
+            roi__pb2.ROIImageRequest.SerializeToString,
+            roi__pb2.ROIImageResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
