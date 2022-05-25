@@ -112,6 +112,8 @@
 		BF37672725B86DF10034C20A /* libabsl_time_zone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766C725B86DF10034C20A /* libabsl_time_zone.a */; };
 		BF37672C25B9BC4D0034C20A /* libquill.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37672B25B9BC4D0034C20A /* libquill.a */; };
 		BF37672D25B9BC4D0034C20A /* libquill.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37672B25B9BC4D0034C20A /* libquill.a */; };
+		BF3FF35D283E3FBB00853FA9 /* ImageHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = BF3FF35C283E3FBB00853FA9 /* ImageHelper.h */; };
+		BF3FF36C283E403C00853FA9 /* ImageHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF3FF36B283E403C00853FA9 /* ImageHelper.mm */; };
 		BF6EFCB725846B160068543D /* HorosServer.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD54D25768EC500246D66 /* HorosServer.mm */; };
 		BF6EFCBC25846B1D0068543D /* horos.grpc.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */; };
 		BF6EFCC125846B210068543D /* horos.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = BF4FD52E25751EA700246D66 /* horos.pb.cc */; };
@@ -261,6 +263,8 @@
 		BF3766C625B86DF10034C20A /* libabsl_bad_optional_access.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_bad_optional_access.a; path = "grpc-1.34/grpc_libs/libabsl_bad_optional_access.a"; sourceTree = "<group>"; };
 		BF3766C725B86DF10034C20A /* libabsl_time_zone.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_time_zone.a; path = "grpc-1.34/grpc_libs/libabsl_time_zone.a"; sourceTree = "<group>"; };
 		BF37672B25B9BC4D0034C20A /* libquill.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libquill.a; sourceTree = "<group>"; };
+		BF3FF35C283E3FBB00853FA9 /* ImageHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageHelper.h; sourceTree = "<group>"; };
+		BF3FF36B283E403C00853FA9 /* ImageHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageHelper.mm; sourceTree = "<group>"; };
 		BF4FD4DA2574432B00246D66 /* ConsoleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConsoleController.h; sourceTree = "<group>"; };
 		BF4FD4DC2574432B00246D66 /* ConsoleController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConsoleController.xib; sourceTree = "<group>"; };
 		BF4FD52C25751EA700246D66 /* horos.grpc.pb.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = horos.grpc.pb.cc; path = rpc/cpp/horos.grpc.pb.cc; sourceTree = "<group>"; };
@@ -551,6 +555,8 @@
 				BF1975432562E0F6006C25B2 /* grpyOsiriXFilter.mm */,
 				BF2BF09C258451E2008EA8FE /* ServerManager.h */,
 				BF2BF092258451B1008EA8FE /* ServerManager.mm */,
+				BF3FF35C283E3FBB00853FA9 /* ImageHelper.h */,
+				BF3FF36B283E403C00853FA9 /* ImageHelper.mm */,
 			);
 			name = pyOsiriXIIFilter;
 			sourceTree = "<group>";
@@ -644,6 +650,7 @@
 				BF90A48925A270A80069D611 /* horos.grpc.pb.h in Headers */,
 				BF90A48A25A270A80069D611 /* HorosServer.h in Headers */,
 				BF90A48B25A270A80069D611 /* ServerAdaptor.h in Headers */,
+				BF3FF35D283E3FBB00853FA9 /* ImageHelper.h in Headers */,
 				BF90A48C25A270A80069D611 /* horos.pb.h in Headers */,
 				BF90A48D25A270A80069D611 /* ConsoleController.h in Headers */,
 				BF90A48E25A270A80069D611 /* grpyOsiriXFilter.h in Headers */,
@@ -862,6 +869,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFFEA17025C2FC5100D8A44A /* roi.pb.cc in Sources */,
+				BF3FF36C283E403C00853FA9 /* ImageHelper.mm in Sources */,
 				BF90A49425A270A80069D611 /* grpyOsiriXFilter.mm in Sources */,
 				BF90A49525A270A80069D611 /* HorosServer.mm in Sources */,
 				BF90A49625A270A80069D611 /* ConsoleController.mm in Sources */,

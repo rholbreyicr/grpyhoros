@@ -424,6 +424,10 @@ using pyosirix::ROIListResponse;
 }
 
 
+/*
+    This is basically a re-implementation of the ExportROIs plugin to experiment. At present,
+    the output is a bunch of csv files to /tmp
+ */
 -(void)GetROIsAsList:(NSString*) log_string
 {
     [Console AddText:[NSString stringWithFormat:@"GetROIsAsList starting... %@", log_string]];
@@ -496,52 +500,6 @@ using pyosirix::ROIListResponse;
             [ pix convertPixX: roiCenterPoint.x pixY: roiCenterPoint.y toDICOMCoords: clocs ];
             NSString *roiCenter = [ NSString stringWithFormat: @"(%f, %f, %f)", clocs[0], clocs[1], clocs[2] ];
 
-             //getMap approach .... vulnerable as depracated and origin is badly defined especially
-             //at image edges (actual point selection can be given eg. -3 (units?))
-//            char* mask_2d = 0;  // type should actually be unsigned
-//            NSSize mySize;
-//            mySize.width = 160;
-//            mySize.height = 130;
-//            NSPoint myOrigin;
-//
-//            mask_2d = (char*)[pix getMapFromPolygonROI:roi size:&mySize origin:&myOrigin];
-//            if( mask_2d )
-//            {
-//                NSString *roi_params = [ NSString stringWithFormat: @"(Size: %f, %f, Origin: %f, %f)",
-//                                        mySize.width, mySize.height, myOrigin.x, myOrigin.y];
-//                [Console AddText:[NSString stringWithFormat:@"GetROIsAsList starting... %@", roi_params]];
-//
-//                std::string fbin_file( "/tmp/ROI_list+" );
-//                std::ofstream fbin( fbin_file + std::to_string(i) + "-" + std::to_string(j) + ".raw", std::ios::out | std::ios::binary );
-//                if( fbin.is_open() )
-//                {
-//                    fbin.write( mask_2d, mySize.width * mySize.height );
-//                    fbin.close();
-//                }
-//            }
-            long numberOfValues;
-            float* locations = 0;
-            float* data = 0;
-            [Console AddText:[NSString stringWithFormat:@"Running getLineROI..."]];
-            //data = (float*)[pix getLineROIValue:&numberOfValues :roi :&locations];
-            data = (float*)[[[roi curView] curDCM] getROIValue:&numberOfValues :roi :&locations];
-            if( locations && data )
-            {
-                std::ofstream fout( "/tmp/getLineROI+" + std::to_string(i) + "-" + std::to_string(j) + ".csv" );
-                if( fout.is_open() )
-                {
-                    for( size_t k=0; k<numberOfValues; k++ )
-                    {
-                        fout << locations[2*k] << ", " << locations[2*k+1] << ", " << data[k] << std::endl;
-                    }
-                    fout.close();
-                }
-                free( data );
-                free( locations );
-            }
-            [Console AddText:[NSString stringWithFormat:@"Finished getLineROI..."]];
-            
-            
             float area = 0, length = 0;
             NSMutableDictionary    *dataString = [roi dataString];
             
@@ -637,9 +595,178 @@ using pyosirix::ROIListResponse;
     [splash close];
     [splash release];
     
-    
     [Console AddText:[NSString stringWithFormat:@"GetROIsAsList request was: %@", log_string]];
 }
+
+
+-(void)GetROIsAsImage:(NSString*) log_string
+{
+    [Console AddText:[NSString stringWithFormat:@"GetROIsAsImage starting... %@", log_string]];
+    LOG_INFO(Logger, "GetROIsAsImage starting...");
+
+    ViewerController* currV = [ViewerController frontMostDisplayed2DViewer];
+    
+    NSArray                 *pixList = [currV pixList];
+    long                    i, j, numROIs;
+            
+    // prepare for final output
+    NSMutableDictionary        *seriesInfo = [ [ NSMutableDictionary alloc ] init ];
+    NSMutableArray            *imagesInSeries = [ NSMutableArray arrayWithCapacity: 0 ];
+
+    // get array of arrray of ROI in current series
+    NSArray *roiSeriesList = [ currV roiList ];
+    
+    DCMPix* starting_pix = [[currV pixList] objectAtIndex: 0];
+    std::string tmp_folder( getenv("TMPDIR") );
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy_MM_dd-HH_mm_ss"];
+    NSString* date_string = [dateFormatter stringFromDate:[NSDate date]];
+    const char* date_utf8 = [date_string UTF8String];
+
+    float forigin[3], fvox_size[3], orient[9];
+    int idim[2], num_img = 0;
+    if( starting_pix )
+    {
+        //log_string = [pix sourceFile];
+        [starting_pix origin: forigin];
+        fvox_size[0] = [starting_pix pixelSpacingX];
+        fvox_size[1] = [starting_pix pixelSpacingY];
+        fvox_size[2] = [starting_pix spacingBetweenSlices];
+        
+        //@todo ... maybe these would be better for python the other way around?
+        idim[0] = [starting_pix pwidth];
+        idim[1] = [starting_pix pheight];
+        
+        [starting_pix orientation: orient];  // @todo map this to mhd
+        
+        num_img = [[currV pixList] count];
+        
+        if( tmp_folder.empty() )
+            tmp_folder = "/tmp";
+        
+        std::string mhd_header( tmp_folder + "/" + date_utf8 + ".mhd" );
+        
+        [Console AddText:[NSString stringWithFormat:@"Writing mhd header to: %s", mhd_header.c_str()]];
+        std::ofstream fmhd_header( mhd_header );
+        if( fmhd_header.is_open() )
+        {
+            fmhd_header << "ObjectType = Image" << std::endl;
+            fmhd_header << "NDims = 3" << std::endl;
+            fmhd_header << "BinaryData = True" << std::endl;
+            fmhd_header << "BinaryDataByteOrderMSB = False" << std::endl;
+            fmhd_header << "CompressedData = False" << std::endl;
+            fmhd_header << "TransformMatrix = 1 0 0 0 1 0 0 0 1" << std::endl;
+            fmhd_header << "Offset = " << forigin[0] << " " << forigin[1] << " " << forigin[2] << std::endl;
+            fmhd_header << "CenterOfRotation = 0 0 0" << std::endl;
+            fmhd_header << "AnatomicalOrientation = RAI" << std::endl;
+            fmhd_header << "ElementSpacing = " << fvox_size[0] << " " << fvox_size[1] << " " << fvox_size[2] << std::endl;
+            fmhd_header << "DimSize = " << idim[0] << " " << idim[1] << " " << num_img << std::endl;
+            fmhd_header << "ElementType = MET_UCHAR" << std::endl;
+            fmhd_header << "ElementDataFile = " << date_utf8 << ".raw" << std::endl;
+            fmhd_header.close();
+        }
+        else
+        {
+            [Console AddText:[NSString stringWithFormat:@"GetROIsAsImage failed to write mhd header"]];
+            LOG_ERROR( Logger, "GetROIsAsImage failed to write mhd header");
+        }
+    }
+    else
+    {
+        [Console AddText:[NSString stringWithFormat:@"GetROIsAsImage failed to obtain image params"]];
+        LOG_ERROR( Logger, "GetROIsAsImage failed to obtain image params");
+    }
+    
+    const size_t SLICE_SIZE = idim[0] * idim[1];
+    const size_t NUM_BYTES = SLICE_SIZE * num_img;
+    const size_t ROW_SIZE = idim[0];
+    const unsigned char FOREGROUND = 255;
+    std::vector<unsigned char> vraw_data( NUM_BYTES, (unsigned char)0 );
+    unsigned char* raw_data = vraw_data.data();
+
+    
+    // CHECK raw_data
+    // ==============
+    
+    // show progress
+    Wait *splash = [ [ Wait alloc ] initWithString: @"Exporting ROIs..." ];
+    [ splash showWindow:viewerController ];
+    [ [ splash progress] setMaxValue: [ roiSeriesList count ] ];
+
+    // walk through each array of ROI
+    size_t count = 0;
+    for ( i = 0; i < [ roiSeriesList count ]; i++ ) {
+        
+        const size_t SLICE = i * SLICE_SIZE;
+        
+        // current DICOM pix
+        //DCMPix *pix = [ pixList objectAtIndex: i ];  // this is the image currently selected in the 2D display
+        
+        // array of ROI in current pix
+        NSArray *roiImageList = [ roiSeriesList objectAtIndex: i ];
+
+        NSMutableDictionary *imageInfo = [ [ NSMutableDictionary alloc ] init ];
+        NSMutableArray      *roisInImage = [ NSMutableArray arrayWithCapacity: 0 ];
+
+        // walk through each ROI in current pix
+        numROIs = [ roiImageList count ];
+        for ( j = 0; j < numROIs; j++ ) {
+            count++;
+            
+            ROI *roi = [ roiImageList objectAtIndex: j ];
+            
+            NSString *roiName = [ roi name ];
+
+            long numberOfValues;
+            float* locations = 0;
+            float* data = 0;
+            [Console AddText:[NSString stringWithFormat:@"Getting ROI for slice: %ld", i ]];
+            // need to select the pixel obj for the slice associated with this roi
+            DCMPix* roi_pix = [[roi curView] curDCM];
+            data = (float*)[roi_pix getROIValue:&numberOfValues :roi :&locations];
+            if( locations && data )
+            {
+                std::ofstream fout( "/tmp/getLineROI+" + std::to_string(i) + "-" + std::to_string(j) + ".csv" );
+                if( fout.is_open() )
+                {
+                    for( size_t k=0; k<numberOfValues; k++ )
+                    {
+                        const size_t x_ref = (size_t)std::round(locations[2*k]);
+                        const size_t y_ref = (size_t)std::round(locations[2*k + 1]);
+                        fout << x_ref << ", " << y_ref << ", " << data[k] << std::endl;
+                        
+                        raw_data[ SLICE + (y_ref * ROW_SIZE) + x_ref ] = (unsigned char)count; //FOREGROUND;
+                    }
+                    fout.close();
+                }
+                free( data );
+                free( locations );
+            }
+            [Console AddText:[NSString stringWithFormat:@"Finished getROIValue..."]];
+        
+        }
+        
+        [splash incrementBy: 1];
+    }
+    
+    if( raw_data )
+    {
+        std::ofstream fbin( tmp_folder + "/" + date_utf8 + ".raw", std::ios::out | std::ios::binary );
+        if( fbin.is_open() )
+        {
+            fbin.write( (const char*)raw_data, NUM_BYTES );
+            fbin.close();
+        }
+    }
+    
+    // hide progress
+    [splash close];
+    [splash release];
+    
+    
+    [Console AddText:[NSString stringWithFormat:@"GetROIsAsImage done"]];
+}
+
 
 
 

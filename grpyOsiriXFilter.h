@@ -69,4 +69,6 @@
 
 -(void)GetROIsAsList:(NSString*) log_string;
 
+-(void)GetROIsAsImage:(NSString*) log_string;
+
 @end
