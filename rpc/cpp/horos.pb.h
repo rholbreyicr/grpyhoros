@@ -48,7 +48,7 @@ struct TableStruct_horos_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -74,6 +74,9 @@ extern ImageSetRequestDefaultTypeInternal _ImageSetRequest_default_instance_;
 class ImageSetResponse;
 class ImageSetResponseDefaultTypeInternal;
 extern ImageSetResponseDefaultTypeInternal _ImageSetResponse_default_instance_;
+class MethodResponse;
+class MethodResponseDefaultTypeInternal;
+extern MethodResponseDefaultTypeInternal _MethodResponse_default_instance_;
 }  // namespace pyosirix
 PROTOBUF_NAMESPACE_OPEN
 template<> ::pyosirix::DicomDataRequest* Arena::CreateMaybeMessage<::pyosirix::DicomDataRequest>(Arena*);
@@ -82,6 +85,7 @@ template<> ::pyosirix::ImageGetRequest* Arena::CreateMaybeMessage<::pyosirix::Im
 template<> ::pyosirix::ImageGetResponse* Arena::CreateMaybeMessage<::pyosirix::ImageGetResponse>(Arena*);
 template<> ::pyosirix::ImageSetRequest* Arena::CreateMaybeMessage<::pyosirix::ImageSetRequest>(Arena*);
 template<> ::pyosirix::ImageSetResponse* Arena::CreateMaybeMessage<::pyosirix::ImageSetResponse>(Arena*);
+template<> ::pyosirix::MethodResponse* Arena::CreateMaybeMessage<::pyosirix::MethodResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace pyosirix {
 
@@ -1273,6 +1277,176 @@ class ImageSetResponse PROTOBUF_FINAL :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_horos_2eproto;
 };
+// -------------------------------------------------------------------
+
+class MethodResponse PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:pyosirix.MethodResponse) */ {
+ public:
+  inline MethodResponse() : MethodResponse(nullptr) {}
+  virtual ~MethodResponse();
+
+  MethodResponse(const MethodResponse& from);
+  MethodResponse(MethodResponse&& from) noexcept
+    : MethodResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline MethodResponse& operator=(const MethodResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline MethodResponse& operator=(MethodResponse&& from) noexcept {
+    if (GetArena() == from.GetArena()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const MethodResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const MethodResponse* internal_default_instance() {
+    return reinterpret_cast<const MethodResponse*>(
+               &_MethodResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(MethodResponse& a, MethodResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(MethodResponse* other) {
+    if (other == this) return;
+    if (GetArena() == other->GetArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(MethodResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline MethodResponse* New() const final {
+    return CreateMaybeMessage<MethodResponse>(nullptr);
+  }
+
+  MethodResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<MethodResponse>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const MethodResponse& from);
+  void MergeFrom(const MethodResponse& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(MethodResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "pyosirix.MethodResponse";
+  }
+  protected:
+  explicit MethodResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_horos_2eproto);
+    return ::descriptor_table_horos_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kMethodListFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // repeated string method_list = 2;
+  int method_list_size() const;
+  private:
+  int _internal_method_list_size() const;
+  public:
+  void clear_method_list();
+  const std::string& method_list(int index) const;
+  std::string* mutable_method_list(int index);
+  void set_method_list(int index, const std::string& value);
+  void set_method_list(int index, std::string&& value);
+  void set_method_list(int index, const char* value);
+  void set_method_list(int index, const char* value, size_t size);
+  std::string* add_method_list();
+  void add_method_list(const std::string& value);
+  void add_method_list(std::string&& value);
+  void add_method_list(const char* value);
+  void add_method_list(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& method_list() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_method_list();
+  private:
+  const std::string& _internal_method_list(int index) const;
+  std::string* _internal_add_method_list();
+  public:
+
+  // string id = 1;
+  void clear_id();
+  const std::string& id() const;
+  void set_id(const std::string& value);
+  void set_id(std::string&& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  std::string* mutable_id();
+  std::string* release_id();
+  void set_allocated_id(std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:pyosirix.MethodResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> method_list_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_horos_2eproto;
+};
 // ===================================================================
 
 
@@ -2392,9 +2566,151 @@ inline void ImageSetResponse::set_viewer_id(::PROTOBUF_NAMESPACE_ID::uint64 valu
   // @@protoc_insertion_point(field_set:pyosirix.ImageSetResponse.viewer_id)
 }
 
+// -------------------------------------------------------------------
+
+// MethodResponse
+
+// string id = 1;
+inline void MethodResponse::clear_id() {
+  id_.ClearToEmpty(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline const std::string& MethodResponse::id() const {
+  // @@protoc_insertion_point(field_get:pyosirix.MethodResponse.id)
+  return _internal_id();
+}
+inline void MethodResponse::set_id(const std::string& value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:pyosirix.MethodResponse.id)
+}
+inline std::string* MethodResponse::mutable_id() {
+  // @@protoc_insertion_point(field_mutable:pyosirix.MethodResponse.id)
+  return _internal_mutable_id();
+}
+inline const std::string& MethodResponse::_internal_id() const {
+  return id_.Get();
+}
+inline void MethodResponse::_internal_set_id(const std::string& value) {
+  
+  id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value, GetArena());
+}
+inline void MethodResponse::set_id(std::string&& value) {
+  
+  id_.Set(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value), GetArena());
+  // @@protoc_insertion_point(field_set_rvalue:pyosirix.MethodResponse.id)
+}
+inline void MethodResponse::set_id(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value),
+              GetArena());
+  // @@protoc_insertion_point(field_set_char:pyosirix.MethodResponse.id)
+}
+inline void MethodResponse::set_id(const char* value,
+    size_t size) {
+  
+  id_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(
+      reinterpret_cast<const char*>(value), size), GetArena());
+  // @@protoc_insertion_point(field_set_pointer:pyosirix.MethodResponse.id)
+}
+inline std::string* MethodResponse::_internal_mutable_id() {
+  
+  return id_.Mutable(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline std::string* MethodResponse::release_id() {
+  // @@protoc_insertion_point(field_release:pyosirix.MethodResponse.id)
+  return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+}
+inline void MethodResponse::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
+      GetArena());
+  // @@protoc_insertion_point(field_set_allocated:pyosirix.MethodResponse.id)
+}
+
+// repeated string method_list = 2;
+inline int MethodResponse::_internal_method_list_size() const {
+  return method_list_.size();
+}
+inline int MethodResponse::method_list_size() const {
+  return _internal_method_list_size();
+}
+inline void MethodResponse::clear_method_list() {
+  method_list_.Clear();
+}
+inline std::string* MethodResponse::add_method_list() {
+  // @@protoc_insertion_point(field_add_mutable:pyosirix.MethodResponse.method_list)
+  return _internal_add_method_list();
+}
+inline const std::string& MethodResponse::_internal_method_list(int index) const {
+  return method_list_.Get(index);
+}
+inline const std::string& MethodResponse::method_list(int index) const {
+  // @@protoc_insertion_point(field_get:pyosirix.MethodResponse.method_list)
+  return _internal_method_list(index);
+}
+inline std::string* MethodResponse::mutable_method_list(int index) {
+  // @@protoc_insertion_point(field_mutable:pyosirix.MethodResponse.method_list)
+  return method_list_.Mutable(index);
+}
+inline void MethodResponse::set_method_list(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:pyosirix.MethodResponse.method_list)
+  method_list_.Mutable(index)->assign(value);
+}
+inline void MethodResponse::set_method_list(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:pyosirix.MethodResponse.method_list)
+  method_list_.Mutable(index)->assign(std::move(value));
+}
+inline void MethodResponse::set_method_list(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  method_list_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:pyosirix.MethodResponse.method_list)
+}
+inline void MethodResponse::set_method_list(int index, const char* value, size_t size) {
+  method_list_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:pyosirix.MethodResponse.method_list)
+}
+inline std::string* MethodResponse::_internal_add_method_list() {
+  return method_list_.Add();
+}
+inline void MethodResponse::add_method_list(const std::string& value) {
+  method_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:pyosirix.MethodResponse.method_list)
+}
+inline void MethodResponse::add_method_list(std::string&& value) {
+  method_list_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:pyosirix.MethodResponse.method_list)
+}
+inline void MethodResponse::add_method_list(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  method_list_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:pyosirix.MethodResponse.method_list)
+}
+inline void MethodResponse::add_method_list(const char* value, size_t size) {
+  method_list_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:pyosirix.MethodResponse.method_list)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+MethodResponse::method_list() const {
+  // @@protoc_insertion_point(field_list:pyosirix.MethodResponse.method_list)
+  return method_list_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+MethodResponse::mutable_method_list() {
+  // @@protoc_insertion_point(field_mutable_list:pyosirix.MethodResponse.method_list)
+  return &method_list_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

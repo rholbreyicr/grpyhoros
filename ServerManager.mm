@@ -7,6 +7,7 @@
 
 #import "ServerManager.h"
 #import "HorosServer.h"
+#include <fstream>
 
 
 //-----------------------------------------------------------------------------------
@@ -53,11 +54,19 @@
     if( !Adaptor )
         Adaptor = new pyosirix::ServerAdaptor;
     Adaptor->Osirix = (void*)plugin_filter;
+
+    std::string cfg_port_str;
+    std::string home( std::getenv( "HOME" ) );
+    std::ifstream fconfig( home + "/.grpyHoros/config.txt" );
+    if( fconfig.is_open() )
+        fconfig >> cfg_port_str;
     
-    if( port.length == 0 )
-        strcpy( Adaptor->Port, "50051" );
-    else
+    if( !cfg_port_str.empty() )
+        strcpy( Adaptor->Port, cfg_port_str.c_str() );
+    else if( port.length > 0 )
         strcpy( Adaptor->Port, [port UTF8String] );
+    else
+        strcpy( Adaptor->Port, "50051" );
     
     Adaptor->Lock = [[[NSLock alloc] init] retain];
     Adaptor->Request = NULL;

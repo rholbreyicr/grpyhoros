@@ -73,18 +73,9 @@ class HorosServer final : public Horos::Service {
                            const ImageSetRequest* request,
                            ImageSetResponse* reply ) override;
 
- 
-//    Status GetSelectedROI( ServerContext* context,
-//                           const ROIRequest* request,
-//                           ROIResponse* reply ) override;
-
-//    Status GetSliceROIs( ServerContext* context,
-//                         const ROIRequest* request,
-//                         SliceROIResponse* reply ) override;
-//
-//    Status GetStackROIs( ServerContext* context,
-//                         const ROIRequest* request,
-//                         StackROIResponse* reply ) override;
+    Status GetMethods( ServerContext* context,
+                       const DicomDataRequest* request,
+                       MethodResponse* reply ) override;
 
     Status GetROIsAsList( ServerContext* context,
                           const ROIListRequest* request,

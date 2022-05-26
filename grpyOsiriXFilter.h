@@ -71,4 +71,6 @@
 
 -(void)GetROIsAsImage:(NSString*) log_string;
 
+-(std::string)GetTempDir;
+
 @end

@@ -24,6 +24,8 @@ service Horos {
 
   rpc GetROIsAsList (ROIListRequest) returns (ROIListResponse) {}
   rpc GetROIsAsImage (ROIImageRequest) returns (ROIImageResponse) {}
+
+  rpc GetMethods (DicomDataRequest) returns (MethodResponse) {}
 }
 
 import "roi.proto";
@@ -68,4 +70,10 @@ message ImageSetRequest {
 message ImageSetResponse {
   string id = 1;
   uint64 viewer_id = 2;
+}
+
+// The response message containing the value associated with the key
+message MethodResponse {
+  string id = 1;
+  repeated string method_list = 2;
 }

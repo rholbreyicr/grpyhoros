@@ -8,6 +8,16 @@
 #include "HorosServer.h"
 #import <Foundation/Foundation.h>
 
+static const char* ServerMethods[] = {
+  "GetMethods: return a list of methods available from the server",
+  "GetCurrentImageData: retrieve information about the current 2DViewer image",
+  "GetCurrentVersion: get the current version of Horos/OsiriX (and reset if necessary)",
+  "GetCurrentImage: retrieve the current 2DViewer image",
+  "SetCurrentImage: set the current 2DViewer image",
+  "GetROIsAsList: Dump the current ROI series as csv/xml to /tmp",
+  "GetROIsAsImage: Write the current ROI series to 3d image and get the (mhd) filename"
+};
+
 namespace pyosirix {
 
 ServerAdaptor* HorosServer::p_Adaptor = NULL;
@@ -67,15 +77,42 @@ void* HorosServer::RunServer( void* input ) {
 }
 
 
-Status HorosServer::GetCurrentImageData(ServerContext* context,
-                                        const DicomDataRequest* request,
-                                        DicomDataResponse* reply ) {
-  
-    [p_Adaptor->Lock lock];
-    p_Adaptor->Request = (const void*)request;
-    p_Adaptor->Response = (void*)reply;
-    [p_Adaptor->Lock unlock];
+Status HorosServer::
+GetMethods( ServerContext* context,
+            const DicomDataRequest* request,
+            MethodResponse* reply )
+{
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+
+        for( size_t k=0; k<sizeof(ServerMethods)/sizeof(const char*); k++ )
+            reply->add_method_list( ServerMethods[k] );
+        
+        [p_Adaptor->Lock unlock];
+    }
+    else
+        return Status::CANCELLED;
     
+    return Status::OK;
+}
+
+
+Status HorosServer::
+GetCurrentImageData( ServerContext* context,
+                     const DicomDataRequest* request,
+                     DicomDataResponse* reply ) {
+  
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+    }
+    else
+        return Status::CANCELLED;
+        
     NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
      performSelectorOnMainThread:@selector(GetCurrentImageData:)
@@ -85,14 +122,32 @@ Status HorosServer::GetCurrentImageData(ServerContext* context,
     return Status::OK;
 }
 
-Status HorosServer::GetCurrentVersion( ServerContext* context,
-                                       const DicomDataRequest* request,
-                                       DicomDataRequest* reply ) {
+Status HorosServer::
+GetCurrentVersion( ServerContext* context,
+                   const DicomDataRequest* request,
+                   DicomDataRequest* reply ) {
   
-    [p_Adaptor->Lock lock];
-    p_Adaptor->Request = (const void*)request;
-    p_Adaptor->Response = (void*)reply;
-    [p_Adaptor->Lock unlock];
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+    }
+    else
+    {
+        //try this in desperation
+        [p_Adaptor->Lock unlock];
+        
+        //... and repeat
+        if( [p_Adaptor->Lock tryLock] )
+        {
+            p_Adaptor->Request = (const void*)request;
+            p_Adaptor->Response = (void*)reply;
+            [p_Adaptor->Lock unlock];
+        }
+        else
+            return Status::CANCELLED;
+    }
     
     NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
@@ -103,15 +158,21 @@ Status HorosServer::GetCurrentVersion( ServerContext* context,
     return Status::OK;
 }
 
-Status HorosServer::GetCurrentImage(ServerContext* context,
-                                    const ImageGetRequest* request,
-                                    ImageGetResponse* reply ) {
+
+Status HorosServer::
+GetCurrentImage( ServerContext* context,
+                 const ImageGetRequest* request,
+                 ImageGetResponse* reply ) {
     
-    [p_Adaptor->Lock lock];
-    p_Adaptor->Request = (const void*)request;
-    p_Adaptor->Response = (void*)reply;
-    [p_Adaptor->Lock unlock];
-    
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+    }
+    else
+        return Status::CANCELLED;
+        
     NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
      performSelectorOnMainThread:@selector(GetCurrentImage:)
@@ -126,10 +187,14 @@ SetCurrentImage( ServerContext* context,
                  const ImageSetRequest* request,
                  ImageSetResponse* reply ) {
     
-    [p_Adaptor->Lock lock];
-    p_Adaptor->Request = (const void*)request;
-    p_Adaptor->Response = (void*)reply;
-    [p_Adaptor->Lock unlock];
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+    }
+    else
+        return Status::CANCELLED;
         
     NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
@@ -140,62 +205,20 @@ SetCurrentImage( ServerContext* context,
     return Status::OK;
 }
 
-//Status HorosServer::
-//GetSelectedROI( ServerContext* context,
-//                const ROIRequest* request,
-//                ROIResponse* reply )
-//{
-//    [p_Adaptor->Lock lock];
-//    p_Adaptor->Request = (const void*)request;
-//    p_Adaptor->Response = (void*)reply;
-//    [p_Adaptor->Lock unlock];
-//
-//    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
-//    [(__bridge id)(p_Adaptor->Osirix)
-//     performSelectorOnMainThread:@selector(GetSelectedROI:)
-//     withObject:arg_str waitUntilDone:YES];
-//
-//    [arg_str release];
-//    return Status::OK;
-//}
-
-//Status HorosServer::
-//GetSliceROIs( ServerContext* context,
-//              const ROIRequest* request,
-//              SliceROIResponse* reply )
-//{
-//    [p_Adaptor->Lock lock];
-//    p_Adaptor->Request = (const void*)request;
-//    p_Adaptor->Response = (void*)reply;
-//    [p_Adaptor->Lock unlock];
-//
-//    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
-//    [(__bridge id)(p_Adaptor->Osirix)
-//     performSelectorOnMainThread:@selector(GetSliceROIs:)
-//     withObject:arg_str waitUntilDone:YES];
-//
-//    [arg_str release];
-//    return Status::OK;
-//}
-
-//Status HorosServer::
-//GetStackROIs( ServerContext* context,
-//              const ROIRequest* request,
-//              StackROIResponse* reply )
-//{
-//
-//    return Status::OK;
-//}
 
 Status HorosServer::
 GetROIsAsList( ServerContext* context,
                const ROIListRequest* request,
                ROIListResponse* reply )
 {
-    [p_Adaptor->Lock lock];
-    p_Adaptor->Request = (const void*)request;
-    p_Adaptor->Response = (void*)reply;
-    [p_Adaptor->Lock unlock];
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+    }
+    else
+        return Status::CANCELLED;
         
     NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)

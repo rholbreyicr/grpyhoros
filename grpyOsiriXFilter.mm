@@ -32,7 +32,8 @@ using pyosirix::ImageSetRequest;
 using pyosirix::ImageSetResponse;
 using pyosirix::ROIListRequest;
 using pyosirix::ROIListResponse;
-//using pyosirix::ROI; ... not a good idea, too ambiguous
+using pyosirix::ROIImageRequest;
+using pyosirix::ROIImageResponse;
 
 //-----------------------------------------------------------------------------------
 
@@ -598,6 +599,17 @@ using pyosirix::ROIListResponse;
     [Console AddText:[NSString stringWithFormat:@"GetROIsAsList request was: %@", log_string]];
 }
 
+-(std::string)GetTempDir
+{
+    std::string tmp_folder( getenv("TMPDIR") );
+    std::ofstream fout( tmp_folder + "/null1.txt" );
+    if( fout.is_open() )
+        fout.close();
+    else
+        tmp_folder = "/tmp";
+    
+    return tmp_folder;
+}
 
 -(void)GetROIsAsImage:(NSString*) log_string
 {
@@ -606,25 +618,27 @@ using pyosirix::ROIListResponse;
 
     ViewerController* currV = [ViewerController frontMostDisplayed2DViewer];
     
-    NSArray                 *pixList = [currV pixList];
-    long                    i, j, numROIs;
+    long i, j, numROIs;
             
-    // prepare for final output
-    NSMutableDictionary        *seriesInfo = [ [ NSMutableDictionary alloc ] init ];
-    NSMutableArray            *imagesInSeries = [ NSMutableArray arrayWithCapacity: 0 ];
-
     // get array of arrray of ROI in current series
     NSArray *roiSeriesList = [ currV roiList ];
     
     DCMPix* starting_pix = [[currV pixList] objectAtIndex: 0];
-    std::string tmp_folder( getenv("TMPDIR") );
+    std::string tmp_folder = [self GetTempDir];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy_MM_dd-HH_mm_ss"];
     NSString* date_string = [dateFormatter stringFromDate:[NSDate date]];
     const char* date_utf8 = [date_string UTF8String];
+    if( tmp_folder.empty() || !date_utf8 )
+    {
+        [Console AddText:[NSString stringWithFormat:@"GetROIsAsImage failed to set filename"]];
+        LOG_ERROR( Logger, "GetROIsAsImage failed to set filename");
+        return;
+    }
 
     float forigin[3], fvox_size[3], orient[9];
     int idim[2], num_img = 0;
+    std::string mhd_header;
     if( starting_pix )
     {
         //log_string = [pix sourceFile];
@@ -632,20 +646,14 @@ using pyosirix::ROIListResponse;
         fvox_size[0] = [starting_pix pixelSpacingX];
         fvox_size[1] = [starting_pix pixelSpacingY];
         fvox_size[2] = [starting_pix spacingBetweenSlices];
-        
-        //@todo ... maybe these would be better for python the other way around?
         idim[0] = [starting_pix pwidth];
         idim[1] = [starting_pix pheight];
         
-        [starting_pix orientation: orient];  // @todo map this to mhd
+        [starting_pix orientation: orient];  // @todo: map this to mhd RAI, ...
         
         num_img = [[currV pixList] count];
-        
-        if( tmp_folder.empty() )
-            tmp_folder = "/tmp";
-        
-        std::string mhd_header( tmp_folder + "/" + date_utf8 + ".mhd" );
-        
+              
+        mhd_header = tmp_folder + "/" + date_utf8 + ".mhd";
         [Console AddText:[NSString stringWithFormat:@"Writing mhd header to: %s", mhd_header.c_str()]];
         std::ofstream fmhd_header( mhd_header );
         if( fmhd_header.is_open() )
@@ -684,17 +692,13 @@ using pyosirix::ROIListResponse;
     std::vector<unsigned char> vraw_data( NUM_BYTES, (unsigned char)0 );
     unsigned char* raw_data = vraw_data.data();
 
-    
-    // CHECK raw_data
-    // ==============
-    
-    // show progress
+    // Collate raw image data
+    // ... show progress
     Wait *splash = [ [ Wait alloc ] initWithString: @"Exporting ROIs..." ];
     [ splash showWindow:viewerController ];
     [ [ splash progress] setMaxValue: [ roiSeriesList count ] ];
 
     // walk through each array of ROI
-    size_t count = 0;
     for ( i = 0; i < [ roiSeriesList count ]; i++ ) {
         
         const size_t SLICE = i * SLICE_SIZE;
@@ -705,44 +709,47 @@ using pyosirix::ROIListResponse;
         // array of ROI in current pix
         NSArray *roiImageList = [ roiSeriesList objectAtIndex: i ];
 
-        NSMutableDictionary *imageInfo = [ [ NSMutableDictionary alloc ] init ];
-        NSMutableArray      *roisInImage = [ NSMutableArray arrayWithCapacity: 0 ];
-
         // walk through each ROI in current pix
         numROIs = [ roiImageList count ];
         for ( j = 0; j < numROIs; j++ ) {
-            count++;
             
             ROI *roi = [ roiImageList objectAtIndex: j ];
-            
-            NSString *roiName = [ roi name ];
+            //NSString *roiName = [ roi name ];
 
             long numberOfValues;
             float* locations = 0;
             float* data = 0;
-            [Console AddText:[NSString stringWithFormat:@"Getting ROI for slice: %ld", i ]];
+            //[Console AddText:[NSString stringWithFormat:@"Getting ROI for slice: %ld", i ]];
             // need to select the pixel obj for the slice associated with this roi
             DCMPix* roi_pix = [[roi curView] curDCM];
             data = (float*)[roi_pix getROIValue:&numberOfValues :roi :&locations];
             if( locations && data )
             {
-                std::ofstream fout( "/tmp/getLineROI+" + std::to_string(i) + "-" + std::to_string(j) + ".csv" );
-                if( fout.is_open() )
+                //                std::ofstream fout( "/tmp/getLineROI+" + std::to_string(i) + "-" + std::to_string(j) + ".csv" );
+                //                if( fout.is_open() )
+                //                {
+                //                    for( size_t k=0; k<numberOfValues; k++ )
+                //                    {
+                //                        const size_t x_ref = (size_t)std::round(locations[2*k]);
+                //                        const size_t y_ref = (size_t)std::round(locations[2*k + 1]);
+                //                        fout << x_ref << ", " << y_ref << ", " << data[k] << std::endl;
+                //
+                //                        raw_data[ SLICE + (y_ref * ROW_SIZE) + x_ref ] = FOREGROUND; (unsigned char)count;
+                //                    }
+                //                    fout.close();
+                //                }
+                for( size_t k=0; k<numberOfValues; k++ )
                 {
-                    for( size_t k=0; k<numberOfValues; k++ )
-                    {
-                        const size_t x_ref = (size_t)std::round(locations[2*k]);
-                        const size_t y_ref = (size_t)std::round(locations[2*k + 1]);
-                        fout << x_ref << ", " << y_ref << ", " << data[k] << std::endl;
-                        
-                        raw_data[ SLICE + (y_ref * ROW_SIZE) + x_ref ] = (unsigned char)count; //FOREGROUND;
-                    }
-                    fout.close();
+                    const size_t x_ref = (size_t)std::round(locations[2*k]);
+                    const size_t y_ref = (size_t)std::round(locations[2*k + 1]);
+                    raw_data[ SLICE + (y_ref * ROW_SIZE) + x_ref ] = FOREGROUND; //(unsigned char)count;
                 }
+                //}
+
                 free( data );
                 free( locations );
             }
-            [Console AddText:[NSString stringWithFormat:@"Finished getROIValue..."]];
+            //[Console AddText:[NSString stringWithFormat:@"Finished getROIValue..."]];
         
         }
         
@@ -756,6 +763,17 @@ using pyosirix::ROIListResponse;
         {
             fbin.write( (const char*)raw_data, NUM_BYTES );
             fbin.close();
+        }
+    }
+    
+    //mutex!
+    {
+        if( [Adaptor->Lock tryLock] )
+        {
+            ROIImageResponse* reply = (ROIImageResponse*)Adaptor->Response;
+            reply->set_id( std::string([log_string UTF8String]) );
+            reply->set_output_filepath( mhd_header );
+            [Adaptor->Lock unlock];
         }
     }
     

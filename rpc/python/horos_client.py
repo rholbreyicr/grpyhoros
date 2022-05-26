@@ -35,6 +35,14 @@ def run_get_version(port):
 
     print("{run_get_version}Client received (version): " + version.id )
 
+def run_get_methods(port):
+    with grpc.insecure_channel('localhost:' + str(port)) as channel:
+        stub = horos_pb2_grpc.HorosStub(channel)
+        response = stub.GetMethods(horos_pb2.DicomDataRequest(id='id'))
+
+    print("{run_get_methods} Client received methods: " )
+    for _method in response.method_list:
+        print( _method )
 
 def run_get_data(port):
     # NOTE(gRPC Python Team): .close() is possible on a channel and should be
@@ -130,6 +138,8 @@ def run_get_roi_as_image(port):
     #     print( "{run_get_roi} error at: " + slice.id )
     response = stub.GetROIsAsImage( roi_pb2.ROIListRequest(id='...') )
     print( "{run_get_roi/image} returned: " + response.id )
+    print( "{run_get_roi/image} got file: " + response.output_filepath )
+
 
 
 def run_get_all_rois(port):
@@ -181,10 +191,11 @@ if __name__ == '__main__':
         Port = sys.argv[1]
 
     logging.basicConfig()
-    run_get_version(Port)
-    run_get_data(Port)
+    run_get_methods(Port)
+    #run_get_version(Port)
+    #run_get_data(Port)
     #run_get_roi_as_xml(Port)
     run_get_roi_as_image(Port)
     #run_get_all_rois(Port)
-    run_get_image(Port)
+    #run_get_image(Port)
     #run_set_image(Port)
