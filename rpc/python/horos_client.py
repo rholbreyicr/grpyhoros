@@ -186,13 +186,13 @@ def run_set_image(port):
 
 if __name__ == '__main__':
 
-    Port = 50051
+    Port = 50101
     if len(sys.argv) > 1:
         Port = sys.argv[1]
 
     logging.basicConfig()
-    run_get_methods(Port)
-    #run_get_version(Port)
+    #run_get_methods(Port)
+    run_get_version(Port)
     #run_get_data(Port)
     #run_get_roi_as_xml(Port)
     run_get_roi_as_image(Port)

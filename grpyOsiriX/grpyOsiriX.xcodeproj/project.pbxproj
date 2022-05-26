@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BF37676125BAEF8F0034C20A /* libgrpc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37673125BAEF8C0034C20A /* libgrpc.a */; };
-		BF37676225BAEF8F0034C20A /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37673225BAEF8C0034C20A /* libabsl_dynamic_annotations.a */; };
 		BF37676325BAEF8F0034C20A /* libabsl_symbolize.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37673325BAEF8C0034C20A /* libabsl_symbolize.a */; };
 		BF37676425BAEF8F0034C20A /* libabsl_status.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37673425BAEF8C0034C20A /* libabsl_status.a */; };
 		BF37676525BAEF8F0034C20A /* libabsl_throw_delegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF37673525BAEF8C0034C20A /* libabsl_throw_delegate.a */; };
@@ -95,7 +94,6 @@
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF37673125BAEF8C0034C20A /* libgrpc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpc.a; path = "../grpc-1.34/grpc_libs/libgrpc.a"; sourceTree = "<group>"; };
-		BF37673225BAEF8C0034C20A /* libabsl_dynamic_annotations.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_dynamic_annotations.a; path = "../grpc-1.34/grpc_libs/libabsl_dynamic_annotations.a"; sourceTree = "<group>"; };
 		BF37673325BAEF8C0034C20A /* libabsl_symbolize.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_symbolize.a; path = "../grpc-1.34/grpc_libs/libabsl_symbolize.a"; sourceTree = "<group>"; };
 		BF37673425BAEF8C0034C20A /* libabsl_status.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_status.a; path = "../grpc-1.34/grpc_libs/libabsl_status.a"; sourceTree = "<group>"; };
 		BF37673525BAEF8C0034C20A /* libabsl_throw_delegate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_throw_delegate.a; path = "../grpc-1.34/grpc_libs/libabsl_throw_delegate.a"; sourceTree = "<group>"; };
@@ -209,7 +207,6 @@
 				BF37677F25BAEF8F0034C20A /* libabsl_stacktrace.a in Frameworks */,
 				BF37678C25BAEF8F0034C20A /* libgrpcpp_channelz.a in Frameworks */,
 				BF37678A25BAEF8F0034C20A /* libabsl_graphcycles_internal.a in Frameworks */,
-				BF37676225BAEF8F0034C20A /* libabsl_dynamic_annotations.a in Frameworks */,
 				BF37676925BAEF8F0034C20A /* libabsl_strings_internal.a in Frameworks */,
 				BF37678425BAEF8F0034C20A /* libabsl_str_format_internal.a in Frameworks */,
 				BF37678025BAEF8F0034C20A /* libssl.a in Frameworks */,
@@ -250,7 +247,6 @@
 				BF37673A25BAEF8C0034C20A /* libabsl_cord.a */,
 				BF37675E25BAEF8F0034C20A /* libabsl_debugging_internal.a */,
 				BF37673B25BAEF8D0034C20A /* libabsl_demangle_internal.a */,
-				BF37673225BAEF8C0034C20A /* libabsl_dynamic_annotations.a */,
 				BF37674925BAEF8D0034C20A /* libabsl_exponential_biased.a */,
 				BF37675A25BAEF8E0034C20A /* libabsl_graphcycles_internal.a */,
 				BF37673C25BAEF8D0034C20A /* libabsl_hash.a */,
@@ -509,7 +505,7 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../grpc-1.34/include",
+					"$(PROJECT_DIR)/../grpc/include",
 					"$(PROJECT_DIR)/..",
 					"$(PROJECT_DIR)/../OsiriXAPI.framework/**",
 					/usr/local/Cellar/quill/1.7.2/include,
@@ -518,7 +514,7 @@
 				INSTALL_PATH = "@executable_path/../Plug-ins";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/..",
-					"$(PROJECT_DIR)/../grpc-1.34/grpc_libs",
+					"$(PROJECT_DIR)/../grpc/lib",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -562,7 +558,7 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/../grpc-1.34/include",
+					"$(PROJECT_DIR)/../grpc/include",
 					"$(PROJECT_DIR)/..",
 					"$(PROJECT_DIR)/../OsiriXAPI.framework/**",
 					/usr/local/Cellar/quill/1.7.2/include,
@@ -571,7 +567,7 @@
 				INSTALL_PATH = "@executable_path/../Plug-ins";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/..",
-					"$(PROJECT_DIR)/../grpc-1.34/grpc_libs",
+					"$(PROJECT_DIR)/../grpc/lib",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;

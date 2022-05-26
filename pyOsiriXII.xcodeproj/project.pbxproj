@@ -58,8 +58,6 @@
 		BF3766F125B86DF10034C20A /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AC25B86DF00034C20A /* libprotobuf.a */; };
 		BF3766F225B86DF10034C20A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AD25B86DF00034C20A /* libssl.a */; };
 		BF3766F325B86DF10034C20A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AD25B86DF00034C20A /* libssl.a */; };
-		BF3766F425B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */; };
-		BF3766F525B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */; };
 		BF3766F625B86DF10034C20A /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */; };
 		BF3766F725B86DF10034C20A /* libabsl_debugging_internal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */; };
 		BF3766F825B86DF10034C20A /* libabsl_synchronization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3766B025B86DF00034C20A /* libabsl_synchronization.a */; };
@@ -236,7 +234,6 @@
 		BF3766AB25B86DF00034C20A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "grpc-1.34/grpc_libs/libcrypto.a"; sourceTree = "<group>"; };
 		BF3766AC25B86DF00034C20A /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = "grpc-1.34/grpc_libs/libprotobuf.a"; sourceTree = "<group>"; };
 		BF3766AD25B86DF00034C20A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "grpc-1.34/grpc_libs/libssl.a"; sourceTree = "<group>"; };
-		BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_dynamic_annotations.a; path = "grpc-1.34/grpc_libs/libabsl_dynamic_annotations.a"; sourceTree = "<group>"; };
 		BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_debugging_internal.a; path = "grpc-1.34/grpc_libs/libabsl_debugging_internal.a"; sourceTree = "<group>"; };
 		BF3766B025B86DF00034C20A /* libabsl_synchronization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libabsl_synchronization.a; path = "grpc-1.34/grpc_libs/libabsl_synchronization.a"; sourceTree = "<group>"; };
 		BF3766B125B86DF00034C20A /* libgrpcpp_channelz.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgrpcpp_channelz.a; path = "grpc-1.34/grpc_libs/libgrpcpp_channelz.a"; sourceTree = "<group>"; };
@@ -333,7 +330,6 @@
 				BF37672125B86DF10034C20A /* libprotoc.a in Frameworks */,
 				BF37670925B86DF10034C20A /* libgrpc_plugin_support.a in Frameworks */,
 				BF3766DF25B86DF10034C20A /* libgrpc++.a in Frameworks */,
-				BF3766F525B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */,
 				BF37671525B86DF10034C20A /* libabsl_int128.a in Frameworks */,
 				BF37670525B86DF10034C20A /* libabsl_raw_hash_set.a in Frameworks */,
 				BF3766ED25B86DF10034C20A /* libgrpc_unsecure.a in Frameworks */,
@@ -405,7 +401,6 @@
 				BF37672025B86DF10034C20A /* libprotoc.a in Frameworks */,
 				BF37670825B86DF10034C20A /* libgrpc_plugin_support.a in Frameworks */,
 				BF3766DE25B86DF10034C20A /* libgrpc++.a in Frameworks */,
-				BF3766F425B86DF10034C20A /* libabsl_dynamic_annotations.a in Frameworks */,
 				BF37671425B86DF10034C20A /* libabsl_int128.a in Frameworks */,
 				BF37670425B86DF10034C20A /* libabsl_raw_hash_set.a in Frameworks */,
 				BF3766EC25B86DF10034C20A /* libgrpc_unsecure.a in Frameworks */,
@@ -444,7 +439,6 @@
 				BF3766A125B86DEF0034C20A /* libabsl_cord.a */,
 				BF3766AF25B86DF00034C20A /* libabsl_debugging_internal.a */,
 				BF3766A425B86DEF0034C20A /* libabsl_demangle_internal.a */,
-				BF3766AE25B86DF00034C20A /* libabsl_dynamic_annotations.a */,
 				BF3766B425B86DF00034C20A /* libabsl_exponential_biased.a */,
 				BF37669E25B86DEF0034C20A /* libabsl_graphcycles_internal.a */,
 				BF37669F25B86DEF0034C20A /* libabsl_hash.a */,
@@ -1356,7 +1350,7 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/grpc-1.34/include",
+					"$(PROJECT_DIR)/grpc/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
 					/Users/rholbrey/working/quill/install/include,
 				);
@@ -1364,7 +1358,7 @@
 				INSTALL_PATH = "@executable_path/../Plug-ins";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/grpc-1.34/grpc_libs",
+					"$(PROJECT_DIR)/grpc/lib",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
@@ -1409,7 +1403,7 @@
 				GCC_WARN_FOUR_CHARACTER_CONSTANTS = NO;
 				GCC_WARN_UNKNOWN_PRAGMAS = NO;
 				HEADER_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/grpc-1.34/include",
+					"$(PROJECT_DIR)/grpc/include",
 					"$(PROJECT_DIR)/OsiriXAPI.framework/Headers",
 					/Users/rholbrey/working/quill/install/include,
 				);
@@ -1417,7 +1411,7 @@
 				INSTALL_PATH = "@executable_path/../Plug-ins";
 				LIBRARY_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/grpc-1.34/grpc_libs",
+					"$(PROJECT_DIR)/grpc/lib",
 				);
 				LIBRARY_STYLE = Bundle;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;

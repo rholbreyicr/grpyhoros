@@ -33,29 +33,29 @@ static const char* Horos_method_names[] = {
 
 std::unique_ptr< Horos::Stub> Horos::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
   (void)options;
-  std::unique_ptr< Horos::Stub> stub(new Horos::Stub(channel));
+  std::unique_ptr< Horos::Stub> stub(new Horos::Stub(channel, options));
   return stub;
 }
 
-Horos::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetCurrentVersion_(Horos_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetCurrentImageData_(Horos_method_names[1], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetCurrentImage_(Horos_method_names[2], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetCurrentImage_(Horos_method_names[3], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetROIsAsList_(Horos_method_names[4], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetROIsAsImage_(Horos_method_names[5], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetMethods_(Horos_method_names[6], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+Horos::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
+  : channel_(channel), rpcmethod_GetCurrentVersion_(Horos_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCurrentImageData_(Horos_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetCurrentImage_(Horos_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetCurrentImage_(Horos_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetROIsAsList_(Horos_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetROIsAsImage_(Horos_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetMethods_(Horos_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Horos::Stub::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataRequest* response) {
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCurrentVersion_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, std::function<void(::grpc::Status)> f) {
+void Horos::Stub::async::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentVersion_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Horos::Stub::async::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataRequest* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentVersion_, context, request, response, reactor);
 }
 
@@ -74,11 +74,11 @@ void Horos::Stub::experimental_async::GetCurrentVersion(::grpc::ClientContext* c
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCurrentImageData_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, std::function<void(::grpc::Status)> f) {
+void Horos::Stub::async::GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::DicomDataResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImageData_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Horos::Stub::async::GetCurrentImageData(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::DicomDataResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImageData_, context, request, response, reactor);
 }
 
@@ -97,11 +97,11 @@ void Horos::Stub::experimental_async::GetCurrentImageData(::grpc::ClientContext*
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::ImageGetRequest, ::pyosirix::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetCurrentImage_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response, std::function<void(::grpc::Status)> f) {
+void Horos::Stub::async::GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::pyosirix::ImageGetRequest, ::pyosirix::ImageGetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImage_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Horos::Stub::async::GetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageGetRequest* request, ::pyosirix::ImageGetResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetCurrentImage_, context, request, response, reactor);
 }
 
@@ -120,11 +120,11 @@ void Horos::Stub::experimental_async::GetCurrentImage(::grpc::ClientContext* con
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::ImageSetRequest, ::pyosirix::ImageSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetCurrentImage_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::SetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest* request, ::pyosirix::ImageSetResponse* response, std::function<void(::grpc::Status)> f) {
+void Horos::Stub::async::SetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest* request, ::pyosirix::ImageSetResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::pyosirix::ImageSetRequest, ::pyosirix::ImageSetResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetCurrentImage_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::SetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest* request, ::pyosirix::ImageSetResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Horos::Stub::async::SetCurrentImage(::grpc::ClientContext* context, const ::pyosirix::ImageSetRequest* request, ::pyosirix::ImageSetResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetCurrentImage_, context, request, response, reactor);
 }
 
@@ -143,11 +143,11 @@ void Horos::Stub::experimental_async::SetCurrentImage(::grpc::ClientContext* con
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::ROIListRequest, ::pyosirix::ROIListResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetROIsAsList_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::GetROIsAsList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIListResponse* response, std::function<void(::grpc::Status)> f) {
+void Horos::Stub::async::GetROIsAsList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIListResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::pyosirix::ROIListRequest, ::pyosirix::ROIListResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetROIsAsList_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::GetROIsAsList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIListResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Horos::Stub::async::GetROIsAsList(::grpc::ClientContext* context, const ::pyosirix::ROIListRequest* request, ::pyosirix::ROIListResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetROIsAsList_, context, request, response, reactor);
 }
 
@@ -166,11 +166,11 @@ void Horos::Stub::experimental_async::GetROIsAsList(::grpc::ClientContext* conte
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::ROIImageRequest, ::pyosirix::ROIImageResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetROIsAsImage_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::GetROIsAsImage(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response, std::function<void(::grpc::Status)> f) {
+void Horos::Stub::async::GetROIsAsImage(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::pyosirix::ROIImageRequest, ::pyosirix::ROIImageResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetROIsAsImage_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::GetROIsAsImage(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Horos::Stub::async::GetROIsAsImage(::grpc::ClientContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetROIsAsImage_, context, request, response, reactor);
 }
 
@@ -189,11 +189,11 @@ void Horos::Stub::experimental_async::GetROIsAsImage(::grpc::ClientContext* cont
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::MethodResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetMethods_, context, request, response);
 }
 
-void Horos::Stub::experimental_async::GetMethods(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::MethodResponse* response, std::function<void(::grpc::Status)> f) {
+void Horos::Stub::async::GetMethods(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::MethodResponse* response, std::function<void(::grpc::Status)> f) {
   ::grpc::internal::CallbackUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::MethodResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetMethods_, context, request, response, std::move(f));
 }
 
-void Horos::Stub::experimental_async::GetMethods(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::MethodResponse* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void Horos::Stub::async::GetMethods(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest* request, ::pyosirix::MethodResponse* response, ::grpc::ClientUnaryReactor* reactor) {
   ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_GetMethods_, context, request, response, reactor);
 }
 

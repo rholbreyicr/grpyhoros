@@ -1,6 +1,7 @@
 .PHONY: gen clean test cert
 
-MY_PROTOC=/usr/local/grpc-1.34.0/release/static/bin/protoc
+#MY_PROTOC=/usr/local/grpc-1.34.0/release/static/bin/protoc
+MY_PROTOC=${HOME}/working/grpyhoros/grpc/bin/protoc
 SYS_PROTOC=`which protoc`
 
 # Can't seem to make this work as intended on mac.... you'll probably have to set by hand
