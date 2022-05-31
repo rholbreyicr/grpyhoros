@@ -93,9 +93,7 @@ def run_get_image(port):
 
 def run_get_roi_as_xml(port):
     server_url = 'localhost:' + str(port)
-    channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024),
-                   ('grpc.enable_http_proxy', 0)]
+    channel_opt = [('grpc.enable_http_proxy', 0), ]
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
@@ -117,9 +115,7 @@ def run_get_roi_as_xml(port):
 
 def run_get_roi_as_image(port):
     server_url = 'localhost:' + str(port)
-    channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
-                   ('grpc.max_receive_message_length', 512 * 1024 * 1024),
-                   ('grpc.enable_http_proxy', 0)]
+    channel_opt = [('grpc.enable_http_proxy', 0), ]
     channel = grpc.insecure_channel(server_url, options=channel_opt)
     stub = horos_pb2_grpc.HorosStub(channel)
 
@@ -140,7 +136,15 @@ def run_get_roi_as_image(port):
     print( "{run_get_roi/image} returned: " + response.id )
     print( "{run_get_roi/image} got file: " + response.output_filepath )
 
+def run_set_roi_opacity(port,opacity):
+    server_url = 'localhost:' + str(port)
+    channel_opt = [('grpc.enable_http_proxy', 0), ]
+    channel = grpc.insecure_channel(server_url, options=channel_opt)
+    stub = horos_pb2_grpc.HorosStub(channel)
 
+    roi = roi_pb2.ROI(id='0', opacity=opacity )
+    response = stub.SetROIOpacity( roi )
+    print( "{run_set_opacity} returned: " + response.id )
 
 def run_get_all_rois(port):
     server_url = 'localhost:' + str(port)
@@ -193,6 +197,7 @@ if __name__ == '__main__':
     logging.basicConfig()
     #run_get_methods(Port)
     run_get_version(Port)
+    #run_set_roi_opacity(Port,0.1)
     #run_get_data(Port)
     #run_get_roi_as_xml(Port)
     run_get_roi_as_image(Port)

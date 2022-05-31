@@ -47,7 +47,7 @@ struct TableStruct_horos_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[7]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[8]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -76,6 +76,9 @@ extern ImageSetResponseDefaultTypeInternal _ImageSetResponse_default_instance_;
 class MethodResponse;
 struct MethodResponseDefaultTypeInternal;
 extern MethodResponseDefaultTypeInternal _MethodResponse_default_instance_;
+class NullResponse;
+struct NullResponseDefaultTypeInternal;
+extern NullResponseDefaultTypeInternal _NullResponse_default_instance_;
 }  // namespace pyosirix
 PROTOBUF_NAMESPACE_OPEN
 template<> ::pyosirix::DicomDataRequest* Arena::CreateMaybeMessage<::pyosirix::DicomDataRequest>(Arena*);
@@ -85,6 +88,7 @@ template<> ::pyosirix::ImageGetResponse* Arena::CreateMaybeMessage<::pyosirix::I
 template<> ::pyosirix::ImageSetRequest* Arena::CreateMaybeMessage<::pyosirix::ImageSetRequest>(Arena*);
 template<> ::pyosirix::ImageSetResponse* Arena::CreateMaybeMessage<::pyosirix::ImageSetResponse>(Arena*);
 template<> ::pyosirix::MethodResponse* Arena::CreateMaybeMessage<::pyosirix::MethodResponse>(Arena*);
+template<> ::pyosirix::NullResponse* Arena::CreateMaybeMessage<::pyosirix::NullResponse>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace pyosirix {
 
@@ -234,6 +238,150 @@ class DicomDataRequest final :
 };
 // -------------------------------------------------------------------
 
+class NullResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:pyosirix.NullResponse) */ {
+ public:
+  inline NullResponse() : NullResponse(nullptr) {}
+  ~NullResponse() override;
+  explicit constexpr NullResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  NullResponse(const NullResponse& from);
+  NullResponse(NullResponse&& from) noexcept
+    : NullResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline NullResponse& operator=(const NullResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline NullResponse& operator=(NullResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const NullResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const NullResponse* internal_default_instance() {
+    return reinterpret_cast<const NullResponse*>(
+               &_NullResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(NullResponse& a, NullResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(NullResponse* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(NullResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline NullResponse* New() const final {
+    return new NullResponse();
+  }
+
+  NullResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<NullResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const NullResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const NullResponse& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message*to, const ::PROTOBUF_NAMESPACE_ID::Message&from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(NullResponse* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "pyosirix.NullResponse";
+  }
+  protected:
+  explicit NullResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kIdFieldNumber = 1,
+  };
+  // string id = 1;
+  void clear_id();
+  const std::string& id() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_id(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_id();
+  PROTOBUF_MUST_USE_RESULT std::string* release_id();
+  void set_allocated_id(std::string* id);
+  private:
+  const std::string& _internal_id() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_id(const std::string& value);
+  std::string* _internal_mutable_id();
+  public:
+
+  // @@protoc_insertion_point(class_scope:pyosirix.NullResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_horos_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DicomDataResponse final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:pyosirix.DicomDataResponse) */ {
  public:
@@ -278,7 +426,7 @@ class DicomDataResponse final :
                &_DicomDataResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    2;
 
   friend void swap(DicomDataResponse& a, DicomDataResponse& b) {
     a.Swap(&b);
@@ -496,7 +644,7 @@ class ImageGetRequest final :
                &_ImageGetRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    3;
 
   friend void swap(ImageGetRequest& a, ImageGetRequest& b) {
     a.Swap(&b);
@@ -651,7 +799,7 @@ class ImageGetResponse final :
                &_ImageGetResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    4;
 
   friend void swap(ImageGetResponse& a, ImageGetResponse& b) {
     a.Swap(&b);
@@ -903,7 +1051,7 @@ class ImageSetRequest final :
                &_ImageSetRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    5;
 
   friend void swap(ImageSetRequest& a, ImageSetRequest& b) {
     a.Swap(&b);
@@ -1155,7 +1303,7 @@ class ImageSetResponse final :
                &_ImageSetResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(ImageSetResponse& a, ImageSetResponse& b) {
     a.Swap(&b);
@@ -1310,7 +1458,7 @@ class MethodResponse final :
                &_MethodResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(MethodResponse& a, MethodResponse& b) {
     a.Swap(&b);
@@ -1489,6 +1637,56 @@ inline void DicomDataRequest::set_allocated_id(std::string* id) {
   id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
       GetArenaForAllocation());
   // @@protoc_insertion_point(field_set_allocated:pyosirix.DicomDataRequest.id)
+}
+
+// -------------------------------------------------------------------
+
+// NullResponse
+
+// string id = 1;
+inline void NullResponse::clear_id() {
+  id_.ClearToEmpty();
+}
+inline const std::string& NullResponse::id() const {
+  // @@protoc_insertion_point(field_get:pyosirix.NullResponse.id)
+  return _internal_id();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void NullResponse::set_id(ArgT0&& arg0, ArgT... args) {
+ 
+ id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:pyosirix.NullResponse.id)
+}
+inline std::string* NullResponse::mutable_id() {
+  std::string* _s = _internal_mutable_id();
+  // @@protoc_insertion_point(field_mutable:pyosirix.NullResponse.id)
+  return _s;
+}
+inline const std::string& NullResponse::_internal_id() const {
+  return id_.Get();
+}
+inline void NullResponse::_internal_set_id(const std::string& value) {
+  
+  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* NullResponse::_internal_mutable_id() {
+  
+  return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* NullResponse::release_id() {
+  // @@protoc_insertion_point(field_release:pyosirix.NullResponse.id)
+  return id_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void NullResponse::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:pyosirix.NullResponse.id)
 }
 
 // -------------------------------------------------------------------
@@ -2538,6 +2736,8 @@ MethodResponse::mutable_method_list() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

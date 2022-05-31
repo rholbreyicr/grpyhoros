@@ -104,16 +104,18 @@ GetCurrentImageData( ServerContext* context,
                      const DicomDataRequest* request,
                      DicomDataResponse* reply ) {
   
+    NSString* arg_str;
     if( [p_Adaptor->Lock tryLock] )
     {
         p_Adaptor->Request = (const void*)request;
         p_Adaptor->Response = (void*)reply;
+        
+        arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
         [p_Adaptor->Lock unlock];
     }
     else
         return Status::CANCELLED;
         
-    NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
     [(__bridge id)(p_Adaptor->Osirix)
      performSelectorOnMainThread:@selector(GetCurrentImageData:)
      withObject:arg_str waitUntilDone:YES];
@@ -252,9 +254,30 @@ GetROIsAsImage( ServerContext* context,
         return Status::CANCELLED;
     
     return Status::OK;
+}
 
+Status HorosServer::
+SetROIOpacity( ServerContext* context,
+                const ROI* request,
+                NullResponse* reply )
+{
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+            
+        NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
+        [(__bridge id)(p_Adaptor->Osirix)
+         performSelectorOnMainThread:@selector(SetROIOpacity:)
+         withObject:arg_str waitUntilDone:YES];
+        
+        [arg_str release];
+    }
+    else
+        return Status::CANCELLED;
     
-    
+    return Status::OK;
 }
 
 

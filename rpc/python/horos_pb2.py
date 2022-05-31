@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0bhoros.proto\x12\x08pyosirix\x1a\troi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x7f\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\x12\x11\n\tfile_list\x18\x05 \x03(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"1\n\x0eMethodResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0bmethod_list\x18\x02 \x03(\t2\x99\x04\n\x05Horos\x12M\n\x11GetCurrentVersion\x12\x1a.pyosirix.DicomDataRequest\x1a\x1a.pyosirix.DicomDataRequest\"\x00\x12P\n\x13GetCurrentImageData\x12\x1a.pyosirix.DicomDataRequest\x1a\x1b.pyosirix.DicomDataResponse\"\x00\x12J\n\x0fGetCurrentImage\x12\x19.pyosirix.ImageGetRequest\x1a\x1a.pyosirix.ImageGetResponse\"\x00\x12J\n\x0fSetCurrentImage\x12\x19.pyosirix.ImageSetRequest\x1a\x1a.pyosirix.ImageSetResponse\"\x00\x12\x46\n\rGetROIsAsList\x12\x18.pyosirix.ROIListRequest\x1a\x19.pyosirix.ROIListResponse\"\x00\x12I\n\x0eGetROIsAsImage\x12\x19.pyosirix.ROIImageRequest\x1a\x1a.pyosirix.ROIImageResponse\"\x00\x12\x44\n\nGetMethods\x12\x1a.pyosirix.DicomDataRequest\x1a\x18.pyosirix.MethodResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x0bhoros.proto\x12\x08pyosirix\x1a\troi.proto\"\x1e\n\x10\x44icomDataRequest\x12\n\n\x02id\x18\x01 \x01(\t\"\x1a\n\x0cNullResponse\x12\n\n\x02id\x18\x01 \x01(\t\"\x7f\n\x11\x44icomDataResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x12\n\npatient_id\x18\x02 \x01(\t\x12\x1a\n\x12study_instance_uid\x18\x03 \x01(\t\x12\x1b\n\x13series_instance_uid\x18\x04 \x01(\t\x12\x11\n\tfile_list\x18\x05 \x03(\t\"0\n\x0fImageGetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"w\n\x10ImageGetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"v\n\x0fImageSetRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\x12\x12\n\nimage_size\x18\x03 \x03(\x05\x12\x12\n\nvoxel_size\x18\x04 \x03(\x02\x12\x0e\n\x06origin\x18\x05 \x03(\x02\x12\x0c\n\x04\x64\x61ta\x18\x06 \x03(\x02\"1\n\x10ImageSetResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x11\n\tviewer_id\x18\x02 \x01(\x04\"1\n\x0eMethodResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x13\n\x0bmethod_list\x18\x02 \x03(\t2\xd3\x04\n\x05Horos\x12M\n\x11GetCurrentVersion\x12\x1a.pyosirix.DicomDataRequest\x1a\x1a.pyosirix.DicomDataRequest\"\x00\x12P\n\x13GetCurrentImageData\x12\x1a.pyosirix.DicomDataRequest\x1a\x1b.pyosirix.DicomDataResponse\"\x00\x12J\n\x0fGetCurrentImage\x12\x19.pyosirix.ImageGetRequest\x1a\x1a.pyosirix.ImageGetResponse\"\x00\x12J\n\x0fSetCurrentImage\x12\x19.pyosirix.ImageSetRequest\x1a\x1a.pyosirix.ImageSetResponse\"\x00\x12\x46\n\rGetROIsAsList\x12\x18.pyosirix.ROIListRequest\x1a\x19.pyosirix.ROIListResponse\"\x00\x12I\n\x0eGetROIsAsImage\x12\x19.pyosirix.ROIImageRequest\x1a\x1a.pyosirix.ROIImageResponse\"\x00\x12\x38\n\rSetROIOpacity\x12\r.pyosirix.ROI\x1a\x16.pyosirix.NullResponse\"\x00\x12\x44\n\nGetMethods\x12\x1a.pyosirix.DicomDataRequest\x1a\x18.pyosirix.MethodResponse\"\x00\x62\x06proto3'
   ,
   dependencies=[roi__pb2.DESCRIPTOR,])
 
@@ -56,6 +56,38 @@ _DICOMDATAREQUEST = _descriptor.Descriptor(
   ],
   serialized_start=36,
   serialized_end=66,
+)
+
+
+_NULLRESPONSE = _descriptor.Descriptor(
+  name='NullResponse',
+  full_name='pyosirix.NullResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='id', full_name='pyosirix.NullResponse.id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=68,
+  serialized_end=94,
 )
 
 
@@ -114,8 +146,8 @@ _DICOMDATARESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=68,
-  serialized_end=195,
+  serialized_start=96,
+  serialized_end=223,
 )
 
 
@@ -153,8 +185,8 @@ _IMAGEGETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=197,
-  serialized_end=245,
+  serialized_start=225,
+  serialized_end=273,
 )
 
 
@@ -220,8 +252,8 @@ _IMAGEGETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=247,
-  serialized_end=366,
+  serialized_start=275,
+  serialized_end=394,
 )
 
 
@@ -287,8 +319,8 @@ _IMAGESETREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=368,
-  serialized_end=486,
+  serialized_start=396,
+  serialized_end=514,
 )
 
 
@@ -326,8 +358,8 @@ _IMAGESETRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=488,
-  serialized_end=537,
+  serialized_start=516,
+  serialized_end=565,
 )
 
 
@@ -365,11 +397,12 @@ _METHODRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=539,
-  serialized_end=588,
+  serialized_start=567,
+  serialized_end=616,
 )
 
 DESCRIPTOR.message_types_by_name['DicomDataRequest'] = _DICOMDATAREQUEST
+DESCRIPTOR.message_types_by_name['NullResponse'] = _NULLRESPONSE
 DESCRIPTOR.message_types_by_name['DicomDataResponse'] = _DICOMDATARESPONSE
 DESCRIPTOR.message_types_by_name['ImageGetRequest'] = _IMAGEGETREQUEST
 DESCRIPTOR.message_types_by_name['ImageGetResponse'] = _IMAGEGETRESPONSE
@@ -384,6 +417,13 @@ DicomDataRequest = _reflection.GeneratedProtocolMessageType('DicomDataRequest', 
   # @@protoc_insertion_point(class_scope:pyosirix.DicomDataRequest)
   })
 _sym_db.RegisterMessage(DicomDataRequest)
+
+NullResponse = _reflection.GeneratedProtocolMessageType('NullResponse', (_message.Message,), {
+  'DESCRIPTOR' : _NULLRESPONSE,
+  '__module__' : 'horos_pb2'
+  # @@protoc_insertion_point(class_scope:pyosirix.NullResponse)
+  })
+_sym_db.RegisterMessage(NullResponse)
 
 DicomDataResponse = _reflection.GeneratedProtocolMessageType('DicomDataResponse', (_message.Message,), {
   'DESCRIPTOR' : _DICOMDATARESPONSE,
@@ -436,8 +476,8 @@ _HOROS = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=591,
-  serialized_end=1128,
+  serialized_start=619,
+  serialized_end=1214,
   methods=[
   _descriptor.MethodDescriptor(
     name='GetCurrentVersion',
@@ -500,9 +540,19 @@ _HOROS = _descriptor.ServiceDescriptor(
     create_key=_descriptor._internal_create_key,
   ),
   _descriptor.MethodDescriptor(
+    name='SetROIOpacity',
+    full_name='pyosirix.Horos.SetROIOpacity',
+    index=6,
+    containing_service=None,
+    input_type=roi__pb2._ROI,
+    output_type=_NULLRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
     name='GetMethods',
     full_name='pyosirix.Horos.GetMethods',
-    index=6,
+    index=7,
     containing_service=None,
     input_type=_DICOMDATAREQUEST,
     output_type=_METHODRESPONSE,

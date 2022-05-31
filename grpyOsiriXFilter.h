@@ -71,6 +71,8 @@
 
 -(void)GetROIsAsImage:(NSString*) log_string;
 
+-(void)SetROIOpacity:(NSString*) log_string;
+
 -(std::string)GetTempDir;
 
 @end

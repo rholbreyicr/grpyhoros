@@ -34,6 +34,8 @@ using pyosirix::ROIListRequest;
 using pyosirix::ROIListResponse;
 using pyosirix::ROIImageRequest;
 using pyosirix::ROIImageResponse;
+//using pyosirix::ROI;  //clashes
+using pyosirix::NullResponse;
 
 //-----------------------------------------------------------------------------------
 
@@ -618,6 +620,7 @@ using pyosirix::ROIImageResponse;
 
     ViewerController* currV = [ViewerController frontMostDisplayed2DViewer];
     
+    NSArray* pixList = [currV pixList];
     long i, j, numROIs;
             
     // get array of arrray of ROI in current series
@@ -651,7 +654,7 @@ using pyosirix::ROIImageResponse;
         
         [starting_pix orientation: orient];  // @todo: map this to mhd RAI, ...
         
-        num_img = [[currV pixList] count];
+        num_img = [pixList count];
               
         mhd_header = tmp_folder + "/" + date_utf8 + ".mhd";
         [Console AddText:[NSString stringWithFormat:@"Writing mhd header to: %s", mhd_header.c_str()]];
@@ -691,6 +694,11 @@ using pyosirix::ROIImageResponse;
     const unsigned char FOREGROUND = 255;
     std::vector<unsigned char> vraw_data( NUM_BYTES, (unsigned char)0 );
     unsigned char* raw_data = vraw_data.data();
+    
+    // to dump the z values associated with each slice as a check (eg. missing slices, duplicates)
+    std::ofstream zout( mhd_header + ".z" );
+    if( !zout.is_open() )
+        LOG_ERROR( Logger, "GetROIsAsImage failed to open z output file" );
 
     // Collate raw image data
     // ... show progress
@@ -699,62 +707,82 @@ using pyosirix::ROIImageResponse;
     [ [ splash progress] setMaxValue: [ roiSeriesList count ] ];
 
     // walk through each array of ROI
+    unsigned char roi_count = 0;
+    std::map<std::string, unsigned char> name2label;
+    NSString* roi_name = @"none";
     for ( i = 0; i < [ roiSeriesList count ]; i++ ) {
         
+        // current DICOM pix -- this seems to be needed to get z-location
+        DCMPix *pix = [ pixList objectAtIndex: i ];
+        
         const size_t SLICE = i * SLICE_SIZE;
-        
-        // current DICOM pix
-        //DCMPix *pix = [ pixList objectAtIndex: i ];  // this is the image currently selected in the 2D display
-        
+              
         // array of ROI in current pix
         NSArray *roiImageList = [ roiSeriesList objectAtIndex: i ];
 
         // walk through each ROI in current pix
         numROIs = [ roiImageList count ];
         for ( j = 0; j < numROIs; j++ ) {
-            
+
+            // work out a label for this roi using a name if there is one, else 255
             ROI *roi = [ roiImageList objectAtIndex: j ];
-            //NSString *roiName = [ roi name ];
+            roi_name = [ roi name ];
+            if( !roi_name || ([roi_name length] == 0) )
+                roi_count = FOREGROUND;
+            else
+            {
+                std::string roi_name_str( [roi_name UTF8String] );
+                auto it = name2label.find( roi_name_str );
+                if( it == name2label.end() )
+                {
+                    size_t num_labels = name2label.size();
+                    if( num_labels >= FOREGROUND )
+                        roi_count = 1;
+                    else
+                        roi_count = (unsigned char)(num_labels + 1);
+                    
+                    name2label[roi_name_str] = roi_count;
+                    
+                    LOG_INFO( Logger, "GetROIsAsImage adding: {0} as label: {1}",
+                              roi_name_str.c_str(), (int)roi_count );
+                }
+                else
+                    roi_count = it->second;
+            }
 
             long numberOfValues;
             float* locations = 0;
             float* data = 0;
-            //[Console AddText:[NSString stringWithFormat:@"Getting ROI for slice: %ld", i ]];
-            // need to select the pixel obj for the slice associated with this roi
+
+            // this 'pix' is needed to select the pixel obj for the slice associated with this roi
             DCMPix* roi_pix = [[roi curView] curDCM];
             data = (float*)[roi_pix getROIValue:&numberOfValues :roi :&locations];
             if( locations && data )
             {
-                //                std::ofstream fout( "/tmp/getLineROI+" + std::to_string(i) + "-" + std::to_string(j) + ".csv" );
-                //                if( fout.is_open() )
-                //                {
-                //                    for( size_t k=0; k<numberOfValues; k++ )
-                //                    {
-                //                        const size_t x_ref = (size_t)std::round(locations[2*k]);
-                //                        const size_t y_ref = (size_t)std::round(locations[2*k + 1]);
-                //                        fout << x_ref << ", " << y_ref << ", " << data[k] << std::endl;
-                //
-                //                        raw_data[ SLICE + (y_ref * ROW_SIZE) + x_ref ] = FOREGROUND; (unsigned char)count;
-                //                    }
-                //                    fout.close();
-                //                }
+                if( zout.is_open() )
+                {
+                    float locs[3]; locs[0] = locs[1] = locs[2] = 0.f;
+                    [pix getSliceCenter3DCoords: locs];
+                    zout << "slice: " << i << " roi: " << j << " z: " << locs[2]
+                         << " label: " << int(roi_count) << std::endl;
+                }
+
                 for( size_t k=0; k<numberOfValues; k++ )
                 {
                     const size_t x_ref = (size_t)std::round(locations[2*k]);
                     const size_t y_ref = (size_t)std::round(locations[2*k + 1]);
-                    raw_data[ SLICE + (y_ref * ROW_SIZE) + x_ref ] = FOREGROUND; //(unsigned char)count;
+                    raw_data[ SLICE + (y_ref * ROW_SIZE) + x_ref ] = roi_count; //FOREGROUND;
                 }
-                //}
 
                 free( data );
                 free( locations );
             }
-            //[Console AddText:[NSString stringWithFormat:@"Finished getROIValue..."]];
-        
         }
         
         [splash incrementBy: 1];
     }
+    
+    zout.close();
     
     if( raw_data )
     {
@@ -785,7 +813,45 @@ using pyosirix::ROIImageResponse;
     [Console AddText:[NSString stringWithFormat:@"GetROIsAsImage done"]];
 }
 
+// partly borrowed from https://osirixpluginbasics.wordpress.com/2011/07/25/common-roi-functions/
+- (void) SetROIOpacity:(NSString*) log_string
+{
+    [Console AddText:[NSString stringWithFormat:@"SetROIOpacity starting... %@", log_string]];
+    LOG_INFO(Logger, "SetROIOpacity starting...");
 
+    ViewerController* currV = [ViewerController frontMostDisplayed2DViewer];
+
+    float opacity_requested = 1.0;
+    //mutex!
+    {
+        if( [Adaptor->Lock tryLock] )
+        {
+            const pyosirix::ROI* request = (pyosirix::ROI*)Adaptor->Request;
+            NullResponse* reply = (NullResponse*)Adaptor->Response;
+            reply->set_id( std::string([log_string UTF8String]) );
+            
+            opacity_requested = request->opacity();
+            [Adaptor->Lock unlock];
+        }
+        else
+            return;
+    }
+               
+    // get array of arrray of ROI in current series
+    NSMutableArray  *roiSeriesList  = [ currV roiList ];
+     
+    for (int j = 0; j < [roiSeriesList count]; j++) {
+        NSMutableArray  *roiImageList = [roiSeriesList objectAtIndex: j];
+     
+        for (int i = 0; i < [roiImageList count]; i++) {
+            ROI *curROI = [roiImageList objectAtIndex: i];
+            //opacity = [curROI opacity];
+            [curROI setOpacity: opacity_requested];
+        }
+    }
+    
+    
+}
 
 
 - (void) LogConnection:(NSString*)connec_str

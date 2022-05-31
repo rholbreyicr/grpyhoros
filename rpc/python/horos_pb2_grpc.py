@@ -46,6 +46,11 @@ class HorosStub(object):
                 request_serializer=roi__pb2.ROIImageRequest.SerializeToString,
                 response_deserializer=roi__pb2.ROIImageResponse.FromString,
                 )
+        self.SetROIOpacity = channel.unary_unary(
+                '/pyosirix.Horos/SetROIOpacity',
+                request_serializer=roi__pb2.ROI.SerializeToString,
+                response_deserializer=horos__pb2.NullResponse.FromString,
+                )
         self.GetMethods = channel.unary_unary(
                 '/pyosirix.Horos/GetMethods',
                 request_serializer=horos__pb2.DicomDataRequest.SerializeToString,
@@ -96,6 +101,12 @@ class HorosServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetROIOpacity(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetMethods(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -134,6 +145,11 @@ def add_HorosServicer_to_server(servicer, server):
                     servicer.GetROIsAsImage,
                     request_deserializer=roi__pb2.ROIImageRequest.FromString,
                     response_serializer=roi__pb2.ROIImageResponse.SerializeToString,
+            ),
+            'SetROIOpacity': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetROIOpacity,
+                    request_deserializer=roi__pb2.ROI.FromString,
+                    response_serializer=horos__pb2.NullResponse.SerializeToString,
             ),
             'GetMethods': grpc.unary_unary_rpc_method_handler(
                     servicer.GetMethods,
@@ -250,6 +266,23 @@ class Horos(object):
         return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/GetROIsAsImage',
             roi__pb2.ROIImageRequest.SerializeToString,
             roi__pb2.ROIImageResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetROIOpacity(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/SetROIOpacity',
+            roi__pb2.ROI.SerializeToString,
+            horos__pb2.NullResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 

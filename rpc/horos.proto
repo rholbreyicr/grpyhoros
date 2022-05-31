@@ -24,6 +24,7 @@ service Horos {
 
   rpc GetROIsAsList (ROIListRequest) returns (ROIListResponse) {}
   rpc GetROIsAsImage (ROIImageRequest) returns (ROIImageResponse) {}
+  rpc SetROIOpacity (ROI) returns (NullResponse) {}
 
   rpc GetMethods (DicomDataRequest) returns (MethodResponse) {}
 }
@@ -32,6 +33,10 @@ import "roi.proto";
 
 // The request message containing the key
 message DicomDataRequest {
+  string id = 1;
+}
+
+message NullResponse {
   string id = 1;
 }
 

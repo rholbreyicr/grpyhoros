@@ -28,6 +28,7 @@ static const char* Horos_method_names[] = {
   "/pyosirix.Horos/SetCurrentImage",
   "/pyosirix.Horos/GetROIsAsList",
   "/pyosirix.Horos/GetROIsAsImage",
+  "/pyosirix.Horos/SetROIOpacity",
   "/pyosirix.Horos/GetMethods",
 };
 
@@ -44,7 +45,8 @@ Horos::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, con
   , rpcmethod_SetCurrentImage_(Horos_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetROIsAsList_(Horos_method_names[4], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   , rpcmethod_GetROIsAsImage_(Horos_method_names[5], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_GetMethods_(Horos_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetROIOpacity_(Horos_method_names[6], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_GetMethods_(Horos_method_names[7], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
 ::grpc::Status Horos::Stub::GetCurrentVersion(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::DicomDataRequest* response) {
@@ -185,6 +187,29 @@ void Horos::Stub::async::GetROIsAsImage(::grpc::ClientContext* context, const ::
   return result;
 }
 
+::grpc::Status Horos::Stub::SetROIOpacity(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::pyosirix::NullResponse* response) {
+  return ::grpc::internal::BlockingUnaryCall< ::pyosirix::ROI, ::pyosirix::NullResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_SetROIOpacity_, context, request, response);
+}
+
+void Horos::Stub::async::SetROIOpacity(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::NullResponse* response, std::function<void(::grpc::Status)> f) {
+  ::grpc::internal::CallbackUnaryCall< ::pyosirix::ROI, ::pyosirix::NullResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetROIOpacity_, context, request, response, std::move(f));
+}
+
+void Horos::Stub::async::SetROIOpacity(::grpc::ClientContext* context, const ::pyosirix::ROI* request, ::pyosirix::NullResponse* response, ::grpc::ClientUnaryReactor* reactor) {
+  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_SetROIOpacity_, context, request, response, reactor);
+}
+
+::grpc::ClientAsyncResponseReader< ::pyosirix::NullResponse>* Horos::Stub::PrepareAsyncSetROIOpacityRaw(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::pyosirix::NullResponse, ::pyosirix::ROI, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_SetROIOpacity_, context, request);
+}
+
+::grpc::ClientAsyncResponseReader< ::pyosirix::NullResponse>* Horos::Stub::AsyncSetROIOpacityRaw(::grpc::ClientContext* context, const ::pyosirix::ROI& request, ::grpc::CompletionQueue* cq) {
+  auto* result =
+    this->PrepareAsyncSetROIOpacityRaw(context, request, cq);
+  result->StartCall();
+  return result;
+}
+
 ::grpc::Status Horos::Stub::GetMethods(::grpc::ClientContext* context, const ::pyosirix::DicomDataRequest& request, ::pyosirix::MethodResponse* response) {
   return ::grpc::internal::BlockingUnaryCall< ::pyosirix::DicomDataRequest, ::pyosirix::MethodResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_GetMethods_, context, request, response);
 }
@@ -272,6 +297,16 @@ Horos::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Horos_method_names[6],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
+      new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::ROI, ::pyosirix::NullResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
+          [](Horos::Service* service,
+             ::grpc::ServerContext* ctx,
+             const ::pyosirix::ROI* req,
+             ::pyosirix::NullResponse* resp) {
+               return service->SetROIOpacity(ctx, req, resp);
+             }, this)));
+  AddMethod(new ::grpc::internal::RpcServiceMethod(
+      Horos_method_names[7],
+      ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Horos::Service, ::pyosirix::DicomDataRequest, ::pyosirix::MethodResponse, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Horos::Service* service,
              ::grpc::ServerContext* ctx,
@@ -320,6 +355,13 @@ Horos::Service::~Service() {
 }
 
 ::grpc::Status Horos::Service::GetROIsAsImage(::grpc::ServerContext* context, const ::pyosirix::ROIImageRequest* request, ::pyosirix::ROIImageResponse* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status Horos::Service::SetROIOpacity(::grpc::ServerContext* context, const ::pyosirix::ROI* request, ::pyosirix::NullResponse* response) {
   (void) context;
   (void) request;
   (void) response;
