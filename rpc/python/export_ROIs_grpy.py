@@ -266,6 +266,9 @@ if __name__ == '__main__':
         os.makedirs(directory)
 
     b_value = get_siemens_b_value(dicom.read_file(list_dcm_files[0]))
+    
+    if b_value is None:
+        b_value = -99 #set a dummy value or %d ops will crash
 
     # Now set the parameters.  For now this is the best I can think of.
     # It assumes something about the orientation!
@@ -295,6 +298,6 @@ if __name__ == '__main__':
     im.SetMetaData("b_value", "mask")
     sitk.WriteImage(im, os.path.join(directory, "mask.mha"), True)
 
-    with open( os.path.join(directory, "b900_files.txt"), "w" ) as f:
+    with open( os.path.join(directory, "b%d_files.txt" % b_value), "w" ) as f:
         for _file in list_dcm_files:
             f.write( _file + "\n" )
