@@ -53,10 +53,10 @@ def run_get_data(port):
         print("  patient_id: " + response.patient_id)
         print("  study_uid: " + response.study_instance_uid)
         print("  series_uid: " + response.series_instance_uid)
-        print("  with: " + str(len(response.file_list)) + " files in selected series:- ")
+        #print("  with: " + str(len(response.file_list)) + " files in selected series:- ")
         #for _file in response.file_list:
         #    print( _file )
-    # AC change
+
     return response.file_list
 
 
@@ -117,8 +117,8 @@ def reduce_dimension_3(im, dim=2):
     sz[dim] = 0
     return sitk.Extract(im, sz, [0 for i in range(len(sz))])
 
-def resample_2D_slice(im, im_0):
-    im = sitk.Resample(im, im_0, sitk.AffineTransform(2), sitk.sitkLinear, 0.0, sitk.sitkFloat32)
+def resample_2D_slice(im, im_0, interp_method=sitk.sitkLinear):
+    im = sitk.Resample(im, im_0, sitk.AffineTransform(2), interp_method, 0.0, sitk.sitkFloat32)
     return im
 
 def dicom_tag_exists(dicom, group, element):
@@ -144,14 +144,19 @@ def get_siemens_b_value(dicom):
 if __name__ == '__main__':
 
     Port = 50051
-    print( "Usage: " + sys.argv[0] + " [port-number] [keep-regions Y/y]" )
+    print( "Usage: " + sys.argv[0] + " [port-number] [keep-original-labels y/n] [output-label]" )
+    print( "(Note: output-label is only applied where keep-original-labels is n[o])")
 
     if len(sys.argv) > 1:
         Port = sys.argv[1]
 
     keep_regions = False
-    if len(sys.argv) > 2:
+    if (len(sys.argv) > 2) and (str.lower(sys.argv[2][0]) == "y"):
         keep_regions = True
+
+    output_label = 1
+    if not keep_regions and (len(sys.argv) > 3):
+        output_label = int(sys.argv[3]) + 0  # if can't add 0, cast has failed!
 
     list_dcm_files = run_get_data(Port)
     path_ROIs_mask = run_get_roi_as_image(Port)
@@ -215,7 +220,7 @@ if __name__ == '__main__':
         mask_im = sitk.GetImageFromArray(mask_arrays[i])
         mask_im.CopyInformation(im)
 
-        resampled_slices_mask[i] = resample_2D_slice(mask_im, im_0)
+        resampled_slices_mask[i] = resample_2D_slice(mask_im, im_0, sitk.sitkNearestNeighbor)
 
     # Now create resampled images
     b_value_volumes_resampled = np.zeros(np.r_[n_slices, im_0.GetSize()[::-1]])
@@ -270,24 +275,26 @@ if __name__ == '__main__':
     im.SetMetaData("date", study_date)
     im.SetMetaData("patient_id", patient_id)
     im.SetMetaData("b_value", "%d" % b_value)
-    sitk.WriteImage(im, os.path.join(directory, "%d.mha" % b_value))
+    sitk.WriteImage(im, os.path.join(directory, "b%d.mha" % b_value), True)
 
     # The same for the mask
     if keep_regions:
         im = sitk.GetImageFromArray(b_value_volumes_resampled_mask)
     else:
-        fin_mask = np.where(b_value_volumes_resampled_mask>0,1,0)
+        fin_mask = np.where(b_value_volumes_resampled_mask>0,output_label,0)
         im = sitk.GetImageFromArray(fin_mask)
+
+    # Weirdly, generates u_long_long. Probably better to leave as float for now....
+    # may need to resample onto another grid anyway
+    im = sitk.Cast(im, sitk.sitkFloat32)
     im.SetDirection((1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0))
     im.SetOrigin(tuple(np.r_[im_0.GetOrigin(), minSL]))
     im.SetSpacing(tuple(np.r_[im_0.GetSpacing(), st]))
     im.SetMetaData("date", study_date)
     im.SetMetaData("patient_id", patient_id)
     im.SetMetaData("b_value", "mask")
-    sitk.WriteImage(im, os.path.join(directory, "mask.mha"))
+    sitk.WriteImage(im, os.path.join(directory, "mask.mha"), True)
 
-
-
-
-
-
+    with open( os.path.join(directory, "b900_files.txt"), "w" ) as f:
+        for _file in list_dcm_files:
+            f.write( _file + "\n" )
