@@ -51,6 +51,16 @@ class HorosStub(object):
                 request_serializer=roi__pb2.ROI.SerializeToString,
                 response_deserializer=horos__pb2.NullResponse.FromString,
                 )
+        self.SetROIMoveAll = channel.unary_unary(
+                '/pyosirix.Horos/SetROIMoveAll',
+                request_serializer=roi__pb2.ROI.SerializeToString,
+                response_deserializer=horos__pb2.NullResponse.FromString,
+                )
+        self.SetROIMoveSelected = channel.unary_unary(
+                '/pyosirix.Horos/SetROIMoveSelected',
+                request_serializer=roi__pb2.ROI.SerializeToString,
+                response_deserializer=horos__pb2.NullResponse.FromString,
+                )
         self.GetMethods = channel.unary_unary(
                 '/pyosirix.Horos/GetMethods',
                 request_serializer=horos__pb2.DicomDataRequest.SerializeToString,
@@ -107,6 +117,18 @@ class HorosServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def SetROIMoveAll(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def SetROIMoveSelected(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
     def GetMethods(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -148,6 +170,16 @@ def add_HorosServicer_to_server(servicer, server):
             ),
             'SetROIOpacity': grpc.unary_unary_rpc_method_handler(
                     servicer.SetROIOpacity,
+                    request_deserializer=roi__pb2.ROI.FromString,
+                    response_serializer=horos__pb2.NullResponse.SerializeToString,
+            ),
+            'SetROIMoveAll': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetROIMoveAll,
+                    request_deserializer=roi__pb2.ROI.FromString,
+                    response_serializer=horos__pb2.NullResponse.SerializeToString,
+            ),
+            'SetROIMoveSelected': grpc.unary_unary_rpc_method_handler(
+                    servicer.SetROIMoveSelected,
                     request_deserializer=roi__pb2.ROI.FromString,
                     response_serializer=horos__pb2.NullResponse.SerializeToString,
             ),
@@ -281,6 +313,40 @@ class Horos(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/SetROIOpacity',
+            roi__pb2.ROI.SerializeToString,
+            horos__pb2.NullResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetROIMoveAll(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/SetROIMoveAll',
+            roi__pb2.ROI.SerializeToString,
+            horos__pb2.NullResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def SetROIMoveSelected(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/pyosirix.Horos/SetROIMoveSelected',
             roi__pb2.ROI.SerializeToString,
             horos__pb2.NullResponse.FromString,
             options, channel_credentials,

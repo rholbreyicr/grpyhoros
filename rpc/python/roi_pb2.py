@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\troi.proto\x12\x08pyosirix\"\x1c\n\x0eROIListRequest\x12\n\n\x02id\x18\x01 \x01(\t\"(\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"(\n\x05\x43olor\x12\t\n\x01r\x18\x01 \x01(\r\x12\t\n\x01g\x18\x02 \x01(\r\x12\t\n\x01\x62\x18\x03 \x01(\r\"\xde\x01\n\x03ROI\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\nseries_uid\x18\x03 \x01(\t\x12\x11\n\timage_uid\x18\x04 \x01(\t\x12\x1e\n\x05\x63olor\x18\x05 \x01(\x0b\x32\x0f.pyosirix.Color\x12\x0f\n\x07opacity\x18\x06 \x01(\x02\x12\x11\n\tthickness\x18\x07 \x01(\x02\x12\x10\n\x08selected\x18\x08 \x01(\r\x12\x1f\n\x06\x63\x65ntre\x18\t \x01(\x0b\x32\x0f.pyosirix.Point\x12\x1f\n\x06points\x18\n \x03(\x0b\x32\x0f.pyosirix.Point\">\n\x0fROIListResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1f\n\x08roi_list\x18\x02 \x03(\x0b\x32\r.pyosirix.ROI\"5\n\x0fROIImageRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0einput_filepath\x18\x02 \x01(\t\"7\n\x10ROIImageResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x17\n\x0foutput_filepath\x18\x02 \x01(\tb\x06proto3'
+  serialized_pb=b'\n\troi.proto\x12\x08pyosirix\"\x1c\n\x0eROIListRequest\x12\n\n\x02id\x18\x01 \x01(\t\"(\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\x12\t\n\x01z\x18\x03 \x01(\x02\"\x1f\n\x07Point2D\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"(\n\x05\x43olor\x12\t\n\x01r\x18\x01 \x01(\r\x12\t\n\x01g\x18\x02 \x01(\r\x12\t\n\x01\x62\x18\x03 \x01(\r\"\xaf\x02\n\x03ROI\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\x12\n\nseries_uid\x18\x03 \x01(\t\x12\x11\n\timage_uid\x18\x04 \x01(\t\x12\x1e\n\x05\x63olor\x18\x05 \x01(\x0b\x32\x0f.pyosirix.Color\x12\x0f\n\x07opacity\x18\x06 \x01(\x02\x12\x11\n\tthickness\x18\x07 \x01(\x02\x12\x10\n\x08selected\x18\x08 \x01(\r\x12\x1f\n\x06\x63\x65ntre\x18\t \x01(\x0b\x32\x0f.pyosirix.Point\x12!\n\x06offset\x18\n \x01(\x0b\x32\x11.pyosirix.Point2D\x12,\n\x11offset_between_mm\x18\x0b \x01(\x0b\x32\x11.pyosirix.Point2D\x12\x1f\n\x06points\x18\x0c \x03(\x0b\x32\x0f.pyosirix.Point\">\n\x0fROIListResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x1f\n\x08roi_list\x18\x02 \x03(\x0b\x32\r.pyosirix.ROI\"5\n\x0fROIImageRequest\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0einput_filepath\x18\x02 \x01(\t\"7\n\x10ROIImageResponse\x12\n\n\x02id\x18\x01 \x01(\t\x12\x17\n\x0foutput_filepath\x18\x02 \x01(\tb\x06proto3'
 )
 
 
@@ -103,6 +103,45 @@ _POINT = _descriptor.Descriptor(
 )
 
 
+_POINT2D = _descriptor.Descriptor(
+  name='Point2D',
+  full_name='pyosirix.Point2D',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x', full_name='pyosirix.Point2D.x', index=0,
+      number=1, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='pyosirix.Point2D.y', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=95,
+  serialized_end=126,
+)
+
+
 _COLOR = _descriptor.Descriptor(
   name='Color',
   full_name='pyosirix.Color',
@@ -144,8 +183,8 @@ _COLOR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=135,
+  serialized_start=128,
+  serialized_end=168,
 )
 
 
@@ -221,8 +260,22 @@ _ROI = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='points', full_name='pyosirix.ROI.points', index=9,
-      number=10, type=11, cpp_type=10, label=3,
+      name='offset', full_name='pyosirix.ROI.offset', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='offset_between_mm', full_name='pyosirix.ROI.offset_between_mm', index=10,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='points', full_name='pyosirix.ROI.points', index=11,
+      number=12, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -239,8 +292,8 @@ _ROI = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=138,
-  serialized_end=360,
+  serialized_start=171,
+  serialized_end=474,
 )
 
 
@@ -278,8 +331,8 @@ _ROILISTRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=362,
-  serialized_end=424,
+  serialized_start=476,
+  serialized_end=538,
 )
 
 
@@ -317,8 +370,8 @@ _ROIIMAGEREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=426,
-  serialized_end=479,
+  serialized_start=540,
+  serialized_end=593,
 )
 
 
@@ -356,16 +409,19 @@ _ROIIMAGERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=481,
-  serialized_end=536,
+  serialized_start=595,
+  serialized_end=650,
 )
 
 _ROI.fields_by_name['color'].message_type = _COLOR
 _ROI.fields_by_name['centre'].message_type = _POINT
+_ROI.fields_by_name['offset'].message_type = _POINT2D
+_ROI.fields_by_name['offset_between_mm'].message_type = _POINT2D
 _ROI.fields_by_name['points'].message_type = _POINT
 _ROILISTRESPONSE.fields_by_name['roi_list'].message_type = _ROI
 DESCRIPTOR.message_types_by_name['ROIListRequest'] = _ROILISTREQUEST
 DESCRIPTOR.message_types_by_name['Point'] = _POINT
+DESCRIPTOR.message_types_by_name['Point2D'] = _POINT2D
 DESCRIPTOR.message_types_by_name['Color'] = _COLOR
 DESCRIPTOR.message_types_by_name['ROI'] = _ROI
 DESCRIPTOR.message_types_by_name['ROIListResponse'] = _ROILISTRESPONSE
@@ -386,6 +442,13 @@ Point = _reflection.GeneratedProtocolMessageType('Point', (_message.Message,), {
   # @@protoc_insertion_point(class_scope:pyosirix.Point)
   })
 _sym_db.RegisterMessage(Point)
+
+Point2D = _reflection.GeneratedProtocolMessageType('Point2D', (_message.Message,), {
+  'DESCRIPTOR' : _POINT2D,
+  '__module__' : 'roi_pb2'
+  # @@protoc_insertion_point(class_scope:pyosirix.Point2D)
+  })
+_sym_db.RegisterMessage(Point2D)
 
 Color = _reflection.GeneratedProtocolMessageType('Color', (_message.Message,), {
   'DESCRIPTOR' : _COLOR,

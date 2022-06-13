@@ -14,6 +14,11 @@ message Point {
   float z = 3;
 }
 
+message Point2D {
+  float x = 1;
+  float y = 2;
+}
+
 message Color {
   uint32 r = 1;
   uint32 g = 2;
@@ -30,7 +35,9 @@ message ROI {
   float thickness = 7;
   uint32 selected = 8;
   Point centre = 9;
-  repeated Point points = 10;
+  Point2D offset = 10;
+  Point2D offset_between_mm = 11; // set z levels in mm for which to apply the offset (inclusive)
+  repeated Point points = 12;
 }
 
 // message SelectedROIResponse {

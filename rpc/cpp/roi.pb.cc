@@ -43,6 +43,19 @@ struct PointDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PointDefaultTypeInternal _Point_default_instance_;
+constexpr Point2D::Point2D(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : x_(0)
+  , y_(0){}
+struct Point2DDefaultTypeInternal {
+  constexpr Point2DDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~Point2DDefaultTypeInternal() {}
+  union {
+    Point2D _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Point2DDefaultTypeInternal _Point2D_default_instance_;
 constexpr Color::Color(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : r_(0u)
@@ -66,6 +79,8 @@ constexpr ROI::ROI(
   , image_uid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , color_(nullptr)
   , centre_(nullptr)
+  , offset_(nullptr)
+  , offset_between_mm_(nullptr)
   , opacity_(0)
   , thickness_(0)
   , selected_(0u){}
@@ -118,7 +133,7 @@ struct ROIImageResponseDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ROIImageResponseDefaultTypeInternal _ROIImageResponse_default_instance_;
 }  // namespace pyosirix
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_roi_2eproto[7];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_roi_2eproto[8];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_roi_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_roi_2eproto = nullptr;
 
@@ -137,6 +152,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_roi_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::pyosirix::Point, x_),
   PROTOBUF_FIELD_OFFSET(::pyosirix::Point, y_),
   PROTOBUF_FIELD_OFFSET(::pyosirix::Point, z_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Point2D, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Point2D, x_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::Point2D, y_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::pyosirix::Color, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -159,6 +181,8 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_roi_2eproto::offsets[] PROTOBU
   PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, thickness_),
   PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, selected_),
   PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, centre_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, offset_),
+  PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, offset_between_mm_),
   PROTOBUF_FIELD_OFFSET(::pyosirix::ROI, points_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::pyosirix::ROIListResponse, _internal_metadata_),
@@ -185,16 +209,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_roi_2eproto::offsets[] PROTOBU
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::pyosirix::ROIListRequest)},
   { 6, -1, sizeof(::pyosirix::Point)},
-  { 14, -1, sizeof(::pyosirix::Color)},
-  { 22, -1, sizeof(::pyosirix::ROI)},
-  { 37, -1, sizeof(::pyosirix::ROIListResponse)},
-  { 44, -1, sizeof(::pyosirix::ROIImageRequest)},
-  { 51, -1, sizeof(::pyosirix::ROIImageResponse)},
+  { 14, -1, sizeof(::pyosirix::Point2D)},
+  { 21, -1, sizeof(::pyosirix::Color)},
+  { 29, -1, sizeof(::pyosirix::ROI)},
+  { 46, -1, sizeof(::pyosirix::ROIListResponse)},
+  { 53, -1, sizeof(::pyosirix::ROIImageRequest)},
+  { 60, -1, sizeof(::pyosirix::ROIImageResponse)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIListRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_Point_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_Point2D_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_Color_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROI_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::pyosirix::_ROIListResponse_default_instance_),
@@ -205,23 +231,26 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_roi_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\troi.proto\022\010pyosirix\"\034\n\016ROIListRequest\022"
   "\n\n\002id\030\001 \001(\t\"(\n\005Point\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001"
-  "(\002\022\t\n\001z\030\003 \001(\002\"(\n\005Color\022\t\n\001r\030\001 \001(\r\022\t\n\001g\030\002"
-  " \001(\r\022\t\n\001b\030\003 \001(\r\"\336\001\n\003ROI\022\n\n\002id\030\001 \001(\t\022\014\n\004n"
-  "ame\030\002 \001(\t\022\022\n\nseries_uid\030\003 \001(\t\022\021\n\timage_u"
-  "id\030\004 \001(\t\022\036\n\005color\030\005 \001(\0132\017.pyosirix.Color"
-  "\022\017\n\007opacity\030\006 \001(\002\022\021\n\tthickness\030\007 \001(\002\022\020\n\010"
-  "selected\030\010 \001(\r\022\037\n\006centre\030\t \001(\0132\017.pyosiri"
-  "x.Point\022\037\n\006points\030\n \003(\0132\017.pyosirix.Point"
-  "\">\n\017ROIListResponse\022\n\n\002id\030\001 \001(\t\022\037\n\010roi_l"
-  "ist\030\002 \003(\0132\r.pyosirix.ROI\"5\n\017ROIImageRequ"
-  "est\022\n\n\002id\030\001 \001(\t\022\026\n\016input_filepath\030\002 \001(\t\""
-  "7\n\020ROIImageResponse\022\n\n\002id\030\001 \001(\t\022\027\n\017outpu"
-  "t_filepath\030\002 \001(\tb\006proto3"
+  "(\002\022\t\n\001z\030\003 \001(\002\"\037\n\007Point2D\022\t\n\001x\030\001 \001(\002\022\t\n\001y"
+  "\030\002 \001(\002\"(\n\005Color\022\t\n\001r\030\001 \001(\r\022\t\n\001g\030\002 \001(\r\022\t\n"
+  "\001b\030\003 \001(\r\"\257\002\n\003ROI\022\n\n\002id\030\001 \001(\t\022\014\n\004name\030\002 \001"
+  "(\t\022\022\n\nseries_uid\030\003 \001(\t\022\021\n\timage_uid\030\004 \001("
+  "\t\022\036\n\005color\030\005 \001(\0132\017.pyosirix.Color\022\017\n\007opa"
+  "city\030\006 \001(\002\022\021\n\tthickness\030\007 \001(\002\022\020\n\010selecte"
+  "d\030\010 \001(\r\022\037\n\006centre\030\t \001(\0132\017.pyosirix.Point"
+  "\022!\n\006offset\030\n \001(\0132\021.pyosirix.Point2D\022,\n\021o"
+  "ffset_between_mm\030\013 \001(\0132\021.pyosirix.Point2"
+  "D\022\037\n\006points\030\014 \003(\0132\017.pyosirix.Point\">\n\017RO"
+  "IListResponse\022\n\n\002id\030\001 \001(\t\022\037\n\010roi_list\030\002 "
+  "\003(\0132\r.pyosirix.ROI\"5\n\017ROIImageRequest\022\n\n"
+  "\002id\030\001 \001(\t\022\026\n\016input_filepath\030\002 \001(\t\"7\n\020ROI"
+  "ImageResponse\022\n\n\002id\030\001 \001(\t\022\027\n\017output_file"
+  "path\030\002 \001(\tb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_roi_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_roi_2eproto = {
-  false, false, 544, descriptor_table_protodef_roi_2eproto, "roi.proto", 
-  &descriptor_table_roi_2eproto_once, nullptr, 0, 7,
+  false, false, 658, descriptor_table_protodef_roi_2eproto, "roi.proto", 
+  &descriptor_table_roi_2eproto_once, nullptr, 0, 8,
   schemas, file_default_instances, TableStruct_roi_2eproto::offsets,
   file_level_metadata_roi_2eproto, file_level_enum_descriptors_roi_2eproto, file_level_service_descriptors_roi_2eproto,
 };
@@ -672,6 +701,222 @@ void Point::InternalSwap(Point* other) {
 
 // ===================================================================
 
+class Point2D::_Internal {
+ public:
+};
+
+Point2D::Point2D(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:pyosirix.Point2D)
+}
+Point2D::Point2D(const Point2D& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&y_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(y_));
+  // @@protoc_insertion_point(copy_constructor:pyosirix.Point2D)
+}
+
+inline void Point2D::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&y_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(y_));
+}
+
+Point2D::~Point2D() {
+  // @@protoc_insertion_point(destructor:pyosirix.Point2D)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void Point2D::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void Point2D::ArenaDtor(void* object) {
+  Point2D* _this = reinterpret_cast< Point2D* >(object);
+  (void)_this;
+}
+void Point2D::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Point2D::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void Point2D::Clear() {
+// @@protoc_insertion_point(message_clear_start:pyosirix.Point2D)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(y_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Point2D::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // float x = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 13)) {
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      // float y = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 21)) {
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* Point2D::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:pyosirix.Point2D)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // float x = 1;
+  if (!(this->_internal_x() <= 0 && this->_internal_x() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_x(), target);
+  }
+
+  // float y = 2;
+  if (!(this->_internal_y() <= 0 && this->_internal_y() >= 0)) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_y(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:pyosirix.Point2D)
+  return target;
+}
+
+size_t Point2D::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:pyosirix.Point2D)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // float x = 1;
+  if (!(this->_internal_x() <= 0 && this->_internal_x() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  // float y = 2;
+  if (!(this->_internal_y() <= 0 && this->_internal_y() >= 0)) {
+    total_size += 1 + 4;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Point2D::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    Point2D::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Point2D::GetClassData() const { return &_class_data_; }
+
+void Point2D::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message*to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message&from) {
+  static_cast<Point2D *>(to)->MergeFrom(
+      static_cast<const Point2D &>(from));
+}
+
+
+void Point2D::MergeFrom(const Point2D& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:pyosirix.Point2D)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!(from._internal_x() <= 0 && from._internal_x() >= 0)) {
+    _internal_set_x(from._internal_x());
+  }
+  if (!(from._internal_y() <= 0 && from._internal_y() >= 0)) {
+    _internal_set_y(from._internal_y());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Point2D::CopyFrom(const Point2D& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:pyosirix.Point2D)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Point2D::IsInitialized() const {
+  return true;
+}
+
+void Point2D::InternalSwap(Point2D* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Point2D, y_)
+      + sizeof(Point2D::y_)
+      - PROTOBUF_FIELD_OFFSET(Point2D, x_)>(
+          reinterpret_cast<char*>(&x_),
+          reinterpret_cast<char*>(&other->x_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Point2D::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_roi_2eproto_getter, &descriptor_table_roi_2eproto_once,
+      file_level_metadata_roi_2eproto[2]);
+}
+
+// ===================================================================
+
 class Color::_Internal {
  public:
 };
@@ -910,7 +1155,7 @@ void Color::InternalSwap(Color* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Color::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_roi_2eproto_getter, &descriptor_table_roi_2eproto_once,
-      file_level_metadata_roi_2eproto[2]);
+      file_level_metadata_roi_2eproto[3]);
 }
 
 // ===================================================================
@@ -919,6 +1164,8 @@ class ROI::_Internal {
  public:
   static const ::pyosirix::Color& color(const ROI* msg);
   static const ::pyosirix::Point& centre(const ROI* msg);
+  static const ::pyosirix::Point2D& offset(const ROI* msg);
+  static const ::pyosirix::Point2D& offset_between_mm(const ROI* msg);
 };
 
 const ::pyosirix::Color&
@@ -928,6 +1175,14 @@ ROI::_Internal::color(const ROI* msg) {
 const ::pyosirix::Point&
 ROI::_Internal::centre(const ROI* msg) {
   return *msg->centre_;
+}
+const ::pyosirix::Point2D&
+ROI::_Internal::offset(const ROI* msg) {
+  return *msg->offset_;
+}
+const ::pyosirix::Point2D&
+ROI::_Internal::offset_between_mm(const ROI* msg) {
+  return *msg->offset_between_mm_;
 }
 ROI::ROI(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -973,6 +1228,16 @@ ROI::ROI(const ROI& from)
   } else {
     centre_ = nullptr;
   }
+  if (from._internal_has_offset()) {
+    offset_ = new ::pyosirix::Point2D(*from.offset_);
+  } else {
+    offset_ = nullptr;
+  }
+  if (from._internal_has_offset_between_mm()) {
+    offset_between_mm_ = new ::pyosirix::Point2D(*from.offset_between_mm_);
+  } else {
+    offset_between_mm_ = nullptr;
+  }
   ::memcpy(&opacity_, &from.opacity_,
     static_cast<size_t>(reinterpret_cast<char*>(&selected_) -
     reinterpret_cast<char*>(&opacity_)) + sizeof(selected_));
@@ -1005,6 +1270,8 @@ inline void ROI::SharedDtor() {
   image_uid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete color_;
   if (this != internal_default_instance()) delete centre_;
+  if (this != internal_default_instance()) delete offset_;
+  if (this != internal_default_instance()) delete offset_between_mm_;
 }
 
 void ROI::ArenaDtor(void* object) {
@@ -1036,6 +1303,14 @@ void ROI::Clear() {
     delete centre_;
   }
   centre_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && offset_ != nullptr) {
+    delete offset_;
+  }
+  offset_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && offset_between_mm_ != nullptr) {
+    delete offset_between_mm_;
+  }
+  offset_between_mm_ = nullptr;
   ::memset(&opacity_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&selected_) -
       reinterpret_cast<char*>(&opacity_)) + sizeof(selected_));
@@ -1119,16 +1394,30 @@ const char* ROI::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::intern
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .pyosirix.Point points = 10;
+      // .pyosirix.Point2D offset = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 82)) {
+          ptr = ctx->ParseMessage(_internal_mutable_offset(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .pyosirix.Point2D offset_between_mm = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 90)) {
+          ptr = ctx->ParseMessage(_internal_mutable_offset_between_mm(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .pyosirix.Point points = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 98)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_points(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<82>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<98>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -1234,12 +1523,28 @@ failure:
         9, _Internal::centre(this), target, stream);
   }
 
-  // repeated .pyosirix.Point points = 10;
+  // .pyosirix.Point2D offset = 10;
+  if (this->_internal_has_offset()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        10, _Internal::offset(this), target, stream);
+  }
+
+  // .pyosirix.Point2D offset_between_mm = 11;
+  if (this->_internal_has_offset_between_mm()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        11, _Internal::offset_between_mm(this), target, stream);
+  }
+
+  // repeated .pyosirix.Point points = 12;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_points_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(10, this->_internal_points(i), target, stream);
+      InternalWriteMessage(12, this->_internal_points(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1258,7 +1563,7 @@ size_t ROI::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .pyosirix.Point points = 10;
+  // repeated .pyosirix.Point points = 12;
   total_size += 1UL * this->_internal_points_size();
   for (const auto& msg : this->points_) {
     total_size +=
@@ -1305,6 +1610,20 @@ size_t ROI::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *centre_);
+  }
+
+  // .pyosirix.Point2D offset = 10;
+  if (this->_internal_has_offset()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *offset_);
+  }
+
+  // .pyosirix.Point2D offset_between_mm = 11;
+  if (this->_internal_has_offset_between_mm()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *offset_between_mm_);
   }
 
   // float opacity = 6;
@@ -1371,6 +1690,12 @@ void ROI::MergeFrom(const ROI& from) {
   if (from._internal_has_centre()) {
     _internal_mutable_centre()->::pyosirix::Point::MergeFrom(from._internal_centre());
   }
+  if (from._internal_has_offset()) {
+    _internal_mutable_offset()->::pyosirix::Point2D::MergeFrom(from._internal_offset());
+  }
+  if (from._internal_has_offset_between_mm()) {
+    _internal_mutable_offset_between_mm()->::pyosirix::Point2D::MergeFrom(from._internal_offset_between_mm());
+  }
   if (!(from._internal_opacity() <= 0 && from._internal_opacity() >= 0)) {
     _internal_set_opacity(from._internal_opacity());
   }
@@ -1429,7 +1754,7 @@ void ROI::InternalSwap(ROI* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ROI::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_roi_2eproto_getter, &descriptor_table_roi_2eproto_once,
-      file_level_metadata_roi_2eproto[3]);
+      file_level_metadata_roi_2eproto[4]);
 }
 
 // ===================================================================
@@ -1661,7 +1986,7 @@ void ROIListResponse::InternalSwap(ROIListResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ROIListResponse::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_roi_2eproto_getter, &descriptor_table_roi_2eproto_once,
-      file_level_metadata_roi_2eproto[4]);
+      file_level_metadata_roi_2eproto[5]);
 }
 
 // ===================================================================
@@ -1903,7 +2228,7 @@ void ROIImageRequest::InternalSwap(ROIImageRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ROIImageRequest::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_roi_2eproto_getter, &descriptor_table_roi_2eproto_once,
-      file_level_metadata_roi_2eproto[5]);
+      file_level_metadata_roi_2eproto[6]);
 }
 
 // ===================================================================
@@ -2145,7 +2470,7 @@ void ROIImageResponse::InternalSwap(ROIImageResponse* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ROIImageResponse::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_roi_2eproto_getter, &descriptor_table_roi_2eproto_once,
-      file_level_metadata_roi_2eproto[6]);
+      file_level_metadata_roi_2eproto[7]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2156,6 +2481,9 @@ template<> PROTOBUF_NOINLINE ::pyosirix::ROIListRequest* Arena::CreateMaybeMessa
 }
 template<> PROTOBUF_NOINLINE ::pyosirix::Point* Arena::CreateMaybeMessage< ::pyosirix::Point >(Arena* arena) {
   return Arena::CreateMessageInternal< ::pyosirix::Point >(arena);
+}
+template<> PROTOBUF_NOINLINE ::pyosirix::Point2D* Arena::CreateMaybeMessage< ::pyosirix::Point2D >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::pyosirix::Point2D >(arena);
 }
 template<> PROTOBUF_NOINLINE ::pyosirix::Color* Arena::CreateMaybeMessage< ::pyosirix::Color >(Arena* arena) {
   return Arena::CreateMessageInternal< ::pyosirix::Color >(arena);

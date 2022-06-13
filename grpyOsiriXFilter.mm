@@ -849,9 +849,176 @@ using pyosirix::NullResponse;
             [curROI setOpacity: opacity_requested];
         }
     }
-    
-    
+       
+    [Console AddText:[NSString stringWithFormat:@"SetROIOpacity to: %f", opacity_requested ]];
 }
+
+-(void)SetROIMoveAll:(NSString*) log_string
+{
+    [Console AddText:[NSString stringWithFormat:@"SetROIMoveAll starting... %@", log_string]];
+    LOG_INFO(Logger, "SetROIMoveAll starting...");
+
+    ViewerController* currV = [ViewerController frontMostDisplayed2DViewer];
+
+    float x_shift=0.f, y_shift=0.f, z_min=0.f, z_max=0.f;
+    //mutex!
+    {
+        if( [Adaptor->Lock tryLock] )
+        {
+            const pyosirix::ROI* request = (pyosirix::ROI*)Adaptor->Request;
+            NullResponse* reply = (NullResponse*)Adaptor->Response;
+            reply->set_id( std::string([log_string UTF8String]) );
+            
+            const pyosirix::Point2D& p = request->offset();
+            x_shift = p.x();
+            y_shift = p.y();
+
+            const pyosirix::Point2D& z = request->offset_between_mm();
+            z_min = z.x();
+            z_max = z.y();
+
+            [Adaptor->Lock unlock];
+        }
+        else
+        {
+            LOG_INFO(Logger, "SetROIMoveAll trylock failed");
+            return;
+        }
+    }
+
+    //from https://osirixpluginbasics.wordpress.com/2011/07/25/common-roi-functions/#rotateroi
+    NSPoint offset = NSMakePoint(x_shift, -y_shift);  // assumes origin at top left
+      
+    // get array of arrray of ROI in current series
+    [currV roiSelectDeselectAll:nil];
+    NSArray *roiSeriesList = [ currV roiList ];
+    int i, j, numROIs;
+
+    [Console AddText:[NSString stringWithFormat:@"SetROIMoveAll moving betwwen z: %f -> %f", z_min, z_max]];
+    
+    if( z_min < z_max )
+    {
+        NSArray* pixList = [currV pixList];
+        float locs[3];
+        
+        for ( i = 0; i < [ roiSeriesList count ]; i++ ) {
+                  
+            // array of ROI in current pix
+            NSArray *roiImageList = [ roiSeriesList objectAtIndex: i ];
+            
+            // current DICOM pix -- this seems to be needed to get z-location
+            DCMPix *pix = [ pixList objectAtIndex: i ];
+
+            // walk through each ROI in current pix
+            numROIs = [ roiImageList count ];
+            for ( j = 0; j < numROIs; j++ ) {
+
+                // work out a label for this roi using a name if there is one, else 255
+                ROI *roi = [ roiImageList objectAtIndex: j ];
+
+                ///////////////////
+                locs[0] = locs[1] = locs[2] = 0.f;
+                [pix getSliceCenter3DCoords: locs];
+                ///////////////////
+                
+                [Console AddText:[NSString stringWithFormat:@"Checking slice z: %f", locs[2]]];
+                
+                if( roi && (locs[2] >= z_min) && (locs[2] <= z_max) )
+                {
+                    [Console AddText:[NSString stringWithFormat:@"Moving..."]];
+
+                    [currV selectROI:roi deselectingOther:true];
+                    [roi roiMove: offset :false];
+                }
+            }
+        }
+
+    }
+    else  // move all by default
+    {
+        for ( i = 0; i < [ roiSeriesList count ]; i++ ) {
+                  
+            // array of ROI in current pix
+            NSArray *roiImageList = [ roiSeriesList objectAtIndex: i ];
+
+            // walk through each ROI in current pix
+            numROIs = [ roiImageList count ];
+            for ( j = 0; j < numROIs; j++ ) {
+               
+                // work out a label for this roi using a name if there is one, else 255
+                ROI *roi = [ roiImageList objectAtIndex: j ];
+                if( roi )
+                {
+                    [currV selectROI:roi deselectingOther:true];
+                    [roi roiMove: offset :false];
+                }
+            }
+        }
+        
+    }
+        
+    [currV roiSelectDeselectAll:nil];  // return to unselected state
+    
+    [Console AddText:[NSString stringWithFormat:@"SetROIMoveAll to: %f, %f", x_shift, y_shift ]];
+}
+
+-(void)SetROIMoveSelected:(NSString*) log_string
+{
+    [Console AddText:[NSString stringWithFormat:@"SetROIMoveSelected starting... %@", log_string]];
+    LOG_INFO(Logger, "SetROIMoveSelected starting...");
+
+    ViewerController* currV = [ViewerController frontMostDisplayed2DViewer];
+
+    float x_shift=0.f, y_shift=0.f;
+    //mutex!
+    {
+        if( [Adaptor->Lock tryLock] )
+        {
+            const pyosirix::ROI* request = (pyosirix::ROI*)Adaptor->Request;
+            NullResponse* reply = (NullResponse*)Adaptor->Response;
+            reply->set_id( std::string([log_string UTF8String]) );
+            
+            const pyosirix::Point2D& p = request->offset();
+            x_shift = p.x();
+            y_shift = p.y();
+            [Adaptor->Lock unlock];
+        }
+        else
+        {
+            LOG_INFO(Logger, "SetROIMoveSelected trylock failed");
+            return;
+        }
+    }
+
+    //from https://osirixpluginbasics.wordpress.com/2011/07/25/common-roi-functions/#rotateroi
+    NSPoint offset = NSMakePoint(x_shift, -y_shift);  // assumes origin at top left
+      
+    // get array of arrray of ROI in current series
+    NSArray *roiSeriesList = [ currV roiList ];
+    int i, j, numROIs;
+    for ( i = 0; i < [ roiSeriesList count ]; i++ ) {
+              
+        // array of ROI in current pix
+        NSArray *roiImageList = [ roiSeriesList objectAtIndex: i ];
+
+        // walk through each ROI in current pix
+        numROIs = [ roiImageList count ];
+        for ( j = 0; j < numROIs; j++ ) {
+
+            // work out a label for this roi using a name if there is one, else 255
+            ROI *roi = [ roiImageList objectAtIndex: j ];
+            if( roi )
+            {
+                //this is a no op if no roi is selected
+                [roi roiMove: offset];
+            }
+        }
+    }
+    
+    [Console AddText:[NSString stringWithFormat:@"SetROIMoveSelected to: %f, %f", x_shift, y_shift ]];
+}
+
+
 
 
 - (void) LogConnection:(NSString*)connec_str

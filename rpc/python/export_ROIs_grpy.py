@@ -171,7 +171,13 @@ if __name__ == '__main__':
     b_value_pix = []
     for i in range(len(list_dcm_files)):
         dcm = dicom.read_file(list_dcm_files[i])
-        b_value_slice_locs.append(dcm['SliceLocation'].value)
+        
+        # this is optional and frequently inaccurate even when given
+        #b_value_slice_locs.append(dcm['SliceLocation'].value)
+        # otoh, if this doesn't exist, it's an error
+        position = dcm['ImagePositionPatient'].value
+        b_value_slice_locs.append( position[2] )
+
         b_value_pix.append(dcm.pixel_array)
 
     idx = np.argsort(b_value_slice_locs)

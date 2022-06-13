@@ -25,6 +25,8 @@ service Horos {
   rpc GetROIsAsList (ROIListRequest) returns (ROIListResponse) {}
   rpc GetROIsAsImage (ROIImageRequest) returns (ROIImageResponse) {}
   rpc SetROIOpacity (ROI) returns (NullResponse) {}
+  rpc SetROIMoveAll (ROI) returns (NullResponse) {}
+  rpc SetROIMoveSelected (ROI) returns (NullResponse) {}
 
   rpc GetMethods (DicomDataRequest) returns (MethodResponse) {}
 }

@@ -1,16 +1,3 @@
-# Copyright 2015 gRPC authors.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 """The Python implementation of the GRPC pyOsiriX client."""
 
 from __future__ import print_function
@@ -146,6 +133,33 @@ def run_set_roi_opacity(port,opacity):
     response = stub.SetROIOpacity( roi )
     print( "{run_set_opacity} returned: " + response.id )
 
+def run_set_roi_offset(port,offset_x, offset_y, min_z=0, max_z=0):
+    server_url = 'localhost:' + str(port)
+    channel_opt = [('grpc.enable_http_proxy', 0), ]
+    channel = grpc.insecure_channel(server_url, options=channel_opt)
+    stub = horos_pb2_grpc.HorosStub(channel)
+
+    op = roi_pb2.Point2D( x=offset_x, y=offset_y )
+    zp = roi_pb2.Point2D( x=min_z, y=max_z )
+
+    roi = roi_pb2.ROI(id='0', offset=op, offset_between_mm=zp )
+    response = stub.SetROIMoveAll( roi )
+    print( "{run_set_offset} returned: " + response.id )
+    
+def run_set_roi_offset_selected(port,offset_x, offset_y):
+    server_url = 'localhost:' + str(port)
+    channel_opt = [('grpc.enable_http_proxy', 0), ]
+    channel = grpc.insecure_channel(server_url, options=channel_opt)
+    stub = horos_pb2_grpc.HorosStub(channel)
+
+    p = roi_pb2.Point2D()
+    p.x = offset_x
+    p.y = offset_y
+    roi = roi_pb2.ROI(id='0', offset=p )
+    response = stub.SetROIMoveSelected( roi )
+    print( "{run_set_offset_selected} returned: " + response.id )
+
+
 def run_get_all_rois(port):
     server_url = 'localhost:' + str(port)
     channel_opt = [('grpc.max_send_message_length', 512 * 1024 * 1024),
@@ -200,7 +214,18 @@ if __name__ == '__main__':
     #run_set_roi_opacity(Port,0.1)
     #run_get_data(Port)
     #run_get_roi_as_xml(Port)
-    run_get_roi_as_image(Port)
+    #run_get_roi_as_image(Port)
     #run_get_all_rois(Port)
     #run_get_image(Port)
     #run_set_image(Port)
+    
+    #if len(sys.argv) > 3:
+    #    run_set_roi_offset_selected(Port, float(sys.argv[2]), float(sys.argv[3]) )
+
+    if len(sys.argv) > 5:
+        run_set_roi_offset( Port,
+                            float(sys.argv[2]), float(sys.argv[3]),
+                            float(sys.argv[4]), float(sys.argv[5]) )
+    elif len(sys.argv) > 3:
+        run_set_roi_offset(Port, float(sys.argv[2]), float(sys.argv[3]) )
+

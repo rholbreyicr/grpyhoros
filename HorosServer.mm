@@ -14,8 +14,11 @@ static const char* ServerMethods[] = {
   "GetCurrentVersion: get the current version of Horos/OsiriX (and reset if necessary)",
   "GetCurrentImage: retrieve the current 2DViewer image",
   "SetCurrentImage: set the current 2DViewer image",
-  "GetROIsAsList: Dump the current ROI series as csv/xml to /tmp",
-  "GetROIsAsImage: Write the current ROI series to 3d image and get the (mhd) filename"
+  "SetROIOpacity: set the opacity property of current ROIs",
+  "SetROIMoveAll: move all the ROIs in the current 2DViewer by the offset parameter (origin lower left)",
+  "SetROIMoveSelected: move the selected ROIs in the current 2DViewer by the offset parameter (origin lower left)",
+  "GetROIsAsList: dump the current ROI series as csv/xml to /tmp",
+  "GetROIsAsImage: write the current ROI series to 3d image and get the (mhd) filename"
 };
 
 namespace pyosirix {
@@ -270,6 +273,54 @@ SetROIOpacity( ServerContext* context,
         NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
         [(__bridge id)(p_Adaptor->Osirix)
          performSelectorOnMainThread:@selector(SetROIOpacity:)
+         withObject:arg_str waitUntilDone:YES];
+        
+        [arg_str release];
+    }
+    else
+        return Status::CANCELLED;
+    
+    return Status::OK;
+}
+
+Status HorosServer::
+SetROIMoveAll( ServerContext* context,
+               const ROI* request,
+               NullResponse* reply )
+{
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+            
+        NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
+        [(__bridge id)(p_Adaptor->Osirix)
+         performSelectorOnMainThread:@selector(SetROIMoveAll:)
+         withObject:arg_str waitUntilDone:YES];
+        
+        [arg_str release];
+    }
+    else
+        return Status::CANCELLED;
+    
+    return Status::OK;
+}
+
+Status HorosServer::
+SetROIMoveSelected( ServerContext* context,
+                    const ROI* request,
+                    NullResponse* reply )
+{
+    if( [p_Adaptor->Lock tryLock] )
+    {
+        p_Adaptor->Request = (const void*)request;
+        p_Adaptor->Response = (void*)reply;
+        [p_Adaptor->Lock unlock];
+            
+        NSString* arg_str = [[NSString stringWithUTF8String:(request->id().c_str())] retain];
+        [(__bridge id)(p_Adaptor->Osirix)
+         performSelectorOnMainThread:@selector(SetROIMoveSelected:)
          withObject:arg_str waitUntilDone:YES];
         
         [arg_str release];

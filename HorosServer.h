@@ -88,7 +88,15 @@ class HorosServer final : public Horos::Service {
     Status SetROIOpacity( ServerContext* context,
                           const ROI* request,
                           NullResponse* reply ) override;
-   
+    
+    Status SetROIMoveAll( ServerContext* context,
+                         const ROI* request,
+                         NullResponse* reply ) override;
+
+    Status SetROIMoveSelected( ServerContext* context,
+                               const ROI* request,
+                               NullResponse* reply ) override;
+
     static ServerAdaptor* p_Adaptor;  ///< Pointer to adaptor, not owned by this class
 
 public:

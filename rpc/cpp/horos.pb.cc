@@ -242,7 +242,7 @@ const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   " \003(\002\022\016\n\006origin\030\005 \003(\002\022\014\n\004data\030\006 \003(\002\"1\n\020Im"
   "ageSetResponse\022\n\n\002id\030\001 \001(\t\022\021\n\tviewer_id\030"
   "\002 \001(\004\"1\n\016MethodResponse\022\n\n\002id\030\001 \001(\t\022\023\n\013m"
-  "ethod_list\030\002 \003(\t2\323\004\n\005Horos\022M\n\021GetCurrent"
+  "ethod_list\030\002 \003(\t2\314\005\n\005Horos\022M\n\021GetCurrent"
   "Version\022\032.pyosirix.DicomDataRequest\032\032.py"
   "osirix.DicomDataRequest\"\000\022P\n\023GetCurrentI"
   "mageData\022\032.pyosirix.DicomDataRequest\032\033.p"
@@ -255,16 +255,19 @@ const char descriptor_table_protodef_horos_2eproto[] PROTOBUF_SECTION_VARIABLE(p
   "tResponse\"\000\022I\n\016GetROIsAsImage\022\031.pyosirix"
   ".ROIImageRequest\032\032.pyosirix.ROIImageResp"
   "onse\"\000\0228\n\rSetROIOpacity\022\r.pyosirix.ROI\032\026"
-  ".pyosirix.NullResponse\"\000\022D\n\nGetMethods\022\032"
-  ".pyosirix.DicomDataRequest\032\030.pyosirix.Me"
-  "thodResponse\"\000b\006proto3"
+  ".pyosirix.NullResponse\"\000\0228\n\rSetROIMoveAl"
+  "l\022\r.pyosirix.ROI\032\026.pyosirix.NullResponse"
+  "\"\000\022=\n\022SetROIMoveSelected\022\r.pyosirix.ROI\032"
+  "\026.pyosirix.NullResponse\"\000\022D\n\nGetMethods\022"
+  "\032.pyosirix.DicomDataRequest\032\030.pyosirix.M"
+  "ethodResponse\"\000b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_horos_2eproto_deps[1] = {
   &::descriptor_table_roi_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_horos_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_horos_2eproto = {
-  false, false, 1222, descriptor_table_protodef_horos_2eproto, "horos.proto", 
+  false, false, 1343, descriptor_table_protodef_horos_2eproto, "horos.proto", 
   &descriptor_table_horos_2eproto_once, descriptor_table_horos_2eproto_deps, 1, 8,
   schemas, file_default_instances, TableStruct_horos_2eproto::offsets,
   file_level_metadata_horos_2eproto, file_level_enum_descriptors_horos_2eproto, file_level_service_descriptors_horos_2eproto,
