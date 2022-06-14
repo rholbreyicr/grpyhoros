@@ -15,7 +15,7 @@ static const char* ServerMethods[] = {
   "GetCurrentImage: retrieve the current 2DViewer image",
   "SetCurrentImage: set the current 2DViewer image",
   "SetROIOpacity: set the opacity property of current ROIs",
-  "SetROIMoveAll: move all the ROIs in the current 2DViewer by the offset parameter (origin lower left)",
+  "SetROIMoveAll: move all the ROIs in the current 2DViewer by the offset parameter (origin lower left) [optionally between z-min and z-max]",
   "SetROIMoveSelected: move the selected ROIs in the current 2DViewer by the offset parameter (origin lower left)",
   "GetROIsAsList: dump the current ROI series as csv/xml to /tmp",
   "GetROIsAsImage: write the current ROI series to 3d image and get the (mhd) filename"

@@ -855,7 +855,6 @@ using pyosirix::NullResponse;
 
 -(void)SetROIMoveAll:(NSString*) log_string
 {
-    [Console AddText:[NSString stringWithFormat:@"SetROIMoveAll starting... %@", log_string]];
     LOG_INFO(Logger, "SetROIMoveAll starting...");
 
     ViewerController* currV = [ViewerController frontMostDisplayed2DViewer];
@@ -915,19 +914,13 @@ using pyosirix::NullResponse;
 
                 // work out a label for this roi using a name if there is one, else 255
                 ROI *roi = [ roiImageList objectAtIndex: j ];
-
-                ///////////////////
                 locs[0] = locs[1] = locs[2] = 0.f;
                 [pix getSliceCenter3DCoords: locs];
-                ///////////////////
-                
-                [Console AddText:[NSString stringWithFormat:@"Checking slice z: %f", locs[2]]];
+                //[Console AddText:[NSString stringWithFormat:@"Checking slice z: %f", locs[2]]];
                 
                 if( roi && (locs[2] >= z_min) && (locs[2] <= z_max) )
                 {
-                    [Console AddText:[NSString stringWithFormat:@"Moving..."]];
-
-                    [currV selectROI:roi deselectingOther:true];
+                    [roi setROIMode:ROI_selected];  // see note below
                     [roi roiMove: offset :false];
                 }
             }
@@ -949,7 +942,11 @@ using pyosirix::NullResponse;
                 ROI *roi = [ roiImageList objectAtIndex: j ];
                 if( roi )
                 {
-                    [currV selectROI:roi deselectingOther:true];
+                    //this works in terms of enabling a move, but also propagates the roi on other slices (if current)
+                    //[currV selectROI:roi deselectingOther:true];
+                    
+                    //borrowed from horosplugins/HelloWorld/HelloWorldFilter.mm
+                    [roi setROIMode:ROI_selected]; // in order to make the roiMove method possible
                     [roi roiMove: offset :false];
                 }
             }
