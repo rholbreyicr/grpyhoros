@@ -304,6 +304,9 @@ if __name__ == '__main__':
     im.SetMetaData("b_value", "mask")
     sitk.WriteImage(im, os.path.join(directory, "mask.mha"), True)
 
+    # Additional files for checking
+    sitk.WriteImage(mask, os.path.join(directory, "osirix-mask.mha"), True)  # orig output mask as mha
+    # + list of high B dicom filenames
     with open( os.path.join(directory, "b%d_files.txt" % b_value), "w" ) as f:
         for _file in list_dcm_files:
             f.write( _file + "\n" )
