@@ -37,6 +37,33 @@ using pyosirix::ROIImageResponse;
 //using pyosirix::ROI;  //clashes
 using pyosirix::NullResponse;
 
+//---------------------- some string handling ---------------------------------------
+
+namespace  pyosirix {
+void split_string( const std::string& str, char delimiter,
+                   std::vector<std::string>& vstr )
+{
+    // declaring temp string to store the curr "word" upto del
+    std::string temp;
+    vstr.clear();
+   
+    for(int i=0; i<(int)str.size(); i++)
+    {
+        // If cur char is not del, then append it to the cur "word", otherwise
+        // you have completed the word, print it, and start a new word.
+        if( str[i] != delimiter )
+           temp += str[i];
+        else
+        {
+            vstr.push_back( temp );
+            temp.clear();
+        }
+    }
+}
+}
+
+
+
 //-----------------------------------------------------------------------------------
 
 @implementation grpyOsiriXFilter
@@ -700,6 +727,11 @@ using pyosirix::NullResponse;
     if( !zout.is_open() )
         LOG_ERROR( Logger, "GetROIsAsImage failed to open z output file" );
 
+    // and dump label names to csv file for whoever might want it
+    std::ofstream csvout( mhd_header + ".csv" );
+    if( !csvout.is_open() )
+        LOG_ERROR( Logger, "GetROIsAsImage failed to open csv output file" );
+
     // Collate raw image data
     // ... show progress
     Wait *splash = [ [ Wait alloc ] initWithString: @"Exporting ROIs..." ];
@@ -781,9 +813,9 @@ using pyosirix::NullResponse;
         
         [splash incrementBy: 1];
     }
-    
     zout.close();
     
+    //raw image data
     if( raw_data )
     {
         std::ofstream fbin( tmp_folder + "/" + date_utf8 + ".raw", std::ios::out | std::ios::binary );
@@ -792,6 +824,14 @@ using pyosirix::NullResponse;
             fbin.write( (const char*)raw_data, NUM_BYTES );
             fbin.close();
         }
+    }
+    
+    //label-name data
+    if( csvout.is_open() )
+    {
+        for( const auto& entry : name2label )
+            csvout << entry.first << "," << int(entry.second) << std::endl;
+        csvout.close();
     }
     
     //mutex!
